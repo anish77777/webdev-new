@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Images and Tables</title>
+</head>
+
+<body>
+    <!-- 
+        The img tag is used to embed images in HTML
+        src attribute specifies the path to the image file
+        alt attribute provides alternative text for accessibility and SEO
+        The alt text describes the image for screen readers and when images don't load
+    -->
+    <img src="image.png" alt="Train Images" srcset="">
+
+    <!-- 
+        Table example
+        table tag creates a table structure
+        tr defines table rows
+        th defines table headers
+        td defines table data cells
+        
+        rowspan attribute makes a cell span multiple rows vertically
+        colspan attribute makes a cell span multiple columns horizontally
+    -->
+    <caption>Employment Detail</caption>
+    <thead>
+        <tr>
+            <th>Name</th>
+            <th>Age</th>
+            <th>City</th>
+        </tr>
+    </thead>
+    <table border="11">
+        <tr>
+            <th>Name</th>
+            <th>Age</th>
+            <th>City</th>
+        </tr>
+        <tr>
+            <!-- rowspan="2" makes this cell span 2 rows vertically -->
+            <td rowspan="2">John</td>
+            <td>25</td>
+            <td>New York</td>
+        </tr>
+        <tr>
+            <!-- colspan="2" makes this cell span 2 columns horizontally -->
+            <td colspan="2">Sarah</td>
+            <!-- Note: No need for extra td here because colspan covers 2 columns -->
+        </tr>
+        <tr>
+            <td>Mike</td>
+            <td>28</td>
+            <td>Tokyo</td>
+        </tr>
+    </table>
+    <tfoot>
+        <td>Mike</td>
+        <td>28</td>
+        <td>Tokyo</td>
+    </tfoot>
+    <script src="script.js"></script>
+</body>
+
+</html>

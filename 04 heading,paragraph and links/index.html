@@ -1,0 +1,55 @@
+<!-- heading paragraph and link bookmark website -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- 
+        LINK TAG ATTRIBUTES:
+        
+        rel = RELATIONSHIP (required)
+        - Defines how the linked resource relates to current document
+        - Common values: stylesheet, icon, preload, canonical, manifest
+        
+        href = HYPERTEXT REFERENCE (required)  
+        - Specifies the path/URL to the external resource
+        - Can be relative, absolute, or full URL
+        
+        Example:
+        <link rel="stylesheet" href="style.css">
+        ^ Relationship  ^ Reference to file
+        -->
+    
+    <!-- STYLESHEET: Link CSS file -->
+    <link rel="stylesheet" href="style.css">
+    
+    <!-- ICON: Website favicon -->
+    <link rel="icon" href="favicon.ico">
+    
+    <!-- PRELOAD: Load critical resources early -->
+    <link rel="preload" href="font.woff2" as="font">
+    
+    <!-- CANONICAL: Preferred URL for SEO -->
+    <link rel="canonical" href="https://example.com/page">
+    
+    <!-- MANIFEST: PWA web app manifest -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My bookmark</title>
+</head>
+<body>
+    <h1>My BookMarks</h1>
+    <h2>Main BookMarks</h2>
+    <h4>Mian Book marks</h4>
+    <h6>Main book marks</h6>
+
+    <p style="background-color: aqua;">Lorem ipsum dolor sit amet consectetur adipisicing elit. Aspernatur dolore deleniti ut sequi temporibus illo corporis exercitationem magni, vero, delectus, placeat voluptates dolores.</p>
+    
+    <!-- 
+        ANCHOR TAG EXAMPLE:
+        <a href="page.html">Click me</a>
+        ^ Hypertext Reference to page.html
+        -->
+    <a href="about.html">About Us</a> 
+
+</body>
+</html>
