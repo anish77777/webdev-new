@@ -1,0 +1,327 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SEO & Core Web Vitals Optimized Website | Best Practices Example</title>
+    <meta name="description"
+        content="A fully optimized HTML template demonstrating SEO best practices and Core Web Vitals optimization techniques for better search rankings and user experience.">
+    <meta name="keywords" content="SEO, Core Web Vitals, web performance, optimization, LCP, FID, CLS">
+    <meta name="author" content="Your Name">
+
+    <!-- Open Graph / Social Media Meta Tags -->
+    <meta property="og:title" content="SEO & Core Web Vitals Optimized Website">
+    <meta property="og:description" content="Best practices for SEO and Core Web Vitals optimization">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://yourwebsite.com">
+    <meta property="og:image" content="https://yourwebsite.com/images/og-image.jpg">
+
+    <!-- Twitter Card Meta Tags -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="SEO & Core Web Vitals Optimized Website">
+    <meta name="twitter:description" content="Best practices for SEO and Core Web Vitals optimization">
+    <meta name="twitter:image" content="https://yourwebsite.com/images/twitter-image.jpg">
+
+    <!-- Canonical URL -->
+    <link rel="canonical" href="https://yourwebsite.com/seo-optimized-page">
+
+    <!-- Favicon and Icons -->
+    <link rel="icon" href="/favicon.ico" type="image/x-icon">
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+
+    <!-- Preload Critical Resources -->
+    <link rel="preload" href="styles.css" as="style">
+    <link rel="preload" href="script.js" as="script">
+
+    <!-- DNS Prefetch for External Domains -->
+    <link rel="dns-prefetch" href="https://fonts.googleapis.com">
+    <link rel="dns-prefetch" href="https://cdnjs.cloudflare.com">
+
+    <!-- Structured Data / Schema.org -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebPage",
+      "name": "SEO & Core Web Vitals Optimized Website",
+      "description": "A fully optimized HTML template demonstrating SEO best practices and Core Web Vitals optimization",
+      "url": "https://yourwebsite.com/seo-optimized-page",
+      "author": {
+        "@type": "Person",
+        "name": "Your Name"
+      },
+      "publisher": {
+        "@type": "Organization",
+        "name": "Your Company",
+        "logo": {
+          "@type": "ImageObject",
+          "url": "https://yourwebsite.com/logo.png"
+        }
+      },
+      "datePublished": "2023-10-15",
+      "dateModified": "2023-10-15"
+    }
+    </script>
+
+    <style>
+        /* Critical CSS - Inline for faster rendering */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background-color: #fff;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        header {
+            background-color: #2c3e50;
+            color: white;
+            padding: 1rem 0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+            justify-content: center;
+        }
+
+        nav li {
+            margin: 0 15px;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+        }
+
+        .hero {
+            background: linear-gradient(135deg, #3498db, #2c3e50);
+            color: white;
+            padding: 4rem 0;
+            text-align: center;
+        }
+
+        .hero h1 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .content-section {
+            padding: 3rem 0;
+        }
+
+        .content-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .card {
+            background: #f8f9fa;
+            border-radius: 8px;
+            padding: 1.5rem;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .card h3 {
+            color: #2c3e50;
+            margin-bottom: 1rem;
+        }
+
+        footer {
+            background-color: #34495e;
+            color: white;
+            text-align: center;
+            padding: 2rem 0;
+            margin-top: 2rem;
+        }
+
+        /* LCP Optimization - Ensure hero image loads quickly */
+        .hero-image {
+            width: 100%;
+            max-width: 600px;
+            height: auto;
+            border-radius: 8px;
+            margin: 1rem auto;
+            display: block;
+        }
+
+        /* CLS Prevention - Reserve space for images */
+        img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            nav ul {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            nav li {
+                margin: 5px 0;
+            }
+
+            .hero h1 {
+                font-size: 2rem;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Skip to main content for accessibility -->
+    <a href="#main-content" class="skip-link">Skip to main content</a>
+
+    <header role="banner">
+        <div class="container">
+            <nav role="navigation" aria-label="Main navigation">
+                <ul>
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#services">Services</a></li>
+                    <li><a href="#blog">Blog</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main id="main-content">
+        <section class="hero" id="home">
+            <div class="container">
+                <h1>SEO & Core Web Vitals Optimized Website</h1>
+                <p>Best practices for better search rankings and user experience</p>
+
+                <!-- Optimized LCP image with dimensions specified -->
+                <img src="https://images.unsplash.com/photo-1555066931-4365d14bab8c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80"
+                    alt="Coding on a laptop screen showing web development" class="hero-image" width="600" height="400"
+                    loading="eager">
+
+                <a href="#about" class="cta-button">Learn More</a>
+            </div>
+        </section>
+
+        <section class="content-section" id="about">
+            <div class="container">
+                <h2>About Our SEO Optimization</h2>
+                <div class="content-grid">
+                    <div class="card">
+                        <h3>Core Web Vitals</h3>
+                        <p>Optimizing for Largest Contentful Paint (LCP), First Input Delay (FID), and Cumulative Layout
+                            Shift (CLS) to improve user experience and search rankings.</p>
+                    </div>
+                    <div class="card">
+                        <h3>Technical SEO</h3>
+                        <p>Proper HTML structure, semantic markup, optimized images, and fast loading times to help
+                            search engines understand and rank your content.</p>
+                    </div>
+                    <div class="card">
+                        <h3>Content Optimization</h3>
+                        <p>Creating valuable, relevant content with proper keyword usage, heading structure, and
+                            internal linking to improve visibility and engagement.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="content-section" id="services">
+            <div class="container">
+                <h2>Our Services</h2>
+                <div class="content-grid">
+                    <article class="card">
+                        <h3>SEO Audits</h3>
+                        <p>Comprehensive analysis of your website's SEO performance and recommendations for improvement.
+                        </p>
+                    </article>
+                    <article class="card">
+                        <h3>Performance Optimization</h3>
+                        <p>Speed optimization techniques to improve Core Web Vitals scores and user experience.</p>
+                    </article>
+                    <article class="card">
+                        <h3>Content Strategy</h3>
+                        <p>Developing content plans that align with user intent and search engine algorithms.</p>
+                    </article>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer role="contentinfo">
+        <div class="container">
+            <p>&copy; 2023 SEO Optimized Website. All rights reserved.</p>
+            <p><a href="/privacy-policy" style="color: #3498db;">Privacy Policy</a> | <a href="/terms-of-service"
+                    style="color: #3498db;">Terms of Service</a></p>
+        </div>
+    </footer>
+
+    <!-- Deferred JavaScript -->
+    <script>
+        // Simple script to handle smooth scrolling (non-critical functionality)
+        document.addEventListener('DOMContentLoaded', function () {
+            const links = document.querySelectorAll('a[href^="#"]');
+
+            for (const link of links) {
+                link.addEventListener('click', function (e) {
+                    e.preventDefault();
+
+                    const targetId = this.getAttribute('href');
+                    const targetElement = document.querySelector(targetId);
+
+                    if (targetElement) {
+                        window.scrollTo({
+                            top: targetElement.offsetTop - 80,
+                            behavior: 'smooth'
+                        });
+                    }
+                });
+            }
+
+            // Lazy loading for non-critical images
+            if ('IntersectionObserver' in window) {
+                const imageObserver = new IntersectionObserver((entries, observer) => {
+                    entries.forEach(entry => {
+                        if (entry.isIntersecting) {
+                            const img = entry.target;
+                            img.src = img.dataset.src;
+                            img.classList.remove('lazy');
+                            imageObserver.unobserve(img);
+                        }
+                    });
+                });
+
+                document.querySelectorAll('img.lazy').forEach(img => imageObserver.observe(img));
+            }
+        });
+    </script>
+
+    <!-- Google Analytics (load after page content) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=GA_MEASUREMENT_ID"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+        gtag('config', 'GA_MEASUREMENT_ID');
+    </script>
+</body>
+
+</html>

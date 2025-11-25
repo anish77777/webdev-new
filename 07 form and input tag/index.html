@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Forms</title>
+</head>
+
+<body>
+    <!-- Form for collecting user input -->
+    <form action="post">
+        <!-- Text input field for username with associated label -->
+        <!-- autofocus: automatically focuses this field when page loads -->
+        <!-- required: user must fill this field before submitting form -->
+        <div>
+            <label for="username">Name:</label>
+            <input type="text" id="username" name="username" placeholder="Enter your username" autofocus required />
+        </div>
+
+        <!-- Radio button group for gender selection -->
+        <!-- Note: Each label's 'for' attribute matches its input's 'id' -->
+        <!-- This connection enables accessibility and usability features -->
+        <!-- required: user must select one option from this group -->
+        <div>
+            <input type="radio" name="gender" id="male" value="male" required />
+            <label for="male">male</label>
+            <input type="radio" name="gender" id="female" value="female" />
+            <label for="female">female</label>
+        </div>
+
+        <!-- Checkbox group for selecting interests -->
+        <!-- Checkboxes allow multiple selections unlike radio buttons -->
+        <div>
+            <input type="checkbox" id="sports" name="interests" value="sports">
+            <label for="sports">Sports</label>
+
+            <input type="checkbox" id="music" name="interests" value="music">
+            <label for="music">Music</label>
+
+            <input type="checkbox" id="reading" name="interests" value="reading" required>
+            <label for="reading">Reading</label>
+        </div>
+
+        <!-- Textarea for multi-line text input -->
+        <!-- Used for longer text entries like comments or descriptions -->
+        <!-- required: user must provide comments before submitting -->
+        <div>
+            <label for="comments">Comments:</label>
+            <textarea id="comments" name="comments" rows="4" cols="50" placeholder="Enter your comments here" required>
+        </textarea>
+        </div>
+
+        <!-- Select dropdown for choosing country -->
+        <!-- Provides a list of options in a dropdown menu -->
+        <!-- required: user must select a country from the list -->
+        <div>
+            <label for="country">Country:</label>
+            <select id="country" name="country" required>
+                <option value="">Select a country</option>
+                <option value="us">United States</option>
+                <option value="ca">Canada</option>
+                <option value="uk">United Kingdom</option>
+                <option value="au">Australia</option>
+            </select>
+        </div>
+
+        <!-- Submit button to send form data -->
+        <div>
+            <button type="submit">Submit Form</button>
+        </div>
+    </form>
+</body>
+
+</html>
