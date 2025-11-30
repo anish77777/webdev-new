@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<!-- This document demonstrates the usage of HTML5 video and audio media elements -->
+<html lang="en">
+
+<head>
+    <!-- Character encoding for the HTML document -->
+    <meta charset="UTF-8">
+    <!-- Viewport meta tag for responsive design on mobile devices -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Page title displayed in browser tab -->
+    <title>video,AUDIo and media(svg and iframe)</title>
+</head>
+
+<body>
+    <!-- HTML5 video element with multiple attributes -->
+    <!-- src: path to the video file (MP4 format) -->
+    <!-- width: sets the width of the video player to 255 pixels -->
+    <!-- controls: displays built-in playback controls (play, pause, volume, fullscreen) -->
+    <!-- loop: causes the video to restart from the beginning when it ends -->
+    <!-- muted: starts the video in a muted state (no audio) -->
+    <!-- poster: displays a thumbnail/preview image before the video starts playing -->
+
+    <video src="video1.mp4" width="255" controls loop muted autoplay poster="image.png"></video>
+
+    <!-- HTML5 audio element demonstrating the `preload` attribute -->
+    <!-- src: path to the audio file (MP3 format) -->
+    <!-- controls: shows built-in audio controls (play, pause, volume) -->
+    <!-- preload: hints to the browser how to load the audio before playback -->
+    <!--  - none: do not preload the audio (saves bandwidth until user initiates playback) -->
+    <!--  - metadata: preload only metadata (duration, dimensions) but not the full file -->
+    <!--  - auto: preload the entire audio file if the browser thinks it's appropriate -->
+    <!-- Note: `preload` is only a hint; browsers may ignore it. Use `autoplay` and `muted` together
+            if you need immediate playback on page load (many browsers block autoplay with sound). -->
+    <audio src="sample-3s.mp3" controls preload="metadata"></audio>
+
+    <!-- Inline SVG example (scalable vector graphic) -->
+    <!-- xmlns: required SVG namespace -->
+    <!-- viewBox: defines the internal coordinate system and enables scaling -->
+    <!-- width/height: rendered size (can be controlled with CSS) -->
+    <!-- role/title/aria-label: accessibility helpers for assistive technologies -->
+    <!-- Inline SVGs are editable with CSS/JS and scale without quality loss; alternatively use external .svg files for reuse. -->
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" width="150" height="150" role="img"
+        aria-labelledby="svgTitle svgDesc">
+        <title id="svgTitle">Sample media icon</title>
+        <desc id="svgDesc">A rounded rectangle with a circular play button representing media playback</desc>
+        <!-- background rounded rectangle -->
+        <rect x="5" y="5" width="90" height="90" rx="10" fill="#f0f0f0" stroke="#333" stroke-width="2" />
+        <!-- circle behind the play triangle -->
+        <circle cx="50" cy="50" r="25" fill="#ff5555" />
+        <!-- simple play triangle (path) -->
+        <path d="M45 40 L65 50 L45 60 Z" fill="#ffffff" />
+    </svg>
+
+    <!-- Tips: Use `fill`, `stroke`, and CSS to style SVG shapes. Add `focusable="false"` on decorative SVGs to skip keyboard focus. -->
+
+    <!-- External SVG file examples -->
+    <!-- Save the following SVG as `icon-external.svg` in the same folder (see file created alongside this HTML). -->
+    <!-- 1) Use <img> for a simple, semantic image with alt text. Note: you cannot style internal SVG parts via CSS when using <img>. -->
+    <img src="icon-external.svg" alt="Media icon (external SVG)" width="150" height="150">
+
+    <!-- 2) Use <object> to embed the SVG DOM so internal elements can be targeted by CSS/JS. -->
+    <object type="image/svg+xml" data="icon-external.svg" width="150" height="150" aria-label="Media icon">Your browser
+        does not support embedded SVGs.</object>
+
+    <!-- Accessibility & notes: 
+            - Include meaningful `alt` for <img> usage.
+            - When you need to style or script internal SVG elements, use <object> or inline SVG.
+            - External SVGs referenced via <img> are cached and reusable across pages.
+        -->
+
+    <!-- Example (AS CODE): the exact XML you can save as `icon-external.svg` -->
+    <!-- This block shows the external SVG as escaped XML so it appears as code on the page. -->
+    <h4>External SVG (XML) — code example</h4>
+    <pre><code>&lt;?xml version="1.0" encoding="UTF-8"?&gt;
+&lt;svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" width="150" height="150" role="img" aria-labelledby="title desc"&gt;
+    &lt;title id="title"&gt;Media icon&lt;/title&gt;
+    &lt;desc id="desc"&gt;A rounded rectangle with a circular play button representing media playback&lt;/desc&gt;
+    &lt;rect x="5" y="5" width="90" height="90" rx="10" fill="#f0f0f0" stroke="#333" stroke-width="2" /&gt;
+    &lt;circle cx="50" cy="50" r="25" fill="#ff5555" /&gt;
+    &lt;path d="M45 40 L65 50 L45 60 Z" fill="#ffffff" /&gt;
+&lt;/svg&gt;
+</code></pre>
+
+    <!-- HTML5 iframe element for embedding external content (videos, maps, documents, etc.) -->
+    <!-- ⚠️ INCORRECT USAGE: DO NOT use the watch URL (below) — use the embed URL instead -->
+    <!-- <iframe src="https://www.youtube.com/watch?v=XZwBNDGuWGU&list=PLu0W_9lII9agq5TrH9XLIKQvv0iaF2X3w&index=10" frameborder="0"></iframe> -->
+
+    <!-- ✓ CORRECT USAGE: YouTube embed URL (preferred method) -->
+    <!-- src: URL to the embedded content (YouTube embed URL, not watch URL) -->
+    <!-- width/height: dimensions of the iframe viewport (560x315 is standard for YouTube) -->
+    <!-- title: descriptive title for accessibility and screen readers -->
+    <!-- frameborder: "0" removes the border around the iframe -->
+    <!-- allow: specifies which features are allowed in the iframe (accelerometer, autoplay, clipboard-write, encrypted-media, gyroscope, picture-in-picture, web-share) -->
+    <!-- referrerpolicy: controls how much referrer information is sent when navigating to the embedded content -->
+    <!-- allowfullscreen: permits the iframe to enter fullscreen mode when the user requests it -->
+    <iframe width="560" height="315" src="https://www.youtube.com/embed/XZwBNDGuWGU?si=UJF0YRdsMeMLhULj"
+        title="YouTube video player" frameborder="0"
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+        referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+
+    <!-- Security & Accessibility notes: 
+         - Always use the embed URL for YouTube (youtube.com/embed/VIDEO_ID), not the watch URL.
+         - Set `title` for screen readers and semantic clarity.
+         - Use `allow` attribute to restrict permissions and improve security (sandbox iframes when possible).
+         - Always include `allowfullscreen` if users should be able to fullscreen the content.
+         - Consider using `loading="lazy"` to defer iframe loading until it's near the viewport.
+    -->
+</body>
+
+</html>
