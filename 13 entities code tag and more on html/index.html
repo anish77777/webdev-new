@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>entities and code tag and more</title>
+</head>
+
+<body>
+    <!--
+        If we write symbols like < and > directly,
+        the browser thinks they are HTML tags, not normal text.
+        Example: typing 3>4 or <p> directly can break the HTML.
+    -->
+
+    <!--
+        To show these characters as text, we use HTML entities:
+        >  is written as  &gt;
+        <  is written as  &lt;
+        &  is written as  &amp;
+    -->
+
+    <!-- apersand lt Example using entities to show comparison and tag as text -->
+    <p>3 &gt; 4</p>
+    <p>&lt;p&gt;This is a paragraph tag&lt;/p&gt;</p>
+    <p>&lt;p&gt; this is a paragraph 2 &lt;/p&gt;</p>
+
+    <!--
+        We can also use the <code> tag to show code snippets or inline code.
+        It is often combined with entities when showing HTML code.
+    -->
+    <p>
+        Example in <code>&lt;code&gt;</code>:
+        <code>&lt;p&gt;Hello World&lt;/p&gt;</code>
+        <code>// inline code </code>
+    </p>
+    <!-- for this reason we use html entities -->
+    <!-- pre tag print as it is-->
+     <pre>      
+            
+            
+            this is   the paragraph  </p>
+     </pre>
+</body>
+
+</html>
