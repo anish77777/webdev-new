@@ -1,0 +1,107 @@
+<!DOCTYPE html> <!-- Declares HTML5 document type -->
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8"> <!-- Sets character encoding -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- Responsive design -->
+    <title>CSS</title> <!-- Page title shown in browser tab -->
+
+    <style>
+        /* 
+        CSS (Cascading Style Sheets) is a stylesheet language used to describe
+        the presentation of HTML documents, including colors, layout, fonts, etc.
+        
+        SYNTAX: selector { property: value; }
+        
+        Example below: Targets both <div> and <span> elements
+        */
+        div,
+        span {
+            color: blue;
+            /* Sets text color to blue */
+            background-color: aquamarine;
+            /* Sets background color */
+        }
+
+        /* 
+        The line above: color:red declaration and div is selector 
+        (Note: This comment appears incorrect since color is blue, not red)
+        
+        SELECTORS EXPLANATION:
+        - "div, span" is a GROUP SELECTOR that applies styles to multiple elements
+        - "color: blue" is a DECLARATION (property: value pair)
+        - "div" and "span" are SELECTORS that target specific HTML elements
+        */
+
+        /* Additional CSS concepts not shown in current code:
+        
+        1. CLASS SELECTOR: .className { styles }
+           <div class="myClass">Content</div>
+        
+        2. ID SELECTOR: #idName { styles }
+           <div id="uniqueId">Content</div>
+        
+        3. INLINE STYLES: style="property: value;" (in HTML tags)
+        
+        4. EXTERNAL CSS: <link rel="stylesheet" href="styles.css">
+        */
+    </style>
+</head>
+
+<body>
+    <!-- 
+    HTML STRUCTURE WITH CSS APPLIED:
+    - The <style> block in head applies to elements in body
+    - CSS styles "cascade" from top to bottom (later rules override earlier ones)
+    -->
+
+    <div> <!-- This div gets blue text and aquamarine background -->
+        hey i amanish
+    </div>
+
+    <div> <!-- This div gets same styles (all div elements targeted) -->
+        i am good
+    </div>
+
+    <span> <!-- This span gets same styles (group selector includes span) -->
+        i am span element
+    </span>
+
+    <p>
+        <!-- 
+        This paragraph DOES NOT get styled by the CSS rules above 
+        because <p> is not included in the "div, span" selector.
+        It will use browser default styles.
+        -->
+        Lorem ipsum, dolor sit amet consectetur adipisicing elit.
+        Rem dolorem quia facere tenetur, dolore ut molestiae?
+        A nesciunt laboriosam quos fugiat eius fuga aperiam!
+        Quia, adipisci fuga nihil hic aut porro corporis facere officia
+        rem facilis! Molestiae, ad? Ex in quidem omnis quia.
+    </p>
+
+    <!-- 
+    KEY CSS CONCEPTS:
+    
+    1. SEPARATION OF CONCERNS: 
+       - HTML for structure/content
+       - CSS for presentation/styling
+    
+    2. SELECTOR TYPES:
+       - Element selectors (div, p, span)
+       - Class selectors (.classname)
+       - ID selectors (#idname)
+       - Attribute selectors ([type="text"])
+    
+    3. CASCADING:
+       - Styles can come from multiple sources
+       - Priority: inline > internal > external > browser default
+       - Later rules override earlier ones (same specificity)
+    
+    4. SPECIFICITY:
+       - Determines which styles apply when conflicts exist
+       - Hierarchy: inline > ID > Class > Element
+    -->
+</body>
+
+</html>

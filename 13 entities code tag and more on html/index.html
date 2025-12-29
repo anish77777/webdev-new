@@ -21,10 +21,10 @@
         &  is written as  &amp;
     -->
 
-    <!-- apersand lt Example using entities to show comparison and tag as text -->
+    <!-- Example using entities to show comparison and tag as text -->
     <p>3 &gt; 4</p>
     <p>&lt;p&gt;This is a paragraph tag&lt;/p&gt;</p>
-    <p>&lt;p&gt; this is a paragraph 2 &lt;/p&gt;</p>
+    <p>&lt;p&gt;This is a paragraph 2&lt;/p&gt;</p>
 
     <!--
         We can also use the <code> tag to show code snippets or inline code.
@@ -33,15 +33,62 @@
     <p>
         Example in <code>&lt;code&gt;</code>:
         <code>&lt;p&gt;Hello World&lt;/p&gt;</code>
-        <code>// inline code </code>
+        <code>// inline code</code>
     </p>
-    <!-- for this reason we use html entities -->
-    <!-- pre tag print as it is-->
-     <pre>      
-            
-            
-            this is   the paragraph  </p>
-     </pre>
+
+    <!--
+        <pre> tag:
+        - Preserves spaces, tabs, and line breaks exactly as written.
+        - Often used for showing formatted text or simple blocks.
+    -->
+    <pre>
+
+
+            this is   the paragraph &lt;/p&gt;
+    </pre>
+
+    <!--
+        <pre><code> together:
+        - <pre> preserves formatting.
+        - <code> indicates that the content is code.
+        - HTML characters inside must be written using entities.
+    -->
+    <pre><code>
+&lt;!DOCTYPE html&gt;
+&lt;html lang="en"&gt;
+    &lt;head&gt;
+        &lt;title&gt;Example Code&lt;/title&gt;
+    &lt;/head&gt;
+    &lt;body&gt;
+        &lt;p&gt;Hello from inside &lt;code&gt;!&lt;/p&gt;
+    &lt;/body&gt;
+&lt;/html&gt;
+    </code></pre>
+
+    <!--
+        Quotation tags:
+        - <blockquote> for long / block-level quotations.
+        - <q> for short / inline quotations.
+    -->
+
+    <!-- Block-level quotation using <blockquote> -->
+    <blockquote cite="https://developer.mozilla.org/">
+        HTML entities allow you to display reserved characters in HTML as normal text.
+    </blockquote>
+
+    <!-- Inline quotation using <q> inside a paragraph -->
+    <p>
+        My teacher said,
+        <q>Always close your tags properly and use entities for &lt; and &gt;.</q>
+    </p>
+
+    <!--
+        Non-breaking space (&nbsp;) keeps spaces from collapsing.
+        &copy; shows the copyright symbol.
+    -->
+    <!-- copy right symbol &copy; -->
+    Copyright&nbsp;&nbsp;&copy;
+
 </body>
 
 </html>
