@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Replaced Elements Demo</title>
+  </head>
+
+  <body>
+    <!--
+    REPLACED ELEMENTS
+    -----------------
+    A replaced element is an element whose actual content
+    comes from an external resource, not from HTML/CSS itself.
+
+    CSS can:
+      - control size
+      - control position/layout
+      - apply borders, filters, transforms
+
+    CSS cannot:
+      - change the internal content of the replaced resource
+  -->
+
+    <h1>Replaced Elements Examples</h1>
+
+    <!-- ================= IMAGE ================= -->
+
+    <!--
+    <img> is a replaced element.
+    The image file replaces the element’s content.
+    CSS cannot edit pixels inside the image.
+  -->
+    <img
+      src="https://via.placeholder.com/150"
+      alt="Example image"
+      width="150"
+      height="150"
+    />
+
+    <!-- ================= IFRAME (VIDEO) ================= -->
+
+    <!--
+    <iframe> is a replaced element.
+    The embedded page/video replaces the element’s content.
+    You can resize or position the iframe,
+    but you cannot style the content inside it.
+  -->
+    <iframe
+      width="300"
+      height="170"
+      src="https://www.youtube.com/embed/u43gJJrVa1I"
+      title="YouTube video"
+      allowfullscreen
+    ></iframe>
+
+    <!-- ================= IFRAME (MAP) ================= -->
+
+    <!--
+    Another iframe example: embedded map.
+    The map content is external and isolated.
+    Your CSS cannot target elements inside the map.
+  -->
+    <iframe
+      title="Map of Greenwich"
+      width="300"
+      height="200"
+      src="https://www.openstreetmap.org/export/embed.html?bbox=-0.0040%2C51.4761%2C0.0003%2C51.4785&layer=mapnik"
+    ></iframe>
+
+    <!-- ================= VIDEO ================= -->
+
+    <!--
+    <video> is also a replaced element.
+    The video file replaces the element’s content.
+    CSS cannot modify video frames directly.
+  -->
+    <video
+      width="300"
+      controls
+      src="https://www.w3schools.com/html/mov_bbb.mp4"
+    ></video>
+
+    <!-- ================= INPUT TYPE=IMAGE ================= -->
+
+    <!--
+    input[type="image"] behaves as a replaced element.
+    The image replaces the normal input UI.
+    Other input types (text, email) are NOT replaced elements.
+  -->
+    <input
+      type="image"
+      src="https://via.placeholder.com/100"
+      alt="Image button"
+    />
+
+    <!-- ================= SUMMARY ================= -->
+
+    <!--
+    SUMMARY:
+    - Replaced elements get their content from external resources
+    - CSS can control layout and appearance around them
+    - CSS cannot access or modify their internal content
+    - Common replaced elements:
+        img, iframe, video, embed, input[type=image]
+  --></body>
+</html>

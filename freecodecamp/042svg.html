@@ -1,0 +1,62 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <!-- Basic document metadata -->
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Inline SVG (XML) Example</title>
+</head>
+
+<body>
+    <!--
+      SVG BELOW IS INLINE (NOT <img src="...">)
+
+      IMPORTANT CONCEPT:
+      - SVG is written in XML
+      - When SVG is placed directly inside HTML, it becomes part of the DOM
+      - Each SVG tag (<circle>, <path>, etc.) is a real DOM node
+      - This allows JavaScript and CSS to access and modify it later
+    -->
+
+    <svg width="100" height="100" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg" aria-label="Smiley face"
+        role="img">
+        <!--
+        Outer face circle
+        - <circle> is an XML element
+        - Attributes like cx, cy, r, fill, stroke are XML attributes
+        - These attributes can be changed programmatically later
+          Example:
+            element.setAttribute("fill", "red")
+      -->
+        <circle cx="50" cy="50" r="45" stroke="black" stroke-width="4" fill="yellow" />
+
+        <!--
+        Left eye
+        - Another independent XML node
+        - Can be selected individually if given an id
+      -->
+        <circle cx="35" cy="40" r="5" fill="black" />
+
+        <!-- Right eye -->
+        <circle cx="65" cy="40" r="5" fill="black" />
+
+        <!--
+        Smile path
+        - <path> uses a "d" attribute (path data)
+        - Because this is XML, the "d" value can also be changed dynamically
+      -->
+        <path d="M35 65 Q50 80 65 65" stroke="black" stroke-width="4" fill="transparent" />
+    </svg>
+
+    <!--
+      SUMMARY:
+      - SVG is XML
+      - Inline SVG becomes part of the HTML DOM
+      - This is why SVG colors, shapes, and animations can be controlled
+        using JavaScript or CSS later
+      - SVG loaded via <img> cannot be modified internally
+    -->
+</body>
+
+</html>

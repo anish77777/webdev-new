@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Audio and Video Elements</title>
+</head>
+
+<body>
+
+    <!-- =============================== -->
+    <!-- AUDIO ELEMENT EXPLANATION -->
+    <!-- =============================== -->
+
+    <p>
+        The <strong>audio</strong> element is used to embed sound content in an HTML
+        document. It allows browsers to play audio files such as mp3, wav, and ogg
+        without requiring external plugins.
+    </p>
+
+    <p>
+        The <strong>src</strong> attribute specifies the location of the audio file.
+        If the audio element does not include the <strong>controls</strong>
+        attribute, no audio player will be visible on the page.
+    </p>
+
+    <p>
+        The <strong>controls</strong> attribute is a boolean attribute that displays
+        built-in audio controls such as play, pause, and volume.
+    </p>
+
+    <p>
+        The <strong>loop</strong> attribute makes the audio replay automatically
+        after it finishes playing.
+    </p>
+
+    <p>
+        The <strong>muted</strong> attribute starts the audio in a muted state until
+        the user enables sound.
+    </p>
+
+    <p>
+        Different browsers support different audio formats. To handle this, you can
+        use multiple <strong>source</strong> elements inside the audio element, and
+        the browser will play the first format it supports.
+    </p>
+
+    <audio controls>
+        <source src="audio.ogg" type="audio/ogg">
+        <source src="audio.wav" type="audio/wav">
+        <source src="audio.mp3" type="audio/mpeg">
+    </audio>
+
+    <!-- =============================== -->
+    <!-- VIDEO ELEMENT EXPLANATION -->
+    <!-- =============================== -->
+
+    <p>
+        The <strong>video</strong> element is used to embed video content in an HTML
+        document. It supports formats such as mp4, ogg, and webm and can display both
+        video and audio.
+    </p>
+
+    <p>
+        The <strong>src</strong> attribute defines the video file location, while
+        <strong>controls</strong> enables playback controls like play, pause, and
+        volume.
+    </p>
+
+    <p>
+        The <strong>loop</strong> attribute makes the video replay continuously after
+        it ends.
+    </p>
+
+    <p>
+        The <strong>muted</strong> attribute starts the video with sound turned off.
+        This is commonly required for autoplay to work in modern browsers.
+    </p>
+
+    <p>
+        The <strong>autoplay</strong> attribute starts playing the video automatically
+        when the page loads.
+    </p>
+
+    <p>
+        The <strong>poster</strong> attribute specifies an image that is shown before
+        the video starts playing or while it is loading. This attribute is unique to
+        the video element.
+    </p>
+
+    <video src="https://archive.org/download/BigBuckBunny_124/Content/big_buck_bunny_720p_surround.mp4" controls loop
+        muted width="400" poster="https://peach.blender.org/wp-content/uploads/title_anouncement.jpg">
+    </video>
+
+</body>
+
+</html>
