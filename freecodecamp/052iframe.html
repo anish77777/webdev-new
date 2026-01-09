@@ -1,0 +1,104 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <title>iframe Embedding Explained</title>
+</head>
+
+<body>
+
+    <!--
+    ============================
+    EMBEDDING A VIDEO WITH IFRAME
+    ============================
+    - <iframe> embeds an external HTML document
+    - The content replaces the iframe element
+    - CSS can control size and position only
+  -->
+    <h1>YouTube Video Embed</h1>
+
+    <!--
+    width / height:
+    - Control the displayed size of the iframe
+  -->
+    <!--
+    src:
+    - URL of the content to embed
+    - YouTube requires /embed/ URLs
+  -->
+    <!--
+    title:
+    - Required for accessibility
+  -->
+    <!--
+    allow:
+    - Permission allowlist for embedded content
+  -->
+    <!--
+    allowfullscreen:
+    - Enables fullscreen mode
+  -->
+    <iframe width="400" height="225" src="https://www.youtube.com/embed/PkZNo7MFNFg"
+        title="Learn JavaScript - Full Course for Beginners"
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+        allowfullscreen>
+    </iframe>
+
+    <hr />
+
+    <!--
+    ============================
+    EMBEDDING A MAP WITH IFRAME
+    ============================
+    - The map is loaded from OpenStreetMap
+    - Internal map content cannot be styled or accessed
+  -->
+    <h1>Embedded Map</h1>
+
+    <!--
+    style attribute:
+    - Adds a border around the iframe
+  -->
+    <iframe width="425" height="350"
+        src="https://www.openstreetmap.org/export/embed.html?bbox=3.006134033203125%2C6.150112578753815%2C3.6357879638671875%2C6.749850810550778&amp;layer=mapnik"
+        title="Map of Lagos area, Nigeria" style="border: 1px solid black">
+    </iframe>
+
+    <br />
+
+    <!--
+    Link to open the same map in a full browser tab
+  -->
+    <small>
+        <a href="https://www.openstreetmap.org/#map=11/6.4501/3.3210">
+            View Larger Map
+        </a>
+    </small>
+
+    <hr />
+
+    <!--
+    ============================
+    EMBEDDING HTML WITH SRCDOC
+    ============================
+    - srcdoc embeds HTML directly
+    - The HTML is isolated from the parent page
+  -->
+    <h1>Inline HTML iframe</h1>
+
+    <iframe width="300" height="150" srcdoc="<h2>Hello</h2><p>This HTML lives inside the iframe.</p>"
+        title="srcdoc example">
+    </iframe>
+
+    <!--
+    SUMMARY:
+    - iframe embeds external or inline HTML
+    - Content replaces the iframe element
+    - Internal content is isolated
+    - iframe is a replaced element
+  -->
+
+</body>
+
+</html>

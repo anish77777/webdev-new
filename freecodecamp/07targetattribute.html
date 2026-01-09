@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <title>Target Attribute – Full Explanation</title>
+</head>
+
+<body>
+
+    <!--
+    The target attribute is used with <a> (anchor) elements.
+    It tells the browser WHERE to open the linked page.
+    If target is not specified, the browser uses _self by default.
+  -->
+
+    <!-- _self (default): opens the link in the same tab/window -->
+    <a href="https://freecodecamp.org" target="_self">
+        Open in same tab (_self)
+    </a>
+    <br><br>
+
+    <!-- _blank: opens the link in a new tab or window -->
+    <a href="https://freecodecamp.org" target="_blank" rel="noopener noreferrer">
+        Open in new tab (_blank)
+    </a>
+    <br><br>
+
+    <!-- _parent: opens the link in the parent browsing context -->
+    <!-- Useful when the link is inside an iframe -->
+    <a href="https://freecodecamp.org" target="_parent">
+        Open in parent frame (_parent)
+    </a>
+    <br><br>
+
+    <!-- _top: opens the link in the top-most browsing context -->
+    <!-- Breaks out of all iframes -->
+    <a href="https://freecodecamp.org" target="_top">
+        Open in full window (_top)
+    </a>
+    <br><br>
+
+    <!-- _unfencedTop: experimental value for FencedFrame API -->
+    <a href="https://example.com" target="_unfencedTop">
+        Experimental target (_unfencedTop)
+    </a>
+
+</body>
+
+</html>
