@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>HTML Form Validation: Client-side and Server-side</title>
+</head>
+
+<body>
+
+    <!-- 
+    What is Validation?
+    It ensures users fill out information in the correct format before submission.
+    
+    Client-side: Happens on the user's device (browser). Handles layout and basic checks.
+    Server-side: Happens on the system hosting the site. Essential for security.
+    -->
+
+    <!-- The 'required' attribute ensures the field is not empty on submission. -->
+    <form action="">
+        <label for="email-required">Email Address (Required field):</label>
+        <input required type="email" name="email" id="email-required" />
+        <button type="submit">Submit Form</button>
+    </form>
+
+    <hr>
+
+    <!-- 
+    The browser performs basic validation for 'type="email"', 
+    such as checking for the '@' symbol.
+    -->
+    <form action="">
+        <label for="email-basic">Email Address (Basic Type Validation):</label>
+        <input required type="email" name="email" id="email-basic" />
+        <button type="submit">Submit Form</button>
+    </form>
+
+    <hr>
+
+    <!-- 
+    minlength and maxlength set the character boundaries for the input.
+    Example: minlength="4" and maxlength="64".
+    -->
+    <form action="">
+        <label for="email-length">Email Address (Length Validation):</label>
+        <input required type="email" name="email" id="email-length" minlength="4" maxlength="64" />
+        <button type="submit">Submit Form</button>
+    </form>
+
+</body>
+
+</html>
