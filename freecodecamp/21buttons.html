@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>What Are the Different Types of Buttons, and When Should You Use Them?</title>
+</head>
+
+<body>
+
+    <!-- The button element performs an action when activated. -->
+    <button>Start Game</button>
+
+    <hr>
+
+    <!-- type="button" specifically means the button has no default behavior. 
+         It is purely for custom actions (usually handled via JavaScript). -->
+    <button type="button" id="alert-btn">Show Alert</button>
+
+    <script>
+        // JavaScript to make the button interactive
+        const btn = document.getElementById("alert-btn");
+        btn.addEventListener("click", () => alert("You clicked on the alert button"));
+    </script>
+
+    <hr>
+
+    <!-- type="submit" is the default behavior for buttons inside a form.
+         It sends the collected data to the server. -->
+    <form action="">
+        <label for="email">Email address:</label>
+        <input type="email" id="email" name="email" />
+        <button type="submit">Submit form</button>
+    </form>
+
+    <hr>
+
+    <!-- type="reset" specifically clears all inputs inside the parent form. 
+         Use with caution as it can lead to accidental data loss. -->
+    <form action="">
+        <label for="email-reset">Email address:</label>
+        <input type="email" id="email-reset" name="email" />
+        <button type="reset">Reset form</button>
+        <button type="submit">Submit form</button>
+    </form>
+
+    <hr>
+
+    <!-- input type="button" is an alternative way to create buttons. 
+         The value attribute defines the button text. 
+         input is a void element, while <button> can nest other elements. -->
+    <input class="start-btn" type="button" value="Start Game" />
+
+    <script>
+        // DOMContentLoaded waits for the HTML to be fully loaded before running the script
+        document.addEventListener("DOMContentLoaded", () => {
+            const startBtn = document.querySelector(".start-btn");
+            startBtn.addEventListener("click", () => {
+                const paraEl = document.createElement("p");
+                const bodyEl = document.querySelector("body");
+                bodyEl.appendChild(paraEl);
+                paraEl.textContent = "The game has started!!!";
+            });
+        });
+    </script>
+
+</body>
+
+</html>

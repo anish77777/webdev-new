@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>How Do Forms, Labels, and Inputs Work in HTML?</title>
+</head>
+
+<body>
+
+    <!-- The form element is used to gather user information. 
+         The action attribute specifies where the form data will be sent upon submission. -->
+    <form action="url-goes-here">
+        <!-- input elements go here -->
+    </form>
+
+    <hr>
+
+    <!-- input elements are void elements (no closing tags). 
+         The type attribute defines the data type; "text" is for plaintext. -->
+    <form action="">
+        <input type="text" />
+    </form>
+
+    <hr>
+
+    <!-- By nesting an input inside a label, you create an implicit association. 
+         Clicking the label text will focus the input. -->
+    <form action="">
+        <label>
+            Full Name:
+            <input type="text" />
+        </label>
+    </form>
+
+    <hr>
+
+    <!-- To explicitly associate a label with an input, use the 'for' attribute 
+         on the label and match it with the 'id' of the input. 
+         The type="email" providing basic validation. -->
+    <form action="">
+        <label for="email"> Email Address: </label>
+        <input type="email" id="email" />
+    </form>
+
+    <hr>
+
+    <!-- The placeholder attribute shows additional hints about the expected format. 
+         It disappears when the user starts typing. -->
+    <form action="">
+        <label for="email-placeholder"> Email Address: </label>
+        <input type="email" id="email-placeholder" placeholder="example@email.com" />
+    </form>
+
+</body>
+
+</html>
