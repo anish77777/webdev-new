@@ -25,17 +25,24 @@
                 <!-- Step 10: Email address input with explicit label association -->
                 <label for="email">Email address (required):</label>
                 <input required type="email" name="email" id="email" placeholder="e.g., john@doe.com">
-                <label for="age">Age (optional):</label>
-                <input type="number" name="age" id="age" min="3" max="100">
-                <input type="radio" id="yes-option" name="hotel-stay">
+
+                <!-- Step 12 & 16: Radio buttons grouped by 'hotel-stay'.
+                     Radio buttons allow only one choice from a group. -->
+                <p>Was this your first time staying with us?</p>
+                <input type="radio" id="yes-option" name="hotel-stay" value="yes">
                 <label for="yes-option">Yes</label>
-                <input type="radio" id="no-option" name="hotel-stay">
+                <input type="radio" id="no-option" name="hotel-stay" value="no">
                 <label for="no-option">No</label>
             </fieldset>
+
+            <!-- Step 18: Fieldset to group multiple-choice questions -->
             <fieldset>
                 <legend>Why did you choose to stay at our hotel? (Check all that apply)</legend>
-                <input type="checkbox" name="choice" id="ads" value="ads">
-                <label for="ads">Social Media Ads</label>
+
+                <!-- Step 20: Checkbox for personal recommendation.
+                     Checkboxes allow multiple selections in a form. -->
+                <input type="checkbox" id="recommendation" name="choice" value="recommendation">
+                <label for="recommendation">Personal Recommendation</label>
             </fieldset>
         </form>
     </main>
