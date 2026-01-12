@@ -11,6 +11,19 @@
         <h1>Hotel Feedback Form</h1>
         <p>Thank you for staying with us. Please provide feedback on your recent stay.</p>
     </header>
+    <main>
+        <!-- The action attribute specifies the URL for submission, and the method (POST) defines how data is sent. -->
+        <form method="POST" action="https://hotel-feedback.freecodecamp.org">
+            <!-- The <fieldset> groups related elements, and <legend> provides a title for that group. -->
+            <fieldset>
+                <legend>Personal Information</legend>
+
+                <!-- The label provides a text description for the input, associated via the 'for' attribute. -->
+                <label for="full-name">Name (required):</label>
+                <input type="text" id="full-name">
+            </fieldset>
+        </form>
+    </main>
 </body>
 
 </html>
