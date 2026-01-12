@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>What Are the Different Form States, and Why Are They Important?</title>
+</head>
+
+<body>
+
+    <!-- 
+    The default state of an input is its initial condition.
+    For an email input, it is typically a blank field as first rendered.
+    -->
+    <input type="email" name="email" id="email-default" />
+
+    <hr>
+
+    <!-- 
+    The focused state occurs when a user clicks on a control or tabs to it.
+    Most browsers show a highlighted border (usually blue) around focused elements.
+    -->
+    <input type="email" name="email" id="email-focused" />
+
+    <hr>
+
+    <!-- 
+    The disabled state prevents users from focusing or activating an input.
+    It indicates that the input is currently unavailable for interaction.
+    -->
+    <input disabled type="email" name="email" id="email-disabled" />
+
+    <hr>
+
+    <!-- 
+    The readonly state prevents users from editing the value of the input.
+    Unlike 'disabled', a 'readonly' input can still be focused and selected.
+    The 'value' attribute sets the pre-filled text.
+    -->
+    <input readonly type="email" name="email" id="email-readonly" value="example@email.com" />
+
+    <!-- 
+    Summary: 
+    - Default: Initial state (usually blank).
+    - Focused: Highighted when active/selected.
+    - Disabled: Cannot be focused or edited.
+    - Readonly: Can be focused, but cannot be edited.
+    Understanding these states ensures a smooth and clear user experience.
+    -->
+
+</body>
+
+</html>
