@@ -1,0 +1,411 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Comprehensive HTML Review</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600&display=swap');
+
+        :root {
+            --bg: #0b0f1a;
+            --card-bg: #161b2c;
+            --accent: #38bdf8;
+            --accent-glow: rgba(56, 189, 248, 0.2);
+            --text-primary: #f1f5f9;
+            --text-secondary: #94a3b8;
+            --code-bg: #000000;
+            --border: rgba(255, 255, 255, 0.08);
+        }
+
+        body {
+            font-family: 'Outfit', sans-serif;
+            background-color: var(--bg);
+            color: var(--text-primary);
+            margin: 0;
+            line-height: 1.6;
+            display: grid;
+            grid-template-columns: 280px 1fr;
+            min-height: 100vh;
+        }
+
+        /* Sidebar Navigation */
+        nav.toc {
+            background: var(--card-bg);
+            border-right: 1px solid var(--border);
+            padding: 2rem 1.5rem;
+            height: 100vh;
+            position: sticky;
+            top: 0;
+            overflow-y: auto;
+        }
+
+        nav.toc h4 {
+            color: var(--accent);
+            text-transform: uppercase;
+            font-size: 0.75rem;
+            letter-spacing: 0.1em;
+            margin-bottom: 1.5rem;
+        }
+
+        nav.toc ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        nav.toc li {
+            margin-bottom: 0.75rem;
+        }
+
+        nav.toc a {
+            color: var(--text-secondary);
+            text-decoration: none;
+            font-size: 0.95rem;
+            transition: color 0.2s;
+        }
+
+        nav.toc a:hover {
+            color: var(--accent);
+        }
+
+        /* Main Content */
+        main {
+            padding: 3rem 5rem;
+            max-width: 1000px;
+        }
+
+        h1 {
+            font-size: 3.5rem;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+            background: linear-gradient(to right, #38bdf8, #818cf8, #c084fc);
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+            letter-spacing: -0.03em;
+        }
+
+        .header-meta {
+            color: var(--text-secondary);
+            font-size: 1.2rem;
+            margin-bottom: 4rem;
+        }
+
+        section {
+            margin-bottom: 5rem;
+            scroll-margin-top: 2rem;
+        }
+
+        h2 {
+            font-size: 2.25rem;
+            color: var(--text-primary);
+            margin-bottom: 1.5rem;
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        h2::before {
+            content: '';
+            width: 4px;
+            height: 32px;
+            background: var(--accent);
+            border-radius: 4px;
+        }
+
+        h3 {
+            font-size: 1.4rem;
+            color: var(--accent);
+            margin-top: 2.5rem;
+            margin-bottom: 1rem;
+        }
+
+        p,
+        li {
+            color: var(--text-secondary);
+            font-size: 1.1rem;
+            margin-bottom: 1.25rem;
+        }
+
+        strong {
+            color: var(--text-primary);
+        }
+
+        .code-block {
+            background: var(--code-bg);
+            padding: 1.5rem;
+            border-radius: 12px;
+            border: 1px solid var(--border);
+            margin: 1.5rem 0;
+            overflow-x: auto;
+        }
+
+        .code-block pre {
+            margin: 0;
+        }
+
+        code {
+            color: #10b981;
+            font-family: 'Fira Code', 'Courier New', monospace;
+            font-size: 0.95rem;
+        }
+
+        .alert {
+            background: var(--accent-glow);
+            border-left: 4px solid var(--accent);
+            padding: 1.5rem;
+            border-radius: 8px;
+            margin: 2rem 0;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 2rem 0;
+            background: rgba(255, 255, 255, 0.02);
+            border-radius: 12px;
+            overflow: hidden;
+        }
+
+        th,
+        td {
+            padding: 1rem;
+            text-align: left;
+            border-bottom: 1px solid var(--border);
+        }
+
+        th {
+            background: var(--card-bg);
+            color: var(--accent);
+            font-weight: 600;
+        }
+
+        caption {
+            padding: 1rem;
+            font-weight: 600;
+            color: var(--text-primary);
+            text-align: left;
+        }
+
+        /* Mobile Responsiveness */
+        @media (max-width: 1024px) {
+            body {
+                grid-template-columns: 1fr;
+            }
+
+            nav.toc {
+                display: none;
+            }
+
+            main {
+                padding: 2rem;
+            }
+
+            h1 {
+                font-size: 2.5rem;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <nav class="toc">
+        <h4>Review Modules</h4>
+        <ul>
+            <li><a href="#basics">HTML Basics</a></li>
+            <li><a href="#id-grouping">ID & Grouping</a></li>
+            <li><a href="#boilerplate">Boilerplate & SEO</a></li>
+            <li><a href="#media">Media & Multimedia</a></li>
+            <li><a href="#paths">Paths & Links</a></li>
+            <li><a href="#semantics">Semantic HTML</a></li>
+            <li><a href="#forms">Forms & Inputs</a></li>
+            <li><a href="#tables">Table Elements</a></li>
+            <li><a href="#accessibility">Accessibility</a></li>
+            <li><a href="#tools">Essential Tools</a></li>
+        </ul>
+    </nav>
+
+    <main>
+        <header>
+            <h1>HTML Prep Exam Review</h1>
+            <p class="header-meta">Comprehensive Study Guide for Structural Web Development.</p>
+        </header>
+
+        <!-- HTML Basics -->
+        <section id="basics">
+            <h2>HTML Basics</h2>
+            <p><strong>Role of HTML:</strong> Hypertext Markup Language defines the structure and meaning of web
+                content.</p>
+            <p><strong>HTML Elements:</strong> Building blocks of a webpage, typically consisting of an opening tag,
+                content, and a closing tag (e.g., <code>&lt;h1&gt;Hello&lt;/h1&gt;</code>).</p>
+            <div class="alert">
+                <strong>Void Elements:</strong> These elements do not have a closing tag because they cannot contain
+                content (e.g., <code>&lt;img&gt;</code>, <code>&lt;br&gt;</code>, <code>&lt;hr&gt;</code>).
+            </div>
+            <h3>Common Elements</h3>
+            <ul>
+                <li><strong>Headings:</strong> <code>&lt;h1&gt;</code> through <code>&lt;h6&gt;</code> define structural
+                    hierarchy.</li>
+                <li><strong>Paragraphs:</strong> <code>&lt;p&gt;</code> for blocks of text.</li>
+                <li><strong>Div containers:</strong> <code>&lt;div&gt;</code> is a generic container with no semantic
+                    meaning, used for grouping and styling.</li>
+            </ul>
+        </section>
+
+        <!-- Identifiers and Grouping -->
+        <section id="id-grouping">
+            <h2>Identifiers & Grouping</h2>
+            <p><strong>IDs:</strong> Unique identifiers (<code>id="main-title"</code>). An ID can only be used once per
+                page.</p>
+            <p><strong>Classes:</strong> Used to group multiple elements for shared styling
+                (<code>class="btn-primary"</code>).</p>
+            <h3>Linking & Entities</h3>
+            <p><strong>HTML Entities:</strong> Used to display reserved characters (e.g., <code>&amp;lt;</code> for &lt;
+                and <code>&amp;amp;</code> for &amp;).</p>
+            <p><strong>External Files:</strong> Use <code>&lt;link&gt;</code> for CSS in the head and
+                <code>&lt;script&gt;</code> for JavaScript.</p>
+        </section>
+
+        <!-- Boilerplate and SEO -->
+        <section id="boilerplate">
+            <h2>Boilerplate & SEO</h2>
+            <p><strong>Boilerplate:</strong> The standard starting structure: <code>&lt;!DOCTYPE html&gt;</code>,
+                <code>&lt;html&gt;</code>, <code>&lt;head&gt;</code>, and <code>&lt;body&gt;</code>.</p>
+            <p><strong>UTF-8 Encoding:</strong> Ensures characters from all languages display correctly
+                (<code>&lt;meta charset="UTF-8"&gt;</code>).</p>
+            <h3>SEO & Social Sharing</h3>
+            <ul>
+                <li><strong>Meta Description:</strong> Impacts SEO by providing a page summary in search results.</li>
+                <li><strong>Open Graph (OG) Tags:</strong> Enhances how links look when shared on social media.</li>
+            </ul>
+        </section>
+
+        <!-- Media Elements -->
+        <section id="media">
+            <h2>Media & Multimedia</h2>
+            <p><strong>Replaced Elements:</strong> Content whose dimensions are determined by an external resource
+                (e.g., <code>&lt;img&gt;</code>, <code>&lt;iframe&gt;</code>, <code>&lt;video&gt;</code>).</p>
+            <p><strong>Multimedia Tags:</strong> Use <code>&lt;audio&gt;</code> and <code>&lt;video&gt;</code> to embed
+                content directly. For external videos (like YouTube), use <code>&lt;iframe&gt;</code>.</p>
+            <div class="alert">
+                <strong>SVGs:</strong> Scalable Vector Graphics are XML-based images that stay sharp at any zoom level
+                and are perfect for icons/logos.
+            </div>
+        </section>
+
+        <!-- Paths and Links -->
+        <section id="paths">
+            <h2>Paths & Link Behavior</h2>
+            <p><strong>Target Attribute:</strong> Controls where a link opens (e.g., <code>target="_blank"</code> for a
+                new tab).</p>
+            <h3>Path Syntax</h3>
+            <ul>
+                <li><strong>Absolute Path:</strong> Full URL (<code>https://example.com/image.png</code>).</li>
+                <li><strong>Relative Path:</strong> Navigates based on current directory.</li>
+                <li><code>/</code>: Root directory.</li>
+                <li><code>./</code>: Current directory.</li>
+                <li><code>../</code>: Up one directory level.</li>
+            </ul>
+            <p><strong>Internal Links:</strong> Use <code>href="#section-id"</code> to jump to an element with that
+                specific ID on the same page.</p>
+        </section>
+
+        <!-- Semantic HTML -->
+        <section id="semantics">
+            <h2>Semantic HTML</h2>
+            <p>Semantic elements give meaning to the structure rather than just defining appearance.</p>
+            <h3>Structural Elements</h3>
+            <ul>
+                <li><code>&lt;header&gt;</code> & <code>&lt;footer&gt;</code>: Top and bottom of sections/documents.
+                </li>
+                <li><code>&lt;nav&gt;</code>: Primary navigation links.</li>
+                <li><code>&lt;main&gt;</code>: The unique, principal content of the body.</li>
+                <li><code>&lt;article&gt;</code>: Self-contained, independent content.</li>
+                <li><code>&lt;section&gt;</code>: Groups of related content.</li>
+            </ul>
+            <h3>Text-Level Semantics</h3>
+            <div class="code-block">
+                <pre><code>&lt;em&gt;Stress emphasis (usually italic)&lt;/em&gt;
+&lt;strong&gt;Strong importance (usually bold)&lt;/strong&gt;
+&lt;blockquote&gt;External source quotation&lt;/blockquote&gt;
+&lt;abbr title="Markup Language"&gt;ML&lt;/abbr&gt;
+&lt;time datetime="2024-05-15"&gt;May 15&lt;/time&gt;</code></pre>
+            </div>
+        </section>
+
+        <!-- Forms -->
+        <section id="forms">
+            <h2>Forms & User Input</h2>
+            <p>Forms gather user data using <code>&lt;form method="POST" action="/submit"&gt;</code>.</p>
+            <h3>Input Types & Attributes</h3>
+            <p>Common types: <code>text</code>, <code>email</code>, <code>password</code>, <code>checkbox</code>,
+                <code>radio</code>, <code>number</code>, <code>date</code>, <code>submit</code>.</p>
+            <div class="code-block">
+                <pre><code>&lt;input 
+  type="text" 
+  name="user_name" 
+  placeholder="Enter name"
+  required 
+  minlength="3"
+&gt;</code></pre>
+            </div>
+            <h3>Labels & Grouping</h3>
+            <ul>
+                <li><strong>Labels:</strong> Use <code>&lt;label for="id"&gt;</code> to associate text with an input.
+                </li>
+                <li><strong>Fieldset & Legend:</strong> Use for logical grouping of related inputs (like a set of radio
+                    buttons).</li>
+            </ul>
+        </section>
+
+        <!-- Tables -->
+        <section id="tables">
+            <h2>Table Elements</h2>
+            <p>Tables are structured using rows (<code>&lt;tr&gt;</code>), headers (<code>&lt;th&gt;</code>), and data
+                (<code>&lt;td&gt;</code>).</p>
+            <div class="code-block">
+                <pre><code>&lt;table&gt;
+  &lt;caption&gt;Student Grades&lt;/caption&gt;
+  &lt;thead&gt;
+    &lt;tr&gt;&lt;th&gt;Name&lt;/th&gt;&lt;th&gt;Grade&lt;/th&gt;&lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;&lt;td&gt;Alex&lt;/td&gt;&lt;td&gt;A&lt;/td&gt;&lt;/tr&gt;
+  &lt;/tbody&gt;
+  &lt;tfoot&gt;
+    &lt;tr&gt;&lt;td colspan="2"&gt;Average: B+&lt;/td&gt;&lt;/tr&gt;
+  &lt;/tfoot&gt;
+&lt;/table&gt;</code></pre>
+            </div>
+        </section>
+
+        <!-- Accessibility Recap -->
+        <section id="accessibility">
+            <h2>Accessibility (POUR)</h2>
+            <p><strong>WCAG Principles:</strong> Perceivable, Operable, Understandable, Robust.</p>
+            <p><strong>ARIA:</strong> Accessible Rich Internet Applications (e.g., <code>role="alert"</code>,
+                <code>aria-label</code>).</p>
+            <h3>Key Best Practices</h3>
+            <ul>
+                <li><strong>Focus Management:</strong> Use <code>tabindex="0"</code> or <code>-1</code>. Never use > 0.
+                </li>
+                <li><strong>Alt Text:</strong> Always provide text alternatives for images.</li>
+                <li><strong>Link Text:</strong> Use descriptive text ("Read our privacy policy") instead of "Click
+                    here".</li>
+            </ul>
+        </section>
+
+        <!-- Tools -->
+        <section id="tools">
+            <h2>Essential Development Tools</h2>
+            <ul>
+                <li><strong>HTML Validator:</strong> Checks syntax for errors.</li>
+                <li><strong>DOM Inspector:</strong> Visualizes the document tree in real-time.</li>
+                <li><strong>DevTools:</strong> Browser-integrated debugging suite (F12).</li>
+            </ul>
+        </section>
+    </main>
+</body>
+
+</html>
