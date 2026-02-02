@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>HTML Accessibility Review</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600&display=swap');
+
+        :root {
+            --bg: #0f172a;
+            --card-bg: #1e293b;
+            --accent: #38bdf8;
+            --accent-soft: rgba(56, 189, 248, 0.1);
+            --text-primary: #f8fafc;
+            --text-secondary: #94a3b8;
+            --glass: rgba(255, 255, 255, 0.05);
+            --code-bg: #000000;
+        }
+
+        body {
+            font-family: 'Outfit', sans-serif;
+            background-color: var(--bg);
+            color: var(--text-primary);
+            margin: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            min-height: 100vh;
+            padding: 2rem;
+            line-height: 1.6;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 900px;
+        }
+
+        h1 {
+            font-size: 3rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+            background: linear-gradient(to right, #38bdf8, #818cf8);
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+            letter-spacing: -0.02em;
+            text-align: center;
+        }
+
+        .subtitle {
+            color: var(--text-secondary);
+            text-align: center;
+            font-size: 1.25rem;
+            margin-bottom: 3rem;
+        }
+
+        section {
+            background: var(--card-bg);
+            border: 1px solid var(--glass);
+            border-radius: 24px;
+            padding: 2.5rem;
+            margin-bottom: 2rem;
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+        }
+
+        h2 {
+            font-size: 1.75rem;
+            color: var(--accent);
+            margin-top: 0;
+            margin-bottom: 1.5rem;
+            border-bottom: 1px solid var(--accent-soft);
+            padding-bottom: 0.5rem;
+        }
+
+        h3 {
+            font-size: 1.25rem;
+            color: var(--text-primary);
+            margin-top: 2rem;
+        }
+
+        p,
+        li {
+            color: var(--text-secondary);
+            font-size: 1.1rem;
+            margin-bottom: 1rem;
+        }
+
+        ul {
+            padding-left: 1.5rem;
+        }
+
+        li {
+            margin-bottom: 0.5rem;
+        }
+
+        code {
+            font-family: 'Courier New', Courier, monospace;
+            background: var(--code-bg);
+            padding: 0.2rem 0.4rem;
+            border-radius: 4px;
+            color: #d1d5db;
+        }
+
+        .code-block {
+            background: var(--code-bg);
+            padding: 1.5rem;
+            border-radius: 12px;
+            margin: 1.5rem 0;
+            position: relative;
+            overflow-x: auto;
+            border: 1px solid var(--glass);
+        }
+
+        .code-block code {
+            background: transparent;
+            padding: 0;
+            display: block;
+            color: #10b981;
+        }
+
+        .alert {
+            background: var(--accent-soft);
+            border-left: 4px solid var(--accent);
+            padding: 1rem 1.5rem;
+            border-radius: 8px;
+            margin: 1.5rem 0;
+        }
+
+        .alert strong {
+            color: var(--accent);
+            display: block;
+            margin-bottom: 0.25rem;
+        }
+
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2rem;
+            }
+
+            section {
+                padding: 1.5rem;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <h1>HTML Accessibility Review</h1>
+        <p class="subtitle">Ensuring the web is Perceivable, Operable, Understandable, and Robust for everyone.</p>
+
+        <section id="introduction">
+            <h2>Introduction to Accessibility</h2>
+            <p><strong>Web Content Accessibility Guidelines (WCAG):</strong> A set of guidelines for making web content
+                more accessible to people with disabilities.</p>
+            <div class="alert">
+                <strong>The POUR Principles:</strong>
+                <ul>
+                    <li><strong>Perceivable:</strong> Users must be able to perceive the information being presented.
+                    </li>
+                    <li><strong>Operable:</strong> Users must be able to operate the interface.</li>
+                    <li><strong>Understandable:</strong> Users must be able to understand the information and the
+                        operation of the interface.</li>
+                    <li><strong>Robust:</strong> Content must be robust enough to be interpreted reliably by a wide
+                        variety of user agents, including assistive technologies.</li>
+                </ul>
+            </div>
+        </section>
+
+        <section id="assistive-tech">
+            <h2>Assistive Technology</h2>
+            <ul>
+                <li><strong>Screen readers:</strong> Software programs that read content out loud for blind or visually
+                    impaired users.</li>
+                <li><strong>Large text/Braille keyboards:</strong> Hardware for users with visual impairments.</li>
+                <li><strong>Screen magnifiers:</strong> Software that enlarges screen content for low-vision users.</li>
+                <li><strong>Alternative pointing devices:</strong> Joysticks, trackballs, and touchpads for mobility
+                    impairments.</li>
+                <li><strong>Voice recognition:</strong> Allows controlling a computer using voice commands.</li>
+            </ul>
+        </section>
+
+        <section id="best-practices">
+            <h2>Best Practices</h2>
+
+            <h3>Heading Structure</h3>
+            <p>Use proper heading levels (H1-H6) to create a logical structure. This helps assistive technologies
+                navigate the content hierarchicaly.</p>
+
+            <h3>Tables</h3>
+            <p>Use <code>&lt;th&gt;</code> for headers and <code>&lt;td&gt;</code> for data cells. Always use the
+                <code>&lt;caption&gt;</code> element immediately after the opening <code>&lt;table&gt;</code> tag to
+                provide context.</p>
+
+            <h3>Form Inputs</h3>
+            <p>Associate <code>&lt;label&gt;</code> elements with form inputs to clarify their purpose for screen
+                readers.</p>
+
+            <h3>Alt & Link Text</h3>
+            <p>Use descriptive <code>alt</code> text for images and meaningful link text instead of "click here".</p>
+
+            <h3>Multimedia</h3>
+            <p>Provide captions and transcripts for audio/video. Audio descriptions should be provided for visual
+                content to assist visually impaired users.</p>
+        </section>
+
+        <section id="aria-attributes">
+            <h2>WAI-ARIA & Attributes</h2>
+            <p><strong>WAI-ARIA:</strong> Web Accessibility Initiative - Accessible Rich Internet Applications. These
+                attributes add programmatic meaning to elements.</p>
+
+            <h3>Key Roles</h3>
+            <ul>
+                <li><strong>Document Structure:</strong> Defines relationships between sections.</li>
+                <li><strong>Widget Roles:</strong> Defines interactive element functionality (e.g., scrollbars).</li>
+                <li><strong>Landmark Roles:</strong> Labels primary sections (header, main, footer).</li>
+                <li><strong>Live Region Roles:</strong> Announces dynamic changes (e.g., error alerts).</li>
+                <li><strong>Window Roles:</strong> Defines sub-windows like modals.</li>
+            </ul>
+
+            <h3>Common Attributes</h3>
+
+            <p><strong>aria-label & aria-labelledby:</strong> Used when visual labels are missing or complex.</p>
+            <div class="code-block">
+                <pre><code>&lt;button aria-label="Search"&gt;
+    &lt;i class="fas fa-search"&gt;&lt;/i&gt;
+&lt;/button&gt;
+
+&lt;input type="text" aria-labelledby="search-btn"&gt;
+&lt;button type="button" id="search-btn"&gt;Search&lt;/button&gt;</code></pre>
+            </div>
+
+            <p><strong>aria-hidden:</strong> Hides decorative or redundant elements from screen readers.</p>
+            <div class="code-block">
+                <pre><code>&lt;button&gt;
+    &lt;i class="fa-solid fa-gear" aria-hidden="true"&gt;&lt;/i&gt;
+    &lt;span class="label"&gt;Settings&lt;/span&gt;
+&lt;/button&gt;</code></pre>
+            </div>
+
+            <p><strong>aria-describedby:</strong> Provides additional usage context or error messages.</p>
+            <div class="code-block">
+                <pre><code>&lt;form&gt;
+    &lt;label for="password"&gt;Password:&lt;/label&gt;
+    &lt;input type="password" id="password" aria-describedby="password-help" /&gt;
+    &lt;p id="password-help"&gt;Your password must be at least 8 characters long.&lt;/p&gt;
+&lt;/form&gt;</code></pre>
+            </div>
+        </section>
+
+        <section id="keyboard-navigation">
+            <h2>Keyboard Navigation</h2>
+            <p><strong>tabindex:</strong> Makes elements focusable. Use <code>0</code> for natural order or
+                <code>-1</code> to make focusable only via script. Never use values greater than 0.</p>
+            <div class="code-block">
+                <code>&lt;p tabindex="-1"&gt;Sorry, there was an error with your submission.&lt;/p&gt;</code>
+            </div>
+
+            <p><strong>accesskey:</strong> Defines keyboard shortcuts for specific elements.</p>
+            <div class="code-block">
+                <pre><code>&lt;button accesskey="s"&gt;Save&lt;/button&gt;
+&lt;button accesskey="c"&gt;Cancel&lt;/button&gt;
+&lt;a href="index.html" accesskey="h"&gt;Home&lt;/a&gt;</code></pre>
+            </div>
+        </section>
+    </div>
+</body>
+
+</html>
