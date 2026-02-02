@@ -1,133 +1,132 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Multimedia Player</title>
     <style>
-        /* Personal Style: Deep Purple & Neon Theme */
+        @import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600&display=swap');
+
         :root {
-            --bg-color: #1a1a2e;
-            --card-bg: #16213e;
-            --accent-color: #0f3460;
-            --highlight: #e94560;
-            --text-main: #eaeaea;
-            --text-audio: #4FACFE;
-            --text-video: #00F260;
+            --bg: #0f172a;
+            --card-bg: #1e293b;
+            --accent: #38bdf8;
+            --text-primary: #f8fafc;
+            --text-secondary: #94a3b8;
+            --glass: rgba(255, 255, 255, 0.05);
         }
 
         body {
-            background-color: var(--bg-color);
-            color: var(--text-main);
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            font-family: 'Outfit', sans-serif;
+            background-color: var(--bg);
+            color: var(--text-primary);
             margin: 0;
-            padding: 0;
             display: flex;
             flex-direction: column;
             align-items: center;
             min-height: 100vh;
+            padding: 2rem;
+            line-height: 1.6;
         }
 
         h1 {
-            margin-top: 2rem;
-            font-size: 2.5rem;
-            color: var(--highlight);
-            text-shadow: 0 0 10px rgba(233, 69, 96, 0.5);
+            font-size: 3rem;
+            font-weight: 600;
+            margin-bottom: 2rem;
+            background: linear-gradient(to right, #38bdf8, #818cf8);
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+            letter-spacing: -0.02em;
         }
 
         section {
-            background-color: var(--card-bg);
-            margin: 1.5rem;
+            background: var(--card-bg);
+            border: 1px solid var(--glass);
+            border-radius: 24px;
             padding: 2rem;
-            border-radius: 15px;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
-            width: 90%;
-            max-width: 800px;
-            transition: transform 0.3s ease;
+            margin-bottom: 2rem;
+            width: 100%;
+            max-width: 700px;
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
         }
 
         section:hover {
             transform: translateY(-5px);
+            box-shadow: 0 30px 60px -12px rgba(0, 0, 0, 0.6);
         }
 
         h2 {
-            border-bottom: 2px solid var(--accent-color);
-            padding-bottom: 0.5rem;
+            font-size: 1.5rem;
+            color: var(--accent);
+            margin-top: 0;
             margin-bottom: 1.5rem;
         }
 
-        /* Specific Section Styling */
-        section:nth-of-type(1) h2 {
-            color: var(--text-audio);
-        }
-
-        section:nth-of-type(2) h2 {
-            color: var(--text-video);
-        }
-
-        section:nth-of-type(3) h2 {
-            color: #f2f2f2;
-        }
-
-        /* Media Elements */
         audio,
         video {
             width: 100%;
-            border-radius: 8px;
-            outline: none;
+            border-radius: 12px;
+            background: #000;
         }
 
         video {
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
-            background-color: #000;
+            aspect-ratio: 16 / 9;
+            object-fit: cover;
         }
 
-        /* Transcript */
         p {
-            line-height: 1.6;
+            color: var(--text-secondary);
             font-size: 1.1rem;
-            color: #ccc;
+        }
+
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2rem;
+            }
+
+            section {
+                padding: 1.5rem;
+            }
         }
     </style>
 </head>
 
 <body>
-    <h1>Multimedia Player Hub</h1>
-
-    <!-- Audio Section -->
+    <h1>Multimedia Player</h1>
     <section>
         <h2>Sailing Away</h2>
-        <audio controls aria-label="Audio player for Sailing Away">
-            <source src="https://cdn.freecodecamp.org/curriculum/js-music-player/sailing-away.mp3" type="audio/mpeg">
-            Your browser does not support the audio element.
+        <audio controls aria-label="Audio player for the song Sailing Away">
+            <source src="https://cdn.freecodecamp.org/curriculum/js-music-player/sailing-away.mp3" type="audio/mpeg" />
         </audio>
     </section>
 
-    <!-- Video Section -->
     <section>
-        <h2>What is the map Method?</h2>
-        <video controls width="600" aria-label="Video player explaining the map method">
+        <h2>What is the Map Method?</h2>
+        <video controls width="600" aria-label="Video explaining how the JavaScript map method works">
             <source src="https://cdn.freecodecamp.org/curriculum/labs/what-is-the-map-method-and-how-does-it-work.mp4"
-                type="video/mp4">
+                type="video/mp4" />
             <track src="https://cdn.freecodecamp.org/curriculum/labs/what-is-the-map-method-and-how-does-it-work.vtt"
-                kind="subtitles" srclang="en" label="English">
-            Your browser does not support the video element.
+                kind="captions" srclang="en" label="English">
+            
+            </track>
         </video>
     </section>
 
-    <!-- Transcript Section -->
     <section>
         <h2>Transcript</h2>
-        <p>
-            The map method is one of the most useful array methods in JavaScript.
-            It creates a new array by applying a function to every element in the original array.
-            Unlike forEach, which just iterates over the array, map returns a new array with the transformed values,
-            leaving the original array unchanged.
-            (This is a placeholder transcript summarizing the video content).
-        </p>
+        <!-- 
+            ACCESSIBILITY NOTE: 
+            Providing a transcript for audio and video content is essential for users 
+            who are deaf or hard of hearing, as well as for users who prefer reading 
+            over watching/listening. Captions and aria-labels also help screen reader 
+            users navigate and understand multimedia content.
+        -->
+        <p>This video explains the JavaScript map method, which allows you to create a new array by applying a function
+            to every element in an existing array.</p>
     </section>
-
 </body>
 
 </html>
