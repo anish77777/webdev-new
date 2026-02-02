@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Block Quotes vs Inline Quotes</title>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+        }
+
+        blockquote {
+            margin: 20px;
+            padding-left: 16px;
+            border-left: 4px solid #ccc;
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- =====================================================
+       BLOCK QUOTE (<blockquote>)
+       -----------------------------------------------------
+       Use for:
+       - Long quotations
+       - Quotes that stand on their own
+       - Content taken from another source
+     ===================================================== -->
+
+    <!-- Single-paragraph block quote -->
+    <blockquote cite="https://www.freecodecamp.org/news/learn-to-code-book/">
+        "Can you imagine what it would be like to be a successful developer?
+        To have built software systems that people rely upon?"
+    </blockquote>
+
+    <!-- Multi-paragraph block quote -->
+    <blockquote cite="https://www.freecodecamp.org/news/learn-to-code-book/">
+        <p>Build your projects. Show them to your friends.</p>
+        <p>Build your network. Help people along the way.</p>
+        <p>It is not too late. Life is long.</p>
+        <p>You will be glad you started.</p>
+    </blockquote>
+
+    <!-- Visible citation using <cite> element -->
+    <div>
+        <blockquote cite="https://www.freecodecamp.org/news/learn-to-code-book/">
+            Can you imagine what it would be like to be a successful developer?
+        </blockquote>
+        <p>
+            —Quincy Larson,
+            <cite>How to Learn to Code and Get a Developer Job</cite>
+        </p>
+    </div>
+
+    <hr>
+
+    <!-- =====================================================
+       INLINE QUOTE (<q>)
+       -----------------------------------------------------
+       Use for:
+       - Short quotes
+       - Quotes inside paragraphs
+       - Small referenced phrases
+     ===================================================== -->
+
+    <p>
+        As Quincy Larson once said,
+        <q cite="https://www.freecodecamp.org/news/learn-to-code-book/">
+            Momentum is everything
+        </q>,
+        especially when learning to code.
+    </p>
+
+    <p>
+        The phrase
+        <q cite="https://example.com">
+            practice makes perfect
+        </q>
+        is often repeated for a reason.
+    </p>
+
+    <!-- =====================================================
+       SUMMARY
+       -----------------------------------------------------
+       <blockquote> → long, standalone quotes
+       <q>          → short, inline quotes
+       cite attr    → source (machine-readable)
+       <cite>       → visible title of the source
+     ===================================================== -->
+
+</body>
+
+</html>

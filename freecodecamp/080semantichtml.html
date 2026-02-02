@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Why Semantic HTML Matters</title>
+</head>
+
+<body>
+
+    <!-- NON-SEMANTIC VERSION (no meaning, hard for screen readers & SEO) -->
+    <div>
+        <div>My Travel Blog</div>
+        <div>
+            <div>Paris Trip</div>
+            <div>
+                Let me tell you about my fantastic holiday in Paris.
+                I saw the impressive Eiffel Tower up close!
+            </div>
+        </div>
+    </div>
+
+    <hr>
+
+    <!-- SEMANTIC VERSION (clear meaning, accessible, SEO-friendly) -->
+    <header>
+        <h1>My Travel Blog</h1>
+    </header>
+
+    <main>
+        <article>
+            <h2>Paris Trip</h2>
+            <p>
+                Let me tell you about my fantastic holiday in Paris.
+                I saw the impressive Eiffel Tower up close!
+            </p>
+        </article>
+    </main>
+
+    <footer>
+        <p>© 2026 Travel Blog</p>
+    </footer>
+
+</body>
+
+</html>

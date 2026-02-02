@@ -1,0 +1,626 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DOM Inspector and DevTools Tutorial</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 20px;
+            background: linear-gradient(135deg, #1e3c72 0%, #2a5298 50%, #7e22ce 100%);
+            min-height: 100vh;
+        }
+
+        .container {
+            background: white;
+            border-radius: 15px;
+            padding: 35px;
+            box-shadow: 0 15px 50px rgba(0, 0, 0, 0.3);
+        }
+
+        h1 {
+            color: #1e3c72;
+            border-bottom: 4px solid #1e3c72;
+            padding-bottom: 12px;
+            margin-bottom: 25px;
+            font-size: 2.2em;
+        }
+
+        h2 {
+            color: #2a5298;
+            margin-top: 35px;
+            padding-left: 15px;
+            border-left: 5px solid #2a5298;
+            font-size: 1.6em;
+        }
+
+        h3 {
+            color: #7e22ce;
+            margin-top: 25px;
+            font-size: 1.3em;
+        }
+
+        .definition-box {
+            background: linear-gradient(135deg, #e0f2fe 0%, #ddd6fe 100%);
+            border-left: 6px solid #1e3c72;
+            padding: 20px;
+            margin: 25px 0;
+            border-radius: 8px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .info-box {
+            background: #f0f9ff;
+            border-left: 5px solid #0ea5e9;
+            padding: 18px;
+            margin: 20px 0;
+            border-radius: 6px;
+        }
+
+        .warning-box {
+            background: #fef3c7;
+            border-left: 5px solid #f59e0b;
+            padding: 18px;
+            margin: 20px 0;
+            border-radius: 6px;
+        }
+
+        .error-box {
+            background: #fee2e2;
+            border-left: 5px solid #ef4444;
+            padding: 18px;
+            margin: 20px 0;
+            border-radius: 6px;
+        }
+
+        .success-box {
+            background: #d1fae5;
+            border-left: 5px solid #10b981;
+            padding: 18px;
+            margin: 20px 0;
+            border-radius: 6px;
+        }
+
+        .tip-box {
+            background: #e9d5ff;
+            border-left: 5px solid #7e22ce;
+            padding: 18px;
+            margin: 20px 0;
+            border-radius: 6px;
+        }
+
+        code {
+            background: #f5f5f5;
+            padding: 3px 8px;
+            border-radius: 4px;
+            font-family: 'Courier New', monospace;
+            color: #d63384;
+            font-size: 0.95em;
+        }
+
+        pre {
+            background: #2d2d2d;
+            color: #f8f8f2;
+            padding: 18px;
+            border-radius: 10px;
+            overflow-x: auto;
+            margin: 18px 0;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+        }
+
+        pre code {
+            background: transparent;
+            color: #f8f8f2;
+            padding: 0;
+        }
+
+        .example-section {
+            margin: 35px 0;
+            padding: 25px;
+            background: #fafafa;
+            border-radius: 12px;
+            border: 2px solid #e5e7eb;
+        }
+
+        .demo-box {
+            border: 3px solid #1e3c72;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 10px;
+            background: white;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .broken-link {
+            display: inline-block;
+            background: #ef4444;
+            color: white;
+            padding: 12px 24px;
+            text-decoration: none;
+            border-radius: 6px;
+            margin: 15px 5px;
+            transition: all 0.3s ease;
+            font-weight: bold;
+        }
+
+        .broken-link:hover {
+            background: #dc2626;
+            transform: translateY(-2px);
+            box-shadow: 0 6px 18px rgba(239, 68, 68, 0.4);
+        }
+
+        .fixed-link {
+            display: inline-block;
+            background: #10b981;
+            color: white;
+            padding: 12px 24px;
+            text-decoration: none;
+            border-radius: 6px;
+            margin: 15px 5px;
+            transition: all 0.3s ease;
+            font-weight: bold;
+        }
+
+        .fixed-link:hover {
+            background: #059669;
+            transform: translateY(-2px);
+            box-shadow: 0 6px 18px rgba(16, 185, 129, 0.4);
+        }
+
+        ul,
+        ol {
+            line-height: 1.9;
+        }
+
+        li {
+            margin: 12px 0;
+        }
+
+        .keyboard-shortcut {
+            background: #1e3c72;
+            color: white;
+            padding: 6px 12px;
+            border-radius: 5px;
+            font-family: monospace;
+            font-weight: bold;
+            display: inline-block;
+            margin: 5px;
+            box-shadow: 0 3px 8px rgba(0, 0, 0, 0.2);
+        }
+
+        .tab-description {
+            background: white;
+            padding: 15px;
+            margin: 15px 0;
+            border-radius: 8px;
+            border-left: 4px solid #0ea5e9;
+            box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
+        }
+
+        .dom-tree {
+            background: #f8fafc;
+            padding: 20px;
+            border-radius: 8px;
+            border: 2px solid #cbd5e1;
+            font-family: monospace;
+            margin: 20px 0;
+        }
+
+        .highlight {
+            background: #fef08a;
+            padding: 2px 6px;
+            border-radius: 3px;
+            font-weight: bold;
+        }
+
+        .step-number {
+            background: #7e22ce;
+            color: white;
+            width: 35px;
+            height: 35px;
+            border-radius: 50%;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            margin-right: 10px;
+        }
+
+        .interactive-demo {
+            background: linear-gradient(135deg, #fef3c7 0%, #fde68a 100%);
+            padding: 25px;
+            border-radius: 12px;
+            margin: 25px 0;
+            border: 3px dashed #f59e0b;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <h1>🔍 DOM Inspector and DevTools Tutorial</h1>
+
+        <!-- Introduction -->
+        <div class="definition-box">
+            <h3>📖 What You'll Learn:</h3>
+            <p>When building projects, you'll frequently run into issues where your programs are not working as
+                expected. These issues are called <strong>bugs</strong>, and the process of finding and fixing them is
+                known as <strong>debugging</strong>.</p>
+            <p>To debug your code effectively, you need to use tools provided by your browser: the <strong>DOM
+                    Inspector</strong> and <strong>Developer Tools (DevTools)</strong>.</p>
+        </div>
+
+        <!-- What is Debugging -->
+        <h2>🐛 What is Debugging?</h2>
+        <div class="info-box">
+            <p><strong>Bug:</strong> An error or issue in your code that causes unexpected behavior</p>
+            <p><strong>Debugging:</strong> The process of finding and fixing these bugs</p>
+            <p><strong>Why it matters:</strong> Even experienced developers spend a significant amount of time
+                debugging. Learning to use debugging tools effectively will make you a better programmer!</p>
+        </div>
+
+        <!-- DOM Inspector -->
+        <h2>🌳 What is the DOM Inspector?</h2>
+
+        <div class="definition-box">
+            <p><strong>DOM Inspector:</strong> A tool that allows you to inspect the HTML structure of the page you are
+                viewing.</p>
+        </div>
+
+        <h3>What is the DOM?</h3>
+        <div class="info-box">
+            <p><strong>DOM</strong> stands for <strong>Document Object Model</strong>. It is a tree-like structure that
+                represents all the elements on a webpage.</p>
+            <p>Think of it as a family tree for your HTML elements, where each element can have parents, children, and
+                siblings.</p>
+        </div>
+
+        <div class="dom-tree">
+            <strong>Example DOM Tree Structure:</strong><br><br>
+            📄 document<br>
+            └── 🌐 html<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;├── 📋 head<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;│&nbsp;&nbsp;&nbsp;├── 📝 title<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;│&nbsp;&nbsp;&nbsp;└── 🎨 style<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;└── 📄 body<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;├── 📌 h1<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;├── 📦 div<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;│&nbsp;&nbsp;&nbsp;├── 📝 p<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;│&nbsp;&nbsp;&nbsp;└── 🔗 a<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└── 📝 p
+        </div>
+
+        <div class="tip-box">
+            <strong>💡 Note:</strong> You will learn more about the DOM in later modules. For now, just understand that
+            it's how browsers organize and represent your HTML.
+        </div>
+
+        <!-- Developer Tools -->
+        <h2>🛠️ What are Developer Tools (DevTools)?</h2>
+
+        <div class="definition-box">
+            <p><strong>Developer Tools:</strong> A comprehensive set of tools built into your browser that allow you to
+                inspect and debug HTML, CSS, and JavaScript.</p>
+        </div>
+
+        <h3>How to Open Developer Tools</h3>
+        <div class="example-section">
+            <p><strong>Method 1: Right-Click Menu</strong></p>
+            <ol>
+                <li>Right-click anywhere on the webpage</li>
+                <li>Select <strong>"Inspect"</strong> from the menu</li>
+            </ol>
+
+            <p><strong>Method 2: Keyboard Shortcuts</strong></p>
+            <ul>
+                <li><strong>Windows/Linux:</strong> <span class="keyboard-shortcut">Ctrl + Shift + I</span></li>
+                <li><strong>Mac:</strong> <span class="keyboard-shortcut">Cmd + Option + I</span></li>
+            </ul>
+
+            <p><strong>Method 3: Browser Menu</strong></p>
+            <ul>
+                <li>Chrome: Menu → More Tools → Developer Tools</li>
+                <li>Firefox: Menu → More Tools → Web Developer Tools</li>
+                <li>Edge: Menu → More Tools → Developer Tools</li>
+            </ul>
+        </div>
+
+        <!-- DevTools Tabs -->
+        <h2>📑 Important DevTools Tabs</h2>
+
+        <div class="tab-description">
+            <h3>1️⃣ Elements Tab (Chrome) / Inspector Tab (Firefox)</h3>
+            <p><strong>Purpose:</strong> Shows you the HTML structure and CSS styles of the page</p>
+            <p><strong>What you can do:</strong></p>
+            <ul>
+                <li>View and edit HTML elements in real-time</li>
+                <li>Inspect CSS styles applied to elements</li>
+                <li>See the box model (margins, padding, borders)</li>
+                <li>Modify styles temporarily to test changes</li>
+            </ul>
+        </div>
+
+        <div class="tab-description">
+            <h3>2️⃣ Console Tab</h3>
+            <p><strong>Purpose:</strong> Shows errors, warnings, and messages from your code</p>
+            <p><strong>What you can do:</strong></p>
+            <ul>
+                <li>See JavaScript errors and warnings</li>
+                <li>View network errors (like 404 errors for broken links)</li>
+                <li>Run JavaScript code directly</li>
+                <li>Log custom messages for debugging</li>
+            </ul>
+        </div>
+
+        <div class="tab-description">
+            <h3>3️⃣ Network Tab</h3>
+            <p><strong>Purpose:</strong> Shows all network requests made by the page</p>
+            <p><strong>What you can do:</strong></p>
+            <ul>
+                <li>See which files are being loaded</li>
+                <li>Check loading times</li>
+                <li>Identify failed requests (404 errors, etc.)</li>
+            </ul>
+        </div>
+
+        <!-- Practical Example: Broken Link -->
+        <h2>🔧 Practical Example: Debugging a Broken Link</h2>
+
+        <div class="example-section">
+            <h3>The Problem</h3>
+            <p>Let's look at an HTML example that contains a small bug in the anchor element:</p>
+
+            <pre><code>&lt;!-- ❌ BROKEN LINK - Contains a typo --&gt;
+&lt;a href="https://www.freecodecamp.org/larn/"&gt;freeCodeCamp curriculum&lt;/a&gt;</code></pre>
+
+            <div class="error-box">
+                <strong>⚠️ Issue:</strong> When you click on this link, it leads to a <strong>404 page</strong>.
+                <p><strong>404 Error:</strong> An error page that appears when a user tries to access a webpage that
+                    doesn't exist on the server.</p>
+            </div>
+
+            <div class="demo-box">
+                <h4>Try the broken link:</h4>
+                <p>The intent is for this link to lead to the freeCodeCamp curriculum, but it has a typo:</p>
+                <!-- ❌ BROKEN LINK - Contains a typo in the URL (/larn instead of /learn) -->
+                <a href="https://www.freecodecamp.org/larn/" class="broken-link" target="_blank">
+                    🔴 Broken Link - Click to see 404 error
+                </a>
+                <p style="color: #ef4444; margin-top: 10px;"><small>⚠️ This link will lead to a 404 error page</small>
+                </p>
+            </div>
+        </div>
+
+        <!-- Debugging Steps -->
+        <h2>🔍 Step-by-Step Debugging Process</h2>
+
+        <div class="example-section">
+            <h3><span class="step-number">1</span>Open Developer Tools</h3>
+            <p>Right-click on the broken link and select <strong>"Inspect"</strong>, or use the keyboard shortcut:</p>
+            <ul>
+                <li>PC: <span class="keyboard-shortcut">Ctrl + Shift + I</span></li>
+                <li>Mac: <span class="keyboard-shortcut">Cmd + Option + I</span></li>
+            </ul>
+        </div>
+
+        <div class="example-section">
+            <h3><span class="step-number">2</span>Check the Elements Tab</h3>
+            <p>In the <strong>Elements</strong> tab, you'll see the HTML structure. The broken link element will be
+                highlighted:</p>
+
+            <pre><code>&lt;a href="https://www.freecodecamp.org/larn/"&gt;freeCodeCamp curriculum&lt;/a&gt;</code></pre>
+
+            <div class="info-box">
+                <strong>💡 Tip:</strong> You can hover over elements in the Elements tab to highlight them on the page!
+            </div>
+        </div>
+
+        <div class="example-section">
+            <h3><span class="step-number">3</span>Check the Console Tab</h3>
+            <p>Click on the <strong>Console</strong> tab. When you click the broken link, you'll see error messages:</p>
+
+            <div class="error-box">
+                <code style="background: transparent; color: #dc2626;">
+                    ❌ GET https://www.freecodecamp.org/larn/ 404 (Not Found)
+                </code>
+            </div>
+
+            <p>The <strong>404 error</strong> indicates that the page is not found. This tells us the issue is with the
+                URL in the anchor element.</p>
+        </div>
+
+        <div class="example-section">
+            <h3><span class="step-number">4</span>Inspect the href Value</h3>
+            <p>Looking closely at the <code>href</code> attribute, you'll notice the typo:</p>
+
+            <div class="warning-box">
+                <p><strong>Current (Wrong):</strong>
+                    <code>https://www.freecodecamp.org/<span class="highlight">larn</span>/</code></p>
+                <p><strong>Should be:</strong>
+                    <code>https://www.freecodecamp.org/<span class="highlight">learn</span>/</code></p>
+                <p><strong>The Problem:</strong> <code>/larn/</code> should be <code>/learn/</code></p>
+            </div>
+        </div>
+
+        <div class="example-section">
+            <h3><span class="step-number">5</span>Fix the Bug</h3>
+            <p>Correct the typo in your HTML code:</p>
+
+            <pre><code>&lt;!-- ✅ FIXED LINK - Typo corrected --&gt;
+&lt;a href="https://www.freecodecamp.org/learn/"&gt;freeCodeCamp curriculum&lt;/a&gt;</code></pre>
+
+            <div class="demo-box">
+                <h4>Try the fixed link:</h4>
+                <p>Now the link works correctly and leads to the freeCodeCamp curriculum:</p>
+                <!-- ✅ FIXED LINK - Corrected URL -->
+                <a href="https://www.freecodecamp.org/learn/" class="fixed-link" target="_blank">
+                    ✅ Fixed Link - Click to visit freeCodeCamp
+                </a>
+                <p style="color: #10b981; margin-top: 10px;"><small>✓ This link now works correctly!</small></p>
+            </div>
+
+            <div class="success-box">
+                <strong>✅ Bug Fixed!</strong> The link now works as expected and takes users to the correct page.
+            </div>
+        </div>
+
+        <!-- Interactive Practice -->
+        <h2>🎯 Interactive Practice Section</h2>
+
+        <div class="interactive-demo">
+            <h3>🧪 Try It Yourself!</h3>
+            <p><strong>Challenge:</strong> Use DevTools to inspect the elements below and find the hidden information!
+            </p>
+
+            <div style="margin: 20px 0;">
+                <p id="secret-message" style="color: white; background: white;">
+                    <!-- Hidden message: Hover over this in DevTools to reveal! -->
+                    Congratulations! You found the secret message using DevTools! 🎉
+                </p>
+                <p><small><em>Hint: Right-click the white box above and select "Inspect" to reveal the hidden
+                            message!</em></small></p>
+            </div>
+
+            <div style="margin: 20px 0;">
+                <button onclick="alert('Button clicked! Check the Console tab to see this message.')"
+                    style="background: #7e22ce; color: white; padding: 12px 24px; border: none; border-radius: 6px; cursor: pointer; font-size: 16px; font-weight: bold;">
+                    Click Me & Check Console!
+                </button>
+                <p><small><em>Hint: Click the button, then check the Console tab in DevTools!</em></small></p>
+            </div>
+        </div>
+
+        <!-- Common Debugging Scenarios -->
+        <h2>🔎 Common Debugging Scenarios</h2>
+
+        <div class="example-section">
+            <h3>1. Broken Links (404 Errors)</h3>
+            <ul>
+                <li><strong>Symptom:</strong> Link doesn't work or leads to error page</li>
+                <li><strong>How to debug:</strong> Check Console for 404 errors, inspect href attribute</li>
+                <li><strong>Common causes:</strong> Typos in URLs, incorrect paths, missing files</li>
+            </ul>
+        </div>
+
+        <div class="example-section">
+            <h3>2. Missing Images</h3>
+            <ul>
+                <li><strong>Symptom:</strong> Image doesn't display, shows broken image icon</li>
+                <li><strong>How to debug:</strong> Check Console for 404 errors, inspect src attribute</li>
+                <li><strong>Common causes:</strong> Wrong file path, typos in filename, missing alt attribute</li>
+            </ul>
+        </div>
+
+        <div class="example-section">
+            <h3>3. Layout Issues</h3>
+            <ul>
+                <li><strong>Symptom:</strong> Elements not positioned correctly</li>
+                <li><strong>How to debug:</strong> Use Elements tab to inspect CSS, check box model</li>
+                <li><strong>Common causes:</strong> CSS conflicts, incorrect positioning, margin/padding issues</li>
+            </ul>
+        </div>
+
+        <div class="example-section">
+            <h3>4. JavaScript Errors</h3>
+            <ul>
+                <li><strong>Symptom:</strong> Interactive features don't work</li>
+                <li><strong>How to debug:</strong> Check Console for error messages</li>
+                <li><strong>Common causes:</strong> Syntax errors, undefined variables, wrong function names</li>
+            </ul>
+        </div>
+
+        <!-- DevTools Tips and Tricks -->
+        <h2>💡 DevTools Tips and Tricks</h2>
+
+        <div class="tip-box">
+            <h3>🎨 Edit HTML/CSS in Real-Time</h3>
+            <p>You can double-click on any element in the Elements tab to edit it temporarily. This is great for testing
+                changes before modifying your actual code!</p>
+        </div>
+
+        <div class="tip-box">
+            <h3>📱 Test Responsive Design</h3>
+            <p>Click the device icon (or press <span class="keyboard-shortcut">Ctrl + Shift + M</span>) to toggle device
+                emulation and see how your site looks on different screen sizes.</p>
+        </div>
+
+        <div class="tip-box">
+            <h3>🎯 Select Elements Quickly</h3>
+            <p>Click the "Select element" icon (cursor arrow) in DevTools, then click any element on the page to inspect
+                it instantly!</p>
+        </div>
+
+        <div class="tip-box">
+            <h3>🔍 Search in DevTools</h3>
+            <p>Press <span class="keyboard-shortcut">Ctrl + F</span> (or <span class="keyboard-shortcut">Cmd + F</span>
+                on Mac) while in the Elements tab to search for specific HTML or text.</p>
+        </div>
+
+        <!-- Best Practices -->
+        <h2>✅ Debugging Best Practices</h2>
+
+        <div class="success-box">
+            <ol>
+                <li><strong>Check the Console First:</strong> Many errors will show up here with helpful messages</li>
+                <li><strong>Use Descriptive Names:</strong> Clear IDs and class names make debugging easier</li>
+                <li><strong>Test Frequently:</strong> Don't write too much code before testing - debug as you go</li>
+                <li><strong>Read Error Messages Carefully:</strong> They often tell you exactly what's wrong and where
+                </li>
+                <li><strong>Use Comments:</strong> Comment your code to help you (and others) understand it later</li>
+                <li><strong>Start Simple:</strong> If something complex isn't working, break it down into smaller parts
+                </li>
+                <li><strong>Compare Working vs. Broken:</strong> Look at similar code that works to spot differences
+                </li>
+                <li><strong>Take Breaks:</strong> Sometimes stepping away helps you see the problem with fresh eyes</li>
+            </ol>
+        </div>
+
+        <!-- What's Next -->
+        <h2>🚀 What's Next?</h2>
+
+        <div class="info-box">
+            <p>You will learn more about working with developer tools throughout the certification. This tutorial
+                provided a short introduction to show how DevTools can help you debug your code.</p>
+            <p><strong>Remember:</strong> Every developer, from beginners to experts, uses these tools daily. The more
+                you practice with them, the faster you'll become at finding and fixing bugs!</p>
+        </div>
+
+        <!-- Key Takeaways -->
+        <h2>📝 Key Takeaways</h2>
+
+        <div class="success-box">
+            <ul>
+                <li>✅ <strong>Bugs</strong> are errors in code; <strong>debugging</strong> is fixing them</li>
+                <li>✅ <strong>DOM Inspector</strong> shows the HTML structure of your page</li>
+                <li>✅ <strong>DOM</strong> stands for Document Object Model - a tree-like structure of elements</li>
+                <li>✅ <strong>DevTools</strong> help you inspect HTML, CSS, and JavaScript</li>
+                <li>✅ Open DevTools with <strong>Right-Click → Inspect</strong> or keyboard shortcuts</li>
+                <li>✅ <strong>Elements Tab</strong> shows HTML structure and CSS styles</li>
+                <li>✅ <strong>Console Tab</strong> shows errors and warnings</li>
+                <li>✅ <strong>404 Errors</strong> mean a page or resource wasn't found</li>
+                <li>✅ Always check the Console for error messages when debugging</li>
+                <li>✅ DevTools let you test changes in real-time before modifying your code</li>
+            </ul>
+        </div>
+
+        <!-- Footer -->
+        <div
+            style="margin-top: 50px; padding-top: 25px; border-top: 3px solid #e5e7eb; text-align: center; color: #6b7280;">
+            <p style="font-size: 1.1em;">🛠️ <strong>DOM Inspector and DevTools Tutorial</strong></p>
+            <p>Master debugging to become a better developer! 🚀</p>
+        </div>
+    </div>
+
+    <script>
+        // This script logs a message when the button is clicked
+        // You can see this in the Console tab of DevTools!
+        console.log('🎉 Page loaded successfully! Open DevTools to see this message.');
+        console.log('💡 Tip: Try clicking the button above to see more console messages!');
+    </script>
+</body>
+
+</html>

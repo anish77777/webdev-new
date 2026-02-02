@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>What Is the aria-describedby Attribute, and How Does It Work?</title>
+    <!-- Font Awesome for any icons if needed, keeping consistency -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.5.0/css/all.min.css" />
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #f4f4f4;
+        }
+
+        h1 {
+            color: #333;
+            border-bottom: 3px solid #007acc;
+            padding-bottom: 10px;
+        }
+
+        h2 {
+            color: #007acc;
+            margin-top: 30px;
+        }
+
+        .intro {
+            background-color: white;
+            padding: 20px;
+            margin: 15px 0;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+
+        .definition {
+            background-color: #e8f4f8;
+            padding: 20px;
+            margin: 20px 0;
+            border-left: 4px solid #007acc;
+            border-radius: 4px;
+        }
+
+        .note {
+            background-color: #fff3cd;
+            padding: 15px;
+            margin: 15px 0;
+            border-left: 4px solid #ffc107;
+            border-radius: 4px;
+        }
+
+        .example {
+            background-color: white;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+
+        .code-block {
+            background-color: #2d2d2d;
+            color: #f8f8f2;
+            padding: 15px;
+            border-radius: 4px;
+            overflow-x: auto;
+            margin: 15px 0;
+        }
+
+        .code-block code {
+            font-family: 'Courier New', monospace;
+            font-size: 14px;
+            white-space: pre;
+        }
+
+        .preview {
+            border: 1px solid #ddd;
+            padding: 20px;
+            border-radius: 4px;
+            margin-top: 15px;
+        }
+
+        /* Specific styles for the examples in this tutorial */
+        #password-help {
+            color: red;
+            font-size: 0.9em;
+            margin-top: 5px;
+        }
+
+        form {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            max-width: 300px;
+        }
+
+        label {
+            font-weight: bold;
+        }
+
+        input {
+            padding: 8px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+
+        button {
+            padding: 0.5em 1em;
+            background-color: #d9534f;
+            color: #fff;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 1em;
+        }
+
+        button:hover {
+            background-color: #c9302c;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>What Is the <code>aria-describedby</code> Attribute, and How Does It Work?</h1>
+
+    <div class="intro">
+        <p>The <code>aria-describedby</code> attribute is used to provide additional information about an element to
+            screen reader users by referencing existing content on the page.</p>
+        <p>It creates a programmatic association between the element and the content (technically referred to as an
+            <strong>accessible description</strong>), which screen readers can use to inform users of the additional
+            information when they interact with the element.
+        </p>
+    </div>
+
+    <div class="definition">
+        <h2>Common Use Case</h2>
+        <p>The most common use for <code>aria-describedby</code> is to associate instructions and error messages with
+            form inputs. Due to the various methods screen reader users have for navigating a page, they may miss these
+            messages when navigating between inputs. Using <code>aria-describedby</code> helps ensure that they will
+            hear them.</p>
+    </div>
+
+    <div class="example">
+        <h2>Example 1: Password Input</h2>
+        <p>In this example, we have a form element that accepts a password. The <code>aria-describedby</code> attribute
+            connects the input field to the help text.</p>
+
+        <div class="note">
+            <p><strong>Try it out:</strong> Type a few characters into the password input field below. You will see that
+                the password is masked. You should also see that the password-help text remains red until you provide 8
+                or more characters.</p>
+        </div>
+
+        <div class="code-block">
+            <code>&lt;form&gt;
+  &lt;label for="password"&gt;Password:&lt;/label&gt;
+  &lt;input type="password" id="password" aria-describedby="password-help" /&gt;
+  &lt;p id="password-help"&gt;Your password must be at least 8 characters long.&lt;/p&gt;
+&lt;/form&gt;
+
+&lt;!-- CSS --&gt;
+#password-help {
+  color: red;
+}</code>
+        </div>
+
+        <div class="preview">
+            <p><strong>Preview:</strong></p>
+            <form action="javascript:void(0);">
+                <label for="password">Password:</label>
+                <input type="password" id="password" aria-describedby="password-help" />
+                <p id="password-help">Your password must be at least 8 characters long.</p>
+            </form>
+        </div>
+
+        <p>We are using a label element for the Password text and associating that with the password input field. We
+            also have a paragraph element that describes the password requirements. We are using the
+            <code>aria-describedby</code> attribute to associate the password input field with the password requirements
+            in the paragraph element.
+        </p>
+
+        <p>When a screen reader user interacts with this input, their screen reader will announce the name of the input
+            (Password) and may then also announce the password requirements.</p>
+    </div>
+
+    <div class="definition">
+        <h2>Screen Reader Behavior Note</h2>
+        <p>This is not an absolute guarantee regarding how it is announced. Some screen readers may not automatically
+            announce the additional content, or may only announce it in specific circumstances. This is not uncommon.
+            Each screen reader is different and handles ARIA attributes in their own way. This does not negate the use
+            of <code>aria-describedby</code>, as it will benefit screen reader users in general.</p>
+    </div>
+
+    <div class="example">
+        <h2>Example 2: Delete Button</h2>
+        <p>Another good use case for the <code>aria-describedby</code> attribute is when you have a delete button. Here
+            is an example of a delete button followed by a message describing what will happen when the button is
+            clicked:</p>
+
+        <div class="code-block">
+            <code>&lt;button aria-describedby="delete-message"&gt;Delete&lt;/button&gt;
+
+&lt;p id="delete-message"&gt;Warning! All deletions are permanent.&lt;/p&gt;</code>
+        </div>
+
+        <div class="preview">
+            <p><strong>Preview:</strong></p>
+            <button aria-describedby="delete-message">Delete</button>
+            <p id="delete-message">Warning! All deletions are permanent.</p>
+        </div>
+
+        <p>Just like in the earlier example, we associate the delete button with the message using the
+            <code>aria-describedby</code> attribute. The <code>id</code> value and the value of the
+            <code>aria-describedby</code> attribute must match.
+        </p>
+    </div>
+
+    <div class="intro">
+        <h2>Summary</h2>
+        <p>The <code>aria-describedby</code> attribute is a powerful attribute that can be used to help ensure that
+            additional information about an element is provided to screen reader users when they interact with the
+            element. It is most commonly used to associate instructions and error messages with form inputs in order to
+            reduce the chance that screen reader users will miss these messages as they navigate the form.</p>
+    </div>
+
+    <script>
+        // JavaScript for the Password Example
+        const passwordEl = document.getElementById("password");
+        const passwordHelpText = document.getElementById("password-help");
+
+        if (passwordEl && passwordHelpText) {
+            passwordEl.addEventListener("input", (e) => {
+                const userInput = e.target.value;
+                if (userInput.length >= 8) {
+                    passwordHelpText.style.color = "green";
+                } else {
+                    passwordHelpText.style.color = "red";
+                }
+            });
+        }
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <title>Five Link State Examples</title>
+
+    <style>
+        /* Correct order: link → visited → hover → focus → active */
+
+        a:link {
+            color: blue;
+        }
+
+        a:visited {
+            color: purple;
+        }
+
+        a:hover {
+            color: red;
+        }
+
+        a:focus {
+            color: green;
+            outline: 2px solid green;
+        }
+
+        a:active {
+            color: black;
+        }
+
+        /* spacing for clarity */
+        a {
+            display: block;
+            margin: 12px 0;
+            font-size: 18px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <h2>Five Link State Examples</h2>
+
+    <!-- Example 1: Default (unvisited) -->
+    <a href="https://example.com">
+        Example 1: Default link (:link)
+    </a>
+
+    <!-- Example 2: Visited (click once to see change) -->
+    <a href="https://freecodecamp.org">
+        Example 2: Visited link (:visited)
+    </a>
+
+    <!-- Example 3: Hover (move mouse over) -->
+    <a href="#">
+        Example 3: Hover over me (:hover)
+    </a>
+
+    <!-- Example 4: Focus (press TAB to focus) -->
+    <a href="#">
+        Example 4: Keyboard focus (:focus)
+    </a>
+
+    <!-- Example 5: Active (click and hold) -->
+    <a href="#">
+        Example 5: Click and hold (:active)
+    </a>
+
+</body>
+
+</html>

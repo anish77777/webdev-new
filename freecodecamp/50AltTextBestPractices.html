@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Alt Text Best Practices</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.8;
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #1a1a2e;
+            color: #eaeaea;
+        }
+
+        h1 {
+            color: #00d9ff;
+            border-bottom: 3px solid #00d9ff;
+            padding-bottom: 10px;
+        }
+
+        h2 {
+            color: #ff6b6b;
+            margin-top: 30px;
+        }
+
+        h3 {
+            color: #4ecdc4;
+        }
+
+        code {
+            background-color: #2d2d44;
+            padding: 3px 8px;
+            border-radius: 4px;
+            font-family: 'Consolas', monospace;
+            color: #ffd93d;
+        }
+
+        pre {
+            background-color: #2d2d44;
+            padding: 20px;
+            border-radius: 8px;
+            overflow-x: auto;
+            border-left: 4px solid #00d9ff;
+        }
+
+        pre code {
+            background-color: transparent;
+            padding: 0;
+        }
+
+        .example-box {
+            background-color: #252542;
+            padding: 20px;
+            border-radius: 8px;
+            margin: 20px 0;
+            border: 1px solid #3d3d5c;
+        }
+
+        .bad-example {
+            border-left: 4px solid #ff6b6b;
+        }
+
+        .good-example {
+            border-left: 4px solid #4ecdc4;
+        }
+
+        .tip {
+            background-color: #1e3a5f;
+            padding: 15px;
+            border-radius: 8px;
+            margin: 15px 0;
+            border-left: 4px solid #00d9ff;
+        }
+
+        ul {
+            padding-left: 25px;
+        }
+
+        li {
+            margin-bottom: 12px;
+        }
+
+        .highlight {
+            color: #ffd93d;
+            font-weight: bold;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Header Section -->
+    <h1>When Is the Alt Attribute Needed, and What Are Some Examples of Good Alt Text?</h1>
+
+    <!-- Introduction Section -->
+    <section>
+        <h2>What is Alternative Text?</h2>
+        <p>
+            <strong>Alternative text</strong>, often abbreviated as <code>alt text</code>, is a brief text description
+            of an image. It provides essential information about the image for users who cannot see it, such as people
+            who use screen readers and other assistive technologies.
+        </p>
+        <p>
+            It's <span class="highlight">essential for making websites accessible</span> to people with visual
+            disabilities.
+        </p>
+        <p>
+            Alternative text is also used by:
+        </p>
+        <ul>
+            <li><strong>Search engines</strong> to understand images</li>
+            <li><strong>Browsers</strong> which may display it when an image is not loaded properly (due to missing
+                files or connectivity issues)</li>
+        </ul>
+    </section>
+
+    <!-- Bad vs Good Alt Text Examples Section -->
+    <section>
+        <h2>Examples: Bad vs Good Alt Text</h2>
+
+        <h3>Example 1: Puppy Image</h3>
+        <p>A person with a visual disability will not be able to know what's in the image unless it's described in the
+            alt text.</p>
+
+        <div class="example-box bad-example">
+            <h4>❌ Bad Alt Text</h4>
+            <code>"A cute puppy."</code>
+            <p>This text is not specific enough to convey the important details of the image:</p>
+            <ul>
+                <li>What does the puppy look like?</li>
+                <li>Where is the puppy?</li>
+                <li>Are there any important objects around the puppy?</li>
+            </ul>
+        </div>
+
+        <div class="example-box good-example">
+            <h4>✅ Good Alt Text</h4>
+            <code>"A black and white puppy with an orange collar lies on its belly in the sand, looking off to the side. A bright orange ball rests near its front paws."</code>
+        </div>
+
+        <p>Here's how it looks in HTML:</p>
+        <pre><code>&lt;img src="puppy.png" alt="A black and white puppy with an orange collar lies on its belly in the sand, looking off to the side. A bright orange ball rests near its front paws." /&gt;</code></pre>
+
+        <div class="tip">
+            <strong>💡 Important Note:</strong> There is no one correct way to write alt text for an image. What you
+            include in your description will depend on the context the picture is used in. The alt text should reflect
+            the <strong>primary purpose</strong> for including the image on the page.
+        </div>
+
+        <h3>Example 2: Resort Image</h3>
+
+        <div class="example-box bad-example">
+            <h4>❌ Bad Alt Text</h4>
+            <code>"Resort."</code>
+            <p>This is too short and doesn't provide enough information about the image.</p>
+        </div>
+
+        <div class="example-box good-example">
+            <h4>✅ Good Alt Text</h4>
+            <code>"Tropical resort featuring a swimming pool surrounded by palm trees and bungalows."</code>
+        </div>
+
+        <pre><code>&lt;img src="resort.png" alt="Tropical resort featuring a swimming pool surrounded by palm trees and bungalows." /&gt;</code></pre>
+    </section>
+
+    <!-- Best Practices Section -->
+    <section>
+        <h2>Best Practices for Writing Alt Text</h2>
+        <ul>
+            <li><strong>Keep alt text short:</strong> It should be detailed enough to understand the image but not so
+                long that it becomes confusing.</li>
+            <li><strong>Don't describe every little detail:</strong> Focus on the most important aspects of the image.
+            </li>
+            <li><strong>Don't start with "image of" or "picture of":</strong> Just start the description directly.</li>
+            <li><strong>Avoid redundancy:</strong> If there's similar text around the image, you don't need to write it
+                again.</li>
+            <li><strong>End with a period:</strong> It's usually recommended to end the alt text with a period for
+                consistency.</li>
+        </ul>
+    </section>
+
+    <!-- Images as Links Section -->
+    <section>
+        <h2>Alt Text for Images Used as Links</h2>
+        <p>If the image is a link to another page, instead of describing the image itself, the alt text should describe
+            <strong>what will happen if users click on it</strong>.</p>
+
+        <h3>Example: Arrow Icon Link</h3>
+
+        <div class="example-box bad-example">
+            <h4>❌ Bad Approach</h4>
+            <pre><code>&lt;a href="about.html"&gt;
+  &lt;img src="arrow-right.png" alt="Right arrow." /&gt;
+&lt;/a&gt;</code></pre>
+            <p>This only describes what the image looks like, not its function.</p>
+        </div>
+
+        <div class="example-box good-example">
+            <h4>✅ Good Approach</h4>
+            <pre><code>&lt;a href="about.html"&gt;
+  &lt;img src="arrow-right.png" alt="Go to next page." /&gt;
+&lt;/a&gt;</code></pre>
+            <p>This describes what will happen when users click on the image.</p>
+        </div>
+    </section>
+
+    <!-- Decorative Images Section -->
+    <section>
+        <h2>Decorative Images</h2>
+        <p>Only images that convey important information should have alt text. If an image is only used for
+            <strong>decorative purposes</strong>, it should have <span class="highlight">null (empty) alt text</span>,
+            so it can be ignored by screen readers and other assistive technologies.</p>
+
+        <pre><code>&lt;img src="decorative_image.jpg" alt="" /&gt;</code></pre>
+
+        <div class="tip">
+            <strong>⚠️ Important:</strong> Every image on your website should have an <code>alt</code> attribute, even
+            if it's empty. If you omit the alt attribute completely, some screen readers will read the file name
+            instead, which can be distracting for people who use assistive technologies.
+        </div>
+    </section>
+
+    <!-- Testing Section -->
+    <section>
+        <h2>Testing Your Alt Text</h2>
+        <p>Before your website is live, you should carefully test if screen readers can read the alt text correctly.</p>
+    </section>
+
+    <!-- Summary Section -->
+    <section>
+        <h2>Summary</h2>
+        <p>Writing effective alt text is essential for creating accessible web content. As a web developer, by providing
+            clear descriptions of your images, you can make sure that <strong>everyone can engage with your
+                website</strong> in an inclusive online experience.</p>
+
+        <div class="example-box">
+            <h4>Quick Reference</h4>
+            <ul>
+                <li>✅ Be specific and descriptive</li>
+                <li>✅ Keep it concise but informative</li>
+                <li>✅ End with a period</li>
+                <li>✅ For linked images, describe the action</li>
+                <li>✅ Use empty alt for decorative images</li>
+                <li>❌ Don't start with "image of"</li>
+                <li>❌ Don't repeat surrounding text</li>
+                <li>❌ Don't omit the alt attribute</li>
+            </ul>
+        </div>
+    </section>
+</body>
+
+</html>

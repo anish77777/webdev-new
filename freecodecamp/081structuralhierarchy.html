@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Why Structural Hierarchy Is Important</title>
+</head>
+
+<body>
+
+    <!-- =====================================================
+       IMPORTANT TOPIC: STRUCTURAL HIERARCHY IN HTML
+       -----------------------------------------------------
+       - Headings define document structure
+       - NOT visual size (CSS handles styling)
+       - Critical for:
+         1) Accessibility (screen readers)
+         2) SEO (search engine ranking)
+         3) Valid HTML (browser correctness)
+         4) Developer readability & maintenance
+     ===================================================== -->
+
+    <!-- ❌ BAD STRUCTURE (DO NOT DO THIS)
+       Problem:
+       - h3 appears before h2
+       - Screen readers think content is missing
+       - SEO hierarchy is broken
+  -->
+    <section>
+        <h1>freeCodeCamp</h1>
+        <h3>Introduction to HTML</h3>
+        <h2>Learn Front-End Development</h2>
+    </section>
+
+    <hr>
+
+    <!-- ✅ GOOD STRUCTURE (CORRECT HIERARCHY)
+       Rule:
+       h1 → h2 → h3 → h4 ...
+       Never skip heading levels
+  -->
+    <section>
+        <h1>freeCodeCamp</h1>
+        <h2>Learn Front-End Development</h2>
+        <h3>Introduction to HTML</h3>
+    </section>
+
+    <hr>
+
+    <!-- ❌ BAD PRACTICE: Using headings only for styling
+       Headings MUST represent importance, not size
+  -->
+    <article>
+        <p>
+            Here is some
+        <h1>Large Text</h1>
+        </p>
+    </article>
+
+    <hr>
+
+    <!-- ✅ GOOD PRACTICE: Correct semantics + CSS styling -->
+    <article>
+        <p class="large-text">Large Text</p>
+    </article>
+
+    <!-- =====================================================
+       WHY THIS MATTERS
+       -----------------------------------------------------
+       Accessibility:
+       - Screen readers navigate by heading levels
+       - Skipping levels confuses users
+
+       SEO:
+       - Search engines use heading hierarchy
+       - Proper structure improves ranking
+
+       Valid HTML:
+       - Incorrect hierarchy can break document validity
+       - Browsers may guess wrong
+
+       Developer Experience:
+       - Clean structure = easier maintenance
+       - Faster debugging and collaboration
+     ===================================================== -->
+
+</body>
+
+</html>

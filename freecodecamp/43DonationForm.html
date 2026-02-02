@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Donation Form</title>
+</head>
+
+<body>
+    <h1>Donation Form</h1>
+    <form>
+
+        <!-- Full Name field with label and required attribute -->
+        <label for="name">Full Name:</label>
+        <input type="text" name="name" id="name" required>
+
+        <!-- Email field with label, email type, and required attribute -->
+        <label for="email">Email Address:</label>
+        <input type="email" name="email" id="email" required>
+
+        <!-- Donation Amount field with label and required attribute -->
+        <label for="amount">Donation Amount ($):</label>
+        <input type="number" name="amount" id="amount" required>
+
+        <!-- Newsletter checkbox with label (no required attribute) -->
+        <input type="checkbox" name="newsletter" id="newsletter">
+        <label for="newsletter">Subscribe</label>
+
+        <!-- Submit button (no required attribute) -->
+        <input type="submit" value="Send">
+    </form>
+</body>
+
+</html>

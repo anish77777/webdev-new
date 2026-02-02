@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>em vs i — When to Use Which</title>
+
+    <!-- CSS for presentation only -->
+    <style>
+        .italic {
+            font-style: italic;
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- =====================================================
+       IDIOMATIC TEXT ELEMENT: <i>
+       -----------------------------------------------------
+       Use <i> when text is:
+       - Idiomatic or foreign language
+       - Technical terms
+       - Thoughts, alternative voice, or mood
+       - NOT indicating importance
+     ===================================================== -->
+
+    <p>
+        There is a certain
+        <i lang="fr">je ne sais quoi</i>
+        in the air.
+    </p>
+
+    <p>
+        The variable <i>x</i> represents the unknown value.
+    </p>
+
+    <p>
+        She thought, <i>this might not end well</i>, before opening the door.
+    </p>
+
+    <hr>
+
+    <!-- =====================================================
+       EMPHASIS ELEMENT: <em>
+       -----------------------------------------------------
+       Use <em> when text:
+       - Changes the meaning of the sentence
+       - Needs special importance or stress
+       - Should be announced differently by screen readers
+     ===================================================== -->
+
+    <p>
+        Never give up on <em>your</em> dreams.
+    </p>
+
+    <p>
+        I <em>did</em> finish the project.
+    </p>
+
+    <p>
+        You should <em>always</em> check your code before submitting.
+    </p>
+
+    <hr>
+
+    <!-- =====================================================
+       ❌ DO NOT USE <i> OR <em> FOR STYLING ONLY
+       -----------------------------------------------------
+       If you only want italics with NO meaning,
+       use CSS instead.
+     ===================================================== -->
+
+    <p class="italic">
+        This text is italicized using CSS only.
+    </p>
+
+    <!-- =====================================================
+       SUMMARY
+       -----------------------------------------------------
+       <i>  → different voice, language, or term (no importance)
+       <em> → emphasized meaning (importance matters)
+       CSS  → visual styling only
+     ===================================================== -->
+
+</body>
+
+</html>

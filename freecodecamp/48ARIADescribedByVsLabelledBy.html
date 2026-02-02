@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>aria-labelledby vs. aria-describedby: What's the Difference?</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.5.0/css/all.min.css" />
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #f4f4f4;
+        }
+
+        h1 {
+            color: #333;
+            border-bottom: 3px solid #007acc;
+            padding-bottom: 10px;
+        }
+
+        h2 {
+            color: #007acc;
+            margin-top: 30px;
+        }
+
+        h3 {
+            color: #333;
+            margin-top: 20px;
+        }
+
+        .intro {
+            background-color: white;
+            padding: 20px;
+            margin: 15px 0;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+
+        .comparison-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+            background-color: white;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+
+        .comparison-table th,
+        .comparison-table td {
+            padding: 15px;
+            text-align: left;
+            border-bottom: 1px solid #ddd;
+            vertical-align: top;
+        }
+
+        .comparison-table th {
+            background-color: #007acc;
+            color: white;
+        }
+
+        .comparison-table tr:nth-child(even) {
+            background-color: #f9f9f9;
+        }
+
+        .code-block {
+            background-color: #2d2d2d;
+            color: #f8f8f2;
+            padding: 15px;
+            border-radius: 4px;
+            overflow-x: auto;
+            margin: 15px 0;
+        }
+
+        .code-block code {
+            font-family: 'Courier New', monospace;
+            font-size: 14px;
+            white-space: pre;
+        }
+
+        .example {
+            background-color: white;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            border-left: 5px solid #28a745;
+        }
+
+        .role-badge {
+            display: inline-block;
+            padding: 3px 8px;
+            border-radius: 4px;
+            font-size: 0.85em;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+
+        .badge-primary {
+            background-color: #e3f2fd;
+            color: #0d47a1;
+            border: 1px solid #bbdefb;
+        }
+
+        .badge-secondary {
+            background-color: #f3e5f5;
+            color: #7b1fa2;
+            border: 1px solid #e1bee7;
+        }
+
+        input {
+            padding: 8px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            margin-right: 10px;
+        }
+    </style>
+</head>
+
+<body>
+    <h1><code>aria-labelledby</code> vs. <code>aria-describedby</code></h1>
+
+    <div class="intro">
+        <p>Both attributes connect an element to text elsewhere on the page, but they serve different purposes for
+            screen reader users. Think of it as the difference between the <strong>Name</strong> of something and its
+            <strong>Description</strong>.</p>
+    </div>
+
+    <table class="comparison-table">
+        <thead>
+            <tr>
+                <th style="width: 50%;">aria-labelledby</th>
+                <th style="width: 50%;">aria-describedby</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td><strong>The "Name" (Label)</strong></td>
+                <td><strong>The "Description" (Details)</strong></td>
+            </tr>
+            <tr>
+                <td>Defines <em>what</em> user control is. It acts as the accessible name.</td>
+                <td>Provides <em>additional information</em>. It acts as the accessible description.</td>
+            </tr>
+            <tr>
+                <td><strong>Essential.</strong> If an element lacks a label, the user won't know what it's for.</td>
+                <td><strong>Optional.</strong> Used for hints, error messages, or extra instructions.</td>
+            </tr>
+            <tr>
+                <td><strong>Overrides</strong> other labels (like <code>&lt;label&gt;</code> or inner text).</td>
+                <td><strong>Supplements</strong> the label. It is read <em>after</em> the label and role.</td>
+            </tr>
+            <tr>
+                <td><em>Example:</em> "Search"</td>
+                <td><em>Example:</em> "Press Enter to search"</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <div class="example">
+        <span class="role-badge badge-primary">Case Study 1: aria-labelledby</span>
+        <h3>When to use it:</h3>
+        <p>Use it when an element doesn't have visible text that describes it, or when logical label text exists
+            elsewhere on the page.</p>
+
+        <p><strong>Scenario:</strong> A "Read More" link that needs to correspond to a specific article title.</p>
+
+        <div class="code-block">
+            <code>&lt;h2 id="article1"&gt;Accessibility in 2024&lt;/h2&gt;
+&lt;p&gt;New standards are emerging...&lt;/p&gt;
+&lt;a href="..." aria-labelledby="article1"&gt;Read More&lt;/a&gt;</code>
+        </div>
+
+        <p><strong>Screen Reader Output:</strong> "Link, Accessibility in 2024"</p>
+        <p><em>(Without it, the user would just hear "Link, Read More", which is ambiguous.)</em></p>
+    </div>
+
+    <div class="example">
+        <span class="role-badge badge-secondary">Case Study 2: aria-describedby</span>
+        <h3>When to use it:</h3>
+        <p>Use it when the element already has a name, but needs extra context, instructions, or error messages.</p>
+
+        <p><strong>Scenario:</strong> A password field that requires specific characters.</p>
+
+        <div class="code-block">
+            <code>&lt;label for="pw"&gt;Password&lt;/label&gt;
+&lt;input type="password" id="pw" aria-describedby="pw-hint"&gt;
+&lt;span id="pw-hint"&gt;Must be at least 8 chars.&lt;/span&gt;</code>
+        </div>
+
+        <p><strong>Screen Reader Output:</strong> "Password, Secure Edit text. Must be at least 8 chars."</p>
+        <p><em>(The screen reader announces the Label first, then the Role, and finally the Description.)</em></p>
+    </div>
+
+    <div class="intro">
+        <h2>Can you use both?</h2>
+        <p><strong>Yes!</strong> It is common to see both on complex widgets.</p>
+
+        <div class="code-block">
+            <code>&lt;!-- A complex date picker input --&gt;
+&lt;label id="date-label"&gt;Departure Date&lt;/label&gt;
+&lt;span id="date-format"&gt;MM/DD/YYYY&lt;/span&gt;
+
+&lt;input type="text" 
+       aria-labelledby="date-label" 
+       aria-describedby="date-format"&gt;</code>
+        </div>
+
+        <p>In this case:</p>
+        <ul>
+            <li><strong>Name (Label):</strong> "Departure Date" (Essential identification)</li>
+            <li><strong>Description:</strong> "MM/DD/YYYY" (Helpful format hint)</li>
+        </ul>
+    </div>
+
+</body>
+
+</html>

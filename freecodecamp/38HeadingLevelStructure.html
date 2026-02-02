@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Heading Level Structure and Accessibility</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #f4f4f4;
+        }
+
+        h1 {
+            color: #333;
+            border-bottom: 3px solid #0066cc;
+            padding-bottom: 10px;
+        }
+
+        h2 {
+            color: #0066cc;
+            margin-top: 30px;
+        }
+
+        .intro {
+            background-color: white;
+            padding: 20px;
+            margin: 15px 0;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+
+        .benefits {
+            background-color: #d4edda;
+            padding: 20px;
+            margin: 20px 0;
+            border-left: 4px solid #28a745;
+            border-radius: 4px;
+        }
+
+        .example {
+            background-color: #f0f0f0;
+            padding: 15px;
+            margin: 15px 0;
+            border-radius: 4px;
+            border-left: 3px solid #666;
+        }
+
+        .code-block {
+            background-color: #2d2d2d;
+            color: #f8f8f2;
+            padding: 15px;
+            border-radius: 4px;
+            overflow-x: auto;
+            margin: 15px 0;
+        }
+
+        .code-block code {
+            font-family: 'Courier New', monospace;
+            font-size: 14px;
+        }
+
+        .highlight {
+            background-color: #fff3cd;
+            padding: 20px;
+            margin: 20px 0;
+            border-left: 4px solid #ffc107;
+            border-radius: 4px;
+        }
+
+        .screen-reader-info {
+            background-color: #e8f4f8;
+            padding: 20px;
+            margin: 20px 0;
+            border-left: 4px solid #0066cc;
+            border-radius: 4px;
+        }
+
+        .best-practices {
+            background-color: white;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+
+        .best-practices h3 {
+            color: #0066cc;
+            margin-top: 0;
+        }
+
+        ul {
+            padding-left: 20px;
+        }
+
+        li {
+            margin: 10px 0;
+        }
+
+        .heading-demo {
+            background-color: white;
+            padding: 20px;
+            margin: 20px 0;
+            border: 2px solid #0066cc;
+            border-radius: 4px;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>How Does Proper Heading Level Structure Affect Accessibility?</h1>
+
+    <div class="intro">
+        <p>You previously learned about proper heading level structure. Now, you will learn how a good heading structure
+            affects accessibility.</p>
+    </div>
+
+    <div class="benefits">
+        <h2>Benefits of Proper Heading Structure</h2>
+        <ul>
+            <li>Proper use of headings creates a visual hierarchy for users to navigate and understand your web page
+            </li>
+            <li>Using a logical heading hierarchy allows screen reader users to understand the structure of your content
+                and navigate your content quickly</li>
+            <li>Creating appropriate heading text that accurately describes the content that follows helps everyone find
+                the information they need on your site</li>
+            <li>As an additional benefit, well-formed headings may also improve the SEO of your site</li>
+        </ul>
+    </div>
+
+    <div class="example">
+        <h3>Basic Example:</h3>
+        <div class="code-block">
+            <code>&lt;h1&gt; Music Store Page&lt;/h1&gt;<br>
+&lt;h2&gt;Featured Albums&lt;/h2&gt;<br>
+&lt;p&gt;Check out our featured albums below:&lt;/p&gt;</code>
+        </div>
+    </div>
+
+    <div class="highlight">
+        <p><strong>Think of headings as the foundation of your site.</strong> Without a good foundation, the
+            accessibility of your content will suffer.</p>
+    </div>
+
+    <h2>How Headings Help Screen Reader Users</h2>
+
+    <div class="screen-reader-info">
+        <p>Headings, ranging from h1 to h6, create a navigational structure for screen reader users. Screen readers can
+            list all headings on a page, allowing users to jump directly to the sections they need.</p>
+        <p>So, correctly arranging headings is important for helping these users avoid unnecessary content and finding
+            the information they are looking for quickly.</p>
+    </div>
+
+    <div class="heading-demo">
+        <h3>Heading Hierarchy Example:</h3>
+        <div class="code-block">
+            <code>&lt;h1&gt;I am an h1 heading&lt;/h1&gt;<br>
+&lt;h2&gt;I am an h2 heading&lt;/h2&gt;<br>
+&lt;h3&gt;I am an h3 heading&lt;/h3&gt;<br>
+&lt;h4&gt;I am an h4 heading&lt;/h4&gt;<br>
+&lt;h5&gt;I am an h5 heading&lt;/h5&gt;<br>
+&lt;h6&gt;I am an h6 heading&lt;/h6&gt;</code>
+        </div>
+    </div>
+
+    <div class="intro">
+        <p>People with partial sight or cognitive disabilities need to process information quickly and easily to reduce
+            cognitive load.</p>
+        <p>While proper arrangement of headings is important, it is also necessary to make heading texts clear and
+            descriptive.</p>
+    </div>
+
+    <div class="best-practices">
+        <h3>Key Practices for Using Headings Properly</h3>
+        <ul>
+            <li>Use headings in a hierarchy that reflects clear organization. For example, the page title should be an
+                h1, major sections should be introduced with h2 headings, subsections with h3, and so on, down to h6
+            </li>
+            <li>Don't skip from h1 to h3, or from h2 to h4, and so on</li>
+            <li>Use clear and descriptive text that summarizes the content that follows each heading</li>
+            <li>Don't use a heading in isolation – some content must follow the heading</li>
+            <li>Use appropriate headings where necessary instead of formatting text to look like headings</li>
+            <li>Each page should have a single h1 element representing the main topic or title</li>
+        </ul>
+    </div>
+
+    <h2>Complete Example: Proper Heading Structure</h2>
+
+    <div class="example">
+        <p>Here's a basic markup that represents how you should use headings on a page:</p>
+        <div class="code-block">
+            <code>&lt;!-- Page title --&gt;<br>
+&lt;h1&gt;What is HTML&lt;/h1&gt;<br>
+<br>
+&lt;!-- First section --&gt;<br>
+&lt;section&gt;<br>
+&nbsp;&nbsp;&lt;h2&gt;Introduction to HTML&lt;/h2&gt;<br>
+&nbsp;&nbsp;&lt;p&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;HTML stands for HyperText Markup Language. It is the standard language for<br>
+&nbsp;&nbsp;&nbsp;&nbsp;creating web pages.<br>
+&nbsp;&nbsp;&lt;/p&gt;<br>
+&lt;/section&gt;<br>
+<br>
+&lt;!-- Second section --&gt;<br>
+&lt;section&gt;<br>
+&nbsp;&nbsp;&lt;h2&gt;History of HTML&lt;/h2&gt;<br>
+&nbsp;&nbsp;&lt;p&gt;HTML began to take shape in the early 90s&lt;/p&gt;<br>
+&nbsp;&nbsp;&lt;h3&gt;Origins&lt;/h3&gt;<br>
+&nbsp;&nbsp;&lt;p&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;HTML was created by Tim Berners-Lee in 1991. It has evolved significantly<br>
+&nbsp;&nbsp;&nbsp;&nbsp;over the years.<br>
+&nbsp;&nbsp;&lt;/p&gt;<br>
+&lt;/section&gt;</code>
+        </div>
+    </div>
+
+</body>
+
+</html>

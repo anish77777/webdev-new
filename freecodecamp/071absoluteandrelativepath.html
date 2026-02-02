@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <title>Absolute vs Relative Paths</title>
+</head>
+
+<body>
+
+    <h1>Absolute and Relative Path Examples</h1>
+
+    <!-- ================= ABSOLUTE PATH ================= -->
+    <!--
+    Absolute paths include:
+    - protocol (https, http, file)
+    - domain name (if on the web)
+    - full directory structure
+    They always point to the same resource, no matter where the file is located.
+  -->
+
+    <!-- Absolute path to an external website resource -->
+    <a href="https://design-style-guide.freecodecamp.org/img/fcc_secondary_small.svg">
+        View freeCodeCamp Logo (Absolute Path - Web)
+    </a>
+
+    <br><br>
+
+    <!-- Absolute path to a local file -->
+    <a href="file:///Users/user/Desktop/fCC/script-code/absolute-vs-relative-paths/pages/about.html">
+        About Page (Absolute Path - Local File)
+    </a>
+
+    <hr>
+
+    <!-- ================= RELATIVE PATH ================= -->
+    <!--
+    Relative paths:
+    - Do NOT include protocol or domain
+    - Are based on the current file's location
+    - Are shorter and easier to maintain
+  -->
+
+    <!-- Relative path: about.html is in the same folder -->
+    <a href="about.html">
+        About Page (Relative Path - Same Folder)
+    </a>
+
+    <br><br>
+
+    <!-- Relative path: go into a subfolder -->
+    <a href="pages/about.html">
+        About Page (Relative Path - Subfolder)
+    </a>
+
+    <br><br>
+
+    <!-- Relative path: go up one folder using ../ -->
+    <a href="../index.html">
+        Home Page (Relative Path - Parent Folder)
+    </a>
+
+</body>
+
+</html>

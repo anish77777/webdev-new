@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>What Is the aria-hidden Attribute, and How Does It Work?</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.5.0/css/all.min.css" />
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #f4f4f4;
+        }
+
+        h1 {
+            color: #333;
+            border-bottom: 3px solid #007acc;
+            padding-bottom: 10px;
+        }
+
+        h2 {
+            color: #007acc;
+            margin-top: 30px;
+        }
+
+        .intro {
+            background-color: white;
+            padding: 20px;
+            margin: 15px 0;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+
+        .definition {
+            background-color: #e8f4f8;
+            padding: 20px;
+            margin: 20px 0;
+            border-left: 4px solid #007acc;
+            border-radius: 4px;
+        }
+
+        .note {
+            background-color: #fff3cd;
+            padding: 15px;
+            margin: 15px 0;
+            border-left: 4px solid #ffc107;
+            border-radius: 4px;
+        }
+
+        .example {
+            background-color: white;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+
+        .code-block {
+            background-color: #2d2d2d;
+            color: #f8f8f2;
+            padding: 15px;
+            border-radius: 4px;
+            overflow-x: auto;
+            margin: 15px 0;
+        }
+
+        .code-block code {
+            font-family: 'Courier New', monospace;
+            font-size: 14px;
+            white-space: pre;
+        }
+
+        button {
+            padding: 0.5em 1em;
+            background-color: #007acc;
+            color: #fff;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 1em;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        button:hover {
+            background-color: #005fa3;
+        }
+
+        .label {
+            font-weight: 500;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>What Is the <code>aria-hidden</code> Attribute, and How Does It Work?</h1>
+
+    <div class="intro">
+        <p>If you ever need to display content while at the same time hiding it from people who use assistive
+            technology, like screen readers, you can use the <code>aria-hidden</code> attribute.</p>
+        <p>You just need to add it to the HTML element that you want to hide and set its value to <code>true</code>,
+            like this: <code>aria-hidden="true"</code>.</p>
+    </div>
+
+    <div class="definition">
+        <h2>How it works</h2>
+        <p>This attribute hides the element and all of its children from the <strong>accessibility tree</strong>, while
+            keeping them visible on the page.</p>
+        <p>Common use cases include:</p>
+        <ul>
+            <li>Icons and images that only have a decorative purpose.</li>
+            <li>Duplicated content.</li>
+        </ul>
+    </div>
+
+    <div class="note">
+        <p><strong>IMPORTANT:</strong> <code>aria-hidden</code> only hides content from assistive technology. If content
+            should be hidden from everyone, use <code>display: none</code> or <code>visibility: hidden</code> in your
+            CSS instead. For example, a collapsed hamburger menu should be hidden from everyone.</p>
+    </div>
+
+    <div class="example">
+        <h2>Example: Hiding a Decorative Icon</h2>
+        <p>In this example, we hide an icon from the accessibility tree by adding the <code>aria-hidden="true"</code>
+            attribute. We keep the text exposed so assistive technologies don't hear redundant information.</p>
+
+        <div class="code-block">
+            <code>&lt;button&gt;
+  &lt;i class="fa-solid fa-gear" aria-hidden="true"&gt;&lt;/i&gt;
+  &lt;span class="label"&gt;Settings&lt;/span&gt;
+&lt;/button&gt;</code>
+        </div>
+
+        <div class="preview">
+            <p><strong>Preview:</strong></p>
+            <button>
+                <i class="fa-solid fa-gear" aria-hidden="true"></i>
+                <span class="label">Settings</span>
+            </button>
+        </div>
+    </div>
+
+    <div class="definition">
+        <h2>When you DON'T need <code>aria-hidden</code></h2>
+        <p>You do not need to use <code>aria-hidden</code> when:</p>
+        <ul>
+            <li>The HTML element already has a <code>hidden</code> attribute.</li>
+            <li>The element/ancestor is hidden with <code>display: none</code>.</li>
+            <li>The element/ancestor is hidden with <code>visibility: hidden</code>.</li>
+        </ul>
+        <p>In these cases, the element is already removed from the DOM or hidden from the accessibility tree
+            automatically.</p>
+    </div>
+
+    <div class="example">
+        <h2>Best Practices</h2>
+        <ul>
+            <li><strong>Focusable Elements:</strong> Never use <code>aria-hidden</code> on an element that can receive
+                keyboard focus (like a link or button). This causes screen reader users to focus on "nothing".</li>
+            <li><strong>Inheritance:</strong> Setting <code>aria-hidden="false"</code> on a child won't work if a parent
+                already has <code>aria-hidden="true"</code>.</li>
+            <li><strong>Sparingly:</strong> Content and functionality should generally be available to everyone. Use
+                <code>aria-hidden</code> primarily to clean up decorative or duplicate information.</li>
+        </ul>
+    </div>
+
+    <div class="definition">
+        <p>By following these best practices and testing with assistive technologies, you can create more inclusive
+            online experiences for everyone.</p>
+    </div>
+</body>
+
+</html>

@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WAI-ARIA - Purpose and How It Works</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #f4f4f4;
+        }
+
+        h1 {
+            color: #333;
+            border-bottom: 3px solid #0066cc;
+            padding-bottom: 10px;
+        }
+
+        h2 {
+            color: #0066cc;
+            margin-top: 30px;
+        }
+
+        .intro {
+            background-color: white;
+            padding: 20px;
+            margin: 15px 0;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+
+        .definition {
+            background-color: #e8f4f8;
+            padding: 20px;
+            margin: 20px 0;
+            border-left: 4px solid #0066cc;
+            border-radius: 4px;
+        }
+
+        .note {
+            background-color: #fff3cd;
+            padding: 15px;
+            margin: 15px 0;
+            border-left: 4px solid #ffc107;
+            border-radius: 4px;
+        }
+
+        .example {
+            background-color: white;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+
+        .code-block {
+            background-color: #2d2d2d;
+            color: #f8f8f2;
+            padding: 15px;
+            border-radius: 4px;
+            overflow-x: auto;
+            margin: 15px 0;
+        }
+
+        .code-block code {
+            font-family: 'Courier New', monospace;
+            font-size: 14px;
+            white-space: pre;
+        }
+
+        .best-practices {
+            background-color: #d4edda;
+            padding: 20px;
+            margin: 20px 0;
+            border-left: 4px solid #28a745;
+            border-radius: 4px;
+        }
+
+        .warning {
+            background-color: #f8d7da;
+            padding: 15px;
+            margin: 15px 0;
+            border-left: 4px solid #dc3545;
+            border-radius: 4px;
+        }
+
+        .demo-button {
+            display: inline-block;
+            padding: 0.4em 1em;
+            font-size: 1rem;
+            color: #fff;
+            background-color: #0066cc;
+            border: 2px solid #0055aa;
+            border-radius: 4px;
+            cursor: pointer;
+            margin: 10px 0;
+        }
+
+        ul {
+            padding-left: 20px;
+        }
+
+        li {
+            margin: 8px 0;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>What Is the Purpose of WAI-ARIA, and How Does It Work?</h1>
+
+    <div class="intro">
+        <p>Making static content accessible can be relatively straightforward, but dynamic content can be more
+            challenging. This is where WAI-ARIA comes in.</p>
+        <p>Let's look at what WAI-ARIA is, its purpose, how it works, and some examples.</p>
+    </div>
+
+    <div class="definition">
+        <h2>What is WAI-ARIA?</h2>
+        <p><strong>WAI-ARIA</strong> stands for <strong>Web Accessibility Initiative - Accessible Rich Internet
+                Applications</strong>. It's a specification that enhances accessibility for dynamic content and UI (User
+            Interface) components.</p>
+    </div>
+
+    <div class="note">
+        <h3>WCAG vs WAI-ARIA</h3>
+        <p><strong>Note:</strong> WCAG and WAI-ARIA are not the same.</p>
+        <ul>
+            <li><strong>WCAG</strong> provides general guidelines for web accessibility</li>
+            <li><strong>WAI-ARIA</strong> offers specific rules for making dynamic and interactive content accessible
+                for users of assistive technologies</li>
+        </ul>
+    </div>
+
+    <h2>Primary Purpose</h2>
+    <div class="intro">
+        <p>The primary purpose of WAI-ARIA is to improve accessibility for dynamic content and UI components that do not
+            have native HTML equivalents.</p>
+    </div>
+
+    <h2>How WAI-ARIA Works</h2>
+    <div class="intro">
+        <p>WAI-ARIA works by introducing a set of attributes you can add to HTML elements to provide additional semantic
+            information. These attributes are categorized into:</p>
+        <ul>
+            <li><strong>Roles</strong></li>
+            <li><strong>States</strong></li>
+            <li><strong>Properties</strong></li>
+        </ul>
+    </div>
+
+    <div class="example">
+        <h3>1. ARIA Roles</h3>
+        <p>ARIA role defines the purpose of an element within a website or web app. Here is an example of setting the
+            role to button for a div element:</p>
+
+        <div class="code-block">
+            <code>&lt;div role="button"&gt;Click Me&lt;/div&gt;</code>
+            <div role="button">Click Me</div>
+        </div>
+
+        <p>By doing this you are indicating to assistive technology that the element is a button.</p>
+
+        <div class="warning">
+            <p><strong>Important:</strong> Roles do not provide any functionality however. Merely giving this div a role
+                of button will not make it act like a button. To make it look and behave like a button you would need to
+                use CSS and JavaScript to get the desired result.</p>
+        </div>
+
+        <h4>Example: Custom Button with HTML, CSS, and JavaScript</h4>
+        <p><strong>NOTE:</strong> Don't worry about trying to understand the CSS and JavaScript code. You will learn
+            those languages in future modules.</p>
+
+        <p><strong>HTML:</strong></p>
+        <div class="code-block">
+            <code>&lt;link href="styles.css" rel="stylesheet"&gt;
+&lt;div id="custom-btn" role="button"&gt;Click Me&lt;/div&gt;
+&lt;script src="index.js"&gt;&lt;/script&gt;</code>
+        </div>
+
+        <p><strong>CSS (styles.css):</strong></p>
+        <div class="code-block">
+            <code>#custom-btn {
+  display: inline-block;
+  padding: 0.4em 1em;
+  font-size: 1rem;
+  font-family: sans-serif;
+  color: buttontext;
+  background-color: buttonface;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  cursor: pointer;
+  user-select: none;
+  text-align: center;
+}
+
+#custom-btn:focus {
+  outline: 2px solid Highlight;
+  outline-offset: 2px;
+}
+
+#custom-btn:active {
+  background-color: #ddd;
+}</code>
+        </div>
+
+        <p><strong>JavaScript (index.js):</strong></p>
+        <div class="code-block">
+            <code>const button = document.getElementById("custom-btn");
+
+button.addEventListener("click", () => {
+  alert("Button clicked!");
+});
+
+button.addEventListener("keydown", (e) => {
+  if (e.key === "Enter" || e.key === " ") {
+    e.preventDefault();
+    button.click();
+  }
+});</code>
+        </div>
+
+        <div class="warning">
+            <p><strong>Best Practice:</strong> It is always better to use the native button or input element with
+                type="button" instead.</p>
+        </div>
+
+        <!-- Demo button -->
+        <div class="demo-button" role="button" tabindex="0">Click Me (Demo Button)</div>
+    </div>
+
+    <div class="example">
+        <h3>2. ARIA Properties</h3>
+        <p>ARIA properties provide additional details about elements. For example, the <strong>aria-labelledby</strong>
+            property lets you connect an element to a specific label:</p>
+
+        <div class="code-block">
+            <code>&lt;h2 id="header-id"&gt;About freeCodeCamp&lt;/h2&gt;
+&lt;button id="button-id" aria-labelledby="header-id button-id"&gt;Learn More&lt;/button&gt;</code>
+        </div>
+
+        <p>This will make the elements understandable and navigable for users of assistive technologies.</p>
+
+        <!-- Live example -->
+        <h2 id="header-id">About freeCodeCamp</h2>
+        <button id="button-id" aria-labelledby="header-id button-id" class="demo-button">Learn More</button>
+    </div>
+
+    <div class="best-practices">
+        <h2>Best Practices for Using WAI-ARIA</h2>
+        <p>To get the best out of WAI-ARIA, follow these guidelines:</p>
+        <ul>
+            <li><strong>Use native HTML whenever possible</strong> - It generally provides more accessibility out of the
+                box</li>
+            <li><strong>Use WAI-ARIA only when HTML falls short</strong> - Don't add ARIA when native HTML elements work
+            </li>
+            <li><strong>Test with assistive technologies</strong> - Use screen readers or have people with disabilities
+                test your work</li>
+            <li><strong>Keep ARIA states and properties updated</strong> - Make sure they update with the content in
+                real time</li>
+            <li><strong>Avoid overusing ARIA</strong> - Too much ARIA can be confusing</li>
+        </ul>
+    </div>
+
+    <div class="note">
+        <h2>Question</h2>
+        <p><strong>What is the primary purpose of WAI-ARIA attributes in HTML?</strong></p>
+        <ul>
+            <li>To change the visual appearance of elements</li>
+            <li>To provide additional semantic information for assistive technologies ✓</li>
+        </ul>
+    </div>
+
+</body>
+
+</html>

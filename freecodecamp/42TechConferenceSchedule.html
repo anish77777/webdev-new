@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tech Conference 2025 Schedule</title>
+</head>
+
+<body>
+    <!-- 
+        WORKSHOP: Building Accessible Tables
+        ====================================
+        In this workshop, we'll create an accessible schedule table for a tech conference.
+        We'll focus on proper HTML structure and accessibility features without CSS styling.
+        
+        KEY ACCESSIBILITY CONCEPTS:
+        - Using semantic table elements
+        - Adding captions for context
+        - Properly associating headers with data cells
+        - Using scope attributes for screen readers
+    -->
+
+    <!-- Step 1: Main heading for the page -->
+    <h1>Tech Conference 2025 Schedule</h1>
+
+    <!-- 
+        ACCESSIBILITY: Table Structure
+        ==============================
+        
+        <caption>: Provides a title/description for the table
+        - Helps screen reader users understand table purpose before reading content
+        - Should be placed immediately after opening <table> tag
+        
+        <thead>: Contains column headers
+        - Groups header rows for better structure
+        - Helps screen readers identify header information
+        
+        <tbody>: Contains the main data rows
+        - Separates body content from headers
+        - Improves table navigation for assistive technologies
+        
+        <th>: Table header cells
+        - Used for both column headers and row headers
+        - More semantic than <td> for headers
+        
+        scope attribute: Explicitly defines header direction
+        - scope="col" = column header (applies to cells below)
+        - scope="row" = row header (applies to cells to the right)
+        - Helps screen readers associate data cells with correct headers
+        
+        colspan attribute: Spans a cell across multiple columns
+        - Used for cells that apply to multiple columns (like "Break" or "Lunch Break")
+        - Value indicates how many columns to span
+    -->
+
+    <table>
+        <!-- Caption provides context about the table's content -->
+        <caption>Schedule by Track and Time</caption>
+
+        <!-- Table head contains column headers -->
+        <thead>
+            <tr>
+                <!-- scope="col" indicates these are column headers -->
+                <th scope="col">Time</th>
+                <th scope="col">Track A</th>
+                <th scope="col">Track B</th>
+                <th scope="col">Track C</th>
+            </tr>
+        </thead>
+
+        <!-- Table body contains the schedule data -->
+        <tbody>
+            <!-- Each row starts with a time header (scope="row") -->
+            <tr>
+                <th scope="row">9:00 AM</th>
+                <td>Keynote: Tech Future</td>
+                <td>Intro to Web Dev</td>
+                <td>UX for All</td>
+            </tr>
+
+            <tr>
+                <th scope="row">10:00 AM</th>
+                <td>Accessibility Deep Dive</td>
+                <td>CSS for Beginners</td>
+                <td>Inclusive Design Principles</td>
+            </tr>
+
+            <!-- colspan="3" makes this cell span all three track columns -->
+            <tr>
+                <th scope="row">11:00 AM</th>
+                <td colspan="3">Break</td>
+            </tr>
+
+            <tr>
+                <th scope="row">11:30 AM</th>
+                <td>AR/VR in Education</td>
+                <td>JavaScript Fundamentals</td>
+                <td>Design Systems at Scale</td>
+            </tr>
+
+            <!-- Step 13: Lunch break row with colspan -->
+            <tr>
+                <th scope="row">12:30 PM</th>
+                <td colspan="3">Lunch Break</td>
+            </tr>
+
+            <!-- Step 14: Final session row -->
+            <tr>
+                <th scope="row">2:00 PM</th>
+                <td>Voice UI Workshop</td>
+                <td>Git & GitHub Essentials</td>
+                <td>Color & Contrast in UI</td>
+            </tr>
+        </tbody>
+    </table>
+
+
+
+    <!-- 
+        ESSENTIAL: The <h1> element provides the main heading for the page.
+        - There should only be ONE <h1> per page
+        - It describes the main purpose/content of the page
+        - Screen readers use headings to navigate the page structure
+        - Search engines use <h1> to understand page content
+    -->
+
+</body>
+
+</html>

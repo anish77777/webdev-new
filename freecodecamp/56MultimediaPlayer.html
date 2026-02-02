@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Multimedia Player</title>
+    <style>
+        /* Personal Style: Deep Purple & Neon Theme */
+        :root {
+            --bg-color: #1a1a2e;
+            --card-bg: #16213e;
+            --accent-color: #0f3460;
+            --highlight: #e94560;
+            --text-main: #eaeaea;
+            --text-audio: #4FACFE;
+            --text-video: #00F260;
+        }
+
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-main);
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            min-height: 100vh;
+        }
+
+        h1 {
+            margin-top: 2rem;
+            font-size: 2.5rem;
+            color: var(--highlight);
+            text-shadow: 0 0 10px rgba(233, 69, 96, 0.5);
+        }
+
+        section {
+            background-color: var(--card-bg);
+            margin: 1.5rem;
+            padding: 2rem;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+            width: 90%;
+            max-width: 800px;
+            transition: transform 0.3s ease;
+        }
+
+        section:hover {
+            transform: translateY(-5px);
+        }
+
+        h2 {
+            border-bottom: 2px solid var(--accent-color);
+            padding-bottom: 0.5rem;
+            margin-bottom: 1.5rem;
+        }
+
+        /* Specific Section Styling */
+        section:nth-of-type(1) h2 {
+            color: var(--text-audio);
+        }
+
+        section:nth-of-type(2) h2 {
+            color: var(--text-video);
+        }
+
+        section:nth-of-type(3) h2 {
+            color: #f2f2f2;
+        }
+
+        /* Media Elements */
+        audio,
+        video {
+            width: 100%;
+            border-radius: 8px;
+            outline: none;
+        }
+
+        video {
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+            background-color: #000;
+        }
+
+        /* Transcript */
+        p {
+            line-height: 1.6;
+            font-size: 1.1rem;
+            color: #ccc;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Multimedia Player Hub</h1>
+
+    <!-- Audio Section -->
+    <section>
+        <h2>Sailing Away</h2>
+        <audio controls aria-label="Audio player for Sailing Away">
+            <source src="https://cdn.freecodecamp.org/curriculum/js-music-player/sailing-away.mp3" type="audio/mpeg">
+            Your browser does not support the audio element.
+        </audio>
+    </section>
+
+    <!-- Video Section -->
+    <section>
+        <h2>What is the map Method?</h2>
+        <video controls width="600" aria-label="Video player explaining the map method">
+            <source src="https://cdn.freecodecamp.org/curriculum/labs/what-is-the-map-method-and-how-does-it-work.mp4"
+                type="video/mp4">
+            <track src="https://cdn.freecodecamp.org/curriculum/labs/what-is-the-map-method-and-how-does-it-work.vtt"
+                kind="subtitles" srclang="en" label="English">
+            Your browser does not support the video element.
+        </video>
+    </section>
+
+    <!-- Transcript Section -->
+    <section>
+        <h2>Transcript</h2>
+        <p>
+            The map method is one of the most useful array methods in JavaScript.
+            It creates a new array by applying a function to every element in the original array.
+            Unlike forEach, which just iterates over the array, map returns a new array with the transformed values,
+            leaving the original array unchanged.
+            (This is a placeholder transcript summarizing the video content).
+        </p>
+    </section>
+
+</body>
+
+</html>

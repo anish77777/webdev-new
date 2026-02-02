@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Accessible Controls</title>
+</head>
+
+<body>
+    <!-- Main heading for the audio controller interface -->
+    <h1>Audio Controls</h1>
+
+    <!-- Play button to start/resume audio playback -->
+    <button type="button">Play</button>
+
+    <!-- Volume control container -->
+    <div>
+        <!-- Label for the volume slider - referenced by aria-labelledby -->
+        <span id="volume-label">Volume</span>
+
+        <!-- Description providing additional context for screen readers - referenced by aria-labelledby -->
+        <span id="volume-description">Adjust the sound level</span>
+
+        <!-- 
+      Range input slider for volume control (0-100, default 50)
+      Uses aria-labelledby to associate both the label and description,
+      making it more accessible for screen reader users by combining
+      both the "Volume" label and "Adjust the sound level" description
+    -->
+        <input type="range" min="0" max="100" value="50" aria-labelledby="volume-label volume-description">
+
+        <!-- Mute button to toggle audio on/off -->
+        <button type="button">Mute</button>
+    </div>
+</body>
+
+</html>

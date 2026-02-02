@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Keyboard Accessibility</title>
+    <style>
+        /* General page layout and typography */
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        /* Headings styling */
+        h1,
+        h2,
+        h3 {
+            color: #2c3e50;
+        }
+
+        h1 {
+            border-bottom: 2px solid #eee;
+            padding-bottom: 10px;
+        }
+
+        h2 {
+            margin-top: 30px;
+            border-bottom: 1px solid #f0f0f0;
+            padding-bottom: 5px;
+        }
+
+        /* Code block styling */
+        pre {
+            background-color: #f4f4f4;
+            padding: 15px;
+            border-radius: 5px;
+            overflow-x: auto;
+            border: 1px solid #ddd;
+            margin: 20px 0;
+        }
+
+        code {
+            font-family: 'Consolas', 'Monaco', monospace;
+            color: #d63384;
+            /* Highlight color for tags/attributes */
+        }
+
+        /* Interactive Example Box Styling */
+        .example-box {
+            background-color: #fafafa;
+            border: 1px solid #ddd;
+            padding: 15px;
+            border-radius: 5px;
+            margin: 20px 0;
+        }
+
+        .example-box button,
+        .example-box a,
+        .example-box input {
+            margin-right: 10px;
+            margin-bottom: 10px;
+            padding: 5px 10px;
+            font-size: 1rem;
+        }
+
+        /* 
+           Focus Indicator Example Structure
+           This intentionally shows strong focus styles.
+        */
+        .focus-example button:focus {
+            outline: 3px solid #451d1d;
+            outline-offset: 1px;
+        }
+
+        /* Educational warnings */
+        .warning-box {
+            background-color: #fff3cd;
+            border-left: 5px solid #ffc107;
+            padding: 15px;
+            margin: 15px 0;
+            color: #856404;
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <h1>Web Accessibility: Keyboard Accessibility</h1>
+        <p>Ensure your applications are usable by everyone, regardless of whether they use a mouse.</p>
+    </header>
+
+    <main>
+        <section>
+            <h2>Why Keyboard Accessibility Matters</h2>
+            <p>Many users rely on keyboards instead of mice due to physical disabilities, repetitive strain injuries, or
+                personal preference. This includes users of screen readers. Keyboard accessibility ensures these users
+                can navigate web applications effectively.</p>
+        </section>
+
+        <!-- 
+            Section: Natural Tab Order
+            How browsers handle navigation by default.
+        -->
+        <section>
+            <h2>The Natural Tab Order</h2>
+            <p>Interactive elements like links, buttons, and form fields are naturally focusable. Users navigate them
+                using the <strong>Tab</strong> key in the order they appear in the DOM.</p>
+
+            <div class="example-box">
+                <p><em>Try it out: Click here, then press Tab to move between elements.</em></p>
+                <!-- These elements will be focused in order -->
+                <button>First (Button)</button>
+                <a href="#">Second (Link)</a>
+                <input type="text" placeholder="Third (Input)">
+            </div>
+        </section>
+
+        <!-- 
+            Section: tabindex
+            Controlling focus programmatically.
+        -->
+        <section>
+            <h2>Controlling Focus with <code>tabindex</code></h2>
+            <p>The <code>tabindex</code> attribute adjusts which elements are focusable and their order.</p>
+
+            <h3><code>tabindex="0"</code></h3>
+            <p>Adds an element to the natural tab order. Useful for making non-interactive elements (like
+                <code>div</code> or <code>span</code>) focusable.</p>
+
+            <pre><code>&lt;div tabindex="0"&gt;I am focusable now!&lt;/div&gt;</code></pre>
+
+            <div class="example-box">
+                <button>Button</button>
+                <div tabindex="0" style="display:inline-block; padding: 5px; border: 1px solid #ccc;">Focusable Div
+                </div>
+                <a href="#">Link</a>
+            </div>
+
+            <h3><code>tabindex="-1"</code></h3>
+            <p>Removes an element from the natural tab order but allows it to receive focus programmatically (via
+                JavaScript). Ideal for managing focus in modals or error messages.</p>
+            <pre><code>&lt;p tabindex="-1" id="error-message"&gt;Error: Invalid Input&lt;/p&gt;</code></pre>
+
+            <h3><code>tabindex &gt; 0</code> (Positive Values)</h3>
+            <div class="warning-box">
+                <strong>Warning:</strong> Using positive values (e.g., <code>tabindex="1"</code>) is generally
+                <strong>discouraged</strong>. It forces a custom tab order that can become confusing and hard to
+                maintain as page content changes.
+            </div>
+            <pre><code>&lt;!-- Focuses Input 1, then Input 2, then Input 3 --&gt;
+&lt;input tabindex="2" placeholder="Second"&gt;
+&lt;input tabindex="1" placeholder="First"&gt;
+&lt;input tabindex="3" placeholder="Third"&gt;</code></pre>
+        </section>
+
+        <!-- 
+            Section: accesskey
+            Shortcut keys for elements.
+        -->
+        <section>
+            <h2>Keyboard Shortcuts with <code>accesskey</code></h2>
+            <p>The <code>accesskey</code> attribute defines a shortcut key to activate or focus an element.</p>
+            <p><em>Note: Combinations vary by OS/Browser (e.g., Alt + key on Windows, Ctrl + Option + key on Mac).</em>
+            </p>
+
+            <pre><code>&lt;button accesskey="s"&gt;Save&lt;/button&gt;
+&lt;button accesskey="c"&gt;Cancel&lt;/button&gt;</code></pre>
+
+            <div class="example-box">
+                <button accesskey="s">Save (Accesskey 's')</button>
+                <button accesskey="c">Cancel (Accesskey 'c')</button>
+            </div>
+        </section>
+
+        <!-- 
+            Section: Focus Indicators
+            Visual feedback for navigation.
+        -->
+        <section>
+            <h2>Visual Focus Indicators</h2>
+            <p>Users need to know which element is currently focused. Browsers provide a default ring, but you can
+                customize it with CSS.</p>
+
+            <h3>Custom Styling Example</h3>
+            <pre><code>button:focus {
+  outline: 3px solid #005fcc;
+  outline-offset: 2px;
+}</code></pre>
+
+            <div class="example-box focus-example">
+                <button>Custom Focus Style</button>
+                <button>Another Button</button>
+            </div>
+
+            <p><strong>Accessibility Rule:</strong> The focus indicator must have a contrast ratio of at least 3:1
+                against the background.</p>
+        </section>
+
+        <!-- 
+            Section: Keyboard Traps
+            Major anti-pattern to avoid.
+        -->
+        <section>
+            <h2>Avoiding Keyboard Traps</h2>
+            <div class="warning-box">
+                <strong>Crucial:</strong> A "keyboard trap" occurs when a user tabs into a component (like a modal or
+                custom widget) but cannot tab out of it. Always ensure there is a clear way to exit via the keyboard
+                (e.g., proper tab cycling or the Esc key).
+            </div>
+        </section>
+    </main>
+</body>
+
+</html>

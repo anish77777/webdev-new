@@ -41,11 +41,43 @@
 
                 <!-- Step 20: Checkbox for personal recommendation.
                      Checkboxes allow multiple selections in a form. -->
-            <input type="checkbox" id="ads" name="choice" value="ads" />
-            <label for="ads">Social Media Ads</label>
-            
+                <input type="checkbox" id="ads" name="choice" value="ads" />
+                <label for="ads">Social Media Ads</label>
+
+                <!-- Step 20: Personal Recommendation checkbox -->
+                <input type="checkbox" id="recommendation" name="choice" value="recommendation">
+                <label for="recommendation">Personal Recommendation</label>
+                <input type="checkbox" name="choice" id="location" value="location">
+                <label for="location">Location</label>
+                <input type="checkbox" name="choice" id="reputation" value="reputation" checked>
+                <label for="reputation">Reputation</label>
+                <input type="checkbox" name="choice" id="price" value="price">
+                <label for="price">Price</label>
+            </fieldset>
+            <fieldset>
+                <legend>Ratings</legend>
+                <label for="service">How was the service?</label>
+                <select name="service" id="service">
+                    <option value="poor">Poor</option>
+                    <option value="satisfactory">Satisfactory</option>
+                    <option value="good">Good</option>
+                    <option value="very-good">Very Good</option>
+                    <option selected value="excellent">Excellent</option>
+                </select>
+                <label for="food">How was the food?</label>
+                <select name="food" id="food">
+                    <option value="poor">Poor</option>
+                    <option value="satisfactory">Satisfactory</option>
+                    <option value="good">Good</option>
+                    <option value="very-good">Very Good</option>
+                    <option selected value="excellent">Excellent</option>
+                </select>
+
 
             </fieldset>
+            <label for="comments">Other Comments?</label>
+            <textarea id="comments" name="comments" rows="10" cols="30"></textarea>
+            <button type="submit">Submit</button>
         </form>
     </main>
 </body>

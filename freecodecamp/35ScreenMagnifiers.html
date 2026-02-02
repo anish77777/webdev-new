@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Screen Magnifiers - Accessibility Tools for Low Vision</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #f4f4f4;
+        }
+
+        h1 {
+            color: #333;
+            border-bottom: 3px solid #0066cc;
+            padding-bottom: 10px;
+        }
+
+        h2 {
+            color: #0066cc;
+            margin-top: 30px;
+        }
+
+        .intro {
+            background-color: white;
+            padding: 20px;
+            margin: 15px 0;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+
+        .how-it-works {
+            background-color: #e8f4f8;
+            padding: 20px;
+            margin: 20px 0;
+            border-left: 4px solid #0066cc;
+            border-radius: 4px;
+        }
+
+        .use-case {
+            background-color: #fff3cd;
+            padding: 15px;
+            margin: 15px 0;
+            border-left: 4px solid #ffc107;
+            border-radius: 4px;
+        }
+
+        .developer-tips {
+            background-color: #d4edda;
+            padding: 20px;
+            margin: 20px 0;
+            border-left: 4px solid #28a745;
+            border-radius: 4px;
+        }
+
+        .developer-tips h3 {
+            margin-top: 0;
+            color: #28a745;
+        }
+
+        .platform {
+            background-color: white;
+            padding: 15px;
+            margin: 10px 0;
+            border-radius: 4px;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+        }
+
+        .platform h4 {
+            margin-top: 0;
+            color: #0066cc;
+        }
+
+        .third-party {
+            background-color: #f8d7da;
+            padding: 20px;
+            margin: 20px 0;
+            border-left: 4px solid #dc3545;
+            border-radius: 4px;
+        }
+
+        ul {
+            padding-left: 20px;
+        }
+
+        li {
+            margin: 8px 0;
+        }
+
+        .path {
+            background-color: #f0f0f0;
+            padding: 5px 10px;
+            border-radius: 4px;
+            font-family: monospace;
+            display: inline-block;
+            margin: 5px 0;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>What Are Screen Magnifiers Used For?</h1>
+
+    <div class="intro">
+        <p>Screen magnifiers are tools that help people with low vision and other visual impairments better access
+            digital content and the web.</p>
+        <p>Let's delve deeper into what these tools are and the role they play in digital content accessibility.</p>
+    </div>
+
+    <div class="how-it-works">
+        <h2>How Screen Magnifiers Work</h2>
+        <p>Screen magnifiers work by enlarging texts, graphics, and other elements on a computer or mobile device
+            screen.</p>
+        <ul>
+            <li>Many screen magnifiers allow users to enlarge the display by more than 200%</li>
+            <li>Users can then navigate the page using their pointing device or keyboard</li>
+            <li>Most magnifiers offer customizable zoom percentages and other features in their settings</li>
+        </ul>
+    </div>
+
+    <h2>Primary Use Cases</h2>
+
+    <div class="use-case">
+        <h3>Reading Text</h3>
+        <p>Screen magnifiers primarily help people with low vision read text, as small fonts in documents or
+            applications can be challenging for them.</p>
+        <p>By enlarging the text, they can read emails, articles, and other content without straining their eyes.</p>
+    </div>
+
+    <div class="use-case">
+        <h3>Web Browsing</h3>
+        <p>Screen magnifiers also assist with web browsing. They help users locate and click on buttons, links, and
+            other interactive elements that might be difficult to see.</p>
+        <p>This improved visibility ensures that users can browse websites, fill out forms, and engage in online
+            activities without difficulty.</p>
+    </div>
+
+    <div class="developer-tips">
+        <h3>Developer Considerations</h3>
+        <p>Software developers need to make their digital products accessible to people with low vision. Some
+            considerations include:</p>
+        <ul>
+            <li>Using scalable fonts so the user can resize the page without the layout breaking</li>
+            <li>Ensuring the user interface adapts to different screen sizes through responsive design</li>
+            <li>Using high-contrast color schemes and customizable colors</li>
+            <li>Implementing a non-sticky and tiny navbar so users can still see content when using magnifiers</li>
+            <li>Using regular HTML text instead of images of text</li>
+            <li>Providing feedback directly next to the element that triggers it, and more</li>
+        </ul>
+    </div>
+
+    <h2>Built-in Screen Magnifiers by Operating System</h2>
+    <p>All the mainstay Operating Systems have at least one magnifier built into them by their manufacturers:</p>
+
+    <div class="platform">
+        <h4>macOS and iOS - Zoom</h4>
+        <p><strong>macOS:</strong> Go to Settings, filter by Accessibility, and then click on "Zoom". Toggle the "Use
+            keyboard shortcuts to zoom" option to enable it.</p>
+        <p><strong>iOS:</strong> <span class="path">Settings > Accessibility > Zoom</span></p>
+    </div>
+
+    <div class="platform">
+        <h4>Android - Magnification</h4>
+        <p>Go to <span class="path">Settings > Special Function > Accessibility > Magnification</span></p>
+        <p><em>Note: Since this may vary from device to device, you can search for "Magnification" on the settings
+                homepage to access it.</em></p>
+    </div>
+
+    <div class="platform">
+        <h4>Windows - Magnifier</h4>
+        <p>Go to <span class="path">Settings > Ease of Access > Magnifier</span></p>
+    </div>
+
+    <div class="platform">
+        <h4>Linux - Zoom or Magnifier</h4>
+        <p>The magnifiers for Linux operating systems vary. It is either Zoom or Magnifier.</p>
+    </div>
+
+    <div class="third-party">
+        <h2>Third-Party Screen Magnifiers</h2>
+        <p>Apart from the ones built into operating systems, some useful third party screen magnifiers are:</p>
+
+        <h3>Windows</h3>
+        <ul>
+            <li>ZoomText for Windows</li>
+            <li>ClaroView for both macOS and Windows</li>
+            <li>iZoom for Windows</li>
+            <li>LunarPluse for Windows</li>
+        </ul>
+
+        <h3>macOS</h3>
+        <ul>
+            <li>ClaroView for both macOS and Windows</li>
+            <li>Zoomify - Screen Magnifier for macOS</li>
+            <li>Loupe for macOS</li>
+        </ul>
+    </div>
+
+</body>
+
+</html>

@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>b vs strong — When to Use Which</title>
+
+    <!-- CSS is used only for layout, not meaning -->
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- =====================================================
+       BRING ATTENTION TO ELEMENT: <b>
+       -----------------------------------------------------
+       Use <b> when text:
+       - Needs visual emphasis only
+       - Highlights keywords, names, or labels
+       - Does NOT indicate importance or urgency
+     ===================================================== -->
+
+    <p>
+        We tested several products, including the
+        <b>SuperSound 3000</b> for audio quality,
+        the <b>QuickCharge Pro</b> for fast charging,
+        and the <b>EcoClean Vacuum</b> for cleaning.
+    </p>
+
+    <p>
+        The movie <b>Inception</b> was released in 2010.
+    </p>
+
+    <hr>
+
+    <!-- =====================================================
+       STRONG ELEMENT: <strong>
+       -----------------------------------------------------
+       Use <strong> when text:
+       - Is important, critical, or urgent
+       - Changes the meaning if removed
+       - Must be emphasized for accessibility
+     ===================================================== -->
+
+    <p>
+        <strong>Warning:</strong> This product may cause allergic reactions.
+    </p>
+
+    <p>
+        <strong>Important:</strong> Save your work before closing the application.
+    </p>
+
+    <p>
+        Failure to follow the instructions may result in
+        <strong>permanent data loss</strong>.
+    </p>
+
+    <hr>
+
+    <!-- =====================================================
+       ❌ DO NOT USE <b> OR <strong> FOR STYLING ONLY
+       -----------------------------------------------------
+       If you only want bold text with no meaning,
+       use CSS instead.
+     ===================================================== -->
+
+    <p style="font-weight: bold;">
+        This text is bold using CSS only.
+    </p>
+
+    <!-- =====================================================
+       SUMMARY
+       -----------------------------------------------------
+       <b>      → draws attention (visual only)
+       <strong> → conveys importance or urgency (semantic)
+       CSS      → styling only
+     ===================================================== -->
+
+</body>
+
+</html>

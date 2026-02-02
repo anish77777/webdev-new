@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Time and Date Examples in HTML</title>
+</head>
+
+<body>
+
+    <!-- 
+    The <time> element is used to represent a specific moment in time.
+    The datetime attribute translates dates and times into machine-readable format.
+    This helps with search engine results and browser processing of date/time information.
+  -->
+
+    <h1>How to Display Times and Dates in HTML</h1>
+
+    <p>
+        Use the <code>&lt;time&gt;</code> element to represent a specific moment in time.
+        The <code>datetime</code> attribute is used to translate dates and times into a machine-readable format.
+        This is important because it helps with search engine results and helps the browser process date and time
+        information more effectively.
+    </p>
+
+    <!-- 
+    Example 1: Time only
+    The datetime attribute value must be either a valid year, valid month, valid time, 
+    local date, global date, or valid duration string.
+  -->
+    <h2>Example 1: Time Only</h2>
+    <p>
+        Here is an example using the time element to represent twenty hundred hours, or eight PM in the evening.
+        The value for the datetime attribute must be a valid time string in 24-hour format.
+    </p>
+    <p>The reservations are for <time datetime="20:00">20:00</time> (which is 8:00 PM).</p>
+
+    <!-- 
+    Example 2: Date and time together
+    The value for the datetime attribute is in the ISO 8601 format.
+    ISO 8601 is an international standard to represent dates and times.
+  -->
+    <h2>Example 2: Date and Time Together</h2>
+    <p>
+        Here is another example of using the time element to represent a particular date.
+        The value for the datetime attribute is in the ISO 8601 format.
+        The first part of that value is the year, month and day.
+        The capital T in the value is a separator between the date and time.
+        The fifteen hundred hours would be three PM in the afternoon.
+    </p>
+    <p>
+        The graduation will be on <time datetime="2024-06-15T15:00">June 15 at 3:00 PM</time>.
+    </p>
+
+    <!-- 
+    Example 3: Date only
+    The datetime attribute uses year-month-day format (YYYY-MM-DD).
+  -->
+    <h2>Example 3: Date Only</h2>
+    <p>
+        This example shows how to represent just a date without a specific time.
+        The datetime attribute follows the year-month-day format.
+    </p>
+    <p>Our company was founded on <time datetime="2010-03-15">March 15, 2010</time>.</p>
+
+    <!-- 
+    Example 4: Event with multiple dates and times
+    Whenever you need to represent events, publication dates, or appointments,
+    it is best to use the time element.
+  -->
+    <h2>Example 4: Event Schedule</h2>
+    <p>
+        Whenever you need to represent events, publication dates, or appointments,
+        it is best to use the time element. Here's an example of an event schedule:
+    </p>
+    <ul>
+        <li>Registration opens: <time datetime="2024-05-01T09:00">May 1 at 9:00 AM</time></li>
+        <li>Main event: <time datetime="2024-05-02T14:30">May 2 at 2:30 PM</time></li>
+        <li>Closing ceremony: <time datetime="2024-05-03T19:00">May 3 at 7:00 PM</time></li>
+    </ul>
+
+    <!-- 
+    Example 5: Publication date for articles
+    This is commonly used for blog posts, news articles, and content updates.
+  -->
+    <h2>Example 5: Publication Date</h2>
+    <p>
+        This article was published on
+        <time datetime="2024-01-15T08:30">January 15, 2024 at 8:30 AM</time>
+        and last updated on
+        <time datetime="2024-01-20T10:15">January 20, 2024</time>.
+    </p>
+
+    <!-- Summary of key points -->
+    <h2>Key Points to Remember:</h2>
+    <ul>
+        <li>Always use the <code>datetime</code> attribute for machine-readable format</li>
+        <li>The <code>datetime</code> value must follow ISO 8601 standard</li>
+        <li>Separate date and time with capital "T" (e.g., 2024-06-15T15:00)</li>
+        <li>Use 24-hour format for time in the <code>datetime</code> attribute</li>
+        <li>Display text (between the tags) can be in any user-friendly format</li>
+        <li>Helps search engines understand the actual date/time value</li>
+    </ul>
+
+</body>
+
+</html>

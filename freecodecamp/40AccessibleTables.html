@@ -1,0 +1,420 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Accessible Tables - Best Practices Demo</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #f5f5f5;
+            line-height: 1.6;
+        }
+
+        h1 {
+            color: #2c3e50;
+            text-align: center;
+            margin-bottom: 10px;
+        }
+
+        .intro {
+            background-color: #e8f4f8;
+            padding: 15px;
+            border-left: 4px solid #3498db;
+            margin-bottom: 30px;
+            border-radius: 4px;
+        }
+
+        .example-section {
+            background-color: white;
+            padding: 25px;
+            margin-bottom: 30px;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        .example-section h2 {
+            color: #2980b9;
+            border-bottom: 2px solid #3498db;
+            padding-bottom: 10px;
+            margin-bottom: 20px;
+        }
+
+        .example-section h3 {
+            color: #34495e;
+            margin-top: 20px;
+        }
+
+        /* Table Styling - Using Relative Widths */
+        table {
+            width: 100%;
+            /* Let browser determine width */
+            border-collapse: collapse;
+            margin: 20px 0;
+            background-color: white;
+        }
+
+        caption {
+            font-size: 1.2em;
+            font-weight: bold;
+            padding: 10px;
+            background-color: #3498db;
+            color: white;
+            text-align: left;
+            border-radius: 4px 4px 0 0;
+        }
+
+        th {
+            background-color: #34495e;
+            color: white;
+            padding: 12px;
+            text-align: left;
+            font-weight: 600;
+        }
+
+        td {
+            padding: 12px;
+            border-bottom: 1px solid #ddd;
+        }
+
+        tbody tr:hover {
+            background-color: #f8f9fa;
+        }
+
+        /* Alternating row colors for better readability */
+        tbody tr:nth-child(even) {
+            background-color: #f9f9f9;
+        }
+
+        .code-note {
+            background-color: #fff3cd;
+            border-left: 4px solid #ffc107;
+            padding: 10px 15px;
+            margin: 15px 0;
+            font-family: 'Courier New', monospace;
+            font-size: 0.9em;
+        }
+
+        .best-practice {
+            background-color: #d4edda;
+            border-left: 4px solid #28a745;
+            padding: 10px 15px;
+            margin: 15px 0;
+        }
+
+        .warning {
+            background-color: #f8d7da;
+            border-left: 4px solid #dc3545;
+            padding: 10px 15px;
+            margin: 15px 0;
+        }
+
+        code {
+            background-color: #f4f4f4;
+            padding: 2px 6px;
+            border-radius: 3px;
+            font-family: 'Courier New', monospace;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>📊 Accessible Tables - Best Practices Guide</h1>
+
+    <div class="intro">
+        <p><strong>Why Table Accessibility Matters:</strong> While sighted users can visually scan tables and understand
+            relationships between data and headers, screen reader users need proper HTML structure to navigate and
+            comprehend table data. This guide demonstrates best practices for creating accessible tables.</p>
+    </div>
+
+    <!-- EXAMPLE 1: Basic Accessible Table -->
+    <section class="example-section">
+        <h2>Example 1: Basic Accessible Table with Caption</h2>
+
+        <div class="best-practice">
+            ✅ <strong>Best Practice:</strong> Always use a <code>&lt;caption&gt;</code> element immediately after the
+            opening <code>&lt;table&gt;</code> tag to describe the table's purpose.
+        </div>
+
+        <table>
+            <caption>Our Pets</caption>
+            <!-- Column headers with scope attribute -->
+            <thead>
+                <tr>
+                    <th scope="col">Name</th>
+                    <th scope="col">Age</th>
+                    <th scope="col">Type</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <!-- Row header with scope attribute -->
+                    <th scope="row">Nora</th>
+                    <td>5</td>
+                    <td>Dog</td>
+                </tr>
+                <tr>
+                    <th scope="row">Gino</th>
+                    <td>2</td>
+                    <td>Cat</td>
+                </tr>
+                <tr>
+                    <th scope="row">Lulu</th>
+                    <td>10</td>
+                    <td>Cat</td>
+                </tr>
+                <tr>
+                    <th scope="row">Elizabeth</th>
+                    <td>6</td>
+                    <td>Cat</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <div class="code-note">
+            📝 <strong>Key Elements:</strong><br>
+            • <code>&lt;caption&gt;</code> - Provides table title/description<br>
+            • <code>&lt;thead&gt;</code> - Groups column headers<br>
+            • <code>&lt;tbody&gt;</code> - Groups table data<br>
+            • <code>&lt;th scope="col"&gt;</code> - Defines column headers<br>
+            • <code>&lt;th scope="row"&gt;</code> - Defines row headers
+        </div>
+    </section>
+
+    <!-- EXAMPLE 2: Table with Complex Headers -->
+    <section class="example-section">
+        <h2>Example 2: Table with Grouped Headers (rowspan)</h2>
+
+        <div class="warning">
+            ⚠️ <strong>Warning:</strong> While complex tables with <code>rowspan</code> and <code>colspan</code> are
+            supported, they can be difficult for some screen readers to interpret. Try to flatten tables when possible.
+        </div>
+
+        <table>
+            <caption>Pet Categories and Details</caption>
+            <tbody>
+                <tr>
+                    <td></td>
+                    <th scope="col">Name</th>
+                    <th scope="col">Age</th>
+                    <th scope="col">Breed</th>
+                </tr>
+                <!-- Dogs group with rowspan -->
+                <tr>
+                    <th rowspan="2" scope="row">Dogs</th>
+                    <th scope="row">Nora</th>
+                    <td>5</td>
+                    <td>Golden Retriever</td>
+                </tr>
+                <tr>
+                    <th scope="row">Gino</th>
+                    <td>2</td>
+                    <td>Labrador</td>
+                </tr>
+                <!-- Cats group with rowspan -->
+                <tr>
+                    <th rowspan="2" scope="row">Cats</th>
+                    <th scope="row">Lulu</th>
+                    <td>10</td>
+                    <td>Persian</td>
+                </tr>
+                <tr>
+                    <th scope="row">Elizabeth</th>
+                    <td>6</td>
+                    <td>Siamese</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <div class="code-note">
+            📝 <strong>How Screen Readers Interpret This:</strong><br>
+            For Nora's age (5), screen reader announces:<br>
+            • Column header: "Age"<br>
+            • Row headers: "Dogs" AND "Nora"<br>
+            This creates the association: "Dogs, Nora, Age: 5"
+        </div>
+    </section>
+
+    <!-- EXAMPLE 3: Data Table with Statistics -->
+    <section class="example-section">
+        <h2>Example 3: Monthly Sales Report</h2>
+
+        <div class="best-practice">
+            ✅ <strong>Best Practice:</strong> Use percentage widths instead of fixed pixel values to allow responsive
+            resizing.
+        </div>
+
+        <table>
+            <caption>Q1 2026 Sales Performance by Region</caption>
+            <thead>
+                <tr>
+                    <th scope="col">Region</th>
+                    <th scope="col">January</th>
+                    <th scope="col">February</th>
+                    <th scope="col">March</th>
+                    <th scope="col">Total</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <th scope="row">North America</th>
+                    <td>$45,000</td>
+                    <td>$52,000</td>
+                    <td>$48,000</td>
+                    <td>$145,000</td>
+                </tr>
+                <tr>
+                    <th scope="row">Europe</th>
+                    <td>$38,000</td>
+                    <td>$41,000</td>
+                    <td>$39,500</td>
+                    <td>$118,500</td>
+                </tr>
+                <tr>
+                    <th scope="row">Asia Pacific</th>
+                    <td>$62,000</td>
+                    <td>$68,000</td>
+                    <td>$71,000</td>
+                    <td>$201,000</td>
+                </tr>
+                <tr>
+                    <th scope="row">Latin America</th>
+                    <td>$22,000</td>
+                    <td>$25,000</td>
+                    <td>$23,500</td>
+                    <td>$70,500</td>
+                </tr>
+            </tbody>
+        </table>
+    </section>
+
+    <!-- EXAMPLE 4: Schedule/Timetable -->
+    <section class="example-section">
+        <h2>Example 4: Class Schedule</h2>
+
+        <table>
+            <caption>Weekly Class Schedule - Spring 2026</caption>
+            <thead>
+                <tr>
+                    <th scope="col">Time</th>
+                    <th scope="col">Monday</th>
+                    <th scope="col">Tuesday</th>
+                    <th scope="col">Wednesday</th>
+                    <th scope="col">Thursday</th>
+                    <th scope="col">Friday</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <th scope="row">9:00 AM</th>
+                    <td>Mathematics</td>
+                    <td>English</td>
+                    <td>Mathematics</td>
+                    <td>English</td>
+                    <td>Science</td>
+                </tr>
+                <tr>
+                    <th scope="row">10:30 AM</th>
+                    <td>History</td>
+                    <td>Science</td>
+                    <td>History</td>
+                    <td>Science</td>
+                    <td>Art</td>
+                </tr>
+                <tr>
+                    <th scope="row">12:00 PM</th>
+                    <td colspan="5" style="text-align: center; background-color: #e8f4f8;">Lunch Break</td>
+                </tr>
+                <tr>
+                    <th scope="row">1:00 PM</th>
+                    <td>Physical Ed</td>
+                    <td>Music</td>
+                    <td>Physical Ed</td>
+                    <td>Music</td>
+                    <td>Study Hall</td>
+                </tr>
+            </tbody>
+        </table>
+    </section>
+
+    <!-- BEST PRACTICES SUMMARY -->
+    <section class="example-section">
+        <h2>📋 Accessibility Checklist</h2>
+
+        <div class="best-practice">
+            <h3>✅ DO:</h3>
+            <ul>
+                <li>Use <code>&lt;caption&gt;</code> to describe the table's purpose</li>
+                <li>Use <code>&lt;th&gt;</code> for all headers (not <code>&lt;td&gt;</code>)</li>
+                <li>Add <code>scope="col"</code> to column headers</li>
+                <li>Add <code>scope="row"</code> to row headers</li>
+                <li>Use <code>&lt;thead&gt;</code> and <code>&lt;tbody&gt;</code> to structure tables</li>
+                <li>Use percentage widths for responsive design</li>
+                <li>Let the browser determine table width when possible</li>
+                <li>Keep table structures as simple as possible</li>
+            </ul>
+        </div>
+
+        <div class="warning">
+            <h3>❌ DON'T:</h3>
+            <ul>
+                <li>Use fixed pixel widths for cells (use percentages instead)</li>
+                <li>Set cell heights (allow text to resize)</li>
+                <li>Create overly complex tables with many rowspan/colspan attributes</li>
+                <li>Use tables for layout purposes (use CSS Grid or Flexbox)</li>
+                <li>Forget the <code>scope</code> attribute on headers</li>
+                <li>Skip the <code>&lt;caption&gt;</code> element</li>
+            </ul>
+        </div>
+    </section>
+
+    <!-- TESTING SECTION -->
+    <section class="example-section">
+        <h2>🧪 How to Test Table Accessibility</h2>
+
+        <div class="code-note">
+            <h3>Testing Methods:</h3>
+            <ol>
+                <li><strong>Screen Reader Testing:</strong>
+                    <ul>
+                        <li>Windows: Use NVDA (free) or JAWS</li>
+                        <li>Mac: Use VoiceOver (built-in)</li>
+                        <li>Navigate through the table and verify headers are announced correctly</li>
+                    </ul>
+                </li>
+                <li><strong>Browser DevTools:</strong>
+                    <ul>
+                        <li>Right-click table → Inspect</li>
+                        <li>Check for proper semantic structure</li>
+                        <li>Verify <code>scope</code> attributes are present</li>
+                    </ul>
+                </li>
+                <li><strong>Keyboard Navigation:</strong>
+                    <ul>
+                        <li>Tab through the table</li>
+                        <li>Ensure all interactive elements are reachable</li>
+                    </ul>
+                </li>
+                <li><strong>Automated Tools:</strong>
+                    <ul>
+                        <li>Use axe DevTools or WAVE browser extension</li>
+                        <li>Check for accessibility violations</li>
+                    </ul>
+                </li>
+            </ol>
+        </div>
+    </section>
+
+    <footer
+        style="text-align: center; margin-top: 40px; padding: 20px; background-color: #34495e; color: white; border-radius: 8px;">
+        <p><strong>Remember:</strong> Accessible tables benefit everyone, not just screen reader users. Clear structure
+            improves comprehension for all users! 🌟</p>
+    </footer>
+
+</body>
+
+</html>

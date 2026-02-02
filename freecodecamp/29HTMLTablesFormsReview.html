@@ -1,0 +1,985 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HTML Tables and Forms Review</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+            background: linear-gradient(135deg, #0f2027 0%, #203a43 50%, #2c5364 100%);
+            min-height: 100vh;
+        }
+
+        .container {
+            background: white;
+            border-radius: 20px;
+            padding: 40px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.4);
+        }
+
+        h1 {
+            color: #0f2027;
+            border-bottom: 5px solid #2c5364;
+            padding-bottom: 15px;
+            margin-bottom: 30px;
+            font-size: 2.5em;
+            text-align: center;
+        }
+
+        h2 {
+            color: #203a43;
+            margin-top: 40px;
+            padding: 15px;
+            background: linear-gradient(135deg, #e0f2fe 0%, #bae6fd 100%);
+            border-left: 6px solid #2c5364;
+            border-radius: 8px;
+            font-size: 1.8em;
+        }
+
+        h3 {
+            color: #2c5364;
+            margin-top: 30px;
+            padding-left: 15px;
+            border-left: 4px solid #0ea5e9;
+            font-size: 1.4em;
+        }
+
+        .section {
+            margin: 30px 0;
+            padding: 25px;
+            background: #f8fafc;
+            border-radius: 12px;
+            border: 2px solid #e2e8f0;
+        }
+
+        .definition {
+            background: linear-gradient(135deg, #dbeafe 0%, #bfdbfe 100%);
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 10px;
+            border-left: 6px solid #3b82f6;
+        }
+
+        .element-name {
+            color: #dc2626;
+            font-weight: bold;
+            font-size: 1.1em;
+        }
+
+        .attribute-name {
+            color: #7c3aed;
+            font-weight: bold;
+        }
+
+        code {
+            background: #1e293b;
+            color: #22d3ee;
+            padding: 3px 8px;
+            border-radius: 4px;
+            font-family: 'Courier New', monospace;
+            font-size: 0.95em;
+        }
+
+        pre {
+            background: #1e293b;
+            color: #e2e8f0;
+            padding: 20px;
+            border-radius: 12px;
+            overflow-x: auto;
+            margin: 20px 0;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+            border: 2px solid #334155;
+        }
+
+        pre code {
+            background: transparent;
+            color: #e2e8f0;
+            padding: 0;
+        }
+
+        .demo-box {
+            background: white;
+            border: 3px solid #2c5364;
+            padding: 25px;
+            margin: 25px 0;
+            border-radius: 12px;
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
+        }
+
+        .demo-title {
+            background: #2c5364;
+            color: white;
+            padding: 10px 20px;
+            margin: -25px -25px 20px -25px;
+            border-radius: 9px 9px 0 0;
+            font-weight: bold;
+            font-size: 1.1em;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        }
+
+        thead {
+            background: linear-gradient(135deg, #2c5364 0%, #203a43 100%);
+            color: white;
+        }
+
+        th {
+            padding: 15px;
+            text-align: left;
+            font-weight: bold;
+            border: 1px solid #cbd5e1;
+        }
+
+        td {
+            padding: 12px 15px;
+            border: 1px solid #cbd5e1;
+        }
+
+        tbody tr:nth-child(odd) {
+            background: #f8fafc;
+        }
+
+        tbody tr:nth-child(even) {
+            background: white;
+        }
+
+        tbody tr:hover {
+            background: #e0f2fe;
+            transition: background 0.3s ease;
+        }
+
+        tfoot {
+            background: #f1f5f9;
+            font-weight: bold;
+        }
+
+        caption {
+            caption-side: top;
+            padding: 15px;
+            font-size: 1.3em;
+            font-weight: bold;
+            color: #0f2027;
+            background: #e0f2fe;
+            border-radius: 8px 8px 0 0;
+        }
+
+        /* Form Styles */
+        form {
+            background: #f8fafc;
+            padding: 25px;
+            border-radius: 12px;
+            border: 2px solid #cbd5e1;
+        }
+
+        label {
+            display: block;
+            margin: 15px 0 5px 0;
+            font-weight: bold;
+            color: #334155;
+        }
+
+        input[type="text"],
+        input[type="email"],
+        input[type="number"],
+        input[type="password"],
+        select,
+        textarea {
+            width: 100%;
+            padding: 10px;
+            margin: 5px 0 15px 0;
+            border: 2px solid #cbd5e1;
+            border-radius: 6px;
+            font-size: 1em;
+            transition: border-color 0.3s ease;
+        }
+
+        input:focus,
+        select:focus,
+        textarea:focus {
+            outline: none;
+            border-color: #3b82f6;
+            box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
+        }
+
+        input[type="radio"],
+        input[type="checkbox"] {
+            margin-right: 8px;
+            cursor: pointer;
+        }
+
+        button,
+        input[type="button"],
+        input[type="submit"],
+        input[type="reset"] {
+            background: linear-gradient(135deg, #2c5364 0%, #203a43 100%);
+            color: white;
+            padding: 12px 25px;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 1em;
+            font-weight: bold;
+            margin: 10px 5px;
+            transition: all 0.3s ease;
+        }
+
+        button:hover,
+        input[type="button"]:hover,
+        input[type="submit"]:hover,
+        input[type="reset"]:hover {
+            background: linear-gradient(135deg, #0f2027 0%, #2c5364 100%);
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+        }
+
+        button:disabled,
+        input:disabled {
+            opacity: 0.5;
+            cursor: not-allowed;
+        }
+
+        input:read-only {
+            background: #e2e8f0;
+            cursor: not-allowed;
+        }
+
+        fieldset {
+            border: 2px solid #cbd5e1;
+            border-radius: 10px;
+            padding: 20px;
+            margin: 20px 0;
+            background: white;
+        }
+
+        legend {
+            padding: 5px 15px;
+            font-weight: bold;
+            color: #2c5364;
+            background: #e0f2fe;
+            border-radius: 6px;
+            border: 2px solid #cbd5e1;
+        }
+
+        .attribute-list {
+            background: #fef3c7;
+            padding: 15px;
+            border-left: 5px solid #f59e0b;
+            border-radius: 6px;
+            margin: 15px 0;
+        }
+
+        .attribute-list ul {
+            margin: 10px 0;
+            padding-left: 25px;
+        }
+
+        .attribute-list li {
+            margin: 8px 0;
+            line-height: 1.6;
+        }
+
+        .info-badge {
+            display: inline-block;
+            background: #3b82f6;
+            color: white;
+            padding: 4px 10px;
+            border-radius: 5px;
+            font-size: 0.85em;
+            font-weight: bold;
+            margin-left: 10px;
+        }
+
+        .example-badge {
+            display: inline-block;
+            background: #10b981;
+            color: white;
+            padding: 4px 10px;
+            border-radius: 5px;
+            font-size: 0.85em;
+            font-weight: bold;
+            margin-left: 10px;
+        }
+
+        .note-box {
+            background: #fef3c7;
+            border-left: 5px solid #f59e0b;
+            padding: 15px;
+            margin: 20px 0;
+            border-radius: 6px;
+        }
+
+        .tip-box {
+            background: #dbeafe;
+            border-left: 5px solid #3b82f6;
+            padding: 15px;
+            margin: 20px 0;
+            border-radius: 6px;
+        }
+
+        .tools-box {
+            background: #e9d5ff;
+            border-left: 5px solid #7c3aed;
+            padding: 15px;
+            margin: 20px 0;
+            border-radius: 6px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <h1>📚 HTML Tables and Forms Review</h1>
+
+        <!-- ========================================
+             SECTION 1: HTML FORM ELEMENTS
+        ======================================== -->
+
+        <h2>📝 HTML Form Elements and Attributes</h2>
+
+        <!-- Form Element -->
+        <div class="section">
+            <h3><span class="element-name">&lt;form&gt;</span> Element</h3>
+            <div class="definition">
+                <strong>Purpose:</strong> Used to create an HTML form for user input.
+            </div>
+
+            <div class="attribute-list">
+                <strong>Key Attributes:</strong>
+                <ul>
+                    <li><span class="attribute-name">action</span> - Specifies the URL where the form data should be
+                        sent</li>
+                    <li><span class="attribute-name">method</span> - Specifies the HTTP method to use when sending form
+                        data (GET or POST)</li>
+                </ul>
+            </div>
+
+            <pre><code>&lt;!-- Basic form structure --&gt;
+&lt;form method="value-goes-here" action="url-goes-here"&gt;
+  &lt;!-- inputs go inside here --&gt;
+&lt;/form&gt;</code></pre>
+        </div>
+
+        <!-- Input Element -->
+        <div class="section">
+            <h3><span class="element-name">&lt;input&gt;</span> Element</h3>
+            <div class="definition">
+                <strong>Purpose:</strong> Used to create an input field for user input.
+            </div>
+
+            <div class="attribute-list">
+                <strong>Common Attributes:</strong>
+                <ul>
+                    <li><span class="attribute-name">type</span> - Specifies the type of input (text, email, number,
+                        radio, checkbox, etc.)</li>
+                    <li><span class="attribute-name">placeholder</span> - Shows a hint to the user about what to enter
+                    </li>
+                    <li><span class="attribute-name">value</span> - Specifies the value of the input</li>
+                    <li><span class="attribute-name">name</span> - Assigns a name to the input field (used as key when
+                        form data is submitted)</li>
+                    <li><span class="attribute-name">size</span> - Defines the number of visible characters</li>
+                    <li><span class="attribute-name">min</span> - Specifies the minimum value (for number inputs)</li>
+                    <li><span class="attribute-name">max</span> - Specifies the maximum value (for number inputs)</li>
+                    <li><span class="attribute-name">minlength</span> - Minimum number of characters required</li>
+                    <li><span class="attribute-name">maxlength</span> - Maximum number of characters allowed</li>
+                    <li><span class="attribute-name">required</span> - Input must be filled out before submitting</li>
+                    <li><span class="attribute-name">disabled</span> - Input field is disabled</li>
+                    <li><span class="attribute-name">readonly</span> - Input field is read-only</li>
+                </ul>
+            </div>
+
+            <pre><code>&lt;!-- Text input example --&gt;
+&lt;input 
+  type="text"
+  id="name"
+  name="name"
+  placeholder="e.g. Quincy Larson" 
+  size="20"
+  minlength="5"
+  maxlength="30"
+  required
+/&gt;
+
+&lt;!-- Number input example --&gt;
+&lt;input 
+  type="number"
+  id="quantity"
+  name="quantity"
+  min="2"
+  max="10"
+  disabled
+/&gt;
+
+&lt;!-- Button input example --&gt;
+&lt;input type="button" value="Show Alert" /&gt;</code></pre>
+
+            <!-- Live Demo -->
+            <div class="demo-box">
+                <div class="demo-title">🎯 Live Demo: Input Types</div>
+
+                <label for="demo-text">Text Input (5-30 characters required):</label>
+                <input type="text" id="demo-text" name="demo-text" placeholder="e.g. Quincy Larson" size="20"
+                    minlength="5" maxlength="30" required />
+
+                <label for="demo-email">Email Input:</label>
+                <input type="email" id="demo-email" name="demo-email" placeholder="example@email.com" />
+
+                <label for="demo-number">Number Input (2-10):</label>
+                <input type="number" id="demo-number" name="demo-number" min="2" max="10" value="5" />
+
+                <label for="demo-disabled">Disabled Input:</label>
+                <input type="text" id="demo-disabled" value="This field is disabled" disabled />
+
+                <label for="demo-readonly">Read-only Input:</label>
+                <input type="text" id="demo-readonly" value="This field is read-only" readonly />
+
+                <div style="margin-top: 15px;">
+                    <input type="button" value="Show Alert" onclick="alert('Button clicked!')" />
+                </div>
+            </div>
+        </div>
+
+        <!-- Label Element -->
+        <div class="section">
+            <h3><span class="element-name">&lt;label&gt;</span> Element</h3>
+            <div class="definition">
+                <strong>Purpose:</strong> Used to create a label for an input field.
+            </div>
+
+            <div class="attribute-list">
+                <strong>Key Attribute:</strong>
+                <ul>
+                    <li><span class="attribute-name">for</span> - Specifies which input field the label is for</li>
+                </ul>
+            </div>
+
+            <h4>Method 1: Implicit Form Association</h4>
+            <p>Inputs can be associated with labels by wrapping the input inside the label element:</p>
+            <pre><code>&lt;form action=""&gt;
+  &lt;label&gt;
+    Full Name:
+    &lt;input type="text" /&gt;
+  &lt;/label&gt;
+&lt;/form&gt;</code></pre>
+
+            <h4>Method 2: Explicit Form Association</h4>
+            <p>Inputs can be associated with labels using the <code>for</code> attribute:</p>
+            <pre><code>&lt;form action=""&gt;
+  &lt;label for="email"&gt;Email Address: &lt;/label&gt;
+  &lt;input type="email" id="email" /&gt;
+&lt;/form&gt;</code></pre>
+
+            <!-- Live Demo -->
+            <div class="demo-box">
+                <div class="demo-title">🎯 Live Demo: Label Association</div>
+
+                <form action="">
+                    <!-- Implicit association -->
+                    <label>
+                        Full Name (Implicit):
+                        <input type="text" placeholder="Click the label to focus" />
+                    </label>
+
+                    <!-- Explicit association -->
+                    <label for="email-demo">Email Address (Explicit):</label>
+                    <input type="email" id="email-demo" placeholder="Click the label to focus" />
+                </form>
+
+                <div class="tip-box">
+                    <strong>💡 Tip:</strong> Click on the label text to see how it focuses the associated input field!
+                </div>
+            </div>
+        </div>
+
+        <!-- Button Element -->
+        <div class="section">
+            <h3><span class="element-name">&lt;button&gt;</span> Element</h3>
+            <div class="definition">
+                <strong>Purpose:</strong> Used to create a clickable button.
+            </div>
+
+            <div class="attribute-list">
+                <strong>Type Attribute Values:</strong>
+                <ul>
+                    <li><span class="attribute-name">button</span> - Regular button (no default behavior)</li>
+                    <li><span class="attribute-name">submit</span> - Submits the form</li>
+                    <li><span class="attribute-name">reset</span> - Resets the form to default values</li>
+                </ul>
+            </div>
+
+            <pre><code>&lt;button type="button"&gt;Show Form&lt;/button&gt;
+&lt;button type="submit"&gt;Submit Form&lt;/button&gt;
+&lt;button type="reset"&gt;Reset Form&lt;/button&gt;</code></pre>
+
+            <!-- Live Demo -->
+            <div class="demo-box">
+                <div class="demo-title">🎯 Live Demo: Button Types</div>
+
+                <button type="button" onclick="alert('This is a regular button!')">Regular Button</button>
+                <button type="submit" onclick="event.preventDefault(); alert('This would submit the form!')">Submit
+                    Button</button>
+                <button type="reset" onclick="alert('This would reset the form!')">Reset Button</button>
+            </div>
+        </div>
+
+        <!-- Fieldset and Legend -->
+        <div class="section">
+            <h3><span class="element-name">&lt;fieldset&gt;</span> and <span class="element-name">&lt;legend&gt;</span>
+                Elements</h3>
+            <div class="definition">
+                <strong>Purpose:</strong>
+                <ul>
+                    <li><span class="element-name">&lt;fieldset&gt;</span> - Groups related inputs together</li>
+                    <li><span class="element-name">&lt;legend&gt;</span> - Adds a caption to describe the group</li>
+                </ul>
+            </div>
+
+            <pre><code>&lt;!-- Radio button group --&gt;
+&lt;fieldset&gt;
+  &lt;legend&gt;Was this your first time at our hotel?&lt;/legend&gt;
+
+  &lt;label for="yes-option"&gt;Yes&lt;/label&gt;
+  &lt;input id="yes-option" type="radio" name="hotel-stay" value="yes" /&gt;
+
+  &lt;label for="no-option"&gt;No&lt;/label&gt;
+  &lt;input id="no-option" type="radio" name="hotel-stay" value="no" /&gt;
+&lt;/fieldset&gt;
+
+&lt;!-- Checkbox group --&gt;
+&lt;fieldset&gt;
+  &lt;legend&gt;
+    Why did you choose to stay at our hotel? (Check all that apply)
+  &lt;/legend&gt;
+
+  &lt;label for="location"&gt;Location&lt;/label&gt;
+  &lt;input type="checkbox" id="location" name="location" value="location" /&gt;
+
+  &lt;label for="price"&gt;Price&lt;/label&gt;
+  &lt;input type="checkbox" id="price" name="price" value="price" /&gt;
+&lt;/fieldset&gt;</code></pre>
+
+            <!-- Live Demo -->
+            <div class="demo-box">
+                <div class="demo-title">🎯 Live Demo: Fieldset and Legend</div>
+
+                <!-- Radio group -->
+                <fieldset>
+                    <legend>Was this your first time at our hotel?</legend>
+
+                    <label for="yes-option">
+                        <input id="yes-option" type="radio" name="hotel-stay" value="yes" />
+                        Yes
+                    </label>
+                    <br>
+                    <label for="no-option">
+                        <input id="no-option" type="radio" name="hotel-stay" value="no" />
+                        No
+                    </label>
+                </fieldset>
+
+                <!-- Checkbox group -->
+                <fieldset>
+                    <legend>Why did you choose to stay at our hotel? (Check all that apply)</legend>
+
+                    <label for="location">
+                        <input type="checkbox" id="location" name="location" value="location" />
+                        Location
+                    </label>
+                    <br>
+                    <label for="price">
+                        <input type="checkbox" id="price" name="price" value="price" />
+                        Price
+                    </label>
+                    <br>
+                    <label for="amenities">
+                        <input type="checkbox" id="amenities" name="amenities" value="amenities" />
+                        Amenities
+                    </label>
+                    <br>
+                    <label for="reviews">
+                        <input type="checkbox" id="reviews" name="reviews" value="reviews" />
+                        Reviews
+                    </label>
+                </fieldset>
+
+                <div class="note-box">
+                    <strong>📝 Note:</strong> Radio buttons with the same <code>name</code> attribute are grouped
+                    together, allowing only one selection. Checkboxes allow multiple selections.
+                </div>
+            </div>
+        </div>
+
+        <!-- Focused State -->
+        <div class="section">
+            <h3>🎯 Focused State</h3>
+            <div class="definition">
+                <strong>Definition:</strong> The focused state is the state of an input field when it is selected by the
+                user.
+            </div>
+
+            <div class="demo-box">
+                <div class="demo-title">🎯 Live Demo: Focused State</div>
+
+                <label for="focus-demo">Click or tab to this input to see the focused state:</label>
+                <input type="text" id="focus-demo" placeholder="Click me to see the focus effect" />
+
+                <div class="tip-box">
+                    <strong>💡 Tip:</strong> Notice how the input field changes appearance when you click on it or tab
+                    to it. This is the focused state, indicated by a blue border and shadow.
+                </div>
+            </div>
+        </div>
+
+        <!-- ========================================
+             SECTION 2: HTML TABLE ELEMENTS
+        ======================================== -->
+
+        <h2>📊 HTML Table Elements and Attributes</h2>
+
+        <div class="section">
+            <h3>Table Elements Overview</h3>
+
+            <div class="attribute-list">
+                <strong>Key Table Elements:</strong>
+                <ul>
+                    <li><span class="element-name">&lt;table&gt;</span> - Creates an HTML table</li>
+                    <li><span class="element-name">&lt;caption&gt;</span> - Adds a title to the table</li>
+                    <li><span class="element-name">&lt;thead&gt;</span> - Groups the header content</li>
+                    <li><span class="element-name">&lt;tbody&gt;</span> - Groups the body content</li>
+                    <li><span class="element-name">&lt;tfoot&gt;</span> - Groups the footer content</li>
+                    <li><span class="element-name">&lt;tr&gt;</span> - Creates a table row</li>
+                    <li><span class="element-name">&lt;th&gt;</span> - Creates a header cell</li>
+                    <li><span class="element-name">&lt;td&gt;</span> - Creates a data cell</li>
+                </ul>
+            </div>
+
+            <div class="attribute-list">
+                <strong>Important Attribute:</strong>
+                <ul>
+                    <li><span class="attribute-name">colspan</span> - Specifies the number of columns a cell should span
+                    </li>
+                </ul>
+            </div>
+
+            <pre><code>&lt;table&gt;
+  &lt;caption&gt;Exam Grades&lt;/caption&gt;
+
+  &lt;thead&gt;
+    &lt;tr&gt;
+      &lt;th&gt;Last Name&lt;/th&gt;
+      &lt;th&gt;First Name&lt;/th&gt;
+      &lt;th&gt;Grade&lt;/th&gt;
+    &lt;/tr&gt;
+  &lt;/thead&gt;
+
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td&gt;Davis&lt;/td&gt;
+      &lt;td&gt;Alex&lt;/td&gt;
+      &lt;td&gt;54&lt;/td&gt;
+    &lt;/tr&gt;
+
+    &lt;tr&gt;
+      &lt;td&gt;Doe&lt;/td&gt;
+      &lt;td&gt;Samantha&lt;/td&gt;
+      &lt;td&gt;92&lt;/td&gt;
+    &lt;/tr&gt;
+
+    &lt;tr&gt;
+      &lt;td&gt;Rodriguez&lt;/td&gt;
+      &lt;td&gt;Marcus&lt;/td&gt;
+      &lt;td&gt;88&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+
+  &lt;tfoot&gt;
+    &lt;tr&gt;
+      &lt;td colspan="2"&gt;Average Grade&lt;/td&gt;
+      &lt;td&gt;78&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tfoot&gt;
+&lt;/table&gt;</code></pre>
+
+            <!-- Live Demo -->
+            <div class="demo-box">
+                <div class="demo-title">🎯 Live Demo: Complete Table Structure</div>
+
+                <table>
+                    <caption>Exam Grades</caption>
+
+                    <thead>
+                        <tr>
+                            <th>Last Name</th>
+                            <th>First Name</th>
+                            <th>Grade</th>
+                        </tr>
+                    </thead>
+
+                    <tbody>
+                        <tr>
+                            <td>Davis</td>
+                            <td>Alex</td>
+                            <td>54</td>
+                        </tr>
+
+                        <tr>
+                            <td>Doe</td>
+                            <td>Samantha</td>
+                            <td>92</td>
+                        </tr>
+
+                        <tr>
+                            <td>Rodriguez</td>
+                            <td>Marcus</td>
+                            <td>88</td>
+                        </tr>
+
+                        <tr>
+                            <td>Johnson</td>
+                            <td>Emily</td>
+                            <td>76</td>
+                        </tr>
+
+                        <tr>
+                            <td>Chen</td>
+                            <td>Wei</td>
+                            <td>95</td>
+                        </tr>
+                    </tbody>
+
+                    <tfoot>
+                        <tr>
+                            <td colspan="2">Average Grade</td>
+                            <td>81</td>
+                        </tr>
+                    </tfoot>
+                </table>
+
+                <div class="note-box">
+                    <strong>📝 Note:</strong> The <code>colspan="2"</code> attribute in the footer makes the "Average
+                    Grade" cell span across 2 columns.
+                </div>
+            </div>
+        </div>
+
+        <!-- Additional Table Example -->
+        <div class="section">
+            <h3>Another Table Example</h3>
+
+            <div class="demo-box">
+                <div class="demo-title">🎯 Live Demo: Student Schedule</div>
+
+                <table>
+                    <caption>Weekly Class Schedule</caption>
+
+                    <thead>
+                        <tr>
+                            <th>Time</th>
+                            <th>Monday</th>
+                            <th>Tuesday</th>
+                            <th>Wednesday</th>
+                            <th>Thursday</th>
+                            <th>Friday</th>
+                        </tr>
+                    </thead>
+
+                    <tbody>
+                        <tr>
+                            <td>9:00 AM</td>
+                            <td>Mathematics</td>
+                            <td>English</td>
+                            <td>Mathematics</td>
+                            <td>English</td>
+                            <td>Science</td>
+                        </tr>
+
+                        <tr>
+                            <td>10:00 AM</td>
+                            <td>Science</td>
+                            <td>History</td>
+                            <td>Science</td>
+                            <td>History</td>
+                            <td>Mathematics</td>
+                        </tr>
+
+                        <tr>
+                            <td>11:00 AM</td>
+                            <td>Physical Ed</td>
+                            <td>Art</td>
+                            <td>Physical Ed</td>
+                            <td>Music</td>
+                            <td>Computer Science</td>
+                        </tr>
+                    </tbody>
+
+                    <tfoot>
+                        <tr>
+                            <td colspan="6">Lunch Break: 12:00 PM - 1:00 PM</td>
+                        </tr>
+                    </tfoot>
+                </table>
+
+                <div class="tip-box">
+                    <strong>💡 Tip:</strong> Hover over the rows to see the interactive highlighting effect!
+                </div>
+            </div>
+        </div>
+
+        <!-- ========================================
+             SECTION 3: HTML TOOLS
+        ======================================== -->
+
+        <h2>🛠️ Working with HTML Tools</h2>
+
+        <div class="section">
+            <div class="tools-box">
+                <h3>1. HTML Validator</h3>
+                <p><strong>Definition:</strong> A tool that checks the syntax of HTML code to ensure it is valid.</p>
+                <p><strong>Purpose:</strong> Identifies errors and warnings in your HTML code, ensuring proper structure
+                    and compliance with web standards.</p>
+                <p><strong>Popular validators:</strong></p>
+                <ul>
+                    <li>W3C Markup Validation Service (validator.w3.org)</li>
+                    <li>JSONFormatter.org HTML Validator</li>
+                </ul>
+            </div>
+
+            <div class="tools-box">
+                <h3>2. DOM Inspector</h3>
+                <p><strong>Definition:</strong> A tool that allows you to inspect and modify the HTML structure of a web
+                    page.</p>
+                <p><strong>Purpose:</strong> View the Document Object Model (DOM) tree structure and see how elements
+                    are organized.</p>
+                <p><strong>How to access:</strong> Right-click on any element and select "Inspect"</p>
+            </div>
+
+            <div class="tools-box">
+                <h3>3. DevTools (Developer Tools)</h3>
+                <p><strong>Definition:</strong> A set of web developer tools built directly into the browser.</p>
+                <p><strong>Purpose:</strong> Helps you debug, profile, and analyze web pages.</p>
+                <p><strong>Key features:</strong></p>
+                <ul>
+                    <li>Elements tab - Inspect HTML and CSS</li>
+                    <li>Console tab - View errors and warnings</li>
+                    <li>Network tab - Monitor network requests</li>
+                    <li>Sources tab - Debug JavaScript</li>
+                </ul>
+                <p><strong>How to open:</strong></p>
+                <ul>
+                    <li>Windows/Linux: <code>Ctrl + Shift + I</code></li>
+                    <li>Mac: <code>Cmd + Option + I</code></li>
+                    <li>Right-click → Inspect</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- ========================================
+             SECTION 4: COMPLETE FORM EXAMPLE
+        ======================================== -->
+
+        <h2>📋 Complete Form Example</h2>
+
+        <div class="demo-box">
+            <div class="demo-title">🎯 Live Demo: Registration Form</div>
+
+            <form action="#" method="POST">
+                <!-- Personal Information -->
+                <fieldset>
+                    <legend>Personal Information</legend>
+
+                    <label for="fullname">Full Name:</label>
+                    <input type="text" id="fullname" name="fullname" placeholder="e.g. Quincy Larson" minlength="5"
+                        maxlength="50" required />
+
+                    <label for="email">Email Address:</label>
+                    <input type="email" id="email" name="email" placeholder="example@email.com" required />
+
+                    <label for="age">Age:</label>
+                    <input type="number" id="age" name="age" min="18" max="100" value="25" />
+                </fieldset>
+
+                <!-- Account Type -->
+                <fieldset>
+                    <legend>Account Type</legend>
+
+                    <label>
+                        <input type="radio" name="account-type" value="personal" checked />
+                        Personal
+                    </label>
+                    <br>
+                    <label>
+                        <input type="radio" name="account-type" value="business" />
+                        Business
+                    </label>
+                </fieldset>
+
+                <!-- Preferences -->
+                <fieldset>
+                    <legend>Preferences (Check all that apply)</legend>
+
+                    <label>
+                        <input type="checkbox" name="newsletter" value="yes" />
+                        Subscribe to newsletter
+                    </label>
+                    <br>
+                    <label>
+                        <input type="checkbox" name="notifications" value="yes" />
+                        Receive notifications
+                    </label>
+                    <br>
+                    <label>
+                        <input type="checkbox" name="terms" value="yes" required />
+                        I agree to the terms and conditions *
+                    </label>
+                </fieldset>
+
+                <!-- Buttons -->
+                <div style="margin-top: 20px;">
+                    <button type="submit">Submit Form</button>
+                    <button type="reset">Reset Form</button>
+                    <button type="button" onclick="alert('Form cancelled!')">Cancel</button>
+                </div>
+            </form>
+        </div>
+
+        <!-- ========================================
+             FOOTER
+        ======================================== -->
+
+        <div
+            style="margin-top: 60px; padding-top: 30px; border-top: 4px solid #e2e8f0; text-align: center; color: #64748b;">
+            <h3 style="color: #0f2027;">📚 Quick Reference Summary</h3>
+
+            <div style="text-align: left; max-width: 800px; margin: 20px auto;">
+                <div class="tip-box">
+                    <strong>Form Elements:</strong> form, input, label, button, fieldset, legend
+                </div>
+
+                <div class="tip-box">
+                    <strong>Input Types:</strong> text, email, number, radio, checkbox, button, submit, reset
+                </div>
+
+                <div class="tip-box">
+                    <strong>Table Elements:</strong> table, caption, thead, tbody, tfoot, tr, th, td
+                </div>
+
+                <div class="tip-box">
+                    <strong>HTML Tools:</strong> Validator, DOM Inspector, DevTools
+                </div>
+            </div>
+
+            <p style="font-size: 1.2em; margin-top: 30px;">🎓 HTML Tables and Forms Review Complete!</p>
+        </div>
+    </div>
+</body>
+
+</html>

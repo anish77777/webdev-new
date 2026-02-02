@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Presentational vs Semantic HTML</title>
+
+    <!-- CSS is used for presentation (modern best practice) -->
+    <style>
+        .blue-large {
+            color: blue;
+            font-size: 2rem;
+        }
+
+        .center-text {
+            text-align: center;
+        }
+
+        .big-text {
+            font-size: 1.3em;
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- =====================================================
+       PRESENTATIONAL HTML (DEPRECATED ❌)
+       -----------------------------------------------------
+       - Focuses on HOW content looks
+       - Uses deprecated tags like <font>, <center>, <big>
+       - Poor accessibility
+       - Hard to maintain
+     ===================================================== -->
+
+    <!-- font element (deprecated) -->
+    <font size="5" color="blue">
+        This text is blue and large.
+    </font>
+
+    <br><br>
+
+    <!-- center element (deprecated) -->
+    <center>
+        This text is centered.
+        <p>HTML is awesome.</p>
+    </center>
+
+    <p>Another example text.</p>
+
+    <!-- big element (deprecated) -->
+    <p>
+        This text has a normal font size.
+        <big>This text is larger.</big>
+        Some other text.
+    </p>
+
+    <hr>
+
+    <!-- =====================================================
+       SEMANTIC HTML (RECOMMENDED ✅)
+       -----------------------------------------------------
+       - Focuses on WHAT content means
+       - Styling handled with CSS
+       - Accessible, SEO-friendly, maintainable
+     ===================================================== -->
+
+    <!-- Semantic structure -->
+    <header>
+        <nav>
+            <a href="#">Home</a>
+            <a href="#">About</a>
+            <a href="#">Products</a>
+            <a href="#">Contact</a>
+        </nav>
+    </header>
+
+    <main>
+        <section>
+            <h1>Welcome to Our Website</h1>
+            <p class="blue-large">
+                This text is blue and large (styled with CSS).
+            </p>
+
+            <p class="center-text">
+                This text is centered using CSS.
+            </p>
+
+            <p>
+                This text has a normal font size.
+                <span class="big-text">This text is larger.</span>
+                Some other text.
+            </p>
+        </section>
+    </main>
+
+    <footer>
+        <p>© 2026 Example Company</p>
+    </footer>
+
+    <!-- =====================================================
+       IMPORTANT TAKEAWAYS
+       -----------------------------------------------------
+       Presentational HTML:
+       - Controls appearance directly in HTML
+       - Uses deprecated elements
+       - Avoid in modern development
+
+       Semantic HTML:
+       - Describes content meaning
+       - Uses elements like header, nav, section
+       - Styling handled by CSS
+       - Better for accessibility, SEO, and maintenance
+     ===================================================== -->
+
+</body>
+
+</html>

@@ -1,0 +1,482 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>What Are ARIA Roles?</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #f4f4f4;
+        }
+
+        h1 {
+            color: #333;
+            border-bottom: 3px solid #007acc;
+            padding-bottom: 10px;
+        }
+
+        h2 {
+            color: #007acc;
+            margin-top: 30px;
+        }
+
+        h3 {
+            color: #333;
+        }
+
+        .intro {
+            background-color: white;
+            padding: 20px;
+            margin: 15px 0;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+
+        .definition {
+            background-color: #e8f4f8;
+            padding: 20px;
+            margin: 20px 0;
+            border-left: 4px solid #007acc;
+            border-radius: 4px;
+        }
+
+        .note {
+            background-color: #fff3cd;
+            padding: 15px;
+            margin: 15px 0;
+            border-left: 4px solid #ffc107;
+            border-radius: 4px;
+        }
+
+        .example {
+            background-color: white;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+
+        .code-block {
+            background-color: #2d2d2d;
+            color: #f8f8f2;
+            padding: 15px;
+            border-radius: 4px;
+            overflow-x: auto;
+            margin: 15px 0;
+        }
+
+        .code-block code {
+            font-family: 'Courier New', monospace;
+            font-size: 14px;
+            white-space: pre;
+        }
+
+        .alert {
+            background-color: #fff3cd;
+            border: 1px solid #ffeeba;
+            color: #856404;
+            padding: 1em;
+            margin-top: 1em;
+            border-radius: 4px;
+            font-weight: bold;
+        }
+
+        .alert span.hidden {
+            position: absolute;
+            left: -9999px;
+        }
+
+        /* Math Expression Styles */
+        .math-expression {
+            font-family: "Times New Roman", serif;
+            font-size: 1.2rem;
+            background-color: #f4f4f4;
+            border-left: 4px solid #007acc;
+            padding: 0.75em 1em;
+            margin-top: 1em;
+            display: inline-block;
+        }
+
+        .math-expression sup {
+            font-size: 0.8em;
+        }
+
+        /* Searchbox Styles */
+        .search-container {
+            display: flex;
+            align-items: center;
+            gap: 0.5em;
+            margin-top: 1em;
+        }
+
+        .searchbox {
+            flex: 1;
+            padding: 0.5em;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            font-size: 1em;
+            min-height: 1.5em;
+            background: white;
+        }
+
+        .searchbox:focus {
+            border-color: #007acc;
+            outline: none;
+            box-shadow: 0 0 0 2px rgba(0, 122, 204, 0.3);
+        }
+
+        /* Banner Styles */
+        .site-banner {
+            background-color: #007acc;
+            color: #fff;
+            padding: 1em 1.5em;
+            border-radius: 4px;
+            margin-top: 1em;
+        }
+
+        .site-banner h1 {
+            margin: 0 0 0.5em;
+            font-size: 1.5em;
+            color: white;
+            border: none;
+        }
+
+        .site-banner nav ul {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            gap: 1em;
+        }
+
+        .site-banner nav a {
+            color: #fff;
+            text-decoration: none;
+            font-weight: 500;
+        }
+
+        .site-banner nav a:hover {
+            text-decoration: underline;
+        }
+
+        /* Status Message Styles */
+        .status-demo {
+            margin-top: 1em;
+        }
+
+        .status-message {
+            margin-top: 0.75em;
+            padding: 0.75em;
+            background-color: #e8f4ff;
+            border: 1px solid #b3d8ff;
+            border-radius: 4px;
+            font-weight: 500;
+        }
+
+        /* Dialog Styles */
+        .dialog-demo-container {
+            margin-top: 1em;
+        }
+
+        .dialog {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+            justify-content: center;
+            align-items: center;
+            z-index: 1000;
+        }
+
+        .dialog-content {
+            background-color: white;
+            padding: 1.5em;
+            border-radius: 8px;
+            width: 90%;
+            max-width: 400px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+        }
+
+        .dialog-actions {
+            display: flex;
+            justify-content: flex-end;
+            gap: 0.5em;
+            margin-top: 1em;
+        }
+
+        /* Shared Button Styles */
+        button {
+            padding: 0.5em 1em;
+            background-color: #007acc;
+            color: #fff;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 1em;
+        }
+
+        button:hover {
+            background-color: #005fa3;
+        }
+
+        .visually-hidden {
+            position: absolute;
+            left: -9999px;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>What Are ARIA Roles?</h1>
+
+    <div class="intro">
+        <p>ARIA stands for <strong>Accessible Rich Internet Applications</strong>.</p>
+        <p>ARIA roles specify the semantic meaning of HTML elements. They're essential for making web content accessible
+            to
+            people who use assistive technologies, like screen readers.</p>
+        <div class="note">
+            <p><strong>NOTE:</strong> Some of these interactive examples might include CSS and JavaScript code. Don't
+                worry
+                about trying to understand the code. The previews are there to help illustrate some of the main points
+                discussed
+                in the lesson.</p>
+        </div>
+    </div>
+
+    <div class="definition">
+        <h2>HTML Semantic vs Non-Semantic</h2>
+        <p>HTML has semantic and non-semantic elements, based on whether they convey meaning about their content.</p>
+        <p>Many semantic HTML elements already have an ARIA role assigned by default. For example, the
+            <code>button</code>
+            element has a default ARIA role of <code>button</code>.</p>
+        <div class="code-block">
+            <code>&lt;button&gt;Example button&lt;/button&gt;</code>
+        </div>
+        <p>But non-semantic elements don't have a role. For example, screen readers will not know how to interpret the
+            purpose of a <code>div</code> if you don't specify its role explicitly.</p>
+        <div class="code-block">
+            <code>&lt;div&gt;
+  &lt;!-- more elements go here --&gt;
+&lt;/div&gt;</code>
+        </div>
+    </div>
+
+    <h2>The <code>role</code> Attribute</h2>
+    <div class="intro">
+        <p>To specify the ARIA role of an element, you just need to add the <code>role</code> attribute, like this
+            <code>role="ARIA role"</code>.
+        </p>
+        <p>Here is an example of using the <code>role</code> attribute with a value of <code>"alert"</code>:</p>
+        <div class="code-block">
+            <code>&lt;div class="alert" id="exp-warning" role="alert"&gt;
+  &lt;span class="hidden"&gt;Your log in session will expire in 3 minutes.&lt;/span&gt;
+&lt;/div&gt;</code>
+        </div>
+        <div class="alert" id="exp-warning" role="alert">
+            <span>(Visual Alert) Your log in session will expire in 3 minutes.</span>
+        </div>
+        <p>It is important to note that specifying a role on an element only informs assistive technology of the
+            purpose. It
+            <strong>does not</strong> add any functionality or behavior.
+        </p>
+    </div>
+
+    <h2>Categories of ARIA Roles</h2>
+    <div class="intro">
+        <p>There are six main categories of ARIA roles:</p>
+        <ul>
+            <li>Document structure roles</li>
+            <li>Widget roles</li>
+            <li>Landmark roles</li>
+            <li>Live region roles</li>
+            <li>Window roles</li>
+            <li>Abstract roles</li>
+        </ul>
+    </div>
+
+    <div class="example">
+        <h3>1. Document Structure Roles</h3>
+        <p>These define the overall structure of the web page. Most are not used today because semantic HTML equivalents
+            exist. Use roles that don't have an equivalent, such as: <code>toolbar</code>, <code>tooltip</code>,
+            <code>feed</code>, <code>math</code>, <code>presentation</code>, <code>none</code>, and <code>note</code>.
+        </p>
+
+        <h4>Example: <code>role="math"</code></h4>
+        <div class="code-block">
+            <code>&lt;div role="math" aria-label="x squared + y squared = 3" class="math-expression"&gt;
+  x&lt;sup&gt;2&lt;/sup&gt; + y&lt;sup&gt;2&lt;/sup&gt; = 3
+&lt;/div&gt;</code>
+        </div>
+        <div role="math" aria-label="x squared + y squared = 3" class="math-expression">
+            x<sup>2</sup> + y<sup>2</sup> = 3
+        </div>
+    </div>
+
+    <div class="example">
+        <h3>2. Widget Roles</h3>
+        <p>These define the purpose of interactive elements. Examples: <code>scrollbar</code>, <code>searchbox</code>,
+            <code>slider</code>, <code>switch</code>, <code>tab</code>, <code>tabpanel</code>, etc.
+        </p>
+
+        <h4>Example: <code>role="searchbox"</code></h4>
+        <div class="code-block">
+            <code>&lt;div class="search-container" role="search"&gt;
+  &lt;label for="searchbox" class="visually-hidden"&gt;Search&lt;/label&gt;
+  &lt;div id="searchbox" class="searchbox" role="searchbox" aria-label="Search the site" tabindex="0" contenteditable="true"&gt;&lt;/div&gt;
+  &lt;button type="button" aria-label="Submit search"&gt;Search&lt;/button&gt;
+&lt;/div&gt;</code>
+        </div>
+        <div class="search-container" role="search">
+            <label for="searchbox" class="visually-hidden">Search</label>
+            <div id="searchbox" class="searchbox" role="searchbox" aria-label="Search the site" tabindex="0"
+                contenteditable="true"></div>
+            <button type="button" aria-label="Submit search">Search</button>
+        </div>
+    </div>
+
+    <div class="example">
+        <h3>3. Landmark Roles</h3>
+        <p>Landmarks help screen readers navigate sections. Examples: <code>banner</code>, <code>main</code>,
+            <code>navigation</code>, <code>search</code>. Use these sparingly if you aren't using the equivalent
+            semantic HTML
+            elements (like <code>&lt;header&gt;</code> or <code>&lt;nav&gt;</code>).
+        </p>
+
+        <h4>Example: <code>role="banner"</code></h4>
+        <div class="code-block">
+            <code>&lt;div role="banner" class="site-banner"&gt;
+  &lt;h1&gt;Accessible Web Design&lt;/h1&gt;
+  &lt;nav&gt;
+    &lt;ul&gt;
+      &lt;li&gt;&lt;a href="#"&gt;Home&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href="#"&gt;Articles&lt;/a&gt;&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/nav&gt;
+&lt;/div&gt;</code>
+        </div>
+        <div role="banner" class="site-banner">
+            <h1>Accessible Web Design</h1>
+            <nav>
+                <ul>
+                    <li><a href="#">Home</a></li>
+                    <li><a href="#">Articles</a></li>
+                    <li><a href="#">About</a></li>
+                    <li><a href="#">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </div>
+
+    <div class="example">
+        <h3>4. Live Region Roles</h3>
+        <p>These define elements with dynamic content changes so screen readers can announce them. Examples:
+            <code>alert</code>, <code>status</code>, <code>timer</code>.
+        </p>
+
+        <h4>Example: <code>role="status"</code></h4>
+        <div class="code-block">
+            <code>&lt;div class="status-demo"&gt;
+  &lt;button id="update-status-btn"&gt;Check Status&lt;/button&gt;
+  &lt;div id="status-msg" role="status" class="status-message"&gt;No updates yet.&lt;/div&gt;
+&lt;/div&gt;</code>
+        </div>
+        <div class="status-demo">
+            <button id="update-status-btn">Check Status</button>
+            <div id="status-msg" role="status" class="status-message">
+                No updates yet.
+            </div>
+        </div>
+    </div>
+
+    <div class="example">
+        <h3>5. Window Roles</h3>
+        <p>Window roles define sub-windows like modals. Examples: <code>dialog</code>, <code>alertdialog</code>. Best
+            practice is to use the native HTML <code>&lt;dialog&gt;</code> element.</p>
+
+        <h4>Example: <code>role="dialog"</code></h4>
+        <div class="code-block">
+            <code>&lt;button id="open-dialog"&gt;Open Dialog&lt;/button&gt;
+&lt;div id="custom-dialog" role="dialog" aria-modal="true" aria-labelledby="dialog-title" class="dialog"&gt;
+  &lt;div class="dialog-content"&gt;
+    &lt;h3 id="dialog-title"&gt;Confirm Action&lt;/h3&gt;
+    &lt;p&gt;Are you sure?&lt;/p&gt;
+    &lt;div class="dialog-actions"&gt;
+      &lt;button id="close-dialog"&gt;Cancel&lt;/button&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+&lt;/div&gt;</code>
+        </div>
+        <div class="dialog-demo-container">
+            <button id="open-dialog">Open Dialog</button>
+            <div id="custom-dialog" role="dialog" aria-modal="true" aria-labelledby="dialog-title" class="dialog">
+                <div class="dialog-content">
+                    <h3 id="dialog-title">Confirm Action</h3>
+                    <p>Are you sure you want to delete this file?</p>
+                    <div class="dialog-actions">
+                        <button id="confirm-btn">Yes</button>
+                        <button id="close-dialog-btn">Cancel</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="example">
+        <h3>6. Abstract Roles</h3>
+        <p>These help organize the document internally. They are for browser use only; developers should not use them
+            directly.</p>
+    </div>
+
+    <div class="definition">
+        <p>With ARIA roles, you can create accessible and inclusive websites. They provide essential semantic
+            information to
+            ensure everyone has a great user experience.</p>
+    </div>
+
+    <script>
+        // Status Demo Script
+        const statusBtn = document.getElementById("update-status-btn");
+        const statusMsg = document.getElementById("status-msg");
+        if (statusBtn && statusMsg) {
+            statusBtn.addEventListener("click", () => {
+                statusMsg.textContent = "Your upload has completed successfully.";
+            });
+        }
+
+        // Dialog Demo Script
+        const dialog = document.getElementById("custom-dialog");
+        const openBtn = document.getElementById("open-dialog");
+        const closeBtn = document.getElementById("close-dialog-btn");
+        const confirmBtn = document.getElementById("confirm-btn");
+
+        if (openBtn && dialog) {
+            openBtn.addEventListener("click", () => {
+                dialog.style.display = "flex";
+            });
+        }
+
+        if (closeBtn && dialog) {
+            closeBtn.addEventListener("click", () => {
+                dialog.style.display = "none";
+            });
+        }
+
+        if (confirmBtn && dialog) {
+            confirmBtn.addEventListener("click", () => {
+                alert("File deleted.");
+                dialog.style.display = "none";
+            });
+        }
+    </script>
+</body>
+
+</html>

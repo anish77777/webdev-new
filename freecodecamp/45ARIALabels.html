@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Roles of aria-label and aria-labelledby Attributes</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #f4f4f4;
+        }
+
+        h1 {
+            color: #333;
+            border-bottom: 3px solid #007acc;
+            padding-bottom: 10px;
+        }
+
+        h2 {
+            color: #007acc;
+            margin-top: 30px;
+        }
+
+        h3 {
+            color: #333;
+        }
+
+        .intro {
+            background-color: white;
+            padding: 20px;
+            margin: 15px 0;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+
+        .definition {
+            background-color: #e8f4f8;
+            padding: 20px;
+            margin: 20px 0;
+            border-left: 4px solid #007acc;
+            border-radius: 4px;
+        }
+
+        .note {
+            background-color: #fff3cd;
+            padding: 15px;
+            margin: 15px 0;
+            border-left: 4px solid #ffc107;
+            border-radius: 4px;
+        }
+
+        .example {
+            background-color: white;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+
+        .code-block {
+            background-color: #2d2d2d;
+            color: #f8f8f2;
+            padding: 15px;
+            border-radius: 4px;
+            overflow-x: auto;
+            margin: 15px 0;
+        }
+
+        .code-block code {
+            font-family: 'Courier New', monospace;
+            font-size: 14px;
+            white-space: pre;
+        }
+
+        .question-section {
+            background-color: #e2f3e2;
+            padding: 20px;
+            margin-top: 30px;
+            border-radius: 8px;
+            border-left: 4px solid #28a745;
+        }
+
+        .question {
+            font-weight: bold;
+            margin-top: 15px;
+        }
+
+        .answer {
+            margin-bottom: 10px;
+        }
+
+        button {
+            padding: 0.5em 1em;
+            background-color: #007acc;
+            color: #fff;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 1em;
+        }
+
+        button:hover {
+            background-color: #005fa3;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>What Are the Roles of the aria-label and aria-labelledby Attributes?</h1>
+
+    <div class="intro">
+        <p>It is important to make sure that all users, including those living with disabilities, can access websites
+            without issues.</p>
+        <p>For people using screen readers, the <code>aria-label</code> and <code>aria-labelledby</code> attributes
+            provide crucial information about page elements that might be unclear or invisible.</p>
+        <p>Let's look at what the <code>aria-label</code> and <code>aria-labelledby</code> attributes are and the roles
+            they play in making the web accessible to people with visual impairments and related disabilities.</p>
+    </div>
+
+    <div class="definition">
+        <h2>What does ARIA mean?</h2>
+        <p>You'll notice both <code>aria-label</code> and <code>aria-labelledby</code> are prefixed with
+            <strong>aria</strong>. ARIA stands for <strong>Accessible Rich Internet Applications</strong>.</p>
+        <p>It's a set of attributes prefixed with <code>aria-</code>, which lets developers communicate the purpose of
+            elements to assistive technologies.</p>
+    </div>
+
+    <div class="example">
+        <h2>The <code>aria-label</code> Attribute</h2>
+        <p>The <code>aria-label</code> attribute is an invisible label for interactive elements. It adds a text label to
+            an element that screen readers can read.</p>
+        <p><code>aria-label</code> is especially useful for elements that do not have visible text but still need to be
+            described by screen readers. For example, buttons with only icons often need <code>aria-label</code> to
+            convey their purpose.</p>
+
+        <div class="code-block">
+            <code>&lt;button aria-label="Search"&gt;
+  &lt;i class="fa-solid fa-magnifying-glass"&gt;&lt;/i&gt;
+&lt;/button&gt;</code>
+        </div>
+        <p>In this case, a screen reader may announce this button as "Search, button", even though the button only
+            contains an icon. The <code>aria-label</code> attribute tells screen readers what text to use in place of
+            the icon.</p>
+        <div class="note">
+            <p><strong>Note:</strong> If the button contained the text "Search" instead of an icon, then there would be
+                no need for the <code>aria-label</code> attribute as the text would provide the label for the button.
+            </p>
+        </div>
+        <p>For input elements, the <code>aria-label</code> attribute provides a label directly if there isn't a visible
+            label associated with the input.</p>
+    </div>
+
+    <div class="example">
+        <h2>The <code>aria-labelledby</code> Attribute</h2>
+        <p>The <code>aria-labelledby</code> attribute does the exact same thing as the <code>aria-label</code>
+            attribute, but instead of defining the text directly in the attribute, you use a reference to text that
+            already exists on the page.</p>
+        <p>The existing text must have an <code>id</code> attribute, which will be used for the reference value in the
+            <code>aria-labelledby</code> attribute.</p>
+
+        <div class="code-block">
+            <code>&lt;input type="text" aria-labelledby="search-btn"&gt;
+&lt;button type="button" id="search-btn"&gt;Search&lt;/button&gt;</code>
+        </div>
+        <p>In this case, the text for the button is being used as the label for the search input. Screen readers will
+            announce the input as something like "Search, edit".</p>
+        <p>Combining multiple id values into a single <code>aria-labelledby</code> attribute value is also possible:</p>
+
+        <div class="code-block">
+            <code>&lt;div&gt;
+  &lt;span id="volume-label"&gt;Volume&lt;/span&gt;
+  &lt;span id="volume-details"&gt;Adjust the volume level&lt;/span&gt;
+  &lt;input
+    type="range"
+    min="0"
+    max="100"
+    value="30"
+    aria-labelledby="volume-label volume-details"&gt;
+&lt;/div&gt;</code>
+        </div>
+        <p>For the slider, the screen reader will look out for the content of the <code>volume-label</code> and
+            <code>volume-details</code> elements and announce "Volume Adjust the volume level".</p>
+    </div>
+
+    <div class="definition">
+        <h2>Which One Should You Use?</h2>
+        <p>Since they both provide the same functionality, either can be used, but there may be a few advantages to
+            using <code>aria-labelledby</code> over <code>aria-label</code>:</p>
+        <ul>
+            <li><strong>Translation:</strong> Text in an <code>aria-label</code> attribute may not always be translated
+                by translation services.</li>
+            <li><strong>Consistency:</strong> Using <code>aria-labelledby</code> helps prevent a mismatch between
+                visible label text and the invisible label.</li>
+            <li><strong>Complexity:</strong> <code>aria-labelledby</code> makes it easier to programmatically create
+                complex labels from multiple sources.</li>
+        </ul>
+        <div class="note">
+            <p><strong>One last note:</strong> Do not use <code>aria-label</code> and <code>aria-labelledby</code> on an
+                element at the same time. If both are present, <code>aria-labelledby</code> takes precedence and
+                <code>aria-label</code> is ignored.</p>
+        </div>
+    </div>
+
+    <div class="question-section">
+        <h2>Questions</h2>
+
+        <div class="question">1. What does ARIA stand for?</div>
+        <div class="answer">
+            <input type="radio" id="q1a1" name="q1" value="correct">
+            <label for="q1a1">Accessible Rich Internet Applications.</label><br>
+            <input type="radio" id="q1a2" name="q1">
+            <label for="q1a2">Advanced Resource Integration Accessibility.</label><br>
+            <input type="radio" id="q1a3" name="q1">
+            <label for="q1a3">Automated Rich Internet Access.</label><br>
+            <input type="radio" id="q1a4" name="q1">
+            <label for="q1a4">Accessible Responsive Interactive Applications.</label>
+        </div>
+
+        <div class="question">2. What do both aria-label and aria-labelledby do?</div>
+        <div class="answer">
+            <input type="radio" id="q2a1" name="q2">
+            <label for="q2a1">They modify the visual appearance of elements.</label><br>
+            <input type="radio" id="q2a2" name="q2" value="correct">
+            <label for="q2a2">They provide labels for elements to enhance accessibility for screen readers.</label><br>
+            <input type="radio" id="q2a3" name="q2">
+            <label for="q2a3">They change the functionality of form inputs.</label>
+        </div>
+    </div>
+</body>
+
+</html>
+

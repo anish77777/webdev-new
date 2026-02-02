@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Accessibility Auditing Tools - Testing and Evaluation</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #f4f4f4;
+        }
+
+        h1 {
+            color: #333;
+            border-bottom: 3px solid #0066cc;
+            padding-bottom: 10px;
+        }
+
+        h2 {
+            color: #0066cc;
+            margin-top: 30px;
+        }
+
+        .intro {
+            background-color: white;
+            padding: 20px;
+            margin: 15px 0;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+
+        .definition {
+            background-color: #e8f4f8;
+            padding: 20px;
+            margin: 20px 0;
+            border-left: 4px solid #0066cc;
+            border-radius: 4px;
+        }
+
+        .warning {
+            background-color: #fff3cd;
+            padding: 20px;
+            margin: 20px 0;
+            border-left: 4px solid #ffc107;
+            border-radius: 4px;
+        }
+
+        .warning h3 {
+            margin-top: 0;
+            color: #856404;
+        }
+
+        .tool {
+            background-color: white;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+
+        .tool h3 {
+            color: #0066cc;
+            margin-top: 0;
+        }
+
+        .how-to {
+            background-color: #f0f0f0;
+            padding: 15px;
+            margin: 15px 0;
+            border-radius: 4px;
+        }
+
+        .how-to h4 {
+            margin-top: 0;
+            color: #333;
+        }
+
+        .features {
+            background-color: #d4edda;
+            padding: 15px;
+            margin: 15px 0;
+            border-left: 4px solid #28a745;
+            border-radius: 4px;
+        }
+
+        .important {
+            background-color: #f8d7da;
+            padding: 20px;
+            margin: 20px 0;
+            border-left: 4px solid #dc3545;
+            border-radius: 4px;
+        }
+
+        .important h3 {
+            margin-top: 0;
+            color: #721c24;
+        }
+
+        ul {
+            padding-left: 20px;
+        }
+
+        li {
+            margin: 8px 0;
+        }
+
+        .shortcut {
+            background-color: #e9ecef;
+            padding: 3px 8px;
+            border-radius: 3px;
+            font-family: monospace;
+            font-weight: bold;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>What Are Some Common Accessibility Auditing Tools to Use?</h1>
+
+    <div class="intro">
+        <p>Accessibility is a crucial yet often overlooked aspect of digital content. When making your digital content
+            accessible, it's important to ensure it meets accessibility standards.</p>
+    </div>
+
+    <div class="definition">
+        <h2>What Is an Accessibility Auditing Tool?</h2>
+        <p>An accessibility auditing tool is an application that helps you improve the accessibility of your digital
+            content by reporting accessibility issues that can be easily found through automated testing. This content
+            includes websites, web applications, and mobile apps.</p>
+    </div>
+
+    <div class="warning">
+        <h3>Important Limitation</h3>
+        <p>It is important to note that while automated accessibility tools have a role in improving accessibility, they
+            typically will only find about a third of all possible accessibility issues.</p>
+        <p>Therefore, it is important not to rely on them entirely to evaluate the accessibility of your content. Manual
+            testing, preferably by people with disabilities, will always be required to ensure that your content is as
+            accessible as possible.</p>
+    </div>
+
+    <h2>Free Accessibility Auditing Tools</h2>
+    <p>Let's look at some free tools that can help you improve the accessibility of your digital content.</p>
+
+    <div class="tool">
+        <h3>Google Lighthouse</h3>
+        <p>Google Lighthouse is a popular web metric checker you can use directly within Chrome DevTools or online. This
+            means you can check not only live websites but also locally-developed ones.</p>
+
+        <div class="features">
+            <h4>Metrics You Can Check:</h4>
+            <ul>
+                <li>Accessibility</li>
+                <li>SEO</li>
+                <li>Best practices</li>
+                <li>Performance</li>
+            </ul>
+        </div>
+
+        <div class="how-to">
+            <h4>How to Use Lighthouse in DevTools:</h4>
+            <ol>
+                <li>Open your DevTools by pressing <span class="shortcut">F12</span></li>
+                <li>Switch to the Lighthouse tab</li>
+                <li>Select the metrics you want to check</li>
+                <li>Choose the device you want to test on</li>
+                <li>Click the "Analyze page load" button</li>
+            </ol>
+            <p>An accessibility score will appear after the check is complete, along with a list of any issues that need
+                fixing.</p>
+        </div>
+
+        <div class="how-to">
+            <h4>Web Version:</h4>
+            <p>If you want more reliable metrics, consider using the web version. The downside is that it doesn't
+                support testing local websites.</p>
+            <p>You can access the web version on <strong>pagespeed.web.dev</strong></p>
+        </div>
+    </div>
+
+    <div class="tool">
+        <h3>WAVE</h3>
+        <p>WAVE is another reliable accessibility checker you can use as a Chrome extension or on the web.</p>
+
+        <div class="how-to">
+            <h4>How to Use:</h4>
+            <p>All you need to do is enter the URL of your website and a comprehensive accessibility report will be
+                generated for you.</p>
+        </div>
+
+        <div class="features">
+            <h4>Report Includes:</h4>
+            <ul>
+                <li>Accessibility features implemented</li>
+                <li>ARIA</li>
+                <li>Contrasts</li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="tool">
+        <h3>IBM Equal Accessibility Checker</h3>
+        <p>The IBM Equal Accessibility Checker is another robust tool for improving digital content accessibility. With
+            it, you can scan your websites for accessibility issues and generate a detailed report.</p>
+
+        <p><strong>Available as:</strong> Chrome extension or Firefox add-on</p>
+
+        <div class="how-to">
+            <h4>How to Use as Chrome Extension:</h4>
+            <ol>
+                <li>Download it from the Chrome web store</li>
+                <li>Open your Devtools by pressing <span class="shortcut">F12</span></li>
+                <li>Select the "Accessibility Checker" tab located in the Elements panel</li>
+                <li>Click the scan button to start the check</li>
+                <li>A report will be generated for you</li>
+            </ol>
+            <p><strong>Export Options:</strong> You can export the report as a spreadsheet and an HTML file by clicking
+                the "Export XLS" button.</p>
+        </div>
+    </div>
+
+    <div class="important">
+        <h3>Critical Reminder</h3>
+        <p>Please keep in mind, while these automated tools help you make your content more accessible, a perfect score
+            from any of them does not mean that your content is entirely accessible.</p>
+        <p>The range of issues that these tools test for is limited, and manual testing will always be needed to ensure
+            a more accessible experience for everyone.</p>
+    </div>
+
+</body>
+
+</html>

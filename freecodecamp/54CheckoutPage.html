@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <title>Checkout Page</title>
+</head>
+
+<body>
+    <!-- Main Header -->
+    <h1>Checkout</h1>
+
+    <!-- Section 1: Your Cart -->
+    <section>
+        <h2>Your Cart</h2>
+        <img src="https://cdn.freecodecamp.org/curriculum/labs/cube.jpg" alt="A colorful Rubik's cube">
+    </section>
+
+    <!-- Section 2: Payment Information -->
+    <section>
+        <h2>Payment Information</h2>
+        <!-- User Story: Form element -->
+        <form action="#" method="post">
+
+            <!-- User Story: Input card-name with label, required -->
+            <label for="card-name">
+                Name on Card
+                <!-- User Story: Span with * and aria-hidden for required fields -->
+                <!-- Accessibility: The asterisk is visual only, so we hide it from screen readers with aria-hidden="true" to avoid confusion. -->
+                <span aria-hidden="true">*</span>
+            </label>
+            <input type="text" id="card-name" name="card-name" required>
+
+            <!-- User Story: Input card-number with label, required -->
+            <label for="card-number">
+                Card Number
+                <!-- Accessibility: aria-hidden="true" hides the asterisk from assistive technology -->
+                <span aria-hidden="true">*</span>
+            </label>
+            <!-- User Story: linked aria-describedby -->
+            <!-- Accessibility: aria-describedby connects the input to the help text, ensuring screen readers announce the requirements. -->
+            <input type="text" id="card-number" name="card-number" required aria-describedby="card-number-help">
+            <!-- User Story: p element with help text and specific id -->
+            <p id="card-number-help">
+                Enter the 16-digit card number without spaces or dashes.
+            </p>
+
+            <button type="submit">Complete Purchase</button>
+        </form>
+    </section>
+</body>
+
+</html>

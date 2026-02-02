@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Link Text Best Practices</title>
+    <style>
+        /* Basic page styling to improve readability */
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        /* Styling headings for visual hierarchy */
+        h1,
+        h2,
+        h3 {
+            color: #2c3e50;
+        }
+
+        h1 {
+            border-bottom: 2px solid #eee;
+            padding-bottom: 10px;
+        }
+
+        /* 
+           Link styling:
+           Best practice: Ensure links are visually distinct from regular text.
+           We use color and underlining here.
+        */
+        a {
+            color: #0056b3;
+            text-decoration: underline;
+        }
+
+        a:hover {
+            color: #003d82;
+            text-decoration: none;
+        }
+
+        /* Section styling for better breathing room along the page */
+        section {
+            margin-bottom: 40px;
+            padding-bottom: 20px;
+            border-bottom: 1px solid #f0f0f0;
+        }
+
+        /* Styling for code blocks to make them stand out */
+        pre {
+            background-color: #f4f4f4;
+            padding: 15px;
+            border-radius: 5px;
+            overflow-x: auto;
+            border: 1px solid #ddd;
+        }
+
+        code {
+            font-family: 'Consolas', 'Monaco', monospace;
+            color: #d63384;
+            /* Highlight color for code text */
+        }
+
+        /* 
+           Example Box Styling:
+           Used to visually distinguish between "Good" and "Bad" examples.
+        */
+        .example-box {
+            padding: 15px;
+            margin: 20px 0;
+            border-left: 5px solid;
+            background-color: #fafafa;
+            border-radius: 0 5px 5px 0;
+        }
+
+        /* Red for distinctively bad examples */
+        .bad-example {
+            border-color: #dc3545;
+            background-color: #fff5f5;
+        }
+
+        /* Green for distinctively good examples */
+        .good-example {
+            border-color: #28a745;
+            background-color: #f0fff4;
+        }
+
+        /* Labels to explicitly state if an example is Good or Bad */
+        .example-label {
+            font-weight: bold;
+            display: block;
+            margin-bottom: 10px;
+            text-transform: uppercase;
+            font-size: 0.9em;
+        }
+
+        .bad-example .example-label {
+            color: #dc3545;
+        }
+
+        .good-example .example-label {
+            color: #28a745;
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <h1>Link Text Accessibility Guide</h1>
+        <p>Learn why descriptive link text serves users better and see examples of how to write it effectively.</p>
+    </header>
+
+    <main>
+        <!-- 
+            Section 1: Benefits 
+            Explains the 'Why' behind accessible link text.
+        -->
+        <section>
+            <h2>The Benefits of Good Link Text</h2>
+
+            <p>The first visible benefit of a good link text is that it makes it easier for everyone to find information
+                quickly. Descriptive links help users know where they're headed and what they'll access. This ensures
+                the user doesn't feel lost and improves the overall user experience.</p>
+
+            <h3>Screen Reader Users</h3>
+            <!-- Clear headings help navigation -->
+            <p>For those using screen readers, a clear and descriptive link text is a must. Screen readers read the link
+                text aloud, so a text like "Read our accessibility guide" is way better than "Click here."</p>
+
+            <h3>Cognitive Accessibility</h3>
+            <p>Making link text clear and descriptive isn't just beneficial for those living with visual impairments.
+                Descriptive links also help people with cognitive disabilities by providing clear context.</p>
+        </section>
+
+        <!-- 
+            Section 2: Best Practices Checklist 
+            Actionable advice for developers/writers.
+        -->
+        <section>
+            <h2>Best Practices Checklist</h2>
+            <p>Here are key rules to follow when writing link text:</p>
+            <ul>
+                <li><strong>Visually Distinct:</strong> Use underlining or other visual cues so users can easily
+                    identify links.</li>
+                <li><strong>Avoid Generics:</strong> Words like "here", "click here", and "more-info" provide zero
+                    context.</li>
+                <li><strong>Be Concise:</strong> Aim for 2-5 words that convey the purpose.</li>
+                <li><strong>No Jargon:</strong> Avoid technical terms or abbreviations users might not know.</li>
+                <li><strong>Destination Focused:</strong> Describe where the link goes (e.g., "user behavior results")
+                    rather than the action ("click here").</li>
+                <li><strong>Unique:</strong> Don’t use the same text for links that go to different places.</li>
+                <li><strong>Contextual:</strong> Integrate links naturally into sentences (e.g., "visit our events page"
+                    instead of "Click here for events").</li>
+            </ul>
+        </section>
+
+        <!-- 
+            Section 3: Examples 
+            Comparing code snippets to show the difference.
+        -->
+        <section>
+            <h2>Examples: Good vs. Bad</h2>
+            <p>Let's look at specific use cases.</p>
+
+            <h3>Example 1: Event Details</h3>
+
+            <!-- Bad Example -->
+            <div class="example-box bad-example">
+                <span class="example-label">Bad Practice</span>
+                <p>Code:</p>
+                <pre><code>&lt;a href="webinar-details-link"&gt;Details&lt;/a&gt;</code></pre>
+                <p><strong>Why it fails:</strong> "Details" is too vague. It doesn't tell the user <em>what</em> details
+                    they are getting.</p>
+            </div>
+
+            <!-- Good Example -->
+            <div class="example-box good-example">
+                <span class="example-label">Best Practice</span>
+                <p>Code:</p>
+                <pre><code>&lt;a href="webinar-details-link"&gt;
+  Get details about our upcoming webinar
+&lt;/a&gt;</code></pre>
+                <p><strong>Why it works:</strong> It gives specific context ("upcoming webinar"), helping the user
+                    decide if they want to click.</p>
+            </div>
+
+            <h3>Example 2: Blog Post</h3>
+
+            <!-- Bad Example -->
+            <div class="example-box bad-example">
+                <span class="example-label">Bad Practice</span>
+                <p>Code:</p>
+                <pre><code>&lt;a href="/blog-post-link"&gt;Read more&lt;/a&gt;</code></pre>
+                <p><strong>Why it fails:</strong> "Read more" is meaningless out of context (e.g., in a screen reader's
+                    list of links).</p>
+            </div>
+
+            <!-- Good Example -->
+            <div class="example-box good-example">
+                <span class="example-label">Best Practice</span>
+                <p>Code:</p>
+                <pre><code>&lt;a href="/blog-post-link"&gt;
+   Read our latest blog post on web accessibility
+&lt;/a&gt;</code></pre>
+                <p><strong>Why it works:</strong> It sets clear expectations about the content ("latest blog post on web
+                    accessibility").</p>
+            </div>
+
+            <h3>Example 3: Topic Info</h3>
+
+            <!-- Bad Example -->
+            <div class="example-box bad-example">
+                <span class="example-label">Bad Practice</span>
+                <p>Code:</p>
+                <pre><code>&lt;a href="/link-to-topic"&gt;More info&lt;/a&gt;</code></pre>
+                <p><strong>Why it fails:</strong> Vague and unhelpful for non-linear navigation.</p>
+            </div>
+
+            <!-- Good Example -->
+            <div class="example-box good-example">
+                <span class="example-label">Best Practice</span>
+                <p>Code:</p>
+                <pre><code>&lt;a href="/link-to-topic"&gt;
+   Learn more about our accessibility efforts
+&lt;/a&gt;</code></pre>
+                <p><strong>Why it works:</strong> clearly describes the topic ("accessibility efforts").</p>
+            </div>
+        </section>
+    </main>
+</body>
+
+</html>

@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Accessible Multimedia</title>
+    <style>
+        /* General page layout and typography */
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        /* Headings styling */
+        h1,
+        h2,
+        h3 {
+            color: #2c3e50;
+        }
+
+        h1 {
+            border-bottom: 2px solid #eee;
+            padding-bottom: 10px;
+        }
+
+        h2 {
+            margin-top: 30px;
+            border-bottom: 1px solid #f0f0f0;
+            padding-bottom: 5px;
+        }
+
+        /* Lists styling */
+        ul {
+            list-style-type: disc;
+            padding-left: 20px;
+        }
+
+        li {
+            margin-bottom: 10px;
+        }
+
+        /* Code block styling for HTML examples */
+        pre {
+            background-color: #f4f4f4;
+            padding: 15px;
+            border-radius: 5px;
+            overflow-x: auto;
+            border: 1px solid #ddd;
+            margin: 20px 0;
+        }
+
+        code {
+            font-family: 'Consolas', 'Monaco', monospace;
+            color: #d63384;
+            /* Highlight color for tags/attributes */
+        }
+
+        /* Styling for the section describing kinds of tracks */
+        .definition-box {
+            background-color: #eef2f5;
+            padding: 15px;
+            border-left: 5px solid #0056b3;
+            margin: 15px 0;
+            border-radius: 0 5px 5px 0;
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <h1>Good Ways to Make Audio and Video Content Accessible</h1>
+        <p>Multimedia is essential for modern web content. Learn how to ensure everyone can access it, regardless of
+            ability or environment.</p>
+    </header>
+
+    <main>
+        <section>
+            <h2>Why It Matters</h2>
+            <p>Making your audio and video content accessible isn't just a nice-to-have, it's essential for reaching a
+                wider audience. A video is not just about visuals but also audio.</p>
+        </section>
+
+        <!-- 
+            Section: Captions vs Subtitles 
+            Explaining the difference and importance of each.
+        -->
+        <section>
+            <h2>Captions vs. Subtitles</h2>
+
+            <div class="definition-box">
+                <strong>Captions:</strong> Provide a text version of spoken words and important non-verbal sounds (like
+                music or laughter), synchronized with the video. Crucial for deaf or hard-of-hearing users.
+            </div>
+
+            <div class="definition-box">
+                <strong>Subtitles:</strong> Essential for people who don't understand the spoken language. They help not
+                only deaf users but also those watching in noisy or quiet environments.
+            </div>
+        </section>
+
+        <!-- 
+            Section: Implementation 
+            How to use the <track> element in HTML5.
+        -->
+        <section>
+            <h2>Adding Captions with the <code>&lt;track&gt;</code> Element</h2>
+            <p>To add specific text tracks to your media, use the <code>&lt;track&gt;</code> element nested inside
+                <code>&lt;video&gt;</code> or <code>&lt;audio&gt;</code>.</p>
+
+            <h3>Video Example</h3>
+            <pre><code>&lt;video
+  width="400"
+  height="300"
+  controls
+  src="https://cdn.freecodecamp.org/curriculum/labs/what-is-the-map-method-and-how-does-it-work.mp4"
+&gt;
+  <!-- The track element points to a VTT file -->
+  &lt;track
+    src="captions.vtt"
+    kind="captions"
+    srclang="en"
+    label="English"
+  /&gt;
+&lt;/video&gt;</code></pre>
+
+            <h3>Audio Example</h3>
+            <pre><code>&lt;audio controls src="sample.mp3"&gt;
+  &lt;track
+    src="captions.vtt"
+    kind="captions"
+    srclang="en"
+    label="English"
+  /&gt;
+&lt;/audio&gt;</code></pre>
+
+            <h3>Attributes Explained</h3>
+            <ul>
+                <li><code>src</code>: The URL of the text track file (usually WebVTT format).</li>
+                <li><code>kind</code>: Specifies the type of text track. Valid values: <code>captions</code>,
+                    <code>subtitles</code>, <code>chapters</code>, <code>metadata</code>.</li>
+                <li><code>srclang</code>: Language of the track text (e.g., "en" for English).</li>
+                <li><code>label</code>: A user-readable title for the track, shown in the player's menu.</li>
+            </ul>
+        </section>
+
+        <!-- 
+            Section: Transcripts 
+            Providing a static text alternative.
+        -->
+        <section>
+            <h2>Transcripts</h2>
+            <p>A transcript is a text version of all spoken words. Unlike captions, they don't need to be synchronized.
+                They are vital for users who are deaf-blind (using Braille displays), or anyone who prefers reading.</p>
+            <p>Transcripts also make your content <strong>searchable</strong>.</p>
+
+            <h3>Example Structure</h3>
+            <p>You can place the transcript directly below the media player:</p>
+            <pre><code>&lt;audio controls&gt;
+  &lt;source src="audio.mp3" /&gt;
+  Your browser does not support the audio element.
+&lt;/audio&gt;
+
+&lt;!-- Transcript Section --&gt;
+&lt;h3&gt;Transcript&lt;/h3&gt;
+&lt;p&gt;
+  [Speaker 1]: Welcome to the tutorial on making accessible content
+&lt;/p&gt;
+&lt;p&gt;
+  [Speaker 2]: Today, we'll cover captions, transcripts, and more.
+&lt;/p&gt;</code></pre>
+
+            <p><em>Pro Tip:</em> Platforms like YouTube provide auto-captions, but customized services like veed.io,
+                Rev, Amara, and Descript offer higher accuracy.</p>
+        </section>
+
+        <!-- 
+            Section: Other Accessibility Methods 
+            Additional checklist for full accessibility.
+        -->
+        <section>
+            <h2>Other Best Practices</h2>
+            <ul style="border: 1px solid #ddd; padding: 20px; border-radius: 5px; background-color: #fafafa;">
+                <li><strong>Sign Language Overlay:</strong> For users who communicate primarily via sign language.</li>
+                <li><strong>User Controls:</strong> Ensure users can control volume and playback speed.</li>
+                <li><strong>Contrast:</strong> Ensure any text displayed inside the video has good contrast against the
+                    background.</li>
+                <li><strong>Multiple Formats:</strong> Offer the content in various formats if possible.</li>
+            </ul>
+        </section>
+    </main>
+</body>
+
+</html>

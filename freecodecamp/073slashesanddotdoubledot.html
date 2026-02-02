@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <title>Path Syntax: / , . , ..</title>
+</head>
+
+<body>
+
+    <h1>Path Syntax Examples</h1>
+
+    <!--
+    PATH SEPARATOR (/ or \)
+    - / is used on the web and in Linux/macOS
+    - \ is used mainly on Windows file systems
+    - Separates folders and files in a path
+  -->
+
+    <!-- Forward slash separating folders -->
+    <img src="public/logo.png" alt="Logo using slash" />
+
+    <hr>
+
+    <!--
+    SINGLE DOT (.)
+    - Refers to the current directory
+    - Commonly used to force a relative path
+  -->
+
+    <!-- index.html loading a file from the same folder -->
+    <script src="./script.js"></script>
+
+    <!-- CSS file in the same directory -->
+    <link rel="stylesheet" href="./style.css" />
+
+    <hr>
+
+    <!--
+    DOUBLE DOT (..)
+    - Refers to the parent directory
+    - Used to move up one folder level
+  -->
+
+    <!-- Moving up one directory, then into src -->
+    <link rel="stylesheet" href="../src/index.css" />
+
+    <!-- Moving up one directory to load a script -->
+    <script src="../src/index.js"></script>
+
+</body>
+
+</html>
