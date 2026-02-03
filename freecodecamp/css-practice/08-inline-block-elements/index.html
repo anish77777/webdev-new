@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Inline vs. Block-Level Elements</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600&display=swap');
+
+        :root {
+            --bg: #0b0f1a;
+            --card-bg: #161b2c;
+            --accent: #38bdf8;
+            --accent-glow: rgba(56, 189, 248, 0.2);
+            --text-primary: #f1f5f9;
+            --text-secondary: #94a3b8;
+            --code-bg: #000000;
+            --border: rgba(255, 255, 255, 0.08);
+            --block-color: #f87171;
+            --inline-color: #fb923c;
+        }
+
+        body {
+            font-family: 'Outfit', sans-serif;
+            background-color: var(--bg);
+            color: var(--text-primary);
+            margin: 0;
+            line-height: 1.6;
+            display: grid;
+            grid-template-columns: 280px 1fr;
+            min-height: 100vh;
+        }
+
+        /* Sidebar Navigation */
+        nav.toc {
+            background: var(--card-bg);
+            border-right: 1px solid var(--border);
+            padding: 2rem 1.5rem;
+            height: 100vh;
+            position: sticky;
+            top: 0;
+            overflow-y: auto;
+        }
+
+        nav.toc h4 {
+            color: var(--accent);
+            text-transform: uppercase;
+            font-size: 0.75rem;
+            letter-spacing: 0.1em;
+            margin-bottom: 1.5rem;
+        }
+
+        nav.toc ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        nav.toc li {
+            margin-bottom: 0.75rem;
+        }
+
+        nav.toc a {
+            color: var(--text-secondary);
+            text-decoration: none;
+            font-size: 0.95rem;
+            transition: color 0.2s;
+        }
+
+        nav.toc a:hover {
+            color: var(--accent);
+        }
+
+        /* Main Content */
+        main {
+            padding: 3rem 5rem;
+            max-width: 1000px;
+        }
+
+        h1 {
+            font-size: 3rem;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+            background: linear-gradient(to right, #38bdf8, #818cf8, #c084fc);
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+            letter-spacing: -0.03em;
+        }
+
+        .header-meta {
+            color: var(--text-secondary);
+            font-size: 1.2rem;
+            margin-bottom: 4rem;
+        }
+
+        section {
+            margin-bottom: 5rem;
+            scroll-margin-top: 2rem;
+        }
+
+        h2 {
+            font-size: 2.25rem;
+            color: var(--text-primary);
+            margin-bottom: 1.5rem;
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        h2::before {
+            content: '';
+            width: 4px;
+            height: 32px;
+            background: var(--accent);
+            border-radius: 4px;
+        }
+
+        h3 {
+            font-size: 1.4rem;
+            color: var(--accent);
+            margin-top: 2.5rem;
+            margin-bottom: 1rem;
+        }
+
+        p,
+        li {
+            color: var(--text-secondary);
+            font-size: 1.1rem;
+            margin-bottom: 1.25rem;
+        }
+
+        strong {
+            color: var(--text-primary);
+        }
+
+        .code-block {
+            background: var(--code-bg);
+            padding: 1.5rem;
+            border-radius: 12px;
+            border: 1px solid var(--border);
+            margin: 1.5rem 0;
+            overflow-x: auto;
+        }
+
+        .code-block pre {
+            margin: 0;
+        }
+
+        code {
+            color: #10b981;
+            font-family: 'Fira Code', 'Courier New', monospace;
+            font-size: 0.95rem;
+        }
+
+        .alert {
+            background: var(--accent-glow);
+            border-left: 4px solid var(--accent);
+            padding: 1.5rem;
+            border-radius: 8px;
+            margin: 2rem 0;
+        }
+
+        /* Visual Preview Styles */
+        .preview-label {
+            display: block;
+            font-size: 0.8rem;
+            font-weight: 600;
+            color: var(--accent);
+            text-transform: uppercase;
+            margin-bottom: 1rem;
+            letter-spacing: 0.05em;
+        }
+
+        .preview-box {
+            background: rgba(255, 255, 255, 0.02);
+            border: 1px dashed var(--border);
+            padding: 2rem;
+            border-radius: 12px;
+            margin-top: 1.5rem;
+        }
+
+        /* Scoped styles for the live previews - matching lesson code */
+        .block-preview p {
+            margin: 0.5rem 0;
+        }
+
+        .inline-preview p {
+            margin: 0;
+        }
+
+        /* Mobile Responsiveness */
+        @media (max-width: 1024px) {
+            body {
+                grid-template-columns: 1fr;
+            }
+
+            nav.toc {
+                display: none;
+            }
+
+            main {
+                padding: 2rem;
+            }
+
+            h1 {
+                font-size: 2.5rem;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <nav class="toc">
+        <h4>Layout Behavior</h4>
+        <ul>
+            <li><a href="#overview">Overview</a></li>
+            <li><a href="#block-level">Block-Level Elements</a></li>
+            <li><a href="#inline-elements">Inline Elements</a></li>
+            <li><a href="#summary">Key Differences</a></li>
+        </ul>
+    </nav>
+
+    <main>
+        <header>
+            <h1>Inline vs. Block-Level</h1>
+            <p class="header-meta">Understanding how HTML elements categorize themselves in the document flow.</p>
+        </header>
+
+        <section id="overview">
+            <h2>The Layout Classification</h2>
+            <p>In HTML and CSS, elements are classified as either <strong>inline elements</strong> or
+                <strong>block-level elements</strong>, and this classification dictates how they behave in the document
+                layout.</p>
+            <p>Understanding this difference is crucial for controlling how your content is displayed on a webpage.</p>
+        </section>
+
+        <section id="block-level">
+            <h2>Block-Level Elements</h2>
+            <p>Block-level elements are elements that take up the <strong>full width available</strong> to them by
+                default, stretching across the width of their container.</p>
+            <p>These elements always <strong>start on a new line</strong> and push other content to the next line,
+                creating a "block" of content.</p>
+
+            <div class="alert">
+                <strong>Default Styling:</strong> Block-level elements have the CSS property
+                <code>display: block;</code> applied by default.
+            </div>
+
+            <p>Common block-level elements include <code>&lt;div&gt;</code>, <code>&lt;p&gt;</code>, headings
+                (<code>&lt;h1&gt;</code>-<code>&lt;h6&gt;</code>), lists, and <code>&lt;section&gt;</code>.</p>
+
+            <div class="code-block">
+                <pre><code>&lt;!-- HTML Example --&gt;
+&lt;p style="border: 2px solid red;"&gt;
+  First paragraph
+&lt;/p&gt;
+&lt;p&gt;Second paragraph&lt;/p&gt;</code></pre>
+            </div>
+
+            <div class="preview-box block-preview">
+                <span class="preview-label">Visual Output</span>
+                <p style="border: 2px solid red; padding: 5px;">First paragraph</p>
+                <p style="padding: 5px;">Second paragraph</p>
+            </div>
+
+            <p>In this visual, you can see the first paragraph stretching to the full width, forcing the second
+                paragraph to start on its own separate line.</p>
+        </section>
+
+        <section id="inline-elements">
+            <h2>Inline Elements</h2>
+            <p>Inline elements, unlike block-level elements, <strong>only take up as much width as they need</strong>
+                and do not start on a new line. These elements flow within the content, allowing text and other elements
+                to appear alongside them.</p>
+
+            <div class="alert">
+                <strong>Default Styling:</strong> Inline elements have the CSS property <code>display: inline;</code>
+                applied by default.
+            </div>
+
+            <p>Common inline elements include <code>&lt;span&gt;</code>, <code>&lt;a&gt;</code>, and
+                <code>&lt;img&gt;</code>.</p>
+
+            <div class="code-block">
+                <pre><code>&lt;!-- HTML Example --&gt;
+&lt;p&gt;This is a
+  &lt;span style="color: red; border: 2px solid green;"&gt;red&lt;/span&gt;
+  word inside a paragraph.
+&lt;/p&gt;</code></pre>
+            </div>
+
+            <div class="preview-box inline-preview">
+                <span class="preview-label">Visual Output</span>
+                <p>This is a
+                    <span style="color: red; border: 2px solid green; padding: 2px;">red</span>
+                    word inside a paragraph.
+                </p>
+            </div>
+
+            <p>The <code>&lt;span&gt;</code> element remains perfectly in line with the surrounding text, only occupying
+                the space necessary for the word "red".</p>
+        </section>
+
+        <section id="summary">
+            <h2>Choosing the Right Tool</h2>
+            <p><strong>Block-level elements</strong> are ideal when you want content to stack vertically, such as
+                paragraphs, sections, or larger structural blocks. They're commonly used to define the layout of a
+                webpage.</p>
+            <p><strong>Inline elements</strong> are best used for styling smaller portions of text or content within a
+                line, such as emphasizing a word or creating hyperlinks.</p>
+        </section>
+    </main>
+</body>
+
+</html>

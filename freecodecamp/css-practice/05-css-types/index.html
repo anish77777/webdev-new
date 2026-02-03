@@ -1,0 +1,368 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Inline, Internal, and External CSS</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600&display=swap');
+
+        :root {
+            --bg: #0b0f1a;
+            --card-bg: #161b2c;
+            --accent: #38bdf8;
+            --accent-glow: rgba(56, 189, 248, 0.2);
+            --text-primary: #f1f5f9;
+            --text-secondary: #94a3b8;
+            --code-bg: #000000;
+            --border: rgba(255, 255, 255, 0.08);
+            --inline-color: #fb923c;
+            --internal-color: #818cf8;
+            --external-color: #10b981;
+        }
+
+        body {
+            font-family: 'Outfit', sans-serif;
+            background-color: var(--bg);
+            color: var(--text-primary);
+            margin: 0;
+            line-height: 1.6;
+            display: grid;
+            grid-template-columns: 280px 1fr;
+            min-height: 100vh;
+        }
+
+        /* Sidebar Navigation */
+        nav.toc {
+            background: var(--card-bg);
+            border-right: 1px solid var(--border);
+            padding: 2rem 1.5rem;
+            height: 100vh;
+            position: sticky;
+            top: 0;
+            overflow-y: auto;
+        }
+
+        nav.toc h4 {
+            color: var(--accent);
+            text-transform: uppercase;
+            font-size: 0.75rem;
+            letter-spacing: 0.1em;
+            margin-bottom: 1.5rem;
+        }
+
+        nav.toc ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        nav.toc li {
+            margin-bottom: 0.75rem;
+        }
+
+        nav.toc a {
+            color: var(--text-secondary);
+            text-decoration: none;
+            font-size: 0.95rem;
+            transition: color 0.2s;
+        }
+
+        nav.toc a:hover {
+            color: var(--accent);
+        }
+
+        /* Main Content */
+        main {
+            padding: 3rem 5rem;
+            max-width: 1000px;
+        }
+
+        h1 {
+            font-size: 3rem;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+            background: linear-gradient(to right, #38bdf8, #818cf8, #c084fc);
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+            letter-spacing: -0.03em;
+        }
+
+        .header-meta {
+            color: var(--text-secondary);
+            font-size: 1.2rem;
+            margin-bottom: 4rem;
+        }
+
+        section {
+            margin-bottom: 5rem;
+            scroll-margin-top: 2rem;
+        }
+
+        h2 {
+            font-size: 2.25rem;
+            color: var(--text-primary);
+            margin-bottom: 1.5rem;
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        h2::before {
+            content: '';
+            width: 4px;
+            height: 32px;
+            background: var(--accent);
+            border-radius: 4px;
+        }
+
+        h3 {
+            font-size: 1.4rem;
+            color: var(--accent);
+            margin-top: 2.5rem;
+            margin-bottom: 1rem;
+        }
+
+        p,
+        li {
+            color: var(--text-secondary);
+            font-size: 1.1rem;
+            margin-bottom: 1.25rem;
+        }
+
+        strong {
+            color: var(--text-primary);
+        }
+
+        .code-block {
+            background: var(--code-bg);
+            padding: 1.5rem;
+            border-radius: 12px;
+            border: 1px solid var(--border);
+            margin: 1.5rem 0;
+            overflow-x: auto;
+        }
+
+        .code-block pre {
+            margin: 0;
+        }
+
+        code {
+            color: #10b981;
+            font-family: 'Fira Code', 'Courier New', monospace;
+            font-size: 0.95rem;
+        }
+
+        .alert {
+            background: var(--accent-glow);
+            border-left: 4px solid var(--accent);
+            padding: 1.5rem;
+            border-radius: 8px;
+            margin: 2rem 0;
+        }
+
+        .method-card {
+            background: var(--card-bg);
+            padding: 2rem;
+            border-radius: 16px;
+            border: 1px solid var(--border);
+            margin-bottom: 2rem;
+        }
+
+        .method-card h3 {
+            margin-top: 0;
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+
+        .tag {
+            font-size: 0.7rem;
+            padding: 0.25rem 0.75rem;
+            border-radius: 100px;
+            text-transform: uppercase;
+            font-weight: 600;
+        }
+
+        .tag.inline {
+            background: rgba(251, 146, 60, 0.1);
+            color: var(--inline-color);
+        }
+
+        .tag.internal {
+            background: rgba(129, 140, 248, 0.1);
+            color: var(--internal-color);
+        }
+
+        .tag.external {
+            background: rgba(16, 185, 129, 0.1);
+            color: var(--external-color);
+        }
+
+        .comparison-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 2rem 0;
+        }
+
+        .comparison-table th,
+        .comparison-table td {
+            text-align: left;
+            padding: 1rem;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .comparison-table th {
+            color: var(--accent);
+            font-weight: 600;
+        }
+
+        /* Mobile Responsiveness */
+        @media (max-width: 1024px) {
+            body {
+                grid-template-columns: 1fr;
+            }
+
+            nav.toc {
+                display: none;
+            }
+
+            main {
+                padding: 2rem;
+            }
+
+            h1 {
+                font-size: 2.5rem;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <nav class="toc">
+        <h4>CSS Methods</h4>
+        <ul>
+            <li><a href="#overview">Overview</a></li>
+            <li><a href="#inline">Inline CSS</a></li>
+            <li><a href="#internal">Internal CSS</a></li>
+            <li><a href="#external">External CSS</a></li>
+            <li><a href="#link-element">The Link Element</a></li>
+            <li><a href="#summary">When to Use Each?</a></li>
+        </ul>
+    </nav>
+
+    <main>
+        <header>
+            <h1>Inline, Internal, & External CSS</h1>
+            <p class="header-meta">Mastering the three ways to apply styles to your web pages.</p>
+        </header>
+
+        <section id="overview">
+            <h2>The Three Approaches</h2>
+            <p>CSS can be applied to a webpage in three main ways: <strong>inline</strong>, <strong>internal</strong>,
+                or <strong>external</strong>.</p>
+            <p>Each method has its own use case, advantages, and limitations. Knowing when to use each one is essential
+                for writing clean, efficient, and maintainable code.</p>
+        </section>
+
+        <section id="inline">
+            <div class="method-card">
+                <h3><span class="tag inline">Method 1</span> Inline CSS</h3>
+                <p>Inline CSS is written directly within an HTML element using the <code>style</code> attribute. It
+                    applies styles to a specific element.</p>
+                <div class="code-block">
+                    <pre><code>&lt;p style="color: green;"&gt;This is an inline-styled paragraph.&lt;/p&gt;</code></pre>
+                </div>
+                <p><strong>Use Case:</strong> Quick, one-off styles or overriding other styles locally.</p>
+                <p><strong>Warning:</strong> Should be avoided in most cases as it clutters HTML and is hard to
+                    maintain.</p>
+            </div>
+        </section>
+
+        <section id="internal">
+            <div class="method-card">
+                <h3><span class="tag internal">Method 2</span> Internal CSS</h3>
+                <p>Internal CSS is written within the <code>&lt;style&gt;</code> tags inside the
+                    <code>&lt;head&gt;</code> section. It applies styles to the entire page.</p>
+                <div class="code-block">
+                    <pre><code>&lt;head&gt;
+  &lt;style&gt;
+    p { color: blue; }
+  &lt;/style&gt;
+&lt;/head&gt;</code></pre>
+                </div>
+                <p><strong>Use Case:</strong> Single-page websites or styles that don't need to be reused elsewhere.</p>
+                <p><strong>Downside:</strong> Doesn't promote reusability across multiple pages and mixes HTML with CSS.
+                </p>
+            </div>
+        </section>
+
+        <section id="external">
+            <div class="method-card" style="border-color: var(--external-color);">
+                <h3><span class="tag external">Method 3</span> External CSS</h3>
+                <p>External CSS is written in a separate <code>.css</code> file and linked using the
+                    <code>&lt;link&gt;</code> element. This is the <strong>preferred method</strong> in professional
+                    development.</p>
+                <div class="code-block">
+                    <pre><code>&lt;!-- HTML --&gt;
+&lt;link rel="stylesheet" href="styles.css"&gt;
+
+/* styles.css */
+p { color: red; }</code></pre>
+                </div>
+                <p><strong>Use Case:</strong> Large projects, consistent styling across multiple pages.</p>
+                <p><strong>Benefits:</strong> Separation of concerns, reusability, and easier maintenance.</p>
+            </div>
+        </section>
+
+        <section id="link-element">
+            <h2>The Link Element</h2>
+            <p>The <code>&lt;link&gt;</code> element is the bridge between your HTML and external resources.</p>
+            <ul>
+                <li><strong>rel:</strong> Specifies the relationship (e.g., <code>stylesheet</code>).</li>
+                <li><strong>href:</strong> Specifies the URL or path to the CSS file.</li>
+            </ul>
+        </section>
+
+        <section id="summary">
+            <h2>Comparison Summary</h2>
+            <table class="comparison-table">
+                <thead>
+                    <tr>
+                        <th>Feature</th>
+                        <th>Inline</th>
+                        <th>Internal</th>
+                        <th>External</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>Scope</strong></td>
+                        <td>Single Element</td>
+                        <td>Single Page</td>
+                        <td>Multiple Pages</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Maintainability</strong></td>
+                        <td>Low</td>
+                        <td>Medium</td>
+                        <td>High</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Best For</strong></td>
+                        <td>Hotfixes</td>
+                        <td>Single Pages</td>
+                        <td>Large Projects</td>
+                    </tr>
+                </tbody>
+            </table>
+            <div class="alert">
+                <strong>Pro Tip:</strong> In most cases, <strong>external CSS</strong> should be your go-to approach for
+                efficient and scalable web development.
+            </div>
+        </section>
+    </main>
+</body>
+
+</html>

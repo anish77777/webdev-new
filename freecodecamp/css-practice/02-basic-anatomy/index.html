@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Basic Anatomy of a CSS Rule</title>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600&family=Fira+Code&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+    <div class="container">
+        <h1>What Is the Basic Anatomy of a CSS Rule?</h1>
+
+        <p>CSS is responsible for the styles of a web page. All of these styles are made up of various <strong>CSS
+                rules</strong>.</p>
+
+        <p>A CSS rule is made up of two main parts: a <strong>selector</strong> and a <strong>declaration
+                block</strong>.</p>
+
+        <div class="anatomy-box">
+            <span class="syntax-label">Basic Syntax</span>
+            <span class="selector">selector</span> <span class="punctuation">{</span><br>
+            &nbsp;&nbsp;<span class="property">property</span><span class="punctuation">:</span> <span
+                class="value">value</span><span class="punctuation">;</span><br>
+            <span class="punctuation">}</span>
+        </div>
+
+        <h2>Selectors</h2>
+        <p>A <strong>selector</strong> is a pattern used in CSS to identify and target specific HTML elements for
+            styling.</p>
+        <p>Examples of selectors include <strong>type selectors</strong>, <strong>class selectors</strong>, and
+            <strong>ID selectors</strong>.</p>
+
+        <h2>Declaration Blocks</h2>
+        <p>The curly braces provided in the basic syntax are known as a <strong>declaration block</strong>. A
+            declaration block applies a set of styles for a given selector, or selectors.</p>
+        <p>Inside the declaration block, you will have a series of <strong>declarations</strong>. Each declaration
+            consists of a <strong>property</strong> and a <strong>value</strong>.</p>
+
+        <div class="tip">
+            <p><strong>💡 Breakdown:</strong></p>
+            <ul>
+                <li><strong>Property:</strong> The CSS identifier that specifies <em>which</em> feature is being styled
+                    (e.g., <code>background-color</code>).</li>
+                <li><strong>Value:</strong> The specific <em>setting</em> applied to that property (e.g.,
+                    <code>purple</code>).</li>
+            </ul>
+        </div>
+
+        <p>After each property name, you need to place a <strong>colon (:)</strong>, and after each value, you should
+            have a <strong>semicolon (;)</strong>.</p>
+
+        <h2>Example: Styling Paragraphs</h2>
+
+        <div class="example-section">
+            <div class="example-title"><span>HTML Code</span></div>
+            <pre>
+&lt;h1&gt;Learning about CSS&lt;/h1&gt;
+&lt;p&gt;Example paragraph element&lt;/p&gt;
+&lt;p&gt;Another example paragraph element&lt;/p&gt;</pre>
+
+            <div class="example-title"><span>CSS Code</span></div>
+            <pre>
+p {
+  color: blue;
+}</pre>
+
+            <div class="example-title"><span>Live Demo</span></div>
+            <div class="live-demo">
+                <h1 style="color: #2c3e50; font-size: 1.5rem;">Learning about CSS</h1>
+                <p class="demo-p demo-p-blue">Example paragraph element</p>
+                <p class="demo-p demo-p-blue">Another example paragraph element</p>
+            </div>
+        </div>
+
+        <p>In this CSS rule, a <strong>type selector</strong> (<code>p</code>) targets all paragraph elements on the
+            page.</p>
+        <p>Inside the declaration block, there is one declaration: the <code>color</code> property with a value set to
+            <code>blue</code>.</p>
+
+        <h2>Selector Lists</h2>
+        <p>If you want to apply the same set of styles to multiple selectors, you can create a <strong>selector
+                list</strong> with each selector separated by a <strong>comma</strong>.</p>
+
+        <div class="example-section">
+            <div class="example-title"><span>HTML Code</span></div>
+            <pre>
+&lt;h1 id="title"&gt;Example heading&lt;/h1&gt;
+&lt;h2 class="subheading"&gt;Example subheading&lt;/h2&gt;
+&lt;p&gt;This paragraph is not affected by the selector.&lt;/p&gt;</pre>
+
+            <div class="example-title"><span>CSS Code</span></div>
+            <pre>
+#title,
+.subheading {
+  color: navy;
+}</pre>
+
+            <div class="example-title"><span>Live Demo</span></div>
+            <div class="live-demo">
+                <h1 id="title-demo" style="font-size: 1.5rem; margin-bottom: 0.5rem;">Example heading</h1>
+                <h2 class="subheading-demo" style="font-size: 1.2rem; margin-bottom: 0.5rem;">Example subheading</h2>
+                <p class="demo-p">This paragraph is not affected by the selector.</p>
+            </div>
+        </div>
+
+        <div class="note">
+            <p><strong>Note on ID & Class Selectors:</strong></p>
+            <ul>
+                <li><strong>ID Selectors:</strong> Start with a hash (<code>#</code>) symbol. Targets a single unique
+                    element.</li>
+                <li><strong>Class Selectors:</strong> Start with a dot (<code>.</code>). Targets multiple elements with
+                    the same class.</li>
+            </ul>
+        </div>
+
+        <p>The entire selector list will receive the same styling, with the text color set to <strong>navy</strong>.</p>
+    </div>
+</body>
+
+</html>

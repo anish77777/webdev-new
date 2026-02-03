@@ -1,0 +1,330 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Default Browser Styles Explained</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600&display=swap');
+
+        :root {
+            --bg: #0b0f1a;
+            --card-bg: #161b2c;
+            --accent: #38bdf8;
+            --accent-glow: rgba(56, 189, 248, 0.2);
+            --text-primary: #f1f5f9;
+            --text-secondary: #94a3b8;
+            --code-bg: #000000;
+            --border: rgba(255, 255, 255, 0.08);
+            --success: #10b981;
+        }
+
+        body {
+            font-family: 'Outfit', sans-serif;
+            background-color: var(--bg);
+            color: var(--text-primary);
+            margin: 0;
+            line-height: 1.6;
+            display: grid;
+            grid-template-columns: 280px 1fr;
+            min-height: 100vh;
+        }
+
+        /* Sidebar Navigation */
+        nav.toc {
+            background: var(--card-bg);
+            border-right: 1px solid var(--border);
+            padding: 2rem 1.5rem;
+            height: 100vh;
+            position: sticky;
+            top: 0;
+            overflow-y: auto;
+        }
+
+        nav.toc h4 {
+            color: var(--accent);
+            text-transform: uppercase;
+            font-size: 0.75rem;
+            letter-spacing: 0.1em;
+            margin-bottom: 1.5rem;
+        }
+
+        nav.toc ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        nav.toc li {
+            margin-bottom: 0.75rem;
+        }
+
+        nav.toc a {
+            color: var(--text-secondary);
+            text-decoration: none;
+            font-size: 0.95rem;
+            transition: color 0.2s;
+        }
+
+        nav.toc a:hover {
+            color: var(--accent);
+        }
+
+        /* Main Content */
+        main {
+            padding: 3rem 5rem;
+            max-width: 1000px;
+        }
+
+        h1 {
+            font-size: 3rem;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+            background: linear-gradient(to right, #38bdf8, #818cf8, #c084fc);
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+            letter-spacing: -0.03em;
+        }
+
+        .header-meta {
+            color: var(--text-secondary);
+            font-size: 1.2rem;
+            margin-bottom: 4rem;
+        }
+
+        section {
+            margin-bottom: 5rem;
+            scroll-margin-top: 2rem;
+        }
+
+        h2 {
+            font-size: 2.25rem;
+            color: var(--text-primary);
+            margin-bottom: 1.5rem;
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        h2::before {
+            content: '';
+            width: 4px;
+            height: 32px;
+            background: var(--accent);
+            border-radius: 4px;
+        }
+
+        h3 {
+            font-size: 1.4rem;
+            color: var(--accent);
+            margin-top: 2.5rem;
+            margin-bottom: 1rem;
+        }
+
+        p,
+        li {
+            color: var(--text-secondary);
+            font-size: 1.1rem;
+            margin-bottom: 1.25rem;
+        }
+
+        strong {
+            color: var(--text-primary);
+        }
+
+        .code-block {
+            background: var(--code-bg);
+            padding: 1.5rem;
+            border-radius: 12px;
+            border: 1px solid var(--border);
+            margin: 1.5rem 0;
+            overflow-x: auto;
+        }
+
+        .code-block pre {
+            margin: 0;
+        }
+
+        code {
+            color: #10b981;
+            font-family: 'Fira Code', 'Courier New', monospace;
+            font-size: 0.95rem;
+        }
+
+        .alert {
+            background: var(--accent-glow);
+            border-left: 4px solid var(--accent);
+            padding: 1.5rem;
+            border-radius: 8px;
+            margin: 2rem 0;
+        }
+
+        .example-box {
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px dashed var(--border);
+            padding: 2rem;
+            border-radius: 12px;
+            margin: 1.5rem 0;
+        }
+
+        /* Reset-like styles for example display ONLY to ensure they don't leak, 
+           but ironically we want to SHOW defaults, so we keep these minimal */
+        .example-box :is(h1, h2, h3, h4, h5, h6, p, ul, ol, blockquote, hr, a) {
+            all: revert;
+            color: white;
+            /* Make sure defaults are visible against dark bg */
+        }
+
+        .example-box a {
+            color: #2563eb;
+            /* Classic blue link */
+            text-decoration: underline;
+        }
+
+        /* Mobile Responsiveness */
+        @media (max-width: 1024px) {
+            body {
+                grid-template-columns: 1fr;
+            }
+
+            nav.toc {
+                display: none;
+            }
+
+            main {
+                padding: 2rem;
+            }
+
+            h1 {
+                font-size: 2.5rem;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <nav class="toc">
+        <h4>User-Agent Styles</h4>
+        <ul>
+            <li><a href="#what-are-defaults">What Are Defaults?</a></li>
+            <li><a href="#headings">Heading Hierarchy</a></li>
+            <li><a href="#hr-element">Horizontal Rules</a></li>
+            <li><a href="#blockquotes">Blockquotes</a></li>
+            <li><a href="#links">Anchor Elements</a></li>
+            <li><a href="#lists">Lists (UL & OL)</a></li>
+            <li><a href="#future-steps">The CSS Reset</a></li>
+        </ul>
+    </nav>
+
+    <main>
+        <header>
+            <h1>Default Browser Styles</h1>
+            <p class="header-meta">Understanding the "User-Agent" styling that browsers apply automatically.</p>
+        </header>
+
+        <section id="what-are-defaults">
+            <h2>What Are Default Browser Styles?</h2>
+            <p>When you start working with HTML and CSS, you'll notice that some styles are applied to your web pages
+                even before you write any CSS. These styles are called <strong>"default browser styles"</strong> or
+                <strong>"user-agent styles"</strong>.</p>
+            <p>These default browser styles provide basic formatting to ensure that HTML elements are displayed in a
+                readable way across all browsers.</p>
+            <div class="alert">
+                <strong>Important Note:</strong> These styles can vary slightly from one browser to another (e.g.,
+                Chrome vs. Safari), which is why it's important to understand them when designing a consistent look for
+                your website.
+            </div>
+        </section>
+
+        <section id="headings">
+            <h2>Heading Hierarchy</h2>
+            <p>Headings are one of the most commonly used HTML elements and are styled by default to have varying sizes
+                and weights.</p>
+            <p>For example, <code>&lt;h1&gt;</code> (the highest-level heading) is usually bold and larger in font size
+                compared to lower-level headings like <code>&lt;h2&gt;</code>, <code>&lt;h3&gt;</code>, and so on.</p>
+
+            <div class="code-block">
+                <pre><code>&lt;h1&gt;Heading 1&lt;/h1&gt;
+&lt;h2&gt;Heading 2&lt;/h2&gt;
+&lt;h3&gt;Heading 3&lt;/h3&gt;
+&lt;h4&gt;Heading 4&lt;/h4&gt;
+&lt;h5&gt;Heading 5&lt;/h5&gt;
+&lt;h6&gt;Heading 6&lt;/h6&gt;</code></pre>
+            </div>
+        </section>
+
+        <section id="hr-element">
+            <h2>Horizontal Rules (&lt;hr&gt;)</h2>
+            <p>The <code>&lt;hr&gt;</code> element creates a horizontal rule often used to visually separate sections of
+                content. Browsers generally apply a simple line style to this element.</p>
+            <div class="example-box">
+                <p>Paragraph 1</p>
+                <p>Paragraph 2</p>
+                <hr>
+                <p>Paragraph 3</p>
+                <p>Paragraph 4</p>
+            </div>
+            <p>The horizontal rule appears as a thin line with spacing above and below the text to distinguish between
+                sections of content.</p>
+        </section>
+
+        <section id="blockquotes">
+            <h2>Blockquotes</h2>
+            <p>Blockquotes are used to indicate a section of text that is a quotation from another source. Browsers
+                typically add <strong>indentation</strong> and sometimes italicize the text.</p>
+
+            <div class="code-block">
+                <pre><code>&lt;p&gt;Paragraph 1&lt;/p&gt;
+&lt;blockquote&gt;I think, therefore I am. (Rene Descartes)&lt;/blockquote&gt;
+&lt;p&gt;Paragraph 2&lt;/p&gt;</code></pre>
+            </div>
+
+            <p>The indentation helps set blockquotes apart from the rest of the text, making it clear that this content
+                is quoted from another source.</p>
+        </section>
+
+        <section id="links">
+            <h2>Anchor Elements (&lt;a&gt;)</h2>
+            <p>The anchor element is styled with a default <strong>blue color</strong> and <strong>underlining</strong>
+                to make it recognizable as a link.</p>
+            <div class="example-box">
+                <p>Paragraph 1</p>
+                <a href="https://freecodecamp.org/">Visit the freeCodeCamp learn page</a>
+                <p>Paragraph 2</p>
+            </div>
+            <p>The anchor element is styled in blue with an underline to show users they can click to navigate
+                elsewhere.</p>
+        </section>
+
+        <section id="lists">
+            <h2>Lists (UL & OL)</h2>
+            <p>Browsers add basic formatting to lists, including indentation and bullets or numbers, depending on
+                whether you are using an unordered list (<code>&lt;ul&gt;</code>) or an ordered list
+                (<code>&lt;ol&gt;</code>).</p>
+            <div class="code-block">
+                <pre><code>&lt;ol&gt;
+  &lt;li&gt;item 1&lt;/li&gt;
+  &lt;li&gt;item 2&lt;/li&gt;
+&lt;/ol&gt;
+&lt;ul&gt;
+  &lt;li&gt;bullet item&lt;/li&gt;
+  &lt;li&gt;another item&lt;/li&gt;
+&lt;/ul&gt;</code></pre>
+            </div>
+            <p>Both of these lists will be slightly indented to the right by default.</p>
+        </section>
+
+        <section id="future-steps">
+            <h2>What’s Next?</h2>
+            <p>For all of these examples, you saw how the browser applied default spacing, varying font sizes, and
+                weights to these HTML elements.</p>
+            <div class="alert">
+                <strong>Upcoming Lesson:</strong> You will learn how to reset some of these default styles using a
+                <strong>CSS Reset</strong> to provide a completely blank slate for your own designs.
+            </div>
+        </section>
+    </main>
+</body>
+
+</html>

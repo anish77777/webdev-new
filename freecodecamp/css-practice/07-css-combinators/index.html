@@ -1,0 +1,443 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>CSS Combinators: Mastering Selector Relationships</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600&display=swap');
+
+        :root {
+            --bg: #0b0f1a;
+            --card-bg: #161b2c;
+            --accent: #38bdf8;
+            --accent-glow: rgba(56, 189, 248, 0.2);
+            --text-primary: #f1f5f9;
+            --text-secondary: #94a3b8;
+            --code-bg: #000000;
+            --border: rgba(255, 255, 255, 0.08);
+            --descendant: #38bdf8;
+            --child: #818cf8;
+            --sibling: #10b981;
+            --subsequent: #fb923c;
+        }
+
+        body {
+            font-family: 'Outfit', sans-serif;
+            background-color: var(--bg);
+            color: var(--text-primary);
+            margin: 0;
+            line-height: 1.6;
+            display: grid;
+            grid-template-columns: 280px 1fr;
+            min-height: 100vh;
+        }
+
+        /* Sidebar Navigation */
+        nav.toc {
+            background: var(--card-bg);
+            border-right: 1px solid var(--border);
+            padding: 2rem 1.5rem;
+            height: 100vh;
+            position: sticky;
+            top: 0;
+            overflow-y: auto;
+        }
+
+        nav.toc h4 {
+            color: var(--accent);
+            text-transform: uppercase;
+            font-size: 0.75rem;
+            letter-spacing: 0.1em;
+            margin-bottom: 1.5rem;
+        }
+
+        nav.toc ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        nav.toc li {
+            margin-bottom: 0.75rem;
+        }
+
+        nav.toc a {
+            color: var(--text-secondary);
+            text-decoration: none;
+            font-size: 0.95rem;
+            transition: color 0.2s;
+        }
+
+        nav.toc a:hover {
+            color: var(--accent);
+        }
+
+        /* Main Content */
+        main {
+            padding: 3rem 5rem;
+            max-width: 1000px;
+        }
+
+        h1 {
+            font-size: 3rem;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+            background: linear-gradient(to right, #38bdf8, #818cf8, #c084fc);
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+            letter-spacing: -0.03em;
+        }
+
+        .header-meta {
+            color: var(--text-secondary);
+            font-size: 1.2rem;
+            margin-bottom: 4rem;
+        }
+
+        section {
+            margin-bottom: 5rem;
+            scroll-margin-top: 2rem;
+        }
+
+        h2 {
+            font-size: 2.25rem;
+            color: var(--text-primary);
+            margin-bottom: 1.5rem;
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        h2::before {
+            content: '';
+            width: 4px;
+            height: 32px;
+            background: var(--accent);
+            border-radius: 4px;
+        }
+
+        h3 {
+            font-size: 1.4rem;
+            color: var(--accent);
+            margin-top: 2.5rem;
+            margin-bottom: 1rem;
+        }
+
+        p,
+        li {
+            color: var(--text-secondary);
+            font-size: 1.1rem;
+            margin-bottom: 1.25rem;
+        }
+
+        strong {
+            color: var(--text-primary);
+        }
+
+        .code-block {
+            background: var(--code-bg);
+            padding: 1.5rem;
+            border-radius: 12px;
+            border: 1px solid var(--border);
+            margin: 1.5rem 0;
+            overflow-x: auto;
+        }
+
+        .code-block pre {
+            margin: 0;
+        }
+
+        code {
+            color: #10b981;
+            font-family: 'Fira Code', 'Courier New', monospace;
+            font-size: 0.95rem;
+        }
+
+        .alert {
+            background: var(--accent-glow);
+            border-left: 4px solid var(--accent);
+            padding: 1.5rem;
+            border-radius: 8px;
+            margin: 2rem 0;
+        }
+
+        .combinator-card {
+            background: var(--card-bg);
+            padding: 2rem;
+            border-radius: 16px;
+            border: 1px solid var(--border);
+            margin-bottom: 2rem;
+        }
+
+        .symbol {
+            font-family: 'Fira Code', monospace;
+            font-size: 1.5rem;
+            background: rgba(255, 255, 255, 0.05);
+            padding: 0.2rem 0.8rem;
+            border-radius: 8px;
+            margin-right: 0.75rem;
+            color: var(--accent);
+        }
+
+        /* Visual Preview Styles */
+        .preview-label {
+            display: block;
+            font-size: 0.8rem;
+            font-weight: 600;
+            color: var(--accent);
+            text-transform: uppercase;
+            margin-bottom: 1rem;
+            letter-spacing: 0.05em;
+        }
+
+        .preview-box {
+            background: rgba(255, 255, 255, 0.02);
+            border: 1px dashed var(--border);
+            padding: 2rem;
+            border-radius: 12px;
+            margin-top: 1.5rem;
+        }
+
+        /* Scoped styles for the live previews - exactly matching lesson code */
+        .descendant-preview figure img {
+            border: 4px solid red;
+            max-width: 200px;
+        }
+
+        .child-preview .container>p {
+            color: blue;
+        }
+
+        .sibling-preview img+figcaption {
+            border: 4px solid black;
+            background: white;
+            color: black;
+            padding: 0.5rem;
+            display: inline-block;
+        }
+
+        .sibling-preview img {
+            max-width: 200px;
+            display: block;
+        }
+
+        .subsequent-preview h2~p {
+            color: green;
+        }
+
+        .subsequent-preview h2 {
+            font-size: 1.5rem;
+            margin-top: 0;
+        }
+
+        .subsequent-preview h2::before {
+            display: none;
+        }
+
+        /* Mobile Responsiveness */
+        @media (max-width: 1024px) {
+            body {
+                grid-template-columns: 1fr;
+            }
+
+            nav.toc {
+                display: none;
+            }
+
+            main {
+                padding: 2rem;
+            }
+
+            h1 {
+                font-size: 2.5rem;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <nav class="toc">
+        <h4>CSS Relationships</h4>
+        <ul>
+            <li><a href="#overview">Overview</a></li>
+            <li><a href="#descendant">Descendant (space)</a></li>
+            <li><a href="#child">Child (>)</a></li>
+            <li><a href="#next-sibling">Next Sibling (+)</a></li>
+            <li><a href="#subsequent-sibling">Subsequent (~)</a></li>
+            <li><a href="#conclusion">Conclusion</a></li>
+        </ul>
+    </nav>
+
+    <main>
+        <header>
+            <h1>CSS Combinators</h1>
+            <p class="header-meta">Defining precision relationships between elements for targeted styling.</p>
+        </header>
+
+        <section id="overview">
+            <h2>Harnessing Relationships</h2>
+            <p>CSS combinators are used to define the <strong>relationship</strong> between selectors in CSS. They help
+                in selecting elements based on their relationship to other elements, which allows for more precise and
+                efficient styling.</p>
+        </section>
+
+        <section id="descendant">
+            <div class="combinator-card" style="border-left: 4px solid var(--descendant);">
+                <h3><span class="symbol">(space)</span> Descendant Combinator</h3>
+                <p>A descendant combinator is used to target elements matched by the second selector if they are nested
+                    within an ancestor element that matches the first selector. An ancestor can be a parent element or a
+                    parent's parent.</p>
+                <p>Note that a <strong>space</strong> is used between the parent and child selector. In this case, the
+                    <code>&lt;figure&gt;</code> would be the parent and the <code>&lt;img&gt;</code> would be the child.
+                </p>
+
+                <div class="code-block">
+                    <pre><code>&lt;!-- HTML Structure --&gt;
+&lt;figure&gt;
+  &lt;img src="https://cdn.freecodecamp.org/curriculum/cat-photo-app/relaxing-cat.jpg" alt="Relaxing Cat"&gt;
+  &lt;figcaption&gt;A relaxing cat with a border&lt;/figcaption&gt;
+&lt;/figure&gt;
+
+/* CSS */
+figure img {
+  border: 4px solid red;
+}</code></pre>
+                </div>
+
+                <div class="preview-box descendant-preview">
+                    <span class="preview-label">Visual Output</span>
+                    <figure>
+                        <img src="https://cdn.freecodecamp.org/curriculum/cat-photo-app/relaxing-cat.jpg"
+                            alt="Relaxing Cat">
+                        <figcaption>A relaxing cat with a border</figcaption>
+                    </figure>
+                </div>
+            </div>
+        </section>
+
+        <section id="child">
+            <div class="combinator-card" style="border-left: 4px solid var(--child);">
+                <h3><span class="symbol">></span> Child Combinator</h3>
+                <p>The child combinator (<code>&gt;</code>) in CSS is used to select elements that are <strong>direct
+                        children</strong> of a specified parent element.</p>
+                <p>This combinator targets only elements with a specific parent, making your CSS rules more precise and
+                    preventing unintended styling of deeper nested elements.</p>
+
+                <div class="code-block">
+                    <pre><code>&lt;!-- HTML Structure --&gt;
+&lt;div class="container"&gt;
+  &lt;p&gt;First&lt;/p&gt;
+  &lt;div&gt;
+    &lt;p&gt;Second&lt;/p&gt;
+  &lt;/div&gt;
+  &lt;div&gt;
+    &lt;p&gt;Third&lt;/p&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+
+/* CSS */
+.container &gt; p {
+  color: blue;
+}</code></pre>
+                </div>
+
+                <div class="preview-box child-preview">
+                    <span class="preview-label">Visual Output</span>
+                    <div class="container">
+                        <p>First (Direct Child - Styled Blue)</p>
+                        <div>
+                            <p>Second (Nested - Not Styled)</p>
+                        </div>
+                        <div>
+                            <p>Third (Nested - Not Styled)</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="next-sibling">
+            <div class="combinator-card" style="border-left: 4px solid var(--sibling);">
+                <h3><span class="symbol">+</span> Next-Sibling Combinator</h3>
+                <p>The next-sibling combinator (<code>+</code>) in CSS selects an element that <strong>immediately
+                        follows</strong> a specified sibling element. This is useful when you want to apply styles to an
+                    element based on its position relative to its siblings.</p>
+
+                <div class="code-block">
+                    <pre><code>&lt;!-- HTML Structure --&gt;
+&lt;figure&gt;
+  &lt;img
+    src="https://cdn.freecodecamp.org/curriculum/cat-photo-app/relaxing-cat.jpg"
+    alt="A cute orange cat lying on its back."
+  /&gt;
+  &lt;figcaption&gt;A cute orange cat lying on its back.&lt;/figcaption&gt;
+&lt;/figure&gt;
+
+/* CSS */
+img + figcaption {
+  border: 4px solid black;
+}</code></pre>
+                </div>
+
+                <div class="preview-box sibling-preview">
+                    <span class="preview-label">Visual Output</span>
+                    <figure>
+                        <img src="https://cdn.freecodecamp.org/curriculum/cat-photo-app/relaxing-cat.jpg"
+                            alt="A cute orange cat lying on its back." />
+                        <figcaption style="margin-top: 10px;">A cute orange cat lying on its back.</figcaption>
+                    </figure>
+                </div>
+            </div>
+        </section>
+
+        <section id="subsequent-sibling">
+            <div class="combinator-card" style="border-left: 4px solid var(--subsequent);">
+                <h3><span class="symbol">~</span> Subsequent-Sibling Combinator</h3>
+                <p>The subsequent-sibling combinator (<code>~</code>) in CSS selects <strong>all siblings</strong> of a
+                    specified element that come after it. Unlike the next-sibling combinator, it can target any siblings
+                    that follow, providing greater flexibility.</p>
+
+                <div class="code-block">
+                    <pre><code>&lt;!-- HTML Structure --&gt;
+&lt;div class="container"&gt;
+  &lt;h2&gt;Subheading&lt;/h2&gt;
+  &lt;p&gt;First paragraph.&lt;/p&gt;
+  &lt;p&gt;Second paragraph.&lt;/p&gt;
+  &lt;p&gt;Third paragraph.&lt;/p&gt;
+  &lt;p&gt;Another paragraph element&lt;/p&gt;
+&lt;/div&gt;
+
+/* CSS */
+h2 ~ p {
+  color: green;
+}</code></pre>
+                </div>
+
+                <div class="preview-box subsequent-preview">
+                    <span class="preview-label">Visual Output</span>
+                    <div class="container">
+                        <h2>Subheading</h2>
+                        <p>First paragraph (Subsequent Sibling - Styled Green)</p>
+                        <p>Second paragraph (Subsequent Sibling - Styled Green)</p>
+                        <p>Third paragraph (Subsequent Sibling - Styled Green)</p>
+                        <p>Another paragraph element (Subsequent Sibling - Styled Green)</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="conclusion">
+            <h2>Power Through Precision</h2>
+            <p>In conclusion, understanding and using various CSS combinators allows you to apply precise styles to your
+                HTML elements, enhancing the control and flexibility of your design.</p>
+            <div class="alert">
+                <strong>By mastering these selectors</strong>, you can create more sophisticated and targeted styling
+                rules that improve both the appearance and functionality of your web pages.
+            </div>
+        </section>
+    </main>
+</body>
+
+</html>
