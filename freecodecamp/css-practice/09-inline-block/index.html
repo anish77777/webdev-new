@@ -1,0 +1,442 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>The Inline-Block Property</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600&display=swap');
+
+        :root {
+            --bg: #0b0f1a;
+            --card-bg: #161b2c;
+            --accent: #38bdf8;
+            --accent-glow: rgba(56, 189, 248, 0.2);
+            --text-primary: #f1f5f9;
+            --text-secondary: #94a3b8;
+            --code-bg: #000000;
+            --border: rgba(255, 255, 255, 0.08);
+        }
+
+        body {
+            font-family: 'Outfit', sans-serif;
+            background-color: var(--bg);
+            color: var(--text-primary);
+            margin: 0;
+            line-height: 1.6;
+            display: grid;
+            grid-template-columns: 280px 1fr;
+            min-height: 100vh;
+        }
+
+        /* Sidebar Navigation */
+        nav.toc {
+            background: var(--card-bg);
+            border-right: 1px solid var(--border);
+            padding: 2rem 1.5rem;
+            height: 100vh;
+            position: sticky;
+            top: 0;
+            overflow-y: auto;
+        }
+
+        nav.toc h4 {
+            color: var(--accent);
+            text-transform: uppercase;
+            font-size: 0.75rem;
+            letter-spacing: 0.1em;
+            margin-bottom: 1.5rem;
+        }
+
+        nav.toc ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        nav.toc li {
+            margin-bottom: 0.75rem;
+        }
+
+        nav.toc a {
+            color: var(--text-secondary);
+            text-decoration: none;
+            font-size: 0.95rem;
+            transition: color 0.2s;
+        }
+
+        nav.toc a:hover {
+            color: var(--accent);
+        }
+
+        /* Main Content */
+        main {
+            padding: 3rem 5rem;
+            max-width: 1000px;
+        }
+
+        h1 {
+            font-size: 3rem;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+            background: linear-gradient(to right, #38bdf8, #818cf8, #c084fc);
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+            letter-spacing: -0.03em;
+        }
+
+        .header-meta {
+            color: var(--text-secondary);
+            font-size: 1.2rem;
+            margin-bottom: 4rem;
+        }
+
+        section {
+            margin-bottom: 5rem;
+            scroll-margin-top: 2rem;
+        }
+
+        h2 {
+            font-size: 2.25rem;
+            color: var(--text-primary);
+            margin-bottom: 1.5rem;
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        h2::before {
+            content: '';
+            width: 4px;
+            height: 32px;
+            background: var(--accent);
+            border-radius: 4px;
+        }
+
+        h3 {
+            font-size: 1.4rem;
+            color: var(--accent);
+            margin-top: 2.5rem;
+            margin-bottom: 1rem;
+        }
+
+        p {
+            color: var(--text-secondary);
+            font-size: 1.1rem;
+            margin-bottom: 1.25rem;
+        }
+
+        strong {
+            color: var(--text-primary);
+        }
+
+        .code-block {
+            background: var(--code-bg);
+            padding: 1.5rem;
+            border-radius: 12px;
+            border: 1px solid var(--border);
+            margin: 1.5rem 0;
+            overflow-x: auto;
+        }
+
+        code {
+            color: #10b981;
+            font-family: 'Fira Code', 'Courier New', monospace;
+            font-size: 0.95rem;
+        }
+
+        .alert {
+            background: var(--accent-glow);
+            border-left: 4px solid var(--accent);
+            padding: 1.5rem;
+            border-radius: 8px;
+            margin: 2rem 0;
+        }
+
+        /* Visual Preview Styles */
+        .preview-label {
+            display: block;
+            font-size: 0.8rem;
+            font-weight: 600;
+            color: var(--accent);
+            text-transform: uppercase;
+            margin-bottom: 1rem;
+            letter-spacing: 0.05em;
+        }
+
+        .preview-box {
+            background: rgba(255, 255, 255, 0.02);
+            border: 1px dashed var(--border);
+            padding: 2rem;
+            border-radius: 12px;
+            margin-top: 1.5rem;
+        }
+
+        .container {
+            display: flex;
+            gap: 1rem;
+            flex-wrap: wrap;
+        }
+
+        .inline-block-element {
+            display: inline-block;
+            width: 150px;
+            height: 100px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 600;
+            border-radius: 8px;
+            color: #000;
+        }
+
+        .element1 {
+            background-color: #add8e6;
+        }
+
+        .element2 {
+            background-color: #90ee90;
+        }
+
+        /* Quiz Styles */
+        .quiz-container {
+            background: var(--card-bg);
+            border: 1px solid var(--border);
+            border-radius: 16px;
+            padding: 2rem;
+            margin-top: 2rem;
+        }
+
+        .quiz-question {
+            margin-bottom: 2rem;
+        }
+
+        .quiz-question h4 {
+            color: var(--text-primary);
+            margin-bottom: 1rem;
+            font-size: 1.1rem;
+        }
+
+        .quiz-options {
+            display: flex;
+            flex-direction: column;
+            gap: 0.75rem;
+        }
+
+        .quiz-option {
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid var(--border);
+            padding: 1rem;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.2s;
+            text-align: left;
+            color: var(--text-secondary);
+            font-family: inherit;
+            font-size: 1rem;
+        }
+
+        .quiz-option:hover {
+            background: rgba(255, 255, 255, 0.08);
+            border-color: var(--accent);
+        }
+
+        .quiz-option.correct {
+            border-color: #10b981;
+            background: rgba(16, 185, 129, 0.1);
+            color: #10b981;
+        }
+
+        .quiz-option.incorrect {
+            border-color: #ef4444;
+            background: rgba(239, 68, 68, 0.1);
+            color: #ef4444;
+        }
+
+        .quiz-feedback {
+            margin-top: 0.75rem;
+            font-size: 0.9rem;
+            display: none;
+        }
+
+        .quiz-feedback.show {
+            display: block;
+        }
+
+        /* Mobile Responsiveness */
+        @media (max-width: 1024px) {
+            body {
+                grid-template-columns: 1fr;
+            }
+
+            nav.toc {
+                display: none;
+            }
+
+            main {
+                padding: 2rem;
+            }
+
+            h1 {
+                font-size: 2.5rem;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <nav class="toc">
+        <h4>Layout Behavior</h4>
+        <ul>
+            <li><a href="#overview">Overview</a></li>
+            <li><a href="#comparison">Comparison</a></li>
+            <li><a href="#example">Live Example</a></li>
+            <li><a href="#revised">The Revised Logic</a></li>
+            <li><a href="#quiz">Test Your Knowledge</a></li>
+        </ul>
+    </nav>
+
+    <main>
+        <header>
+            <h1>Inline-Block</h1>
+            <p class="header-meta">The hybrid property that bridges the gap between inline and block elements.</p>
+        </header>
+
+        <section id="overview">
+            <h2>What is Inline-Block?</h2>
+            <p>The <code>inline-block</code> property is a hybrid of inline and block behaviors. Like inline elements,
+                they remain in the text flow without starting on a new line. However, unlike inline elements, you can
+                adjust their <strong>width and height</strong>, just as you would with block-level elements.</p>
+
+            <div class="alert">
+                <strong>Key Insight:</strong> Inline-block allows for full control over dimensions while still staying
+                inline with other content.
+            </div>
+        </section>
+
+        <section id="comparison">
+            <h2>The Difference</h2>
+            <p><strong>Block-level elements</strong> take up the full width and always start on a new line.</p>
+            <p><strong>Inline elements</strong> only take up as much space as they need and do not break onto a new
+                line.
+            </p>
+            <p><strong>Inline-Block</strong> stays on the same line but respects <code>width</code> and
+                <code>height</code> properties.
+            </p>
+        </section>
+
+        <section id="example">
+            <h2>Implementation Example</h2>
+            <div class="code-block">
+                <pre><code>.inline-block-element {
+  display: inline-block;
+  width: 150px;
+  height: 100px;
+}</code></pre>
+            </div>
+
+            <div class="preview-box">
+                <span class="preview-label">Visual Output (With display: inline-block)</span>
+                <div class="container">
+                    <span class="inline-block-element element1">Inline-Block</span>
+                    <span class="inline-block-element element2">Inline-Block</span>
+                </div>
+            </div>
+
+            <p>As you can see, the elements appear side-by-side because they behave like inline elements, but they also
+                respect the specified 150px width and 100px height.</p>
+        </section>
+
+        <section id="#revised">
+            <h2>The "Revised" Comparison</h2>
+            <p>If you remove the <code>display: inline-block</code> property, the width and height will be ignored
+                because the elements revert to their default <code>inline</code> behavior.</p>
+
+            <div class="preview-box">
+                <span class="preview-label">Visual Output (Default Inline Behavior)</span>
+                <div class="container">
+                    <span class="element1" style="padding: 5px; border-radius: 4px;">Span element</span>
+                    <span class="element2" style="padding: 5px; border-radius: 4px;">Span element</span>
+                </div>
+            </div>
+            <p>As a result, the specified width and height are ignored, and the elements only take up the space needed
+                for their content.</p>
+        </section>
+
+        <section id="quiz">
+            <h2>Test Your Knowledge</h2>
+            <div class="quiz-container">
+                <!-- Question 1 -->
+                <div class="quiz-question" data-correct="2">
+                    <h4>1. What is the main advantage of <code>inline-block</code> over <code>inline</code>?</h4>
+                    <div class="quiz-options">
+                        <button class="quiz-option" onclick="checkAnswer(this, 0)">It always starts on a new
+                            line</button>
+                        <button class="quiz-option" onclick="checkAnswer(this, 1)">It forces elements to be
+                            circular</button>
+                        <button class="quiz-option" onclick="checkAnswer(this, 2)">It allows for controlled width and
+                            height</button>
+                    </div>
+                    <div class="quiz-feedback"></div>
+                </div>
+
+                <!-- Question 2 -->
+                <div class="quiz-question" data-correct="0">
+                    <h4>2. Do <code>inline-block</code> elements start on a new line?</h4>
+                    <div class="quiz-options">
+                        <button class="quiz-option" onclick="checkAnswer(this, 0)">No, they stay in the text
+                            flow</button>
+                        <button class="quiz-option" onclick="checkAnswer(this, 1)">Yes, they always break the
+                            line</button>
+                        <button class="quiz-option" onclick="checkAnswer(this, 2)">Only if they are inside a
+                            &lt;div&gt;</button>
+                    </div>
+                    <div class="quiz-feedback"></div>
+                </div>
+
+                <!-- Question 3 -->
+                <div class="quiz-question" data-correct="1">
+                    <h4>3. What happens if you remove <code>display: inline-block</code> from a span?</h4>
+                    <div class="quiz-options">
+                        <button class="quiz-option" onclick="checkAnswer(this, 0)">It becomes a block-level
+                            element</button>
+                        <button class="quiz-option" onclick="checkAnswer(this, 1)">The width and height are
+                            ignored</button>
+                        <button class="quiz-option" onclick="checkAnswer(this, 2)">The element disappears</button>
+                    </div>
+                    <div class="quiz-feedback"></div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <script>
+        function checkAnswer(button, index) {
+            const question = button.closest('.quiz-question');
+            const feedback = question.querySelector('.quiz-feedback');
+            const options = question.querySelectorAll('.quiz-option');
+            const correctIndex = parseInt(question.dataset.correct);
+
+            // Reset options
+            options.forEach(opt => {
+                opt.classList.remove('correct', 'incorrect');
+                opt.disabled = true;
+            });
+
+            if (index === correctIndex) {
+                button.classList.add('correct');
+                feedback.textContent = "✨ Correct! You've mastered Inline-Block.";
+                feedback.style.color = "#10b981";
+            } else {
+                button.classList.add('incorrect');
+                options[correctIndex].classList.add('correct');
+                feedback.textContent = "Opps! Not quite. The hybrid behavior is tricky!";
+                feedback.style.color = "#ef4444";
+            }
+            feedback.classList.add('show');
+        }
+    </script>
+</body>
+
+</html>

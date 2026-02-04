@@ -1,0 +1,23 @@
+h1,
+h2,
+p {
+  text-align: center;
+}
+body{
+    /* background-color: burlywood; */
+    background-image:url(https://cdn.freecodecamp.org/curriculum/css-cafe/beans.jpg);
+}
+.menu{
+    width: 80%;
+    background-color: burlywood;
+    margin-left: auto;
+    margin-right: auto;
+}
+/* auto margin-left and margin-right    keep the menu in the center */
+.flavor{
+    text-align: left;
+}
+/* text-align: left;    align the flavor to the left */
+.price{
+    text-align: right;
+}

@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tutorial: CSS Margins & Padding</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+    <div class="container">
+        <header>
+            <h1>Margins & Padding</h1>
+            <p class="intro">Master the art of spacing. Learn how to control the layout structure and content
+                readability of your web pages using essential CSS properties.</p>
+        </header>
+
+        <section id="basics">
+            <h2>Spacing Fundamentals</h2>
+            <p>Margin and padding are essential properties in CSS for creating well-structured, readable, and visually
+                appealing web pages.</p>
+            <p><strong>Margins</strong> control the space <em>outside</em> an element, helping to separate it from other
+                elements and define the layout structure.</p>
+            <p><strong>Padding</strong> controls the space <em>inside</em> an element, improving content readability and
+                aesthetic appeal.</p>
+        </section>
+
+        <section id="margin-top">
+            <h2>Single Side Spacing</h2>
+            <p>To apply spacing to a specific side, you can use property-specific names like <code>margin-top</code>.
+            </p>
+
+            <div class="demo-box">
+                <span>&lt;p&gt;Paragraph one&lt;/p&gt;</span>
+                <p class="example-p">Paragraph one (20px top margin)</p>
+                <span>&lt;p&gt;Paragraph two&lt;/p&gt;</span>
+                <p class="example-p">Paragraph two (20px top margin)</p>
+            </div>
+
+            <pre><code>p {
+  margin-top: 20px;
+  border: 2px solid black;
+}</code></pre>
+            <p>In this example, we apply 20px of margin only to the top of each paragraph element.</p>
+        </section>
+
+        <section id="four-sides">
+            <h2>Controlling All Four Sides</h2>
+            <p>The four different margin properties are <code>margin-top</code>, <code>margin-right</code>,
+                <code>margin-bottom</code>, and <code>margin-left</code>.</p>
+
+            <div class="demo-box example-complex">
+                <span>Paragraph one</span>
+                <p>Paragraph two (Custom Margins)</p>
+                <span>Paragraph three</span>
+            </div>
+
+            <pre><code>p {
+  margin-top: 10px;
+  margin-right: 20px;
+  margin-bottom: 30px;
+  margin-left: 40px;
+  border: 2px solid black;
+}</code></pre>
+        </section>
+
+        <section id="shorthand">
+            <h2>The Power of Shorthand</h2>
+            <p>Specify one, two, three, or four values at once using the <code>margin</code> shorthand property.</p>
+
+            <h3>One Value (All sides)</h3>
+            <div class="demo-box example-shorthand-1">
+                <span>Paragraph one</span>
+                <p>10px all sides</p>
+            </div>
+            <pre><code>p { margin: 10px; }</code></pre>
+
+            <h3>Two Values (Top/Bottom, Left/Right)</h3>
+            <div class="demo-box example-shorthand-2">
+                <span>Paragraph one</span>
+                <p>10px Vertical, 20px Horizontal</p>
+            </div>
+            <pre><code>p { margin: 10px 20px; }</code></pre>
+
+            <h3>Three Values (Top, Left/Right, Bottom)</h3>
+            <div class="demo-box example-shorthand-3">
+                <span>Paragraph one</span>
+                <p>10px Top, 20px L/R, 30px Bottom</p>
+            </div>
+            <pre><code>p { margin: 10px 20px 30px; }</code></pre>
+
+            <h3>Four Values (Top, Right, Bottom, Left)</h3>
+            <div class="demo-box example-shorthand-4">
+                <span>Paragraph one</span>
+                <p>T:10, R:20, B:30, L:40</p>
+            </div>
+            <pre><code>p { margin: 10px 20px 30px 40px; }</code></pre>
+        </section>
+
+        <section id="padding">
+            <h2>CSS Padding</h2>
+            <p>The padding property is used to apply space inside the element, between the content and its border.</p>
+
+            <div class="demo-box example-padding">
+                <span>Paragraph one</span>
+                <p>Internal Padding Applied</p>
+                <span>Paragraph three</span>
+            </div>
+
+            <pre><code>p {
+  padding: 10px 20px 30px 40px;
+  border: 2px solid black;
+}</code></pre>
+            <p>As you can see, <strong>padding</strong> is applied to the content inside the border, unlike
+                <strong>margin</strong> which applies to the outside.</p>
+        </section>
+
+        <footer>
+            <p>&copy; 2026 CSS Mastery Series. Built with &hearts; for developers.</p>
+        </footer>
+    </div>
+</body>
+
+</html>

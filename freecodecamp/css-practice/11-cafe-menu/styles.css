@@ -1,0 +1,123 @@
+/* Step 14: Coffee bean background image */
+/* Step 53: Set default font to sans-serif for better readability */
+/* Step 69: Internal spacing for the whole page */
+body {
+    background-image: url(https://cdn.freecodecamp.org/curriculum/css-cafe/beans.jpg);
+    font-family: sans-serif;
+    padding: 20px;
+}
+
+/* Step 58: Default browser heading sizes are overridden */
+h1 {
+    font-size: 40px;
+    margin-top: 0;
+    /* Step 83: Reduce space between h1 and Est. 2020 */
+    margin-bottom: 15px;
+}
+
+h2 {
+    font-size: 30px;
+}
+
+/* Step 56: Applying italics to the establishment date */
+.established {
+    font-style: italic;
+}
+
+h1,
+h2,
+p {
+    text-align: center;
+}
+
+/* Step 16, 23, 52: Center the menu and limit its max width on large screens */
+/* Step 51: Unified 20px padding for all sides */
+.menu {
+    width: 80%;
+    background-color: burlywood;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 20px;
+    max-width: 500px;
+}
+
+/* Step 87: Images are inline by default; display: block allows centering with auto margins */
+/* Step 89: Pulled up closer to headings with a negative margin */
+img {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: -25px;
+}
+
+/* Step 64-67: The total height is 4px (2px height + 1px border on top and bottom) */
+hr {
+    height: 2px;
+    background-color: brown;
+    border-color: brown;
+}
+
+/* Step 72-73: Adds matching space at the bottom of the menu */
+.bottom-line {
+    margin-top: 25px;
+}
+
+/* Step 55: Impact font with serif fallback */
+h1,
+h2 {
+    font-family: Impact, serif;
+}
+
+/* Step 33, 39: inline-block allows elements to share a line. */
+/* No space between tags in HTML prevents gaps in layout. */
+/* Step 71: Larger font size for better visibility */
+.item p {
+    display: inline-block;
+    margin-top: 5px;
+    margin-bottom: 5px;
+    font-size: 18px;
+}
+
+/* Step 41, 47: Updated widths to prevent text wrapping on smaller screens */
+.flavor,
+.dessert {
+    text-align: left;
+    width: 75%;
+}
+
+.price {
+    text-align: right;
+    width: 25%;
+}
+
+/* Step 74: FOOTER section */
+footer {
+    font-size: 14px;
+}
+
+/* Step 76: Removing default italic style from address */
+address {
+    font-style: normal;
+}
+
+/* Step 84-85: Decrease default margin below the address */
+.address {
+    margin-bottom: 5px;
+}
+
+/* Step 77-81: Link states and pseudo-selectors */
+a {
+    color: black;
+}
+
+a:visited {
+    color: black;
+}
+
+a:hover {
+    color: brown;
+}
+
+a:active {
+    color: brown;
+}
