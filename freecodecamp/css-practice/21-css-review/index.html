@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSS Fundamentals Master Review | CSS Guide</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+    <nav class="sidebar">
+        <h2>Sections</h2>
+        <a href="#intro" class="nav-link active">Basics & Anatomy</a>
+        <a href="#methods" class="nav-link">Application Methods</a>
+        <a href="#box-model" class="nav-link">Box Model</a>
+        <a href="#combinators" class="nav-link">Combinators</a>
+        <a href="#display" class="nav-link">Display Types</a>
+        <a href="#specificity" class="nav-link">Specificity</a>
+        <a href="#cascade" class="nav-link">Cascade & Inheritance</a>
+    </nav>
+
+    <main class="main-content">
+        <header>
+            <h1>CSS Fundamentals<br>Master Review</h1>
+            <p class="subtitle">A comprehensive guide to everything we've learned.</p>
+        </header>
+
+        <!-- What is CSS & Anatomy -->
+        <section id="intro">
+            <h2 class="section-title">CSS Basics</h2>
+            <div class="card">
+                <p><strong>Cascading Style Sheets (CSS)</strong> is a markup language used to apply styles to HTML
+                    elements. It controls colors, layouts, backgrounds, and more.</p>
+
+                <h3>Anatomy of a Rule</h3>
+                <div class="code-window">
+                    <div class="code-header">CSS Syntax</div>
+                    <div class="code-body">
+                        <span class="tok-sel">selector</span> { <br>
+                        &nbsp;&nbsp;<span class="tok-prop">property</span>: <span class="tok-val">value</span>; <br>
+                        }
+                    </div>
+                </div>
+                <div class="feature-grid">
+                    <div class="feature-box">
+                        <h3>Viewport Meta</h3>
+                        <p>The <code>viewport</code> meta tag instructs the browser on how to scale the page on mobile
+                            and tablet devices.</p>
+                    </div>
+                    <div class="feature-box">
+                        <h3>Browser Defaults</h3>
+                        <p>User-Agent styles are the default settings (like margins on &lt;p&gt; tags) applied by the
+                            browser natively.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Application Methods -->
+        <section id="methods">
+            <h2 class="section-title">Application Methods</h2>
+            <div class="card">
+                <div class="feature-grid">
+                    <div class="feature-box">
+                        <h3>Inline</h3>
+                        <p>Applied directly via the <code>style</code> attribute. High priority, but hard to maintain.
+                        </p>
+                    </div>
+                    <div class="feature-box">
+                        <h3>Internal</h3>
+                        <p>Written inside <code>&lt;style&gt;</code> tags in the HTML <code>&lt;head&gt;</code>.</p>
+                    </div>
+                    <div class="feature-box">
+                        <h3>External</h3>
+                        <p>Linked via <code>&lt;link&gt;</code> in a separate file. <strong>Best Practice</strong> for
+                            large projects.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Box Model -->
+        <section id="box-model">
+            <h2 class="section-title">Margin, Padding & Size</h2>
+            <div class="card">
+                <p>The CSS Box Model controls how much space an element takes up and how its content is spaced.</p>
+
+                <div class="feature-grid">
+                    <div class="feature-box">
+                        <h3>Width & Height</h3>
+                        <p>Supports <code>min</code> and <code>max</code> constraints. Default is <code>auto</code>.</p>
+                    </div>
+                    <div class="feature-box">
+                        <h3>Margin</h3>
+                        <p>Space <strong>outside</strong> the element border.</p>
+                    </div>
+                    <div class="feature-box">
+                        <h3>Padding</h3>
+                        <p>Space <strong>inside</strong> the element, between content and border.</p>
+                    </div>
+                </div>
+
+                <h3>Shorthand Notation</h3>
+                <div class="code-window">
+                    <div class="code-body">
+                        <span class="tok-prop">margin</span>: <span class="tok-val">10px</span>; <span
+                            class="tok-attr">/* All 4 sides */</span><br>
+                        <span class="tok-prop">margin</span>: <span class="tok-val">10px 20px</span>; <span
+                            class="tok-attr">/* Top/Bottom, Left/Right */</span><br>
+                        <span class="tok-prop">margin</span>: <span class="tok-val">10px 20px 30px 40px</span>; <span
+                            class="tok-attr">/* Top, Right, Bottom, Left */</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Combinators -->
+        <section id="combinators">
+            <h2 class="section-title">CSS Combinators</h2>
+            <div class="card">
+                <div class="feature-grid">
+                    <div class="feature-box">
+                        <h3>Descendant</h3>
+                        <p><code>ul li</code> targets all LI items inside a UL.</p>
+                    </div>
+                    <div class="feature-box">
+                        <h3>Child (>)</h3>
+                        <p><code>.parent > p</code> targets only <strong>direct</strong> children.</p>
+                    </div>
+                    <div class="feature-box">
+                        <h3>Next Sibling (+)</h3>
+                        <p>Targets the element immediately following another.</p>
+                    </div>
+                    <div class="feature-box">
+                        <h3>Subsequent (~)</h3>
+                        <p>Targets all siblings that come after an element.</p>
+                    </div>
+                </div>
+
+                <div class="lab-box">
+                    <span class="lab-label">Visual Simulation</span>
+                    <div class="demo-container parent">
+                        <div class="direct-child">I am a direct child (Styled by >)</div>
+                        <div>
+                            <div class="nested">I am nested (Not styled by >)</div>
+                        </div>
+                        <div class="target">Reference Point</div>
+                        <div class="sibling-next">Next Sibling (Styled by +)</div>
+                        <div class="sibling-later">Later Sibling (Styled by ~)</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Inline vs Block -->
+        <section id="display">
+            <h2 class="section-title">Display Levels</h2>
+            <div class="card">
+                <div class="feature-grid">
+                    <div class="feature-box">
+                        <h3>Inline</h3>
+                        <p>Only takes up needed width. No new line. e.g., <code>&lt;span&gt;</code>,
+                            <code>&lt;a&gt;</code>.</p>
+                    </div>
+                    <div class="feature-box">
+                        <h3>Block</h3>
+                        <p>Starts on a new line, takes full width. e.g., <code>&lt;div&gt;</code>,
+                            <code>&lt;p&gt;</code>.</p>
+                    </div>
+                    <div class="feature-box">
+                        <h3>Inline-Block</h3>
+                        <p>Flows like inline, but accepts <strong>width and height</strong> settings.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Specificity -->
+        <section id="specificity">
+            <h2 class="section-title">Specificity Hierarchy</h2>
+            <div class="card">
+                <p>Specificity is a score (a, b, c, d) that determines which rule wins during a conflict.</p>
+                <table class="spec-table">
+                    <thead>
+                        <tr>
+                            <th>Selector Type</th>
+                            <th>Score</th>
+                            <th>Example</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>!important</td>
+                            <td>Max</td>
+                            <td><code>color: red !important;</code></td>
+                        </tr>
+                        <tr>
+                            <td>Inline Style</td>
+                            <td>(1, 0, 0, 0)</td>
+                            <td><code>style="color: red"</code></td>
+                        </tr>
+                        <tr>
+                            <td>ID Selector</td>
+                            <td>(0, 1, 0, 0)</td>
+                            <td><code>#main-header</code></td>
+                        </tr>
+                        <tr>
+                            <td>Class / Attr</td>
+                            <td>(0, 0, 1, 0)</td>
+                            <td><code>.nav-item</code></td>
+                        </tr>
+                        <tr>
+                            <td>Type / Tag</td>
+                            <td>(0, 0, 0, 1)</td>
+                            <td><code>h1</code>, <code>p</code></td>
+                        </tr>
+                        <tr>
+                            <td>Universal (*)</td>
+                            <td>(0, 0, 0, 0)</td>
+                            <td><code>*</code></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
+        <!-- Cascade & Inheritance -->
+        <section id="cascade">
+            <h2 class="section-title">Cascade & Inheritance</h2>
+            <div class="card">
+                <div class="feature-grid">
+                    <div class="feature-box">
+                        <h3>Cascade Algorithm</h3>
+                        <p>Filters by Relevance → Origin → Specificity → Order of Appearance.</p>
+                    </div>
+                    <div class="feature-box">
+                        <h3>Inheritance</h3>
+                        <p>Traits (like fonts/color) passing from <strong>Parent to Child</strong>. Use
+                            <code>inherit</code> to force it.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <footer>
+            <p>&copy; 2026 CSS Fundamentals Master Guide. All rights reserved.</p>
+        </footer>
+    </main>
+
+    <a href="#" class="back-to-top">TOP</a>
+
+    <script>
+        // Simple scroll spy and active link switcher
+        const sections = document.querySelectorAll('section');
+        const navLinks = document.querySelectorAll('.nav-link');
+
+        window.addEventListener('scroll', () => {
+            let current = '';
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop;
+                const sectionHeight = section.clientHeight;
+                if (pageYOffset >= sectionTop - 150) {
+                    current = section.getAttribute('id');
+                }
+            });
+
+            navLinks.forEach(link => {
+                link.classList.remove('active');
+                if (link.getAttribute('href').includes(current)) {
+                    link.classList.add('active');
+                }
+            });
+        });
+    </script>
+</body>
+
+</html>

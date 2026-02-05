@@ -12,58 +12,86 @@
     <div class="container">
         <header>
             <h1>The !important Keyword</h1>
-            <p>The ultimate authority in the CSS cascade.</p>
+            <p>Maximum priority. Final override. Use with caution.</p>
         </header>
 
         <section class="lesson-card">
             <h2>What is !important?</h2>
-            <p>The <code>!important</code> keyword is used to give a style rule the highest priority, allowing it to
-                override any other declarations for a property, no matter how specific the other selectors are.</p>
+            <p>The <code>!important</code> keyword in CSS is used to give a style rule the highest priority, allowing it
+                to override any other declarations for a property, including inline styles.</p>
 
             <div class="code-window">
-                <div class="code-header">CSS Syntax</div>
+                <div class="code-header">CSS</div>
                 <div class="code-body">
-                    <span style="color:#f97316">.para</span> { <br>
-                    &nbsp;&nbsp;background-color: black <span style="color:#ef4444">!important</span>; <br>
-                    &nbsp;&nbsp;color: white <span style="color:#ef4444">!important</span>; <br>
+                    <span class="token-selector">.para</span> { <br>
+                    &nbsp;&nbsp;<span class="token-property">background-color</span>: <span
+                        class="token-value">black</span> <span class="token-important">!important</span>; <br>
+                    &nbsp;&nbsp;<span class="token-property">color</span>: <span class="token-value">white</span> <span
+                        class="token-important">!important</span>; <br>
                     }
                 </div>
             </div>
         </section>
 
         <section class="lesson-card">
-            <h2>Overriding Inline Styles</h2>
-            <p>Normally, inline styles have the highest precedence. However, <code>!important</code> can even bypass
-                these direct style attributes.</p>
+            <h2>The Specificity Killer</h2>
+            <p>Normally, CSS follows specificity rules (Inline > ID > Class > Tag). However, <code>!important</code>
+                breaks this hierarchy. It forces the browser to apply the style regardless of how specific other
+                selectors are.</p>
+
+            <div class="code-window">
+                <div class="code-header">HTML</div>
+                <div class="code-body">
+                    &lt;<span class="token-selector">p</span> <span class="token-property">class</span>=<span
+                        class="token-value">"para-demo"</span> <span class="token-property">style</span>=<span
+                        class="token-value">"background-color: lightblue; color: black;"</span>&gt;<br>
+                    &nbsp;&nbsp;This is a paragraph.<br>
+                    &lt;/<span class="token-selector">p</span>&gt;
+                </div>
+            </div>
 
             <div class="demo-box">
-                <p class="para" style="background-color: lightblue; color: black;">
-                    This paragraph has inline styles: <code>background-color: lightblue; color: black;</code>. <br>
-                    But thanks to <code>!important</code> in the CSS file, it's actually black and white!
+                <span class="preview-label">Live Visual Output</span>
+                <p class="para-demo" style="background-color: lightblue; color: black;">
+                    This is a paragraph.
                 </p>
             </div>
+            <p style="margin-top: 1.5rem; font-size: 0.9rem; font-style: italic;">Note: Even though the element has
+                lightblue background set via inline styles, the black background from our CSS (with
+                <code>!important</code>) is winning.</p>
+        </section>
+
+        <section class="lesson-card">
+            <h2>When to use !important?</h2>
+            <p>While often discouraged, <code>!important</code> has legitimate use cases:</p>
+            <ul class="best-practice-list">
+                <li><strong>Overriding Third-Party Styles:</strong> When using external libraries or frameworks where
+                    you can't modify the source CSS.</li>
+                <li><strong>Utility Classes:</strong> Global helper classes like
+                    <code>.hidden { display: none !important; }</code> that should always work.</li>
+                <li><strong>Quick Debugging:</strong> Temporarily forcing a style to see if specificity is the issue.
+                </li>
+            </ul>
         </section>
 
         <section class="lesson-card">
             <h2>Best Practices</h2>
-            <p>While powerful, overusing <code>!important</code> can make your CSS fragile and difficult to debug. Here
-                are the golden rules:</p>
-
+            <p>Overusing <code>!important</code> can make your CSS a nightmare to maintain. Follow these rules:</p>
             <ul class="best-practice-list">
-                <li><strong>Use sparingly:</strong> Only use it when you've exhausted specificity options.</li>
-                <li><strong>Third-party overrides:</strong> Useful for overriding styles from libraries you don't
-                    control.</li>
-                <li><strong>Avoid for layout:</strong> Don't use it to "fix" broad layout issues.</li>
-                <li><strong>Maintenance debt:</strong> Each <code>!important</code> makes future changes harder.</li>
+                <li>Always try to use higher specificity selectors first before reaching for <code>!important</code>.
+                </li>
+                <li>Never use it for site-wide defaults or structural styling.</li>
+                <li>Document why you used it if it's in a production codebase.</li>
+                <li>Think of it as a last resort, not a standard tool.</li>
             </ul>
         </section>
 
         <section class="lesson-card">
             <h2>Summary</h2>
-            <p>&bull; <code>!important</code> forces a style to win, regardless of specificity.</p>
-            <p>&bull; It is placed after the value and before the semicolon.</p>
-            <p>&bull; It does <strong>not</strong> change the specificity of the selector itself.</p>
-            <p>&bull; Aim for better selector structure before reaching for this keyword.</p>
+            <p>&bull; <code>!important</code> gives a property the highest possible priority.</p>
+            <p>&bull; It can even override <strong>inline styles</strong>.</p>
+            <p>&bull; It does not change the specificity score of the selector itself.</p>
+            <p>&bull; Use it sparingly to keep your CSS maintainable.</p>
         </section>
     </div>
 </body>

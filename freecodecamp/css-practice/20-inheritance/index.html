@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSS Inheritance | CSS Guide</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+    <div class="container">
+        <header>
+            <h1>CSS Inheritance</h1>
+            <p>Styles passed down from parent to child.</p>
+        </header>
+
+        <section class="lesson-card">
+            <h2>The Family Tree</h2>
+            <p>Inheritance determines how styles are passed down from parent elements to their children. Just like
+                traits in a family, certain properties flow automatically through the DOM tree.</p>
+
+            <div class="family-tree">
+                <div class="parent-node">Parent (color: amber)</div>
+                <div class="connector"></div>
+                <div class="children-row">
+                    <div class="child-node">Child 1 (Inherited)</div>
+                    <div class="child-node">Child 2 (Inherited)</div>
+                </div>
+            </div>
+        </section>
+
+        <section class="lesson-card">
+            <h2>Inherited vs. Non-Inherited</h2>
+            <p>Not all CSS properties are passed down by default. Understanding which ones do is key to efficient
+                styling.</p>
+
+            <div class="prop-comparison">
+                <div class="prop-box inherited">
+                    <h3>✅ Inherited</h3>
+                    <ul class="prop-list">
+                        <li>color</li>
+                        <li>font-family</li>
+                        <li>line-height</li>
+                        <li>text-align</li>
+                    </ul>
+                </div>
+                <div class="prop-box non-inherited">
+                    <h3>❌ Non-Inherited</h3>
+                    <ul class="prop-list">
+                        <li>margin</li>
+                        <li>padding</li>
+                        <li>border</li>
+                        <li>background</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <section class="lesson-card">
+            <h2>Basic Inheritance Demo</h2>
+            <p>In this example, we set the color to <strong>blue</strong> on the parent <code>&lt;div&gt;</code>.
+                Because color is an inherited property, the child <code>&lt;p&gt;</code> automatically adopts the blue
+                color without any extra CSS.</p>
+
+            <div class="code-window">
+                <div class="code-header">HTML</div>
+                <div class="code-body">
+                    &lt;<span class="token-tag">div</span> <span class="token-attr">style</span>="<span
+                        class="token-prop">color</span>: <span class="token-val">blue</span>;"&gt;<br>
+                    &nbsp;&nbsp;Parent text (Blue)<br>
+                    &nbsp;&nbsp;&lt;<span class="token-tag">p</span>&gt;Child text (Inherits Blue)&lt;/<span
+                        class="token-tag">p</span>&gt;<br>
+                    &lt;/<span class="token-tag">div</span>&gt;
+                </div>
+            </div>
+
+            <div class="demo-box">
+                <span class="preview-label">Live Visual Output</span>
+                <div
+                    style="color: #38bdf8; border: 1px solid rgba(255,255,255,0.1); padding: 2rem; border-radius: 12px;">
+                    This is the parent element (color: blue).
+                    <p style="margin-top: 1rem; font-weight: 600;">This is the child element inheriting the blue color.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <section class="lesson-card">
+            <h2>The "inherit" Keyword</h2>
+            <p>You can force any property to be inherited using the <code>inherit</code> keyword, even for properties
+                that don't normally inherit (like <strong>padding</strong>).</p>
+
+            <div class="code-window">
+                <div class="code-header">HTML</div>
+                <div class="code-body">
+                    &lt;<span class="token-tag">div</span> <span class="token-attr">style</span>="<span
+                        class="token-prop">padding</span>: <span class="token-val">30px</span>;"&gt;<br>
+                    &nbsp;&nbsp;&lt;<span class="token-tag">p</span> <span class="token-attr">style</span>="<span
+                        class="token-prop">padding</span>: <span class="token-val">inherit</span>;"&gt;<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;Child inheriting 30px padding.<br>
+                    &nbsp;&nbsp;&lt;/<span class="token-tag">p</span>&gt;<br>
+                    &lt;/<span class="token-tag">div</span>&gt;
+                </div>
+            </div>
+
+            <div class="demo-box">
+                <span class="preview-label">Live Visual Output</span>
+                <div class="parent-demo"
+                    style="padding: 30px; border: 1px solid rgba(255,255,255,0.1); border-radius: 12px;">
+                    Parent Container (padding: 30px)
+                    <p class="child-inherit"
+                        style="padding: inherit; border: 1px dashed var(--accent); margin-top: 1rem; background: rgba(245, 158, 11, 0.05);">
+                        Child Element (padding: <strong>inherit</strong>)
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <section class="lesson-card">
+            <h2>Knowledge Check</h2>
+            <div class="quiz-container">
+                <div class="question">
+                    <span class="question-text">1. Which property is typically inherited by default?</span>
+                    <div class="options">
+                        <div class="option">padding</div>
+                        <div class="option">border</div>
+                        <div class="option" data-correct="true">color</div>
+                        <div class="option">background</div>
+                    </div>
+                </div>
+
+                <div class="question">
+                    <span class="question-text">2. What keyword forces a child to inherit from its parent?</span>
+                    <div class="options">
+                        <div class="option">default</div>
+                        <div class="option" data-correct="true">inherit</div>
+                        <div class="option">initial</div>
+                        <div class="option">none</div>
+                    </div>
+                </div>
+
+                <div class="question">
+                    <span class="question-text">3. Given blue text on &lt;p&gt;, what is the color of a &lt;span&gt;
+                        inside it?</span>
+                    <div class="options">
+                        <div class="option" data-correct="true">blue</div>
+                        <div class="option">red</div>
+                        <div class="option">green</div>
+                        <div class="option">black</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="lesson-card">
+            <h2>Summary</h2>
+            <p>&bull; Inheritance flows from <strong>parent to child</strong>.</p>
+            <p>&bull; Text styles (color, font) are usually inherited.</p>
+            <p>&bull; Box model styles (margin, border) are usually <strong>not</strong> inherited.</p>
+            <p>&bull; Use the <code>inherit</code> keyword to force traits down the tree.</p>
+        </section>
+    </div>
+
+    <script>
+        document.querySelectorAll('.option').forEach(option => {
+            option.addEventListener('click', () => {
+                const parent = option.parentElement;
+                if (parent.classList.contains('answered')) return;
+
+                parent.classList.add('answered');
+                option.classList.add('selected');
+
+                if (option.dataset.correct === 'true') {
+                    option.classList.add('correct');
+                } else {
+                    option.classList.add('incorrect');
+                    parent.querySelectorAll('.option').forEach(opt => {
+                        if (opt.dataset.correct === 'true') {
+                            opt.classList.add('selected', 'correct');
+                        }
+                    });
+                }
+            });
+        });
+    </script>
+</body>
+
+</html>

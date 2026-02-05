@@ -1,0 +1,301 @@
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&family=JetBrains+Mono:wght@400;700&display=swap');
+
+:root {
+    --bg: #020617;
+    --card: rgba(15, 23, 42, 0.7);
+    --accent: #f59e0b;
+    /* Amber/Orange for Inheritance */
+    --text: #f1f5f9;
+    --muted: #94a3b8;
+    --inherited-bg: rgba(245, 158, 11, 0.1);
+    --non-inherited-bg: rgba(148, 163, 184, 0.1);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: 'Outfit', sans-serif;
+    min-height: 100vh;
+    padding: 4rem 2rem;
+    background-image:
+        radial-gradient(circle at 5% 10%, rgba(245, 158, 11, 0.08) 0%, transparent 40%),
+        radial-gradient(circle at 95% 90%, rgba(249, 115, 22, 0.08) 0%, transparent 40%);
+}
+
+.container {
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+header {
+    text-align: center;
+    margin-bottom: 5rem;
+}
+
+h1 {
+    font-size: 3.5rem;
+    font-weight: 800;
+    background: linear-gradient(to right, #f59e0b, #fb923c);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.lesson-card {
+    background: var(--card);
+    backdrop-filter: blur(20px);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    padding: 3rem;
+    border-radius: 32px;
+    margin-bottom: 2rem;
+    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+}
+
+h2 {
+    font-size: 2.2rem;
+    margin-bottom: 1.5rem;
+    color: var(--accent);
+}
+
+p {
+    color: var(--muted);
+    font-size: 1.15rem;
+    line-height: 1.8;
+    margin-bottom: 1.5rem;
+}
+
+/* Family Tree Visual */
+.family-tree {
+    background: rgba(0, 0, 0, 0.2);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    border-radius: 20px;
+    padding: 2rem;
+    margin: 2rem 0;
+}
+
+.parent-node {
+    border: 2px solid var(--accent);
+    padding: 1.5rem;
+    border-radius: 12px;
+    text-align: center;
+    position: relative;
+    color: var(--accent);
+    font-weight: 700;
+}
+
+.connector {
+    width: 2px;
+    height: 40px;
+    background: var(--accent);
+    margin: 0 auto;
+}
+
+.child-node {
+    background: var(--inherited-bg);
+    border: 1px dashed var(--accent);
+    padding: 1rem;
+    border-radius: 12px;
+    text-align: center;
+    margin: 0 1rem;
+    color: var(--text);
+}
+
+.children-row {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+}
+
+/* Property Comparison */
+.prop-comparison {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1.5rem;
+    margin: 2rem 0;
+}
+
+.prop-box {
+    padding: 1.5rem;
+    border-radius: 20px;
+    border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.prop-box.inherited {
+    background: var(--inherited-bg);
+    border-color: rgba(245, 158, 11, 0.2);
+}
+
+.prop-box.non-inherited {
+    background: var(--non-inherited-bg);
+}
+
+.prop-box h3 {
+    font-size: 1.1rem;
+    margin-bottom: 1rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.prop-list {
+    list-style: none;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.9rem;
+    color: var(--muted);
+}
+
+.prop-list li {
+    margin-bottom: 0.4rem;
+}
+
+/* Code Window */
+.code-window {
+    background: #000;
+    border-radius: 20px;
+    margin: 2rem 0;
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    overflow: hidden;
+}
+
+.code-header {
+    background: #0f172a;
+    padding: 1rem 1.5rem;
+    font-size: 0.85rem;
+    font-family: 'JetBrains Mono', monospace;
+    color: var(--muted);
+}
+
+.code-body {
+    padding: 1.5rem;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 1rem;
+    line-height: 1.6;
+}
+
+.token-tag {
+    color: #f59e0b;
+}
+
+.token-attr {
+    color: #94a3b8;
+}
+
+.token-val {
+    color: #38bdf8;
+}
+
+.token-prop {
+    color: #facc15;
+}
+
+/* Demo Box */
+.demo-box {
+    margin-top: 2.5rem;
+    padding: 2.5rem;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 24px;
+    background: rgba(255, 255, 255, 0.02);
+}
+
+.preview-label {
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    color: var(--muted);
+    margin-bottom: 1.5rem;
+    display: block;
+}
+
+/* Inheritance Demos */
+.parent-demo {
+    color: #38bdf8;
+    /* Blue parent */
+    border: 2px solid rgba(255, 255, 255, 0.1);
+    padding: 1.5rem;
+    border-radius: 12px;
+}
+
+.child-inherit {
+    padding: inherit;
+    border: 1px dashed var(--accent);
+    margin-top: 1rem;
+}
+
+/* Quiz */
+.quiz-container {
+    margin-top: 2rem;
+}
+
+.question {
+    margin-bottom: 2.5rem;
+}
+
+.question-text {
+    color: var(--text);
+    font-weight: 600;
+    margin-bottom: 1rem;
+    display: block;
+}
+
+.options {
+    display: grid;
+    gap: 0.8rem;
+}
+
+.option {
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    padding: 1rem 1.5rem;
+    border-radius: 12px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    color: var(--muted);
+}
+
+.option:hover {
+    background: rgba(245, 158, 11, 0.05);
+    border-color: rgba(245, 158, 11, 0.3);
+    color: var(--text);
+    transform: translateX(5px);
+}
+
+.option.selected.correct {
+    background: rgba(74, 222, 128, 0.1);
+    border-color: #4ade80;
+    color: #4ade80;
+}
+
+.option.selected.incorrect {
+    background: rgba(239, 68, 68, 0.1);
+    border-color: #ef4444;
+    color: #ef4444;
+}
+
+.options.answered .option {
+    pointer-events: none;
+    opacity: 0.6;
+}
+
+.options.answered .option.selected {
+    opacity: 1;
+}
+
+@media (max-width: 640px) {
+    h1 {
+        font-size: 2.5rem;
+    }
+
+    .lesson-card {
+        padding: 1.5rem;
+    }
+
+    .prop-comparison {
+        grid-template-columns: 1fr;
+    }
+}

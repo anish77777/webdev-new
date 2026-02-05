@@ -1,0 +1,270 @@
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&family=JetBrains+Mono:wght@400;700&display=swap');
+
+:root {
+    --bg: #020617;
+    --card: rgba(15, 23, 42, 0.7);
+    --accent: #2dd4bf;
+    /* Teal/Cyan for Cascade */
+    --text: #f1f5f9;
+    --muted: #94a3b8;
+    --step-bg: rgba(45, 212, 191, 0.1);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: 'Outfit', sans-serif;
+    min-height: 100vh;
+    padding: 4rem 2rem;
+    background-image:
+        radial-gradient(circle at 5% 10%, rgba(45, 212, 191, 0.08) 0%, transparent 40%),
+        radial-gradient(circle at 95% 90%, rgba(56, 189, 248, 0.08) 0%, transparent 40%);
+}
+
+.container {
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+header {
+    text-align: center;
+    margin-bottom: 5rem;
+}
+
+h1 {
+    font-size: 3.5rem;
+    font-weight: 800;
+    background: linear-gradient(to right, #2dd4bf, #0ea5e9);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.lesson-card {
+    background: var(--card);
+    backdrop-filter: blur(20px);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    padding: 3rem;
+    border-radius: 32px;
+    margin-bottom: 2rem;
+    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+}
+
+h2 {
+    font-size: 2.2rem;
+    margin-bottom: 1.5rem;
+    color: var(--accent);
+}
+
+p {
+    color: var(--muted);
+    font-size: 1.15rem;
+    line-height: 1.8;
+    margin-bottom: 1.5rem;
+}
+
+/* Cascade Steps Grid */
+.cascade-steps {
+    display: grid;
+    gap: 1.5rem;
+    margin: 3rem 0;
+}
+
+.step {
+    background: var(--step-bg);
+    border: 1px solid rgba(45, 212, 191, 0.2);
+    padding: 1.5rem;
+    border-radius: 20px;
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+    transition: transform 0.3s ease, border-color 0.3s ease;
+}
+
+.step:hover {
+    transform: translateX(10px);
+    border-color: var(--accent);
+}
+
+.step-num {
+    background: var(--accent);
+    color: var(--bg);
+    width: 40px;
+    height: 40px;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 800;
+    flex-shrink: 0;
+}
+
+.step-content strong {
+    color: var(--text);
+    display: block;
+    margin-bottom: 0.2rem;
+    font-size: 1.1rem;
+}
+
+.step-content span {
+    color: var(--muted);
+    font-size: 0.95rem;
+}
+
+/* Code Window */
+.code-window {
+    background: #000;
+    border-radius: 20px;
+    margin: 2rem 0;
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    overflow: hidden;
+}
+
+.code-header {
+    background: #0f172a;
+    padding: 1rem 1.5rem;
+    font-size: 0.85rem;
+    font-family: 'JetBrains Mono', monospace;
+    color: var(--muted);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.code-body {
+    padding: 1.5rem;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 1rem;
+    line-height: 1.6;
+}
+
+.token-tag {
+    color: #2dd4bf;
+}
+
+.token-attr {
+    color: #94a3b8;
+}
+
+.token-val {
+    color: #facc15;
+}
+
+.token-prop {
+    color: #38bdf8;
+}
+
+/* Demo Box */
+.demo-box {
+    margin-top: 2.5rem;
+    padding: 2.5rem;
+    border: 1px dashed rgba(45, 212, 191, 0.3);
+    border-radius: 20px;
+    background: rgba(255, 255, 255, 0.02);
+    text-align: center;
+}
+
+.preview-label {
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    color: var(--muted);
+    margin-bottom: 1.5rem;
+    display: block;
+}
+
+/* Specific Demo Styles */
+.cascade-demo-p {
+    font-size: 1.5rem;
+    font-weight: 600;
+    margin: 0;
+}
+
+/* THIS IS THE CASCADE AT WORK: Green overrides Blue because it's later */
+.cascade-demo-p {
+    color: blue;
+}
+
+.cascade-demo-p {
+    color: #4ade80;
+    /* Green */
+}
+
+/* Quiz Section */
+.quiz-container {
+    margin-top: 2rem;
+}
+
+.question {
+    margin-bottom: 2.5rem;
+}
+
+.question-text {
+    color: var(--text);
+    font-weight: 600;
+    margin-bottom: 1rem;
+    display: block;
+}
+
+.options {
+    display: grid;
+    gap: 0.8rem;
+}
+
+.option {
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    padding: 1rem 1.5rem;
+    border-radius: 12px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    font-size: 1rem;
+    color: var(--muted);
+}
+
+.option:hover {
+    background: rgba(45, 212, 191, 0.05);
+    border-color: rgba(45, 212, 191, 0.3);
+    color: var(--text);
+    transform: translateX(5px);
+}
+
+.option.selected.correct {
+    background: rgba(74, 222, 128, 0.1);
+    border-color: #4ade80;
+    color: #4ade80;
+}
+
+.option.selected.incorrect {
+    background: rgba(239, 68, 68, 0.1);
+    border-color: #ef4444;
+    color: #ef4444;
+}
+
+/* Disabled state after selection */
+.options.answered .option {
+    pointer-events: none;
+    opacity: 0.6;
+}
+
+.options.answered .option.selected {
+    opacity: 1;
+}
+
+@media (max-width: 640px) {
+    h1 {
+        font-size: 2.5rem;
+    }
+
+    .lesson-card {
+        padding: 1.5rem;
+    }
+
+    h2 {
+        font-size: 1.7rem;
+    }
+}

@@ -1,0 +1,331 @@
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&family=JetBrains+Mono:wght@400;700&display=swap');
+
+:root {
+    --bg: #020617;
+    --sidebar: #0f172a;
+    --card: rgba(30, 41, 59, 0.4);
+    --gold: #ffb000;
+    --cyan: #2dd4bf;
+    --text: #f1f5f9;
+    --muted: #94a3b8;
+    --border: rgba(255, 255, 255, 0.08);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    scroll-behavior: smooth;
+}
+
+body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: 'Outfit', sans-serif;
+    display: flex;
+    min-height: 100vh;
+}
+
+/* Sidebar Navigation */
+.sidebar {
+    width: 260px;
+    background: var(--sidebar);
+    height: 100vh;
+    position: sticky;
+    top: 0;
+    border-right: 1px solid var(--border);
+    padding: 2rem 1.5rem;
+    display: flex;
+    flex-direction: column;
+    overflow-y: auto;
+}
+
+.sidebar h2 {
+    color: var(--gold);
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    margin-bottom: 2rem;
+    padding-left: 0.5rem;
+}
+
+.nav-link {
+    color: var(--muted);
+    text-decoration: none;
+    padding: 0.75rem 1rem;
+    border-radius: 12px;
+    font-size: 0.95rem;
+    transition: all 0.2s ease;
+    margin-bottom: 0.25rem;
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+}
+
+.nav-link:hover {
+    background: rgba(255, 255, 255, 0.05);
+    color: var(--text);
+}
+
+.nav-link.active {
+    background: rgba(255, 176, 0, 0.1);
+    color: var(--gold);
+    font-weight: 600;
+}
+
+/* Main Content */
+.main-content {
+    flex: 1;
+    padding: 4rem 10% 8rem 10%;
+    max-width: 1200px;
+}
+
+header {
+    margin-bottom: 6rem;
+}
+
+h1 {
+    font-size: 4rem;
+    font-weight: 800;
+    line-height: 1.1;
+    background: linear-gradient(to right, #ffb000, #2dd4bf);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    margin-bottom: 1.5rem;
+}
+
+.subtitle {
+    font-size: 1.25rem;
+    color: var(--muted);
+}
+
+section {
+    margin-bottom: 6rem;
+    scroll-margin-top: 4rem;
+}
+
+h2.section-title {
+    font-size: 2.25rem;
+    font-weight: 700;
+    margin-bottom: 2.5rem;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+h2.section-title::before {
+    content: "";
+    width: 4px;
+    height: 32px;
+    background: var(--gold);
+    border-radius: 4px;
+}
+
+.card {
+    background: var(--card);
+    backdrop-filter: blur(20px);
+    border: 1px solid var(--border);
+    padding: 3rem;
+    border-radius: 32px;
+    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+}
+
+p {
+    font-size: 1.125rem;
+    line-height: 1.8;
+    color: var(--muted);
+    margin-bottom: 1.5rem;
+}
+
+strong {
+    color: var(--text);
+}
+
+code {
+    font-family: 'JetBrains Mono', monospace;
+    background: rgba(0, 0, 0, 0.3);
+    padding: 0.2rem 0.5rem;
+    border-radius: 6px;
+    color: var(--cyan);
+    font-size: 0.9em;
+}
+
+/* Code Blocks */
+.code-window {
+    background: #000;
+    border-radius: 20px;
+    margin: 2rem 0;
+    border: 1px solid var(--border);
+    overflow: hidden;
+}
+
+.code-header {
+    background: #1e293b;
+    padding: 0.75rem 1.5rem;
+    font-size: 0.8rem;
+    font-family: 'JetBrains Mono', monospace;
+    color: var(--muted);
+    display: flex;
+    justify-content: space-between;
+}
+
+.code-body {
+    padding: 1.5rem;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 1rem;
+    line-height: 1.6;
+}
+
+.tok-tag {
+    color: #facc15;
+}
+
+.tok-attr {
+    color: #a8a29e;
+}
+
+.tok-val {
+    color: #2dd4bf;
+}
+
+.tok-sel {
+    color: #fb7185;
+}
+
+.tok-prop {
+    color: #38bdf8;
+}
+
+.tok-imp {
+    color: #ef4444;
+    font-weight: 700;
+}
+
+/* Grid for Features */
+.feature-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 1.5rem;
+    margin: 2rem 0;
+}
+
+.feature-box {
+    background: rgba(255, 255, 255, 0.02);
+    border: 1px solid var(--border);
+    padding: 1.5rem;
+    border-radius: 20px;
+}
+
+.feature-box h3 {
+    color: var(--gold);
+    margin-bottom: 0.75rem;
+}
+
+/* Visual Mini-Labs */
+.lab-box {
+    margin-top: 2rem;
+    padding: 2rem;
+    border: 1px solid var(--border);
+    border-radius: 24px;
+    background: rgba(255, 255, 255, 0.01);
+}
+
+.lab-label {
+    font-size: 0.7rem;
+    text-transform: uppercase;
+    color: var(--gold);
+    letter-spacing: 2px;
+    margin-bottom: 1.5rem;
+    display: block;
+}
+
+/* Combinator Demos */
+.demo-container {
+    padding: 1rem;
+    border: 1px dashed rgba(255, 255, 255, 0.1);
+    border-radius: 12px;
+}
+
+/* Child Combinator Lab */
+.parent>.direct-child {
+    background: var(--gold);
+    color: var(--bg);
+    padding: 0.5rem;
+    border-radius: 4px;
+    font-weight: 700;
+}
+
+/* Next Sibling Lab */
+.target+.sibling-next {
+    background: var(--cyan);
+    color: var(--bg);
+    padding: 0.5rem;
+    border-radius: 4px;
+    font-weight: 700;
+}
+
+/* Subsequent Sibling Lab */
+.origin~.sibling-later {
+    background: #fb7185;
+    color: var(--bg);
+    padding: 0.5rem;
+    border-radius: 4px;
+    font-weight: 700;
+}
+
+/* Specificity Chart */
+.spec-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 2rem 0;
+}
+
+.spec-table th,
+.spec-table td {
+    border: 1px solid var(--border);
+    padding: 1.25rem;
+    text-align: left;
+}
+
+.spec-table th {
+    background: rgba(255, 255, 255, 0.03);
+    color: var(--gold);
+}
+
+/* Scroll To Top */
+.back-to-top {
+    position: fixed;
+    bottom: 2rem;
+    right: 2rem;
+    background: var(--gold);
+    color: var(--bg);
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+    font-weight: 800;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+    transition: transform 0.3s ease;
+}
+
+.back-to-top:hover {
+    transform: translateY(-5px);
+}
+
+@media (max-width: 1024px) {
+    .sidebar {
+        display: none;
+    }
+
+    .main-content {
+        padding: 2rem;
+    }
+
+    h1 {
+        font-size: 3rem;
+    }
+}

@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Cascade Algorithm | CSS Guide</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+    <div class="container">
+        <header>
+            <h1>The Cascade Algorithm</h1>
+            <p>How the browser resolves styling conflicts.</p>
+        </header>
+
+        <section class="lesson-card">
+            <h2>The Conflict Resolver</h2>
+            <p>The Cascade Algorithm is the process the browser uses to decide which CSS rules to apply when multiple
+                styles target the same element. It follows a set of well-defined steps to ensure predictable results.
+            </p>
+
+            <div class="cascade-steps">
+                <div class="step">
+                    <div class="step-num">1</div>
+                    <div class="step-content">
+                        <strong>Relevance</strong>
+                        <span>Filters rules based on selectors and media queries.</span>
+                    </div>
+                </div>
+                <div class="step">
+                    <div class="step-num">2</div>
+                    <div class="step-content">
+                        <strong>Origin & Importance</strong>
+                        <span>Priority to !important and Author styles over Browser defaults.</span>
+                    </div>
+                </div>
+                <div class="step">
+                    <div class="step-num">3</div>
+                    <div class="step-content">
+                        <strong>Specificity</strong>
+                        <span>More specific selectors (IDs > Classes > Tags) win.</span>
+                    </div>
+                </div>
+                <div class="step">
+                    <div class="step-num">4</div>
+                    <div class="step-content">
+                        <strong>Order of Appearance</strong>
+                        <span>If everything else is equal, the last rule defined wins.</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="lesson-card">
+            <h2>Order of Appearance Demo</h2>
+            <p>When two rules have the exact same specificity (like two tag selectors), the one written
+                <strong>last</strong> in your CSS file takes precedence.
+            </p>
+
+            <div class="code-window">
+                <div class="code-header">styles.css</div>
+                <div class="code-body">
+                    <span class="token-tag">p</span> { <span class="token-prop">color</span>: <span
+                        class="token-val">blue</span>; } <br>
+                    <span class="token-tag">p</span> { <span class="token-prop">color</span>: <span
+                        class="token-val">green</span>; }
+                </div>
+            </div>
+
+            <div class="demo-box">
+                <span class="preview-label">Live Visual Output</span>
+                <p class="cascade-demo-p">This paragraph is green!</p>
+            </div>
+            <p style="margin-top: 1.5rem; font-size: 0.9rem; font-style: italic;">Note: Even though both rules target
+                <code>p</code>, the green rule wins because it comes after the blue one.
+            </p>
+        </section>
+
+        <section class="lesson-card">
+            <h2>Knowledge Check</h2>
+            <div class="quiz-container">
+                <div class="question">
+                    <span class="question-text">1. What is the first step the Cascade Algorithm takes?</span>
+                    <div class="options">
+                        <div class="option">It checks the specificity of the rules.</div>
+                        <div class="option" data-correct="true">It filters the rules by relevance.</div>
+                        <div class="option">It looks for !important declarations.</div>
+                        <div class="option">It applies the last rule in the CSS.</div>
+                    </div>
+                </div>
+
+                <div class="question">
+                    <span class="question-text">2. What happens if you apply conflicting styles with equal
+                        specificity?</span>
+                    <div class="options">
+                        <div class="option">Parts of the styles from each rule will apply.</div>
+                        <div class="option">The program will crash.</div>
+                        <div class="option" data-correct="true">The last styles will be applied.</div>
+                        <div class="option">None of the styles will apply.</div>
+                    </div>
+                </div>
+
+                <div class="question">
+                    <span class="question-text">3. Which factor does NOT influence the Cascade decision?</span>
+                    <div class="options">
+                        <div class="option">The specificity of the selectors.</div>
+                        <div class="option">The scoping proximity of the rules.</div>
+                        <div class="option">Whether the !important keyword is used.</div>
+                        <div class="option" data-correct="true">The color property of the CSS rule.</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="lesson-card">
+            <h2>Summary</h2>
+            <p>&bull; The Cascade resolves conflicts in a predictable order.</p>
+            <p>&bull; <strong>Origin</strong> determines where the style comes from (Browser vs Author).</p>
+            <p>&bull; <strong>Specificity</strong> measures how targeted a selector is.</p>
+            <p>&bull; <strong>Order</strong> is the final tie-breaker.</p>
+        </section>
+    </div>
+
+    <script>
+        document.querySelectorAll('.option').forEach(option => {
+            option.addEventListener('click', () => {
+                const parent = option.parentElement;
+                if (parent.classList.contains('answered')) return;
+
+                parent.classList.add('answered');
+                option.classList.add('selected');
+
+                if (option.dataset.correct === 'true') {
+                    option.classList.add('correct');
+                } else {
+                    option.classList.add('incorrect');
+                    // Highlight the correct one too
+                    parent.querySelectorAll('.option').forEach(opt => {
+                        if (opt.dataset.correct === 'true') {
+                            opt.classList.add('selected', 'correct');
+                        }
+                    });
+                }
+            });
+        });
+    </script>
+</body>
+
+</html>
