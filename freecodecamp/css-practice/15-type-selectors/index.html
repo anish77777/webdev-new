@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Type Selectors & Specificity | CSS Guide</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        /* Logic for the demo override */
+        .demo-area p {
+            color: #38bdf8;
+        }
+
+        /* (0,0,0,1) */
+        .demo-area .para {
+            color: #ef4444;
+        }
+
+        /* (0,0,1,0) - Wins! */
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <header>
+            <h1>Type Selectors</h1>
+            <p>Targeting HTML elements by their tag name.</p>
+        </header>
+
+        <section class="lesson-card">
+            <h2>The Foundation</h2>
+            <p>Type selectors (or element selectors) target elements based on their HTML tag name. They allow you to
+                apply global styles to every instance of an element, like styling all paragraphs or all headings at
+                once.</p>
+
+            <div class="code-window">
+                <div class="code-header">styles.css</div>
+                <div class="code-body">
+                    <span class="blue-text">p</span> { <br>
+                    &nbsp;&nbsp;color: blue; <br>
+                    }
+                </div>
+            </div>
+        </section>
+
+        <section class="lesson-card">
+            <h2>Low Specificity</h2>
+            <div class="specificity-badge">SCORE: 0.0.0.1</div>
+            <p>Type selectors are efficient but have low specificity. While they are stronger than the Universal
+                Selector, they are easily overridden by classes, IDs, and inline styles.</p>
+        </section>
+
+        <section class="lesson-card">
+            <h2>The Class Override</h2>
+            <p>When a type selector and a class selector target the same element, the <strong>class selector</strong>
+                wins because its specificity weight in the third column (c) is greater than the type selector's weight
+                in the fourth column (d).</p>
+
+            <div class="code-window">
+                <div class="code-header">Conflict Example</div>
+                <div class="code-body">
+                    <span class="blue-text">p { color: blue; }</span> <span
+                        style="color:#64748b; font-size: 0.85rem;">/* Score: 0,0,0,1 */</span><br><br>
+                    <div class="winner">
+                        <span class="red-text">.para { color: red; }</span> <span
+                            style="color:#64748b; font-size: 0.85rem;">/* Score: 0,0,1,0 */</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="demo-area">
+                <p class="para">I am a paragraph with the class "para". I am red because the class selector overrides
+                    the type selector.</p>
+            </div>
+        </section>
+
+        <section class="lesson-card">
+            <h2>Best Practices</h2>
+            <p>&bull; Use type selectors for base styling (like setting default body font or h1 sizes).</p>
+            <p>&bull; Use classes when you need specifics that should override those base styles.</p>
+            <p>&bull; Remember: Tag names are the building blocks, but classes are the design controllers.</p>
+        </section>
+    </div>
+</body>
+
+</html>

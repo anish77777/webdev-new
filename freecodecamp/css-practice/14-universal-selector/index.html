@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Universal Selector & Specificity</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        /* Interactive Demo Styling from user's request */
+        #unique.highlight {
+            /* We will simulate the hierarchy visually */
+        }
+
+        /* The chain example */
+        .chain-demo * {
+            color: blue;
+        }
+
+        /* (0,0,0,0) */
+        .chain-demo p {
+            color: red;
+        }
+
+        /* (0,0,0,1) */
+        .chain-demo .highlight {
+            color: green;
+        }
+
+        /* (0,0,1,0) */
+        .chain-demo #unique {
+            color: purple;
+        }
+
+        /* (0,1,0,0) */
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <header>
+            <h1>The Universal Selector</h1>
+            <p>Mastering the <code>*</code> selector and its absolute zero specificity.</p>
+        </header>
+
+        <section class="card">
+            <h2>What is it?</h2>
+            <p>The universal selector (<code>*</code>) matches <strong>every single element</strong> in the document. It
+                is the broadest selector available in CSS.</p>
+            <div class="code-block">
+                <span class="tag-name">*</span> { <br>
+                &nbsp;&nbsp;margin: <span class="attr">0</span>; <br>
+                &nbsp;&nbsp;padding: <span class="attr">0</span>; <br>
+                }
+            </div>
+            <p>This "Reset" technique is commonly used to remove default browser margins and padding, giving you a clean
+                slate for your designs.</p>
+        </section>
+
+        <section class="card">
+            <h2>Specificity: (0, 0, 0, 0)</h2>
+            <div class="specificity-score">SCORE: 0.0.0.0</div>
+            <p>The universal selector has the <strong>lowest possible weight</strong>. It contributes nothing to the
+                specificity calculation. This means literally any other selector will override its styles.</p>
+        </section>
+
+        <section class="card">
+            <h2>The Specificity Chain</h2>
+            <p>Look at how different selectors target the same element. The one with the highest specificity (the ID)
+                always wins the color battle.</p>
+
+            <div class="code-block">
+                <span class="comment">/* Universal (Lowest) */</span><br>
+                * { color: <span style="color:blue">blue</span>; }<br><br>
+
+                <span class="comment">/* Type Selector */</span><br>
+                p { color: <span style="color:red">red</span>; }<br><br>
+
+                <span class="comment">/* Class Selector */</span><br>
+                .highlight { color: <span style="color:green">green</span>; }<br><br>
+
+                <span class="comment">/* ID Selector (Highest) */</span><br>
+                #unique { color: <span style="color:purple">purple</span>; }
+            </div>
+
+            <div class="demo-box chain-demo">
+                <p id="unique" class="highlight">This text is PURPLE because the ID wins!</p>
+            </div>
+        </section>
+
+        <section class="card">
+            <h2>Key Takeaways</h2>
+            <p>&bull; Use <code>*</code> for document-wide resets or broad defaults.</p>
+            <p>&bull; It never "rolls over" or adds to specificity scores.</p>
+            <p>&bull; It can be used globally or within a context (e.g., <code>.container *</code>).</p>
+        </section>
+    </div>
+</body>
+
+</html>

@@ -1,0 +1,115 @@
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&family=JetBrains+Mono:wght@400;700&display=swap');
+
+:root {
+    --bg: #0f172a;
+    --card: rgba(30, 41, 59, 0.7);
+    --accent: #818cf8;
+    --text: #f8fafc;
+    --muted: #94a3b8;
+    --glass: rgba(255, 255, 255, 0.03);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: 'Outfit', sans-serif;
+    min-height: 100vh;
+    padding: 4rem 2rem;
+    background-image: radial-gradient(circle at 50% 50%, #1e293b 0%, #0f172a 100%);
+}
+
+.container {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+header {
+    text-align: center;
+    margin-bottom: 4rem;
+}
+
+h1 {
+    font-size: 3.5rem;
+    font-weight: 800;
+    margin-bottom: 1rem;
+    background: linear-gradient(to right, #818cf8, #c084fc);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.card {
+    background: var(--card);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    padding: 2.5rem;
+    border-radius: 24px;
+    margin-bottom: 2rem;
+    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+}
+
+h2 {
+    color: var(--accent);
+    margin-bottom: 1rem;
+    font-size: 1.8rem;
+}
+
+p {
+    color: var(--muted);
+    line-height: 1.7;
+    margin-bottom: 1.5rem;
+}
+
+code {
+    font-family: 'JetBrains Mono', monospace;
+    background: rgba(0, 0, 0, 0.3);
+    padding: 0.2rem 0.5rem;
+    border-radius: 4px;
+    color: #f472b6;
+}
+
+.code-block {
+    background: #000;
+    padding: 1.5rem;
+    border-radius: 16px;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.95rem;
+    margin: 1.5rem 0;
+    border-left: 4px solid var(--accent);
+}
+
+.tag-name {
+    color: #f472b6;
+}
+
+.attr {
+    color: #fbbf24;
+}
+
+.comment {
+    color: #64748b;
+    font-style: italic;
+}
+
+.specificity-score {
+    display: inline-flex;
+    gap: 0.5rem;
+    font-weight: 800;
+    color: #4ade80;
+    background: rgba(74, 222, 128, 0.1);
+    padding: 0.5rem 1rem;
+    border-radius: 99px;
+    margin-bottom: 1rem;
+}
+
+.demo-box {
+    padding: 1rem;
+    border: 2px dashed rgba(255, 255, 255, 0.1);
+    margin: 10px 0;
+    text-align: center;
+}

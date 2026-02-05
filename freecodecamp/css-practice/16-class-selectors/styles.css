@@ -1,0 +1,133 @@
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&family=JetBrains+Mono:wght@400;700&display=swap');
+
+:root {
+    --bg: #0f172a;
+    --card: rgba(30, 41, 59, 0.6);
+    --accent: #4ade80;
+    --text: #f1f5f9;
+    --muted: #94a3b8;
+    --class-color: #4ade80;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: 'Outfit', sans-serif;
+    min-height: 100vh;
+    padding: 4rem 2rem;
+    background-image: radial-gradient(circle at 10% 20%, rgba(74, 222, 128, 0.05) 0%, transparent 40%),
+        radial-gradient(circle at 90% 80%, rgba(56, 189, 248, 0.05) 0%, transparent 40%);
+}
+
+.container {
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+header {
+    text-align: center;
+    margin-bottom: 5rem;
+}
+
+h1 {
+    font-size: 3.5rem;
+    font-weight: 800;
+    background: linear-gradient(to right, #4ade80, #38bdf8);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.lesson-card {
+    background: var(--card);
+    backdrop-filter: blur(16px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    padding: 3rem;
+    border-radius: 32px;
+    margin-bottom: 2rem;
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.3);
+}
+
+h2 {
+    font-size: 2rem;
+    margin-bottom: 1.5rem;
+    color: var(--accent);
+}
+
+p {
+    color: var(--muted);
+    font-size: 1.1rem;
+    line-height: 1.7;
+    margin-bottom: 1.5rem;
+}
+
+code {
+    font-family: 'JetBrains Mono', monospace;
+    background: rgba(0, 0, 0, 0.3);
+    padding: 0.2rem 0.5rem;
+    border-radius: 6px;
+    color: #4ade80;
+}
+
+.code-window {
+    background: #000;
+    border-radius: 16px;
+    margin: 2rem 0;
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    overflow: hidden;
+}
+
+.code-header {
+    background: #1e293b;
+    padding: 0.8rem 1.2rem;
+    font-size: 0.85rem;
+    font-family: 'JetBrains Mono', monospace;
+    display: flex;
+    justify-content: space-between;
+}
+
+.code-body {
+    padding: 1.5rem;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 1rem;
+}
+
+.specificity-pill {
+    display: inline-flex;
+    background: rgba(74, 222, 128, 0.1);
+    color: var(--accent);
+    padding: 0.6rem 1.2rem;
+    border-radius: 99px;
+    font-weight: 800;
+    margin-bottom: 1.5rem;
+    border: 1px solid rgba(74, 222, 128, 0.2);
+}
+
+.demo-box {
+    margin-top: 2.5rem;
+    padding: 2rem;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 20px;
+    background: rgba(255, 255, 255, 0.02);
+}
+
+.highlight {
+    color: #4ade80;
+}
+
+.bold-text {
+    font-weight: 800;
+}
+
+.selector-label {
+    color: var(--muted);
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-bottom: 0.5rem;
+}

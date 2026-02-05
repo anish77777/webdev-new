@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ID Selectors & Specificity | CSS Guide</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+    <div class="container">
+        <header>
+            <h1>ID Selectors</h1>
+            <p>Singular, powerful, and precise targeting for unique elements.</p>
+        </header>
+
+        <section class="lesson-card">
+            <h2>What are ID Selectors?</h2>
+            <p>ID selectors are defined by a hash symbol (<code>#</code>) followed by the ID name. They are used to
+                target a <strong>single, unique element</strong> within an HTML document.</p>
+
+            <div class="code-window">
+                <div class="code-header">CSS</div>
+                <div class="code-body">
+                    <span style="color:#a855f7">#unique</span> { <br>
+                    &nbsp;&nbsp;color: purple; <br>
+                    }
+                </div>
+            </div>
+
+            <div class="demo-box">
+                <p id="unique">I am an element with the "unique" ID. I am colored purple!</p>
+                <p>I am just a normal paragraph without an ID.</p>
+            </div>
+        </section>
+
+        <section class="lesson-card">
+            <h2>Uniqueness Requirement</h2>
+            <p>Unlike class selectors, an ID should be <strong>unique</strong> within an HTML document. No two elements
+                should share the same ID. This makes them ideal for structural elements like <code>#header</code>,
+                <code>#footer</code>, or specific unique UI components.</p>
+        </section>
+
+        <section class="lesson-card">
+            <h2>Specificity: (0, 1, 0, 0)</h2>
+            <div class="specificity-pill">SCORE: 0.1.0.0</div>
+            <p>ID selectors have a <strong>very high</strong> specificity. They reside in the second column of the (a,
+                b, c, d) scoring system. This means they will override any number of class or type selectors.</p>
+            <p>While powerful, ID selectors are less reusable than classes and can lead to specificity "arms races" if
+                overused for general styling.</p>
+        </section>
+
+        <section class="lesson-card">
+            <h2>Summary</h2>
+            <p>&bull; Use IDs for elements that appear only once per page.</p>
+            <p>&bull; IDs use the <code>#</code> prefix in CSS.</p>
+            <p>&bull; High specificity <strong>(0, 1, 0, 0)</strong> makes them stronger than classes and tags.</p>
+            <p>&bull; Prefer classes for reusable patterns to maintain flexible CSS.</p>
+        </section>
+    </div>
+</body>
+
+</html>

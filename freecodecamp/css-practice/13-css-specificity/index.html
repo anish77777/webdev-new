@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mastering CSS Specificity | (a, b, c, d)</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+    <div class="container">
+        <header>
+            <h1>CSS Specificity</h1>
+            <p class="subtitle">A fundamental concept that determines which styles are applied to an element when
+                multiple rules could apply.</p>
+        </header>
+
+        <!-- The Formula Section -->
+        <section class="glass-card">
+            <h2>The Specificity Score</h2>
+            <p>Specificity is calculated as a four-part value <strong>(a, b, c, d)</strong>. Each part carries a
+                different weight that never "rolls over" into the next.</p>
+
+            <div class="formula-grid">
+                <div class="formula-card a">
+                    <span class="score">a</span>
+                    <label>Inline Styles</label>
+                </div>
+                <div class="formula-card b">
+                    <span class="score">b</span>
+                    <label>ID Selectors</label>
+                </div>
+                <div class="formula-card c">
+                    <span class="score">c</span>
+                    <label>Classes / Pseudo</label>
+                </div>
+                <div class="formula-card d">
+                    <span class="score">d</span>
+                    <label>Elements / Type</label>
+                </div>
+            </div>
+        </section>
+
+        <!-- Hierarchy Section -->
+        <section>
+            <h2>The Hierarchy of Power</h2>
+            <p>Selector types are grouped into weight categories. Below is the breakdown from highest to lowest
+                specificity.</p>
+
+            <div class="tier-list">
+                <!-- Inline -->
+                <div class="tier-item">
+                    <div class="tier-badge badge-inline">1.0.0.0</div>
+                    <div class="tier-info">
+                        <h4>Inline Styles</h4>
+                        <p>Applied directly to the element via the style attribute. It overrides any internal or
+                            external CSS.</p>
+                        <div class="code-wrapper">
+                            &lt;p style="<span style="color:#f472b6">color: red;</span>"&gt;High Specificity&lt;/p&gt;
+                        </div>
+                    </div>
+                </div>
+
+                <!-- ID -->
+                <div class="tier-item">
+                    <div class="tier-badge badge-id">0.1.0.0</div>
+                    <div class="tier-info">
+                        <h4>ID Selectors</h4>
+                        <p>Using the #id of an element. Each ID contributes 1 to the second part of the value.</p>
+                        <div class="code-wrapper">
+                            <span style="color:#fbbf24">#para</span> { color: red; }
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Class -->
+                <div class="tier-item">
+                    <div class="tier-badge badge-class">0.0.1.0</div>
+                    <div class="tier-info">
+                        <h4>Classes, Attributes & Pseudo-classes</h4>
+                        <p>Includes .class, [type="text"], and :hover. These have a moderate level of specificity.</p>
+                        <div class="code-wrapper">
+                            <span style="color:#4ade80">.example-para</span> { color: green; }
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Type -->
+                <div class="tier-item">
+                    <div class="tier-badge badge-type">0.0.0.1</div>
+                    <div class="tier-info">
+                        <h4>Type Selectors & Pseudo-elements</h4>
+                        <p>Includes div, h1, ::before, and ::after. These are the lowest weight real selectors.</p>
+                        <div class="code-wrapper">
+                            <span style="color:#38bdf8">p</span> { color: blue; }
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Universal -->
+                <div class="tier-item">
+                    <div class="tier-badge badge-universal">0.0.0.0</div>
+                    <div class="tier-info">
+                        <h4>Universal Selector (*)</h4>
+                        <p>The universal selector is a special selector that matches <strong>any and all</strong>
+                            elements in the document. It is frequently used for CSS resets (e.g., setting margin and
+                            padding to 0) to ensure a consistent starting point across different browsers.</p>
+                        <p>It carries the absolute lowest specificity score. It contributes 0 to every part of the
+                            calculation, meaning any other selector type will override it.</p>
+                        <div class="code-wrapper">
+                            <span style="color:#94a3b8">*</span> { <br>
+                            &nbsp;&nbsp;margin: 0; <br>
+                            &nbsp;&nbsp;padding: 0; <br>
+                            }
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- The Override Chain Section -->
+        <section class="glass-card">
+            <h2>The Specificity Challenge</h2>
+            <p>Observe how different selectors compete for the same element. Each level up the hierarchy completely
+                overrides the ones below it.</p>
+
+            <div class="code-wrapper">
+                &lt;p id="unique" class="highlight"&gt;This text has multiple styles applied.&lt;/p&gt;<br><br>
+
+                <span class="winner">#unique { color: purple; }</span> <span style="color:var(--text-muted)">/* Score:
+                    0, 1, 0, 0 (High) */</span><br>
+                <span class="loser">.highlight { color: green; }</span> <span style="color:var(--text-muted)">/* Score:
+                    0, 0, 1, 0 (Moderate) */</span><br>
+                <span class="loser">p { color: red; }</span> <span style="color:var(--text-muted)">/* Score: 0, 0, 0, 1
+                    (Low) */</span><br>
+                <span class="loser">* { color: blue; }</span> <span style="color:var(--text-muted)">/* Score: 0, 0, 0, 0
+                    (Zero) */</span>
+            </div>
+            <p style="margin-top: 1.5rem; color: var(--text-main); font-weight: 600;">Result: The text will be Purple
+                because the ID selector wins the specificity battle.</p>
+        </section>
+
+
+        <!-- Internal vs External Section -->
+        <section class="glass-card">
+            <h2>Internal vs. External CSS</h2>
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 2rem;">
+                <div>
+                    <h4>Internal CSS</h4>
+                    <p>Defined within a &lt;style&gt; element in the head. It has lower specificity than inline but can
+                        override external styles if placed later or using stronger selectors.</p>
+                </div>
+                <div>
+                    <h4>External CSS</h4>
+                    <p>Linked via &lt;link rel="stylesheet"&gt;. Provides the best maintainability for large projects
+                        despite having the same selector-based specificity as internal.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Final Example Section -->
+        <section>
+            <h2>Rules in Conflict</h2>
+            <p>When multiple rules apply, the one with the higher specificity score wins.</p>
+            <div class="code-wrapper">
+                &lt;p class="example-para" id="para"&gt;Example paragraph&lt;/p&gt;<br><br>
+                <span class="winner">#para { color: red; }</span> <span style="color:var(--text-muted)">/* Score: 0, 1,
+                    0, 0 */</span><br>
+                <span class="loser">.example-para { color: green; }</span> <span style="color:var(--text-muted)">/*
+                    Score: 0, 0, 1, 0 */</span><br>
+                <span class="loser">p { color: blue; }</span> <span style="color:var(--text-muted)">/* Score: 0, 0, 0, 1
+                    */</span>
+            </div>
+        </section>
+
+        <footer>
+            <p>&copy; 2026 CSS Specificity Guide. Built for Modern Developers.</p>
+        </footer>
+    </div>
+</body>
+
+</html>

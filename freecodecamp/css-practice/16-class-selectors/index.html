@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Class Selectors & Specificity | CSS Guide</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+    <div class="container">
+        <header>
+            <h1>Class Selectors</h1>
+            <p>Versatile and efficient targeting for modern CSS architecture.</p>
+        </header>
+
+        <section class="lesson-card">
+            <h2>What are Class Selectors?</h2>
+            <p>Class selectors are defined by a period (<code>.</code>) followed by the class name. They allow you to
+                apply the same styling to multiple elements across your document, making them one of the most powerful
+                tools for consistent design.</p>
+
+            <div class="code-window">
+                <div class="code-header">CSS</div>
+                <div class="code-body">
+                    <span style="color:#4ade80">.highlight</span> { <br>
+                    &nbsp;&nbsp;color: green; <br>
+                    }
+                </div>
+            </div>
+
+            <div class="demo-box">
+                <p class="highlight">I am a paragraph with the "highlight" class. I am colored green!</p>
+            </div>
+        </section>
+
+        <section class="lesson-card">
+            <h2>Specificity: (0, 0, 1, 0)</h2>
+            <div class="specificity-pill">SCORE: 0.0.1.0</div>
+            <p>Class selectors have a **moderate** level of specificity. They sit comfortably in the third column of the
+                calculation, meaning they will always override tag names (Type Selectors) but will be gracefully
+                overridden by IDs or Inline styles.</p>
+        </section>
+
+        <section class="lesson-card">
+            <h2>Combined Selectors</h2>
+            <p>Class selectors can be combined with other selectors to create highly specific rules. For example, you
+                can target only paragraph elements that have a specific class.</p>
+
+            <div class="code-window">
+                <div class="code-header">Qualified Selector</div>
+                <div class="code-body">
+                    <span style="color:#38bdf8">p</span><span style="color:#4ade80">.bold-text</span> { <br>
+                    &nbsp;&nbsp;font-weight: bold; <br>
+                    }
+                </div>
+            </div>
+
+            <div class="demo-box">
+                <p class="bold-text">I am a bold paragraph because I match both the tag (p) and the class (.bold-text).
+                </p>
+                <div class="bold-text" style="color:var(--muted); font-size: 0.9rem; margin-top: 10px;">I am a div with
+                    the same class, but I am not bold because the rule only targets 'p' tags.</div>
+            </div>
+        </section>
+
+        <section class="lesson-card">
+            <h2>Summary</h2>
+            <p>&bull; Use classes for reusable styles and components.</p>
+            <p>&bull; Classes are better for maintainability than IDs for general styling.</p>
+            <p>&bull; Combining tag and class (e.g., <code>p.class</code>) increases specificity to <strong>(0, 0, 1,
+                    1)</strong>.</p>
+        </section>
+    </div>
+</body>
+
+</html>
