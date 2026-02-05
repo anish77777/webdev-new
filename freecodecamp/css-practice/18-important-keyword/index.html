@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The !important Keyword | CSS Guide</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+    <div class="container">
+        <header>
+            <h1>The !important Keyword</h1>
+            <p>The ultimate authority in the CSS cascade.</p>
+        </header>
+
+        <section class="lesson-card">
+            <h2>What is !important?</h2>
+            <p>The <code>!important</code> keyword is used to give a style rule the highest priority, allowing it to
+                override any other declarations for a property, no matter how specific the other selectors are.</p>
+
+            <div class="code-window">
+                <div class="code-header">CSS Syntax</div>
+                <div class="code-body">
+                    <span style="color:#f97316">.para</span> { <br>
+                    &nbsp;&nbsp;background-color: black <span style="color:#ef4444">!important</span>; <br>
+                    &nbsp;&nbsp;color: white <span style="color:#ef4444">!important</span>; <br>
+                    }
+                </div>
+            </div>
+        </section>
+
+        <section class="lesson-card">
+            <h2>Overriding Inline Styles</h2>
+            <p>Normally, inline styles have the highest precedence. However, <code>!important</code> can even bypass
+                these direct style attributes.</p>
+
+            <div class="demo-box">
+                <p class="para" style="background-color: lightblue; color: black;">
+                    This paragraph has inline styles: <code>background-color: lightblue; color: black;</code>. <br>
+                    But thanks to <code>!important</code> in the CSS file, it's actually black and white!
+                </p>
+            </div>
+        </section>
+
+        <section class="lesson-card">
+            <h2>Best Practices</h2>
+            <p>While powerful, overusing <code>!important</code> can make your CSS fragile and difficult to debug. Here
+                are the golden rules:</p>
+
+            <ul class="best-practice-list">
+                <li><strong>Use sparingly:</strong> Only use it when you've exhausted specificity options.</li>
+                <li><strong>Third-party overrides:</strong> Useful for overriding styles from libraries you don't
+                    control.</li>
+                <li><strong>Avoid for layout:</strong> Don't use it to "fix" broad layout issues.</li>
+                <li><strong>Maintenance debt:</strong> Each <code>!important</code> makes future changes harder.</li>
+            </ul>
+        </section>
+
+        <section class="lesson-card">
+            <h2>Summary</h2>
+            <p>&bull; <code>!important</code> forces a style to win, regardless of specificity.</p>
+            <p>&bull; It is placed after the value and before the semicolon.</p>
+            <p>&bull; It does <strong>not</strong> change the specificity of the selector itself.</p>
+            <p>&bull; Aim for better selector structure before reaching for this keyword.</p>
+        </section>
+    </div>
+</body>
+
+</html>
