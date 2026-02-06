@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>List Style Properties | CSS Mastery</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700&family=JetBrains+Mono&display=swap"
+        rel="stylesheet">
+</head>
+
+<body>
+    <div class="glass-bg"></div>
+
+    <main class="container">
+        <header class="hero">
+            <h1 class="gradient-text">List Style Properties</h1>
+            <p class="subtitle">Control the appearance of your lists with <code>list-style</code>.</p>
+        </header>
+
+        <section class="card intro">
+            <p>The <code>list-style</code> property is a shorthand for three properties that define how list markers
+                behave and look. Understanding these allows for highly customized and professional list designs.</p>
+            <div class="shorthand-box">
+                <code>list-style: [type] [position] [image];</code>
+            </div>
+        </section>
+
+        <div class="grid">
+            <!-- List Style Type -->
+            <section class="card">
+                <div class="card-header">
+                    <span class="badge">Type</span>
+                    <h2>list-style-type</h2>
+                </div>
+                <p>Defines the type of marker (bullet or number). Standard values include <code>disc</code>,
+                    <code>circle</code>, <code>square</code>, <code>decimal</code>, and <code>roman</code>.
+                </p>
+                <div class="demo-box">
+                    <ul style="list-style-type: square;" class="demo-list">
+                        <li>Square Marker</li>
+                        <li>Customizable Shape</li>
+                    </ul>
+                </div>
+            </section>
+
+            <!-- List Style Position -->
+            <section class="card">
+                <div class="card-header">
+                    <span class="badge badge-alt">Position</span>
+                    <h2>list-style-position</h2>
+                </div>
+                <p>Controls if the marker is <code>inside</code> or <code>outside</code> the list item's content box.
+                </p>
+                <div class="demo-box">
+                    <ul style="list-style-position: inside; border: 1px dashed var(--glass-border); padding: 10px;"
+                        class="demo-list">
+                        <li>Inside: Marker aligns with the wrapped text lines.</li>
+                    </ul>
+                </div>
+            </section>
+        </div>
+
+        <!-- List Style Image -->
+        <section class="card">
+            <div class="card-header">
+                <span class="badge badge-accent">Image</span>
+                <h2>list-style-image</h2>
+            </div>
+            <p>Replaces the default bullet with a custom image. Always provide a fallback <code>list-style-type</code>!
+            </p>
+            <div class="image-demo-container">
+                <div class="code-block">
+                    <pre><code>ul {
+  list-style-image: url('fcc-logo.png');
+  list-style-position: inside;
+}</code></pre>
+                </div>
+                <div class="preview-box">
+                    <ul class="fcc-list">
+                        <li>Custom Branding</li>
+                        <li>Unique Visual Style</li>
+                        <li>Enhanced User Experience</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- Quiz Section -->
+        <section class="card quiz-section">
+            <div class="card-header">
+                <span class="badge">Assessment</span>
+                <h2>Knowledge Check</h2>
+            </div>
+            <div class="quiz-container">
+                <!-- Question 1 -->
+                <div class="question">
+                    <span class="question-text">1. Which list-style property would you use to change the bullet points
+                        to circles in an unordered list?</span>
+                    <div class="options" data-q="1">
+                        <div class="option">list-style-image</div>
+                        <div class="option">list-style-position</div>
+                        <div class="option" data-correct="true">list-style-type</div>
+                        <div class="option">list-style</div>
+                    </div>
+                </div>
+
+                <!-- Question 2 -->
+                <div class="question">
+                    <span class="question-text">2. If you want the bullets of a list to align with the text content,
+                        which list-style-position value should you use?</span>
+                    <div class="options" data-q="2">
+                        <div class="option">outside</div>
+                        <div class="option" data-correct="true">inside</div>
+                        <div class="option">center</div>
+                        <div class="option">left</div>
+                    </div>
+                </div>
+
+                <!-- Question 3 -->
+                <div class="question">
+                    <span class="question-text">3. Which property allows you to replace the default bullet with a custom
+                        image?</span>
+                    <div class="options" data-q="3">
+                        <div class="option">list-style-type</div>
+                        <div class="option">list-style-position</div>
+                        <div class="option">list-style</div>
+                        <div class="option" data-correct="true">list-style-image</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <script>
+        // Quiz Logic
+        document.querySelectorAll('.option').forEach(option => {
+            option.addEventListener('click', () => {
+                const parent = option.parentElement;
+                if (parent.classList.contains('answered')) return;
+
+                parent.classList.add('answered');
+                option.classList.add('selected');
+
+                if (option.dataset.correct === 'true') {
+                    option.classList.add('correct');
+                } else {
+                    option.classList.add('incorrect');
+                    parent.querySelectorAll('.option').forEach(opt => {
+                        if (opt.dataset.correct === 'true') {
+                            opt.classList.add('selected', 'correct');
+                        }
+                    });
+                }
+            });
+        });
+    </script>
+</body>
+
+</html>

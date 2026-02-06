@@ -232,6 +232,70 @@ pre {
     border-radius: 0 8px 8px 0;
 }
 
+/* Quiz Section */
+.quiz-container {
+    margin-top: 1.5rem;
+}
+
+.question {
+    margin-bottom: 2rem;
+}
+
+.question-text {
+    font-size: 1.1rem;
+    color: var(--text-primary);
+    margin-bottom: 1.5rem;
+    display: block;
+    line-height: 1.5;
+}
+
+.options {
+    display: grid;
+    gap: 0.8rem;
+}
+
+.option {
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid var(--glass-border);
+    padding: 1.2rem 1.5rem;
+    border-radius: 12px;
+    cursor: pointer;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    color: var(--text-secondary);
+    position: relative;
+    overflow: hidden;
+}
+
+.option:hover {
+    background: rgba(0, 255, 157, 0.05);
+    border-color: rgba(0, 255, 157, 0.3);
+    color: var(--text-primary);
+    transform: translateX(8px);
+}
+
+.option.selected.correct {
+    background: rgba(0, 255, 157, 0.1);
+    border-color: var(--accent);
+    color: var(--accent);
+    box-shadow: 0 0 20px rgba(0, 255, 157, 0.1);
+}
+
+.option.selected.incorrect {
+    background: rgba(255, 82, 82, 0.1);
+    border-color: #ff5252;
+    color: #ff5252;
+}
+
+.options.answered .option {
+    pointer-events: none;
+    opacity: 0.6;
+}
+
+.options.answered .option.selected {
+    opacity: 1;
+}
+
+
 @keyframes fadeInDown {
     from {
         opacity: 0;

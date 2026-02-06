@@ -104,9 +104,27 @@
 
             <div class="pro-tip">
                 <p><strong>Pro Tip:</strong> Use <code>margin</code> to separate distinct list items, and
-                    <code>line-height</code> to make multi-line text easier to read within those items!</p>
+                    <code>line-height</code> to make multi-line text easier to read within those items!
+                </p>
             </div>
-        </section>
+            <section class="card quiz-section">
+                <div class="card-header">
+                    <span class="badge">Knowledge Check</span>
+                    <h2>Quick Quiz</h2>
+                </div>
+                <div class="quiz-container">
+                    <div class="question">
+                        <span class="question-text">Which CSS property would you use to create space between list items
+                            by adjusting the space outside each <code>li</code> element?</span>
+                        <div class="options">
+                            <div class="option" data-correct="true">margin-bottom</div>
+                            <div class="option">line-height</div>
+                            <div class="option">padding</div>
+                            <div class="option">display</div>
+                        </div>
+                    </div>
+                </div>
+            </section>
     </main>
 
     <script>
@@ -127,6 +145,28 @@
                 event.target.classList.add('active');
             }
         }
+
+        // Quiz Logic
+        document.querySelectorAll('.option').forEach(option => {
+            option.addEventListener('click', () => {
+                const parent = option.parentElement;
+                if (parent.classList.contains('answered')) return;
+
+                parent.classList.add('answered');
+                option.classList.add('selected');
+
+                if (option.dataset.correct === 'true') {
+                    option.classList.add('correct');
+                } else {
+                    option.classList.add('incorrect');
+                    parent.querySelectorAll('.option').forEach(opt => {
+                        if (opt.dataset.correct === 'true') {
+                            opt.classList.add('selected', 'correct');
+                        }
+                    });
+                }
+            });
+        });
     </script>
 </body>
 

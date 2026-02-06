@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Default Link Styles | CSS Mastery</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700&family=JetBrains+Mono&display=swap"
+        rel="stylesheet">
+</head>
+
+<body>
+    <div class="glass-bg"></div>
+
+    <main class="container">
+        <header class="hero">
+            <h1 class="gradient-text">Link Styles & Usability</h1>
+            <p class="subtitle">Mastering default link behaviors for intuitive navigation.</p>
+        </header>
+
+        <section class="card intro">
+            <p>Default link styles play a crucial role in enhancing usability and accessibility. Standard colors like
+                <strong>blue</strong> for unvisited and <strong>purple</strong> for visited links provide immediate
+                visual cues that users rely on.
+            </p>
+        </section>
+
+        <section class="grid">
+            <!-- Default States -->
+            <div class="card">
+                <div class="card-header">
+                    <span class="badge">Standard</span>
+                    <h2>Default Behaviors</h2>
+                </div>
+                <p>Browsers use specific colors and underlines to distinguish links from regular text.</p>
+                <div class="demo-box">
+                    <p>Check out these <a href="#unvisited" class="demo-link unvisited">unvisited links</a> and <a
+                            href="#visited" class="demo-link visited">visited links</a>.</p>
+                </div>
+            </div>
+
+            <!-- Accessibility -->
+            <div class="card">
+                <div class="card-header">
+                    <span class="badge badge-alt">UX</span>
+                    <h2>Visual Cues</h2>
+                </div>
+                <p>Underlines provide redundant cues for colorblind users, ensuring they can still identify interactive
+                    elements.</p>
+                <div class="code-block">
+                    <pre><code>a {
+  text-decoration: underline;
+}</code></pre>
+                </div>
+            </div>
+        </section>
+
+        <!-- Interactive States -->
+        <section class="card">
+            <div class="card-header">
+                <span class="badge badge-accent">States</span>
+                <h2>Pseudo-classes</h2>
+            </div>
+            <p>Links have four primary states that provide feedback during interaction.</p>
+            <div class="states-grid">
+                <div class="state-item">
+                    <code>:link</code>
+                    <p>Unvisited</p>
+                    <a href="#link" class="state-demo state-link">Standard Link</a>
+                </div>
+                <div class="state-item">
+                    <code>:visited</code>
+                    <p>Already seen</p>
+                    <a href="#visited" class="state-demo state-visited">Visited Link</a>
+                </div>
+                <div class="state-item">
+                    <code>:hover</code>
+                    <p>Mouse over</p>
+                    <a href="#hover" class="state-demo state-hover">Hover state</a>
+                </div>
+                <div class="state-item">
+                    <code>:active</code>
+                    <p>Being clicked</p>
+                    <a href="#active" class="state-demo state-active">Active state</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Quiz Section -->
+        <section class="card quiz-section">
+            <div class="card-header">
+                <span class="badge">Assessment</span>
+                <h2>Knowledge Check</h2>
+            </div>
+            <div class="quiz-container">
+                <!-- Question 1 -->
+                <div class="question">
+                    <span class="question-text">1. Why is it important to have a distinct color for visited
+                        links?</span>
+                    <div class="options">
+                        <div class="option">It makes the website more colorful.</div>
+                        <div class="option" data-correct="true">It helps users keep track of pages they've already
+                            visited.</div>
+                        <div class="option">Visited links are more important than unvisited links.</div>
+                        <div class="option">It's a legal requirement for websites.</div>
+                    </div>
+                </div>
+
+                <!-- Question 2 -->
+                <div class="question">
+                    <span class="question-text">2. Which of the following is NOT typically a default style for links in
+                        most browsers?</span>
+                    <div class="options">
+                        <div class="option">Blue color for unvisited links.</div>
+                        <div class="option">Underline for all links.</div>
+                        <div class="option">Purple color for visited links.</div>
+                        <div class="option" data-correct="true">Bold font weight for all links.</div>
+                    </div>
+                </div>
+
+                <!-- Question 3 -->
+                <div class="question">
+                    <span class="question-text">3. When customizing link styles, what is an important principle to
+                        maintain?</span>
+                    <div class="options">
+                        <div class="option">All links must be blue.</div>
+                        <div class="option">Links should always be underlined.</div>
+                        <div class="option" data-correct="true">Links should be clearly distinguishable from regular
+                            text.</div>
+                        <div class="option">Visited and unvisited links must have the same style.</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <script>
+        // Quiz Logic
+        document.querySelectorAll('.option').forEach(option => {
+            option.addEventListener('click', () => {
+                const parent = option.parentElement;
+                if (parent.classList.contains('answered')) return;
+
+                parent.classList.add('answered');
+                option.classList.add('selected');
+
+                if (option.dataset.correct === 'true') {
+                    option.classList.add('correct');
+                } else {
+                    option.classList.add('incorrect');
+                    parent.querySelectorAll('.option').forEach(opt => {
+                        if (opt.dataset.correct === 'true') {
+                            opt.classList.add('selected', 'correct');
+                        }
+                    });
+                }
+            });
+        });
+    </script>
+</body>
+
+</html>
