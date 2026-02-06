@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Spacing List Items | CSS Mastery</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600&family=JetBrains+Mono&display=swap"
+        rel="stylesheet">
+</head>
+
+<body>
+    <div class="glass-bg"></div>
+
+    <main class="container">
+        <header class="hero">
+            <h1 class="gradient-text">How Do You Space List Items?</h1>
+            <p class="subtitle">Mastering <code>margin</code> and <code>line-height</code> for beautiful lists.</p>
+        </header>
+
+        <section class="card intro">
+            <p>Margins and line-height are essential for spacing list items to enhance readability and visual appeal.
+            </p>
+        </section>
+
+        <section class="grid">
+            <!-- Margin Section -->
+            <div class="card" id="margin-section">
+                <div class="card-header">
+                    <span class="badge">Method 1</span>
+                    <h2>Spacing with Margins</h2>
+                </div>
+                <p>Margins create space <strong>outside</strong> each list item. This method is perfect for controlling
+                    the gap between separate items.</p>
+
+                <div class="code-block">
+                    <pre><code>li {
+  margin-bottom: 40px;
+}</code></pre>
+                </div>
+
+                <div class="preview">
+                    <h3>Preview (40px margin-bottom)</h3>
+                    <ul class="example-list margin-demo">
+                        <li><span>Item 1</span></li>
+                        <li><span>Item 2</span></li>
+                        <li><span>Item 3</span></li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Line Height Section -->
+            <div class="card" id="lh-section">
+                <div class="card-header">
+                    <span class="badge badge-alt">Method 2</span>
+                    <h2>Spacing with Line-Height</h2>
+                </div>
+                <p>The <code>line-height</code> property adjusts the vertical spacing <strong>within</strong> a single
+                    list item.</p>
+
+                <div class="code-block">
+                    <pre><code>li {
+  line-height: 2;
+}</code></pre>
+                </div>
+
+                <div class="preview">
+                    <h3>Preview (2.0 line-height)</h3>
+                    <ul class="example-list lh-demo">
+                        <li><span>Item 1</span></li>
+                        <li><span>Item 2</span></li>
+                        <li><span>Item 3</span></li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <section class="card interactive">
+            <div class="card-header">
+                <h2>Interactive Comparison</h2>
+                <div class="controls">
+                    <button class="btn active" onclick="toggleDemo('item-spacing')">Margin</button>
+                    <button class="btn" onclick="toggleDemo('line-spacing')">Line-Height</button>
+                </div>
+            </div>
+
+            <div class="demo-container">
+                <div class="demo-content">
+                    <p id="demo-description">Currently showing: <strong>Margin Spacing</strong> (Spaces between items)
+                    </p>
+                    <div class="comparison-grid">
+                        <ul class="example-list demo-list margin-active" id="dynamic-list">
+                            <li>List Item One: This is a multi-line item to show how spacing behaves when text wraps
+                                around to the next line.</li>
+                            <li>List Item Two: Notice the gap between this and the item above.</li>
+                            <li>List Item Three: Consistent spacing makes this readable.</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pro-tip">
+                <p><strong>Pro Tip:</strong> Use <code>margin</code> to separate distinct list items, and
+                    <code>line-height</code> to make multi-line text easier to read within those items!</p>
+            </div>
+        </section>
+    </main>
+
+    <script>
+        function toggleDemo(type) {
+            const list = document.getElementById('dynamic-list');
+            const desc = document.getElementById('demo-description');
+            const buttons = document.querySelectorAll('.btn');
+
+            buttons.forEach(btn => btn.classList.remove('active'));
+
+            if (type === 'item-spacing') {
+                list.className = 'example-list demo-list margin-active';
+                desc.innerHTML = 'Currently showing: <strong>Margin Spacing</strong> (Spaces between items)';
+                event.target.classList.add('active');
+            } else {
+                list.className = 'example-list demo-list lh-active';
+                desc.innerHTML = 'Currently showing: <strong>Line-Height</strong> (Spaces within multi-line items)';
+                event.target.classList.add('active');
+            }
+        }
+    </script>
+</body>
+
+</html>
