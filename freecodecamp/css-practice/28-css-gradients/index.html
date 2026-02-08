@@ -1,0 +1,429 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mastering CSS Background Gradients</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #4f46e5;
+            --secondary: #9333ea;
+            --accent: #06b6d4;
+            --bg-dark: #020617;
+            --glass: rgba(255, 255, 255, 0.03);
+            --glass-border: rgba(255, 255, 255, 0.08);
+            --text-main: #f8fafc;
+            --text-dim: #94a3b8;
+            --syntax-bg: #010413;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Outfit', sans-serif;
+        }
+
+        body {
+            background-color: var(--bg-dark);
+            color: var(--text-main);
+            line-height: 1.6;
+            overflow-x: hidden;
+            background-image:
+                radial-gradient(circle at 0% 0%, rgba(79, 70, 229, 0.15) 0%, transparent 50%),
+                radial-gradient(circle at 100% 100%, rgba(147, 51, 234, 0.15) 0%, transparent 50%);
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 4rem 2rem;
+        }
+
+        header {
+            text-align: center;
+            margin-bottom: 5rem;
+        }
+
+        h1 {
+            font-size: 3.8rem;
+            font-weight: 700;
+            background: linear-gradient(135deg, #818cf8, #c084fc, #22d3ee);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 1.5rem;
+            letter-spacing: -0.02em;
+        }
+
+        .intro {
+            font-size: 1.25rem;
+            color: var(--text-dim);
+            max-width: 750px;
+            margin: 0 auto;
+        }
+
+        section {
+            background: var(--glass);
+            backdrop-filter: blur(12px);
+            border: 1px solid var(--glass-border);
+            border-radius: 32px;
+            padding: 3.5rem;
+            margin-bottom: 4rem;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            position: relative;
+        }
+
+        section:hover {
+            transform: translateY(-8px);
+            border-color: rgba(255, 255, 255, 0.2);
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+        }
+
+        h2 {
+            font-size: 2.2rem;
+            color: #f1f5f9;
+            margin-bottom: 1.5rem;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        h3 {
+            font-size: 1.4rem;
+            color: var(--accent);
+            margin: 2rem 0 1rem 0;
+        }
+
+        p {
+            margin-bottom: 1.5rem;
+            color: #cbd5e1;
+            font-size: 1.1rem;
+        }
+
+        ul {
+            margin-bottom: 1.5rem;
+            padding-left: 1.5rem;
+        }
+
+        li {
+            margin-bottom: 0.5rem;
+            color: #cbd5e1;
+        }
+
+        code {
+            background: rgba(15, 23, 42, 0.6);
+            padding: 0.2rem 0.6rem;
+            border-radius: 8px;
+            color: #a5b4fc;
+            font-family: 'Fira Code', 'Courier New', monospace;
+            font-size: 0.95em;
+        }
+
+        .syntax-box {
+            background: var(--syntax-bg);
+            border-radius: 16px;
+            padding: 1.5rem;
+            margin: 1.5rem 0;
+            border-left: 4px solid var(--primary);
+            font-family: 'Fira Code', monospace;
+            font-size: 1.1rem;
+            color: #e2e8f0;
+        }
+
+        .values-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1rem;
+            margin: 1.5rem 0;
+        }
+
+        .value-card {
+            background: rgba(255, 255, 255, 0.02);
+            padding: 1rem;
+            border-radius: 12px;
+            border: 1px solid var(--glass-border);
+        }
+
+        .value-card h4 {
+            color: var(--primary);
+            margin-bottom: 0.5rem;
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .preview-container {
+            margin: 2rem 0;
+        }
+
+        .preview-box {
+            height: 250px;
+            border-radius: 20px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            position: relative;
+            box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.3);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            font-weight: 600;
+            font-size: 0.9rem;
+            padding: 20px;
+        }
+
+        /* Quiz Styles */
+        .quiz-card {
+            background: linear-gradient(165deg, rgba(79, 70, 229, 0.08), rgba(6, 182, 212, 0.08));
+        }
+
+        .quiz-item {
+            margin-bottom: 3rem;
+            padding-bottom: 2rem;
+            border-bottom: 1px solid var(--glass-border);
+        }
+
+        .quiz-item:last-child {
+            border-bottom: none;
+            margin-bottom: 0;
+            padding-bottom: 0;
+        }
+
+        .options {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1.2rem;
+            margin-top: 1.5rem;
+        }
+
+        .option-btn {
+            background: rgba(255, 255, 255, 0.04);
+            border: 1px solid var(--glass-border);
+            padding: 1.2rem;
+            border-radius: 16px;
+            color: var(--text-main);
+            cursor: pointer;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            text-align: left;
+        }
+
+        .option-btn:hover {
+            background: rgba(255, 255, 255, 0.08);
+            border-color: var(--accent);
+            transform: translateX(5px);
+        }
+
+        .option-btn.correct {
+            background: rgba(16, 185, 129, 0.2);
+            border-color: #10b981;
+            color: #34d399;
+        }
+
+        .option-btn.wrong {
+            background: rgba(239, 68, 68, 0.2);
+            border-color: #ef4444;
+            color: #f87171;
+        }
+
+        .feedback {
+            margin-top: 1.5rem;
+            padding: 1rem;
+            border-radius: 12px;
+            display: none;
+            font-weight: 600;
+        }
+
+        footer {
+            text-align: center;
+            padding: 4rem 0;
+            color: var(--text-dim);
+            font-size: 0.9rem;
+        }
+
+        @media (max-width: 650px) {
+            h1 {
+                font-size: 2.8rem;
+            }
+
+            section {
+                padding: 2rem;
+            }
+
+            .options {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <header>
+            <h1>Vivid Gradients</h1>
+            <p class="intro">A comprehensive guide to CSS transitions. Learn every syntax, every value, and master the
+                art of color.</p>
+        </header>
+
+        <section id="linear">
+            <h2>📏 Linear Gradients</h2>
+            <p>Transitions colors along a straight line. You can define the direction and the color points (stops)
+                involved.</p>
+
+            <h3>Syntax</h3>
+            <div class="syntax-box">
+                background: linear-gradient(direction, color-stop1, color-stop2, ...);
+            </div>
+
+            <h3>Possible Directions</h3>
+            <div class="values-grid">
+                <div class="value-card">
+                    <h4>Keywords</h4>
+                    <p><code>to top</code>, <code>to bottom</code>, <code>to left</code>, <code>to right</code>,
+                        <code>to top right</code>, etc.</p>
+                </div>
+                <div class="value-card">
+                    <h4>Angles</h4>
+                    <p><code>45deg</code>, <code>90deg</code>, <code>180deg</code>, <code>-90deg</code>, etc.</p>
+                </div>
+            </div>
+
+            <div class="preview-container">
+                <div class="preview-box" style="background: linear-gradient(to right, red, yellow);">
+                    <code>linear-gradient(to right, red, yellow)</code>
+                </div>
+            </div>
+
+            <h3>Color Stops</h3>
+            <p>Specify the colors and positions where the gradient transitions occur. Positions can be in <code>%</code>
+                or <code>px</code>.</p>
+            <div class="preview-container">
+                <div class="preview-box"
+                    style="background: linear-gradient(45deg, #12c2e9 10%, #c471ed 50%, #f64f59 90%);">
+                    <code>linear-gradient(45deg, cyan 10%, purple 50%, red 90%)</code>
+                </div>
+            </div>
+        </section>
+
+        <section id="radial">
+            <h2>🎯 Radial Gradients</h2>
+            <p>Transitions radiating from an origin outward in circular or elliptical shapes.</p>
+
+            <h3>Syntax</h3>
+            <div class="syntax-box" style="font-size: 0.95rem;">
+                background: radial-gradient(shape size at position, color-stop1, color-stop2, ...);
+            </div>
+
+            <div class="values-grid">
+                <div class="value-card">
+                    <h4>Shapes</h4>
+                    <p><code>circle</code>, <code>ellipse</code></p>
+                </div>
+                <div class="value-card">
+                    <h4>Sizes</h4>
+                    <p><code>closest-side</code>, <code>closest-corner</code>, <code>farthest-side</code>,
+                        <code>farthest-corner</code>, <code>contain</code>, <code>cover</code></p>
+                </div>
+                <div class="value-card">
+                    <h4>Positions</h4>
+                    <p><code>center</code>, <code>top left</code>, <code>50% 50%</code>, <code>10px 20px</code></p>
+                </div>
+            </div>
+
+            <h3>Advanced Example</h3>
+            <p>Circular gradient centered, starting red, transitions to yellow at 50%, and ends green.</p>
+            <div class="preview-container">
+                <div class="preview-box"
+                    style="background: radial-gradient(circle closest-side at center, red, yellow 50%, green);">
+                    <code>radial-gradient(circle closest-side at center, red, yellow 50%, green)</code>
+                </div>
+            </div>
+
+            <p>Elliptical gradient at top left:</p>
+            <div class="preview-container">
+                <div class="preview-box"
+                    style="background: radial-gradient(ellipse farthest-corner at top left, #4f46e5, #9333ea);">
+                    <code>radial-gradient(ellipse farthest-corner at top left, indigo, purple)</code>
+                </div>
+            </div>
+        </section>
+
+        <section class="quiz-card">
+            <h2>🧠 Knowledge Check</h2>
+
+            <div class="quiz-item" id="q1">
+                <p class="quiz-question">1. What does the <code>circle</code> keyword specify in a radial-gradient()
+                    function?</p>
+                <div class="options">
+                    <button class="option-btn" data-correct="false">The gradient will have a square shape.</button>
+                    <button class="option-btn" data-correct="false">The gradient will extend in a diagonal
+                        direction.</button>
+                    <button class="option-btn" data-correct="true">The gradient will have a circular shape.</button>
+                    <button class="option-btn" data-correct="false">The gradient will be applied to the text.</button>
+                </div>
+                <div class="feedback"></div>
+            </div>
+
+            <div class="quiz-item" id="q2">
+                <p class="quiz-question">2. What does the <code>farthest-corner</code> keyword do in the size parameter?
+                </p>
+                <div class="options">
+                    <button class="option-btn" data-correct="false">Makes the gradient extend to the nearest
+                        corner.</button>
+                    <button class="option-btn" data-correct="false">Makes the gradient cover only the width.</button>
+                    <button class="option-btn" data-correct="true">Makes the gradient extend to the farthest
+                        corner.</button>
+                    <button class="option-btn" data-correct="false">Makes the gradient only appear in padding.</button>
+                </div>
+                <div class="feedback"></div>
+            </div>
+
+            <div class="quiz-item" id="q3">
+                <p class="quiz-question">3. In <code>radial-gradient(circle at center, ...)</code>, where is the center?
+                </p>
+                <div class="options">
+                    <button class="option-btn" data-correct="false">At the top right corner.</button>
+                    <button class="option-btn" data-correct="false">At the bottom left corner.</button>
+                    <button class="option-btn" data-correct="true">At the center of the element.</button>
+                    <button class="option-btn" data-correct="false">At the outer edge.</button>
+                </div>
+                <div class="feedback"></div>
+            </div>
+        </section>
+
+        <footer>
+            <p>&copy; 2026 CSS Mastery: Gradients. Everything you need to know.</p>
+        </footer>
+    </div>
+
+    <script>
+        document.querySelectorAll('.option-btn').forEach(btn => {
+            btn.addEventListener('click', function () {
+                const quizItem = this.closest('.quiz-item');
+                const feedback = quizItem.querySelector('.feedback');
+                const isCorrect = this.getAttribute('data-correct') === 'true';
+
+                quizItem.querySelectorAll('.option-btn').forEach(b => {
+                    b.classList.remove('correct', 'wrong');
+                });
+
+                if (isCorrect) {
+                    this.classList.add('correct');
+                    feedback.textContent = "✓ Brilliant! That is correct.";
+                    feedback.style.display = "block";
+                    feedback.style.color = "#34d399";
+                } else {
+                    this.classList.add('wrong');
+                    feedback.textContent = "✕ Not quite. Try again!";
+                    feedback.style.display = "block";
+                    feedback.style.color = "#f87171";
+                }
+            });
+        });
+    </script>
+</body>
+
+</html>

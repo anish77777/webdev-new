@@ -58,6 +58,68 @@
             </div>
         </section>
 
+        <!-- Customization -->
+        <section class="card">
+            <div class="card-header">
+                <span class="badge">Modern</span>
+                <h2>Customizing Link Styles</h2>
+            </div>
+            <p>While maintaining standard colors is important, you can modernize the look by replacing the default
+                underline with a <code>border-bottom</code>.</p>
+            <div class="image-demo-container">
+                <div class="code-block">
+                    <pre><code>a {
+  text-decoration: none;
+  border-bottom: 1px solid blue;
+}
+
+a:visited {
+  border-bottom: 1px solid purple;
+}</code></pre>
+                </div>
+                <div class="preview-box">
+                    <a href="#custom" class="custom-border-link">Modern Border Link</a>
+                    <p class="sample-text">This link uses a subtle border instead of the standard underline.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Modern Underline Control -->
+        <section class="card">
+            <div class="card-header">
+                <span class="badge badge-accent">Modern CSS</span>
+                <h2>Underline Mastery</h2>
+            </div>
+            <p>Modern CSS provides properties to control the underline without resorting to borders. This keeps the
+                decoration semantically linked to the text.</p>
+
+            <div class="states-grid">
+                <div class="state-item">
+                    <code>text-decoration-color</code>
+                    <p>Independent underline color</p>
+                    <a href="#color" class="advanced-demo decoration-color">Colorful Underline</a>
+                </div>
+                <div class="state-item">
+                    <code>text-decoration-thickness</code>
+                    <p>Underline weight</p>
+                    <a href="#thickness" class="advanced-demo decoration-thickness">Bold Underline</a>
+                </div>
+                <div class="state-item">
+                    <code>text-underline-offset</code>
+                    <p>Spacing from text</p>
+                    <a href="#offset" class="advanced-demo decoration-offset">Offset Underline</a>
+                </div>
+            </div>
+
+            <div class="code-block" style="margin-top: 2rem;">
+                <pre><code>a {
+  text-decoration-color: #facc15;
+  text-decoration-thickness: 3px;
+  text-underline-offset: 5px;
+}</code></pre>
+            </div>
+        </section>
+
         <!-- Interactive States -->
         <section class="card">
             <div class="card-header">

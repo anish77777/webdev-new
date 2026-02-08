@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Link States & Pseudo-classes | CSS Mastery</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700&family=JetBrains+Mono&display=swap"
+        rel="stylesheet">
+</head>
+
+<body>
+    <div class="glass-bg"></div>
+
+    <main class="container">
+        <header class="hero">
+            <h1 class="gradient-text">Mastering Link States</h1>
+            <p class="subtitle">Using pseudo-classes to provide interactivity and feedback.</p>
+        </header>
+
+        <section class="card intro">
+            <h2>The Pseudo-class Syntax</h2>
+            <p>A <strong>pseudo-class</strong> is a keyword added to a selector that specifies a special state of the
+                selected element. The syntax looks like this, where <strong>A</strong> is the selector and
+                <strong>:B</strong> is the pseudo-class:</p>
+            <div class="shorthand-box">
+                <code>A:B { property: value; }</code>
+            </div>
+            <p>Pseudo-classes allow you to style elements based on their state or user interaction without additional
+                HTML markup.</p>
+        </section>
+
+        <div class="grid">
+            <!-- Link State -->
+            <section class="card state-card">
+                <div class="card-header">
+                    <span class="badge">Static</span>
+                    <h2>:link</h2>
+                </div>
+                <p>Styles unvisited links, indicating they are clickable. Default is usually blue.</p>
+                <div class="code-block small">
+                    <pre><code>a:link { color: red; }</code></pre>
+                </div>
+                <div class="demo-box">
+                    <a href="#unvisited" class="demo-link-state state-link">Unvisited Link</a>
+                </div>
+            </section>
+
+            <!-- Visited State -->
+            <section class="card state-card">
+                <div class="card-header">
+                    <span class="badge badge-visited">History</span>
+                    <h2>:visited</h2>
+                </div>
+                <p>Styles links that have already been visited or clicked. Helps tracking.</p>
+                <div class="code-block small">
+                    <pre><code>a:visited { color: green; }</code></pre>
+                </div>
+                <div class="demo-box">
+                    <a href="#visited" class="demo-link-state state-visited">Visited Link</a>
+                </div>
+            </section>
+
+            <!-- Hover State -->
+            <section class="card state-card">
+                <div class="card-header">
+                    <span class="badge badge-hover">UI</span>
+                    <h2>:hover</h2>
+                </div>
+                <p>Changes style when the mouse pointer is over the link. Vital feedback.</p>
+                <div class="code-block small">
+                    <pre><code>a:hover { color: green; }</code></pre>
+                </div>
+                <div class="demo-box">
+                    <a href="#hover" class="demo-link-state state-hover">Hover over me</a>
+                </div>
+            </section>
+
+            <!-- Focus State -->
+            <section class="card state-card">
+                <div class="card-header">
+                    <span class="badge badge-focus">A11y</span>
+                    <h2>:focus</h2>
+                </div>
+                <p>Styles when focused (via keyboard). Essential for accessibility navigation.</p>
+                <div class="code-block small">
+                    <pre><code>a:focus { outline: 2px solid orange; }</code></pre>
+                </div>
+                <div class="demo-box">
+                    <a href="#focus" class="demo-link-state state-focus">Tab to focus me</a>
+                </div>
+            </section>
+        </div>
+
+        <!-- Active State & Order -->
+        <section class="card">
+            <div class="card-header">
+                <span class="badge badge-active">Action</span>
+                <h2>:active & The LVHFA Order</h2>
+            </div>
+            <p>The <code>:active</code> state occurs precisely while the link is being clicked. To ensure styles apply
+                correctly, the recommended order is: <strong>L</strong>ink, <strong>V</strong>isited,
+                <strong>H</strong>over, <strong>F</strong>ocus, <strong>A</strong>ctive.
+            </p>
+            <div class="active-demo-container">
+                <div class="code-block">
+                    <pre><code>a:active {
+  color: pink;
+}</code></pre>
+                </div>
+                <div class="preview-box">
+                    <a href="#active" class="demo-link-state state-active">Click and Hold Me</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Quiz Section -->
+        <section class="card quiz-section">
+            <div class="card-header">
+                <span class="badge">Assessment</span>
+                <h2>Knowledge Check</h2>
+            </div>
+            <div class="quiz-container">
+                <!-- Question 1 -->
+                <div class="question">
+                    <span class="question-text">1. Which CSS pseudo-class is used to style links that have not been
+                        visited?</span>
+                    <div class="options">
+                        <div class="option">:visited</div>
+                        <div class="option" data-correct="true">:link</div>
+                        <div class="option">:hover</div>
+                        <div class="option">:active</div>
+                    </div>
+                </div>
+
+                <!-- Question 2 -->
+                <div class="question">
+                    <span class="question-text">2. What visual change does the hover state typically involve in
+                        CSS?</span>
+                    <div class="options">
+                        <div class="option">The link becomes larger.</div>
+                        <div class="option" data-correct="true">The link text color changes.</div>
+                        <div class="option">The link text becomes bold.</div>
+                        <div class="option">The link text is underlined.</div>
+                    </div>
+                </div>
+
+                <!-- Question 3 -->
+                <div class="question">
+                    <span class="question-text">3. Which CSS pseudo-class would you use to add a visible outline around
+                        a link when it is navigated to using the keyboard?</span>
+                    <div class="options">
+                        <div class="option">:link</div>
+                        <div class="option">:hover</div>
+                        <div class="option" data-correct="true">:focus</div>
+                        <div class="option">:active</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <script>
+        // Quiz Logic
+        document.querySelectorAll('.option').forEach(option => {
+            option.addEventListener('click', () => {
+                const parent = option.parentElement;
+                if (parent.classList.contains('answered')) return;
+
+                parent.classList.add('answered');
+                option.classList.add('selected');
+
+                if (option.dataset.correct === 'true') {
+                    option.classList.add('correct');
+                } else {
+                    option.classList.add('incorrect');
+                    parent.querySelectorAll('.option').forEach(opt => {
+                        if (opt.dataset.correct === 'true') {
+                            opt.classList.add('selected', 'correct');
+                        }
+                    });
+                }
+            });
+        });
+    </script>
+</body>
+
+</html>

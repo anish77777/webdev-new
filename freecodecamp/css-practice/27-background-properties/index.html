@@ -1,0 +1,408 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mastering CSS Background Properties</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #ff8c42;
+            --secondary: #ff3c7e;
+            --accent: #4ecdc4;
+            --bg-dark: #0f172a;
+            --glass: rgba(255, 255, 255, 0.05);
+            --glass-border: rgba(255, 255, 255, 0.1);
+            --text-main: #e2e8f0;
+            --text-dim: #94a3b8;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Outfit', sans-serif;
+        }
+
+        body {
+            background-color: var(--bg-dark);
+            color: var(--text-main);
+            line-height: 1.6;
+            overflow-x: hidden;
+            background-image: radial-gradient(circle at 10% 20%, rgba(255, 140, 66, 0.05) 0%, transparent 20%),
+                radial-gradient(circle at 90% 80%, rgba(78, 205, 196, 0.05) 0%, transparent 20%);
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 4rem 2rem;
+        }
+
+        header {
+            text-align: center;
+            margin-bottom: 4rem;
+        }
+
+        h1 {
+            font-size: 3.5rem;
+            font-weight: 700;
+            background: linear-gradient(to right, var(--primary), var(--secondary));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 1rem;
+        }
+
+        .intro {
+            font-size: 1.2rem;
+            color: var(--text-dim);
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        section {
+            background: var(--glass);
+            backdrop-filter: blur(10px);
+            border: 1px solid var(--glass-border);
+            border-radius: 24px;
+            padding: 3rem;
+            margin-bottom: 3rem;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        section:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
+            border-color: rgba(255, 255, 255, 0.2);
+        }
+
+        h2 {
+            font-size: 2rem;
+            color: var(--primary);
+            margin-bottom: 1.5rem;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        p {
+            margin-bottom: 1.5rem;
+            color: var(--text-main);
+        }
+
+        code {
+            background: rgba(0, 0, 0, 0.3);
+            padding: 0.2rem 0.5rem;
+            border-radius: 6px;
+            color: var(--accent);
+            font-family: 'Courier New', Courier, monospace;
+        }
+
+        .code-block {
+            background: #010614;
+            border-radius: 12px;
+            padding: 1.5rem;
+            margin-bottom: 2rem;
+            border-left: 4px solid var(--secondary);
+            overflow-x: auto;
+        }
+
+        .code-block pre {
+            color: #d1d5db;
+        }
+
+        .preview-label {
+            font-size: 0.9rem;
+            font-weight: 600;
+            color: var(--text-dim);
+            margin-bottom: 0.5rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .preview-box {
+            height: 250px;
+            border-radius: 16px;
+            border: 2px dashed var(--glass-border);
+            margin-bottom: 2rem;
+            position: relative;
+            background-color: rgba(255, 255, 255, 0.02);
+            background-image: url("https://cdn.freecodecamp.org/curriculum/cat-photo-app/relaxing-cat.jpg");
+        }
+
+        /* Quiz Styles */
+        .quiz {
+            background: linear-gradient(135deg, rgba(255, 140, 66, 0.1), rgba(255, 60, 126, 0.1));
+        }
+
+        .quiz-item {
+            margin-bottom: 2.5rem;
+        }
+
+        .quiz-question {
+            font-size: 1.3rem;
+            font-weight: 600;
+            margin-bottom: 1.5rem;
+        }
+
+        .options {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1rem;
+        }
+
+        .option-btn {
+            background: var(--glass);
+            border: 1px solid var(--glass-border);
+            padding: 1rem;
+            border-radius: 12px;
+            color: var(--text-main);
+            cursor: pointer;
+            transition: all 0.2s ease;
+            text-align: center;
+        }
+
+        .option-btn:hover {
+            background: rgba(255, 255, 255, 0.1);
+            border-color: var(--primary);
+        }
+
+        .option-btn.selected {
+            background: var(--primary);
+            color: white;
+            border-color: var(--primary);
+        }
+
+        .feedback {
+            margin-top: 1rem;
+            padding: 0.8rem;
+            border-radius: 8px;
+            font-weight: 600;
+            display: none;
+        }
+
+        .feedback.correct {
+            background: rgba(78, 205, 196, 0.2);
+            color: #4ecdc4;
+            display: block;
+        }
+
+        .feedback.wrong {
+            background: rgba(255, 60, 126, 0.2);
+            color: #ff3c7e;
+            display: block;
+        }
+
+        footer {
+            text-align: center;
+            color: var(--text-dim);
+            margin-top: 5rem;
+            font-size: 0.9rem;
+        }
+
+        /* Property Specific Classes */
+        .size-contain {
+            background-size: contain;
+            background-repeat: no-repeat;
+        }
+
+        .size-cover {
+            background-size: cover;
+            background-repeat: no-repeat;
+        }
+
+        .repeat-x {
+            background-size: contain;
+            background-repeat: repeat-x;
+        }
+
+        .repeat-y {
+            background-size: contain;
+            background-repeat: repeat-y;
+        }
+
+        .pos-center-top {
+            background-size: contain;
+            background-repeat: no-repeat;
+            background-position: center top;
+        }
+
+        .attachment-fixed {
+            background-image: url("https://cdn.freecodecamp.org/curriculum/cat-photo-app/relaxing-cat.jpg");
+            background-position: center top;
+            background-attachment: fixed;
+            background-size: initial;
+            background-repeat: repeat;
+        }
+
+        @media (max-width: 600px) {
+            h1 {
+                font-size: 2.5rem;
+            }
+
+            section {
+                padding: 2rem;
+            }
+
+            .options {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <header>
+            <h1>Background Magic</h1>
+            <p class="intro">Mastering <code>background-size</code>, <code>repeat</code>, <code>position</code>, and
+                <code>attachment</code> to create stunning layouts.</p>
+        </header>
+
+        <section>
+            <h2>🖼️ Background Size</h2>
+            <p>The <code>background-size</code> property controls how large your image appears. Use <code>contain</code>
+                to see the full image, or <code>cover</code> to fill the entire space.</p>
+
+            <div class="preview-label">Live Preview: background-size: contain</div>
+            <div class="preview-box size-contain"></div>
+
+            <div class="preview-label">Live Preview: background-size: cover</div>
+            <div class="preview-box size-cover"></div>
+
+            <div class="code-block">
+                <pre><code>body {
+  background-image: url("cat.jpg");
+  background-size: cover; /* Aspect ratio preserved, fills space */
+}</code></pre>
+            </div>
+        </section>
+
+        <section>
+            <h2>🔄 Background Repeat</h2>
+            <p>By default, images repeat. You can stop this behavior with <code>no-repeat</code>, or guide it with
+                <code>repeat-x</code> (horizontal) or <code>repeat-y</code> (vertical).</p>
+
+            <div class="preview-label">Live Preview: repeat-x</div>
+            <div class="preview-box repeat-x"></div>
+
+            <div class="preview-label">Live Preview: repeat-y</div>
+            <div class="preview-box repeat-y"></div>
+
+            <div class="code-block">
+                <pre><code>body {
+  background-repeat: no-repeat; /* No tiling */
+}</code></pre>
+            </div>
+        </section>
+
+        <section>
+            <h2>📍 Background Position</h2>
+            <p>Decide where your image sits. Use keywords like <code>center</code>, <code>top</code>, <code>left</code>,
+                or specific percentages.</p>
+
+            <div class="preview-label">Live Preview: center top</div>
+            <div class="preview-box pos-center-top"></div>
+
+            <div class="code-block">
+                <pre><code>body {
+  background-position: center top;
+}</code></pre>
+            </div>
+        </section>
+
+        <section>
+            <h2>⚓ Background Attachment</h2>
+            <p>Determine if the image scrolls with the page or stays locked in place relative to the viewport.</p>
+
+            <div class="preview-label">Live Preview: background-attachment: fixed</div>
+            <p style="font-style: italic; color: var(--text-dim);">Notice how the cat below stays put when you scroll!
+            </p>
+            <div class="preview-box attachment-fixed"></div>
+
+            <div class="code-block">
+                <pre><code>body {
+  background-attachment: fixed;
+}</code></pre>
+            </div>
+        </section>
+
+        <section class="quiz">
+            <h2>🧠 Quick Quiz</h2>
+
+            <div class="quiz-item" id="q1">
+                <p class="quiz-question">1. Which <code>background-size</code> value would you use to ensure the entire
+                    image is visible without cropping?</p>
+                <div class="options">
+                    <div class="option-btn" data-value="cover">cover</div>
+                    <div class="option-btn" data-value="contain">contain</div>
+                    <div class="option-btn" data-value="auto">auto</div>
+                    <div class="option-btn" data-value="100%">100%</div>
+                </div>
+                <div class="feedback"></div>
+            </div>
+
+            <div class="quiz-item" id="q2">
+                <p class="quiz-question">2. If you want a background image to repeat horizontally but not vertically,
+                    which value would you use?</p>
+                <div class="options">
+                    <div class="option-btn" data-value="repeat">repeat</div>
+                    <div class="option-btn" data-value="no-repeat">no-repeat</div>
+                    <div class="option-btn" data-value="repeat-x">repeat-x</div>
+                    <div class="option-btn" data-value="repeat-y">repeat-y</div>
+                </div>
+                <div class="feedback"></div>
+            </div>
+
+            <div class="quiz-item" id="q3">
+                <p class="quiz-question">3. Which <code>background-attachment</code> value would you use to make a
+                    background image stay in place when the user scrolls?</p>
+                <div class="options">
+                    <div class="option-btn" data-value="scroll">scroll</div>
+                    <div class="option-btn" data-value="fixed">fixed</div>
+                    <div class="option-btn" data-value="local">local</div>
+                    <div class="option-btn" data-value="static">static</div>
+                </div>
+                <div class="feedback"></div>
+            </div>
+        </section>
+
+        <footer>
+            <p>&copy; 2026 CSS Mastery. Learn, Practice, Create.</p>
+        </footer>
+    </div>
+
+    <script>
+        const answers = {
+            q1: 'contain',
+            q2: 'repeat-x',
+            q3: 'fixed'
+        };
+
+        document.querySelectorAll('.option-btn').forEach(btn => {
+            btn.addEventListener('click', function () {
+                const quizItem = this.closest('.quiz-item');
+                const quizId = quizItem.id;
+                const feedback = quizItem.querySelector('.feedback');
+                const selectedValue = this.getAttribute('data-value');
+
+                // Clear previous selection
+                quizItem.querySelectorAll('.option-btn').forEach(b => b.classList.remove('selected'));
+                this.classList.add('selected');
+
+                if (selectedValue === answers[quizId]) {
+                    feedback.textContent = "✨ Correct! Well done.";
+                    feedback.className = "feedback correct";
+                } else {
+                    feedback.textContent = "❌ Not quite. Try again!";
+                    feedback.className = "feedback wrong";
+                }
+            });
+        });
+    </script>
+</body>
+
+</html>

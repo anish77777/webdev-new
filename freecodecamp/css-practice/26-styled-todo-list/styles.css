@@ -1,0 +1,76 @@
+/* 14. No text decorations */
+.sub-item-link {
+    text-decoration: none;
+}
+
+/* 15. Unvisited links color */
+.sub-item-link:link {
+    color: #0000FF;
+    /* Pure Blue */
+}
+
+/* 19. Visited links color */
+.sub-item-link:visited {
+    color: #800080;
+    /* Pure Purple */
+}
+
+/* 16. Hover color */
+.sub-item-link:hover {
+    color: #00FF00;
+    /* Pure Green */
+}
+
+/* 18. Focus outline */
+.sub-item-link:focus {
+    outline: 2px solid #FFA500;
+    /* Pure Orange */
+}
+
+/* 17. Active color */
+.sub-item-link:active {
+    color: #FF0000;
+    /* Pure Red */
+}
+
+/* General Layout Styling */
+body {
+    background-color: #f0f0f0;
+    font-family: Arial, sans-serif;
+    padding: 2.5rem;
+}
+
+.todo-list {
+    background: #ffffff;
+    padding: 2rem;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.todo-list>li {
+    list-style: none;
+    margin-bottom: 2rem;
+    border-bottom: 1px solid #eee;
+    padding-bottom: 1rem;
+}
+
+label {
+    font-weight: bold;
+    font-size: 1.2rem;
+    margin-left: 0.5rem;
+    cursor: pointer;
+}
+
+.sub-item {
+    margin-top: 1rem;
+    list-style-type: circle;
+}
+
+.sub-item li {
+    margin-bottom: 0.5rem;
+}
+
+.sub-item-link {
+    font-size: 1rem;
+    font-weight: 500;
+}
