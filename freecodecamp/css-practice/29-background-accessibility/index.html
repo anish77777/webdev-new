@@ -1,0 +1,370 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Inclusive Design: Background Accessibility</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #0ea5e9;
+            --success: #10b981;
+            --error: #ef4444;
+            --bg-dark: #070a13;
+            --glass: rgba(255, 255, 255, 0.03);
+            --glass-border: rgba(255, 255, 255, 0.08);
+            --text-main: #f1f5f9;
+            --text-dim: #94a3b8;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Outfit', sans-serif;
+        }
+
+        body {
+            background-color: var(--bg-dark);
+            color: var(--text-main);
+            line-height: 1.6;
+            min-height: 100vh;
+            background-image:
+                radial-gradient(circle at 10% 20%, rgba(14, 165, 233, 0.1) 0%, transparent 40%),
+                radial-gradient(circle at 90% 80%, rgba(16, 185, 129, 0.05) 0%, transparent 40%);
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 4rem 2rem;
+        }
+
+        header {
+            text-align: center;
+            margin-bottom: 5rem;
+        }
+
+        h1 {
+            font-size: 3.5rem;
+            font-weight: 700;
+            background: linear-gradient(135deg, #38bdf8, #818cf8);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 1.5rem;
+        }
+
+        .intro {
+            font-size: 1.25rem;
+            color: var(--text-dim);
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        section {
+            background: var(--glass);
+            backdrop-filter: blur(12px);
+            border: 1px solid var(--glass-border);
+            border-radius: 28px;
+            padding: 3rem;
+            margin-bottom: 3.5rem;
+            position: relative;
+        }
+
+        h2 {
+            font-size: 2rem;
+            margin-bottom: 1.5rem;
+            color: #f8fafc;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        p {
+            margin-bottom: 1.5rem;
+            color: #cbd5e1;
+        }
+
+        .comparison-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .comp-card {
+            border-radius: 20px;
+            padding: 2.5rem;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            border: 1px solid var(--glass-border);
+            min-height: 180px;
+        }
+
+        .comp-label {
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            font-weight: 700;
+            margin-bottom: 1rem;
+        }
+
+        /* Contrast Examples */
+        .poor-contrast {
+            background-color: #f8fafc;
+            color: #cbd5e1;
+        }
+
+        .good-contrast {
+            background-color: #0f172a;
+            color: #f1f5f9;
+        }
+
+        /* Busy Background Demo */
+        .busy-bg {
+            background: linear-gradient(45deg, #ff00cc, #3333ff, #00d4ff);
+            background-size: 400% 400%;
+            border-radius: 20px;
+            padding: 3rem;
+            margin-top: 1.5rem;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .overlay-text {
+            position: relative;
+            z-index: 1;
+            padding: 1.5rem;
+            border-radius: 12px;
+            background: rgba(0, 0, 0, 0.7);
+            color: white;
+            font-weight: 600;
+            text-align: center;
+        }
+
+        /* Message Demo */
+        .message-box {
+            padding: 1rem 1.5rem;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin-bottom: 1rem;
+            font-weight: 600;
+        }
+
+        .error {
+            background: rgba(239, 68, 68, 0.15);
+            border: 1px solid var(--error);
+            color: #f87171;
+        }
+
+        .success {
+            background: rgba(16, 185, 129, 0.15);
+            border: 1px solid var(--success);
+            color: #34d399;
+        }
+
+        /* Quiz Styles */
+        .quiz-card {
+            background: linear-gradient(165deg, rgba(14, 165, 233, 0.1), rgba(16, 185, 129, 0.1));
+        }
+
+        .quiz-item {
+            margin-bottom: 2.5rem;
+        }
+
+        .options {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 0.8rem;
+            margin-top: 1rem;
+        }
+
+        .option-btn {
+            background: rgba(255, 255, 255, 0.04);
+            border: 1px solid var(--glass-border);
+            padding: 1.2rem;
+            border-radius: 16px;
+            color: var(--text-main);
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-align: left;
+        }
+
+        .option-btn:hover {
+            border-color: var(--primary);
+            background: rgba(255, 255, 255, 0.1);
+        }
+
+        .option-btn.selected-correct {
+            border-color: var(--success);
+            background: rgba(16, 185, 129, 0.1);
+            color: #34d399;
+        }
+
+        .option-btn.selected-wrong {
+            border-color: var(--error);
+            background: rgba(239, 68, 68, 0.1);
+            color: #f87171;
+        }
+
+        .feedback {
+            margin-top: 1rem;
+            font-weight: 600;
+            display: none;
+        }
+
+        footer {
+            text-align: center;
+            padding: 4rem 0;
+            color: var(--text-dim);
+            font-size: 0.9rem;
+        }
+
+        @media (max-width: 600px) {
+            .comparison-grid {
+                grid-template-columns: 1fr;
+            }
+
+            h1 {
+                font-size: 2.5rem;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <header>
+            <h1>Inclusive Design</h1>
+            <p class="intro">Accessibility isn't just a feature; it's a fundamental aspect of digital empathy. Let's
+                make backgrounds work for everyone.</p>
+        </header>
+
+        <section id="contrast">
+            <h2>🌗 Contrast Matters</h2>
+            <p>Contrast is the difference in luminance between text and its background. The WCAG recommends a minimum
+                ratio of <strong>4.5:1</strong> for regular text.</p>
+
+            <div class="comparison-grid">
+                <div class="comp-card poor-contrast">
+                    <span class="comp-label" style="color: #94a3b8;">Poor Contrast</span>
+                    <p style="margin: 0;">Hard to read correctly.</p>
+                </div>
+                <div class="comp-card good-contrast">
+                    <span class="comp-label" style="color: #38bdf8;">Good Contrast</span>
+                    <p style="margin: 0;">Clear and accessible.</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="busy">
+            <h2>🌌 Busy Backgrounds</h2>
+            <p>Complex gradients or images can "swallow" text. Use high-contrast overlays or semi-transparent
+                backgrounds to ensure readability.</p>
+
+            <div class="busy-bg">
+                <div class="overlay-text">
+                    This text uses a dark overlay (background: rgba(0,0,0,0.7)) to remain legible over a vibrant
+                    background.
+                </div>
+            </div>
+        </section>
+
+        <section id="color-logic">
+            <h2>🚫 Color as Sole Indicator</h2>
+            <p>Avoid using color alone to convey meaning. Users with color blindness might miss the intended message.
+            </p>
+
+            <div class="message-box error">
+                <span>❌ Error: Your password is too weak.</span>
+            </div>
+            <p style="font-size: 0.9rem; color: var(--text-dim); margin-left: 1rem;">Better: Uses code (red)
+                <strong>and</strong> an icon (❌).</p>
+
+            <div class="message-box success">
+                <span>✅ Success: Profile updated!</span>
+            </div>
+        </section>
+
+        <section id="audio-video">
+            <h2>🔊 Media Accessibility</h2>
+            <p>If you use background audio or auto-playing videos, always provide a way for users to <strong>mute or
+                    pause</strong> them. These can be overwhelming for users with cognitive disabilities.</p>
+        </section>
+
+        <section class="quiz-card">
+            <h2>🧠 Accessibility Quiz</h2>
+
+            <div class="quiz-item" id="q1">
+                <p>1. Why is it important to maintain sufficient contrast?</p>
+                <div class="options">
+                    <button class="option-btn" data-correct="false">To make the page look more colorful.</button>
+                    <button class="option-btn" data-correct="true">To make the text more readable for all
+                        users.</button>
+                    <button class="option-btn" data-correct="false">To reduce loading times.</button>
+                </div>
+                <div class="feedback"></div>
+            </div>
+
+            <div class="quiz-item" id="q2">
+                <p>2. Which should be avoided when placing text over a background?</p>
+                <div class="options">
+                    <button class="option-btn" data-correct="false">Applying high-contrast text.</button>
+                    <button class="option-btn" data-correct="true">Using a busy background without any overlay.</button>
+                    <button class="option-btn" data-correct="false">Plain solid background colors.</button>
+                </div>
+                <div class="feedback"></div>
+            </div>
+
+            <div class="quiz-item" id="q3">
+                <p>3. What is the issue with using red alone for an error message?</p>
+                <div class="options">
+                    <button class="option-btn" data-correct="false">It makes the site less colorful.</button>
+                    <button class="option-btn" data-correct="true">It can be problematic for users with color
+                        blindness.</button>
+                    <button class="option-btn" data-correct="false">It requires too much CSS.</button>
+                </div>
+                <div class="feedback"></div>
+            </div>
+        </section>
+
+        <footer>
+            <p>&copy; 2026 CSS Mastery: Inclusive Backgrounds. Design for every user.</p>
+        </footer>
+    </div>
+
+    <script>
+        document.querySelectorAll('.option-btn').forEach(btn => {
+            btn.addEventListener('click', function () {
+                const parent = this.closest('.quiz-item');
+                const feedback = parent.querySelector('.feedback');
+                const isCorrect = this.getAttribute('data-correct') === 'true';
+
+                parent.querySelectorAll('.option-btn').forEach(b => {
+                    b.classList.remove('selected-correct', 'selected-wrong');
+                });
+
+                if (isCorrect) {
+                    this.classList.add('selected-correct');
+                    feedback.textContent = "✓ Correct! Accessible design benefits everyone.";
+                    feedback.style.color = "var(--success)";
+                } else {
+                    this.classList.add('selected-wrong');
+                    feedback.textContent = "✕ Try again. Hint: Think about readability and inclusion.";
+                    feedback.style.color = "var(--error)";
+                }
+                feedback.style.display = "block";
+            });
+        });
+    </script>
+</body>
+
+</html>
