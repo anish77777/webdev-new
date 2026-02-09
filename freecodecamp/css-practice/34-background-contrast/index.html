@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contrast & Accessibility | Design for Everyone</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700&family=Plus+Jakarta+Sans:wght@300;400;500;700&display=swap"
+        rel="stylesheet">
+</head>
+
+<body>
+    <div class="glass-bg"></div>
+
+    <header class="main-header">
+        <div class="container">
+            <h1>Color Contrast</h1>
+            <p>Mastering the balance between aesthetics and accessibility.</p>
+        </div>
+    </header>
+
+    <main class="container">
+        <!-- Introduction -->
+        <section class="intro card">
+            <h2>What is Contrast?</h2>
+            <p>Contrast is the difference between two colors—how easy it is to tell them apart. High contrast makes
+                elements visually distinct, while low contrast makes them blend together.</p>
+
+            <div class="grid">
+                <div class="demo-box high">
+                    <span class="label">High Contrast</span>
+                    <p>Black on White (21:1 ratio)</p>
+                </div>
+                <div class="demo-box low">
+                    <span class="label">Low Contrast</span>
+                    <p>Light Purple on Light Blue (1.48:1 ratio)</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- WCAG Standards -->
+        <section class="standards card">
+            <h2>The WCAG Standards</h2>
+            <p>The Web Content Accessibility Guidelines (WCAG) provide benchmarks for contrast. Every designer and
+                developer should aim for these ratios:</p>
+
+            <div class="grid">
+                <div class="standard-box aa">
+                    <h3>AA Standard (4.5:1)</h3>
+                    <p>The minimum requirement for body text.</p>
+                    <div class="preview-text">Accessible Body Text</div>
+                </div>
+                <div class="standard-box aaa">
+                    <h3>AAA Standard (7:1)</h3>
+                    <p>The highest level of accessibility.</p>
+                    <div class="preview-text">Maximum Readability</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- HSL Adjustments -->
+        <section class="adjustments card">
+            <h2>Improving Contrast (HSL)</h2>
+            <p>When contrast is too low, you can adjust the <strong>Hue</strong>, <strong>Saturation</strong>, or
+                <strong>Lightness</strong> (HSL) to fix it.</p>
+
+            <div class="hsl-grid">
+                <div class="hsl-box hue">
+                    <h4>1. Hue Shift</h4>
+                    <p>Changing the base color.</p>
+                    <div class="comparison">
+                        <div class="item bad">Purple on Blue</div>
+                        <div class="item good">Red on Blue</div>
+                    </div>
+                </div>
+                <div class="hsl-box saturation">
+                    <h4>2. Saturation</h4>
+                    <p>Intensity of the color.</p>
+                    <div class="comparison">
+                        <div class="item bad">Low Sat Red</div>
+                        <div class="item good">High Sat Red</div>
+                    </div>
+                </div>
+                <div class="hsl-box lightness">
+                    <h4>3. Lightness</h4>
+                    <p>Adding white or black.</p>
+                    <div class="comparison">
+                        <div class="item bad">Light Red</div>
+                        <div class="item good">Dark Red</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Opacity Section (Requested) -->
+        <section class="opacity card">
+            <h2>The Impact of Opacity</h2>
+            <p>Opacity (the alpha channel) can bridge background and foreground. However, lowering opacity often
+                <strong>reduces contrast</strong> because it blends the text into the background color.</p>
+
+            <div class="opacity-demo">
+                <div class="op-item full">
+                    <span class="label">100% Opacity</span>
+                    <p>Crispy and clear text.</p>
+                </div>
+                <div class="op-item mid">
+                    <span class="label">50% Opacity</span>
+                    <p>Fading into the background.</p>
+                </div>
+                <div class="op-item low">
+                    <span class="label">20% Opacity</span>
+                    <p>Nearly invisible / Low Accessibility.</p>
+                </div>
+            </div>
+            <p class="warning-tip">💡 <strong>Pro Tip:</strong> Avoid using opacity for important text. Use solid hex
+                colors that look like the blended color instead.</p>
+        </section>
+
+        <!-- Quiz -->
+        <section class="quiz card" id="quiz">
+            <h2>Test Your Knowledge</h2>
+            <div class="question" data-answer="The difference between two colors">
+                <p>1. What is contrast in web design?</p>
+                <div class="options">
+                    <button onclick="checkAnswer(this, 'The brightness of colors')">Brightness of colors</button>
+                    <button onclick="checkAnswer(this, 'The difference between two colors')">The difference between two
+                        colors</button>
+                    <button onclick="checkAnswer(this, 'The number of colors')">Number of colors</button>
+                </div>
+            </div>
+            <div class="question" data-answer="4.5:1">
+                <p>2. What is the minimum AA ratio for body text?</p>
+                <div class="options">
+                    <button onclick="checkAnswer(this, '3:1')">3:1</button>
+                    <button onclick="checkAnswer(this, '4.5:1')">4.5:1</button>
+                    <button onclick="checkAnswer(this, '7:1')">7:1</button>
+                </div>
+            </div>
+            <div class="question" data-answer="Opacity">
+                <p>3. Which of these is NOT typically used to *fix* contrast ratios?</p>
+                <div class="options">
+                    <button onclick="checkAnswer(this, 'Hue')">Hue</button>
+                    <button onclick="checkAnswer(this, 'Lightness')">Lightness</button>
+                    <button onclick="checkAnswer(this, 'Opacity')">Opacity</button>
+                </div>
+            </div>
+            <div id="quiz-feedback" class="feedback"></div>
+        </section>
+    </main>
+
+    <script>
+        function checkAnswer(btn, selection) {
+            const questionDiv = btn.closest('.question');
+            const correctAnswer = questionDiv.getAttribute('data-answer');
+            const buttons = questionDiv.querySelectorAll('button');
+
+            buttons.forEach(b => b.disabled = true);
+
+            if (selection === correctAnswer) {
+                btn.classList.add('correct');
+            } else {
+                btn.classList.add('wrong');
+                buttons.forEach(b => {
+                    if (b.innerText === correctAnswer) b.classList.add('correct');
+                });
+            }
+        }
+    </script>
+</body>
+
+</html>

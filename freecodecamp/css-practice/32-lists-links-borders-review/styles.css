@@ -1,0 +1,227 @@
+:root {
+    --bg-color: #f8fafc;
+    --text-main: #1e293b;
+    --text-muted: #64748b;
+    --accent: #3b82f6;
+    --accent-soft: #eff6ff;
+    --card-bg: #ffffff;
+    --code-bg: #1e1e1e;
+    --border-color: #e2e8f0;
+    --shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1);
+}
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    font-family: 'Inter', sans-serif;
+    background-color: var(--bg-color);
+    color: var(--text-main);
+    display: flex;
+    line-height: 1.6;
+}
+
+/* Side Navigation */
+.side-nav {
+    width: 250px;
+    background: var(--card-bg);
+    height: 100vh;
+    position: fixed;
+    border-right: 1px solid var(--border-color);
+    padding: 40px 20px;
+}
+
+.nav-header {
+    font-weight: 700;
+    text-transform: uppercase;
+    font-size: 0.75rem;
+    letter-spacing: 0.05em;
+    color: var(--text-muted);
+    margin-bottom: 20px;
+}
+
+.side-nav ul {
+    list-style: none;
+    padding: 0;
+}
+
+.side-nav li {
+    margin-bottom: 10px;
+}
+
+.side-nav a {
+    text-decoration: none;
+    color: var(--text-muted);
+    font-weight: 500;
+    display: block;
+    padding: 8px 12px;
+    border-radius: 6px;
+    transition: all 0.2s;
+}
+
+.side-nav a:hover {
+    background: var(--accent-soft);
+    color: var(--accent);
+}
+
+/* Main Content Area */
+.content-area {
+    margin-left: 250px;
+    max-width: 900px;
+    padding: 60px 80px;
+}
+
+.main-header h1 {
+    font-size: 2.5rem;
+    margin: 0 0 10px 0;
+}
+
+.main-header p {
+    font-size: 1.1rem;
+    color: var(--text-muted);
+}
+
+.review-section {
+    margin-top: 60px;
+    padding-top: 40px;
+    border-top: 1px solid var(--border-color);
+}
+
+h2 {
+    font-size: 1.75rem;
+    margin-bottom: 30px;
+}
+
+.concept {
+    background: var(--card-bg);
+    padding: 24px;
+    border-radius: 12px;
+    box-shadow: var(--shadow);
+    margin-bottom: 30px;
+}
+
+h3 {
+    margin-top: 0;
+    color: var(--accent);
+}
+
+/* Previews & Code */
+.preview-box {
+    background: var(--bg-color);
+    padding: 20px;
+    border-radius: 8px;
+    border: 1px dashed var(--border-color);
+    margin: 15px 0;
+}
+
+pre {
+    background: var(--code-bg);
+    color: #dcdcdc;
+    padding: 16px;
+    border-radius: 8px;
+    font-family: 'Fira Code', monospace;
+    font-size: 0.9rem;
+    overflow-x: auto;
+}
+
+code {
+    background: #eef2f7;
+    padding: 2px 6px;
+    border-radius: 4px;
+    font-family: 'Fira Code', monospace;
+    font-size: 0.9em;
+}
+
+/* Specific Review Styles */
+.square-list {
+    list-style-type: square;
+}
+
+.inside-list {
+    list-style-position: inside;
+    background: #fff;
+    border: 1px solid #eee;
+}
+
+.outside-list {
+    list-style-position: outside;
+    background: #fff;
+    border: 1px solid #eee;
+}
+
+.states-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 15px;
+    margin-bottom: 20px;
+}
+
+.state-card {
+    background: white;
+    padding: 15px;
+    border-radius: 8px;
+    text-align: center;
+    border: 1px solid var(--border-color);
+    font-size: 0.85rem;
+}
+
+.mixed-borders {
+    border-top: 3px solid blue;
+    border-right: 2px solid red;
+    border-bottom: 1px dashed green;
+    border-left: 4px dotted orange;
+    padding: 20px;
+    background: white;
+    display: inline-block;
+}
+
+.rounded-box {
+    border: 2px solid #333;
+    border-radius: 15px;
+    padding: 20px;
+    background: white;
+    display: inline-block;
+}
+
+.gradient-demo {
+    height: 150px;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-weight: 700;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+.linear {
+    background: linear-gradient(to right, #3b82f6, #9333ea);
+}
+
+.radial {
+    background: radial-gradient(circle, #f59e0b, #ef4444);
+}
+
+/* Grid Layout */
+.grid-layout {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+}
+
+@media (max-width: 768px) {
+    .side-nav {
+        display: none;
+    }
+
+    .content-area {
+        margin-left: 0;
+        padding: 40px 20px;
+    }
+
+    .grid-layout {
+        grid-template-columns: 1fr;
+    }
+}

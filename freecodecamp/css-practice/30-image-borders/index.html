@@ -1,0 +1,401 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Framing with Style: CSS Image Borders</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #f59e0b;
+            --secondary: #ec4899;
+            --accent: #10b981;
+            --bg-dark: #0c0a09;
+            --glass: rgba(255, 255, 255, 0.03);
+            --glass-border: rgba(255, 255, 255, 0.08);
+            --text-main: #fafaf9;
+            --text-dim: #a8a29e;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Outfit', sans-serif;
+        }
+
+        body {
+            background-color: var(--bg-dark);
+            color: var(--text-main);
+            line-height: 1.6;
+            min-height: 100vh;
+            background-image:
+                radial-gradient(circle at 0% 0%, rgba(245, 158, 11, 0.08) 0%, transparent 50%),
+                radial-gradient(circle at 100% 100%, rgba(236, 72, 153, 0.08) 0%, transparent 50%);
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 4rem 2rem;
+        }
+
+        header {
+            text-align: center;
+            margin-bottom: 5rem;
+        }
+
+        h1 {
+            font-size: 3.5rem;
+            font-weight: 700;
+            background: linear-gradient(to right, var(--primary), var(--secondary));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 1.5rem;
+        }
+
+        .intro {
+            font-size: 1.25rem;
+            color: var(--text-dim);
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        section {
+            background: var(--glass);
+            backdrop-filter: blur(12px);
+            border: 1px solid var(--glass-border);
+            border-radius: 32px;
+            padding: 3rem;
+            margin-bottom: 3.5rem;
+            transition: all 0.3s ease;
+        }
+
+        section:hover {
+            border-color: rgba(255, 255, 255, 0.2);
+            transform: translateY(-4px);
+        }
+
+        h2 {
+            font-size: 2rem;
+            margin-bottom: 1.5rem;
+            color: #fff;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        p {
+            margin-bottom: 2rem;
+            color: #d6d3d1;
+        }
+
+        .demo-layout {
+            display: flex;
+            flex-direction: column;
+            gap: 2rem;
+            align-items: center;
+            margin-bottom: 2rem;
+        }
+
+        .image-container {
+            position: relative;
+            background: rgba(255, 255, 255, 0.05);
+            padding: 20px;
+            border-radius: 20px;
+            width: fit-content;
+        }
+
+        img {
+            max-width: 100%;
+            height: auto;
+            display: block;
+            transition: all 0.3s ease;
+        }
+
+        .code-block {
+            background: #000;
+            padding: 1.5rem;
+            border-radius: 16px;
+            width: 100%;
+            border: 1px solid var(--glass-border);
+            overflow-x: auto;
+        }
+
+        code {
+            color: var(--primary);
+            font-family: 'Courier New', Courier, monospace;
+        }
+
+        /* Property Examples */
+        .simple-border {
+            border: 2px solid #ef4444;
+        }
+
+        .mixed-border {
+            border-top: 10px solid #ef4444;
+            border-right: 10px dashed #10b981;
+            border-bottom: 10px dotted #3b82f6;
+            border-left: 10px double #a855f7;
+        }
+
+        .outline-demo {
+            outline: 5px solid #fbbf24;
+        }
+
+        .rounded-border {
+            border: 3px solid #fff;
+            border-radius: 24px;
+        }
+
+        /* Info box for Outline */
+        .info-box {
+            background: rgba(245, 158, 11, 0.1);
+            border: 1px solid var(--primary);
+            padding: 1.5rem;
+            border-radius: 16px;
+            margin-top: 2rem;
+            font-size: 0.95rem;
+        }
+
+        /* Quiz Styles */
+        .quiz {
+            background: linear-gradient(135deg, rgba(245, 158, 11, 0.1), rgba(236, 72, 153, 0.1));
+        }
+
+        .quiz-item {
+            margin-bottom: 2.5rem;
+        }
+
+        .quiz-question {
+            font-weight: 600;
+            margin-bottom: 1.2rem;
+            font-size: 1.1rem;
+        }
+
+        .options {
+            display: flex;
+            flex-direction: column;
+            gap: 0.8rem;
+        }
+
+        .option-btn {
+            background: var(--glass);
+            border: 1px solid var(--glass-border);
+            padding: 1.2rem;
+            border-radius: 16px;
+            color: var(--text-main);
+            cursor: pointer;
+            transition: all 0.2s ease;
+            text-align: left;
+        }
+
+        .option-btn:hover {
+            background: rgba(255, 255, 255, 0.1);
+            border-color: var(--primary);
+        }
+
+        .option-btn.selected-correct {
+            border-color: var(--accent);
+            background: rgba(16, 185, 129, 0.1);
+            color: var(--accent);
+        }
+
+        .option-btn.selected-wrong {
+            border-color: #ef4444;
+            background: rgba(239, 68, 68, 0.1);
+            color: #ef4444;
+        }
+
+        .feedback {
+            margin-top: 1rem;
+            font-weight: 600;
+            display: none;
+        }
+
+        footer {
+            text-align: center;
+            padding: 4rem 0;
+            color: var(--text-dim);
+            font-size: 0.9rem;
+        }
+
+        @media (max-width: 600px) {
+            h1 {
+                font-size: 2.5rem;
+            }
+
+            section {
+                padding: 2rem;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <header>
+            <h1>Framing the Web</h1>
+            <p class="intro">Master the various ways to add borders, outlines, and rounded corners to your images with
+                CSS.</p>
+        </header>
+
+        <section id="basics">
+            <h2>🧱 The Border Shorthand</h2>
+            <p>The <code>border</code> property is the fastest way to add a uniform frame. It combines
+                <code>width</code>, <code>style</code>, and <code>color</code>.</p>
+
+            <div class="demo-layout">
+                <div class="image-container">
+                    <img class="simple-border"
+                        src="https://cdn.freecodecamp.org/curriculum/cat-photo-app/relaxing-cat.jpg"
+                        alt="A relaxing cat">
+                </div>
+                <div class="code-block">
+                    <pre><code>img {
+  border: 2px solid red;
+}</code></pre>
+                </div>
+            </div>
+        </section>
+
+        <section id="individual">
+            <h2>🎨 Individual Sides</h2>
+            <p>Need more control? You can style each side independently to create unique effects or highlight specific
+                edges.</p>
+
+            <div class="demo-layout">
+                <div class="image-container">
+                    <img class="mixed-border"
+                        src="https://cdn.freecodecamp.org/curriculum/cat-photo-app/relaxing-cat.jpg"
+                        alt="A relaxing cat">
+                </div>
+                <div class="code-block">
+                    <pre><code>img {
+  border-top: 10px solid red;
+  border-right: 10px dashed green;
+  border-bottom: 10px dotted blue;
+  border-left: 10px double purple;
+}</code></pre>
+                </div>
+            </div>
+        </section>
+
+        <section id="outline">
+            <h2>✨ Border vs. Outline</h2>
+            <p>An <code>outline</code> looks similar to a border but has one key difference: it sits
+                <strong>outside</strong> the element's space and doesn't affect dimensions.</p>
+
+            <div class="demo-layout">
+                <div class="image-container">
+                    <img class="outline-demo"
+                        src="https://cdn.freecodecamp.org/curriculum/cat-photo-app/relaxing-cat.jpg"
+                        alt="A relaxing cat">
+                </div>
+                <div class="code-block">
+                    <pre><code>img {
+  outline: 5px solid gold;
+}</code></pre>
+                </div>
+            </div>
+
+            <div class="info-box">
+                <strong>💡 Note:</strong> Because outlines don't take up space in the layout, they are commonly used for
+                accessibility (like keyboard focus states) without causing the content to jump.
+            </div>
+        </section>
+
+        <section id="radius">
+            <h2>🌙 Rounded Corners</h2>
+            <p>Combine <code>border-radius</code> with borders to soften your images and give them a more modern,
+                friendly look.</p>
+
+            <div class="demo-layout">
+                <div class="image-container">
+                    <img class="rounded-border"
+                        src="https://cdn.freecodecamp.org/curriculum/cat-photo-app/relaxing-cat.jpg"
+                        alt="A relaxing cat">
+                </div>
+                <div class="code-block">
+                    <pre><code>img {
+  border: 3px solid white;
+  border-radius: 24px;
+}</code></pre>
+                </div>
+            </div>
+        </section>
+
+        <section class="quiz">
+            <h2>🧠 Border Quiz</h2>
+
+            <div class="quiz-item" id="q1">
+                <p class="quiz-question">1. Which property creates a border that doesn't affect the element's
+                    dimensions?</p>
+                <div class="options">
+                    <button class="option-btn" data-correct="false">border</button>
+                    <button class="option-btn" data-correct="true">outline</button>
+                    <button class="option-btn" data-correct="false">box-shadow</button>
+                    <button class="option-btn" data-correct="false">border-image</button>
+                </div>
+                <div class="feedback"></div>
+            </div>
+
+            <div class="quiz-item" id="q2">
+                <p class="quiz-question">2. How would you create a 3px wide, dashed, red border ONLY on the left side?
+                </p>
+                <div class="options">
+                    <button class="option-btn" data-correct="false">border: 3px dashed red left;</button>
+                    <button class="option-btn" data-correct="true">border-left: 3px dashed red;</button>
+                    <button class="option-btn" data-correct="false">left-border: 3px dashed red;</button>
+                    <button class="option-btn" data-correct="false">border: left 3px dashed red;</button>
+                </div>
+                <div class="feedback"></div>
+            </div>
+
+            <div class="quiz-item" id="q3">
+                <p class="quiz-question">3. Which CSS property would you use to round the corners of a border?</p>
+                <div class="options">
+                    <button class="option-btn" data-correct="false">border-style</button>
+                    <button class="option-btn" data-correct="true">border-radius</button>
+                    <button class="option-btn" data-correct="false">border-spacing</button>
+                    <button class="option-btn" data-correct="false">border-bottom</button>
+                </div>
+                <div class="feedback"></div>
+            </div>
+        </section>
+
+        <footer>
+            <p>&copy; 2026 CSS Mastery: Framing Images. Build beautiful layouts.</p>
+        </footer>
+    </div>
+
+    <script>
+        document.querySelectorAll('.option-btn').forEach(btn => {
+            btn.addEventListener('click', function () {
+                const parent = this.closest('.quiz-item');
+                const feedback = parent.querySelector('.feedback');
+                const isCorrect = this.getAttribute('data-correct') === 'true';
+
+                parent.querySelectorAll('.option-btn').forEach(b => {
+                    b.classList.remove('selected-correct', 'selected-wrong');
+                });
+
+                if (isCorrect) {
+                    this.classList.add('selected-correct');
+                    feedback.textContent = "✓ Brilliant! That's correct.";
+                    feedback.style.color = "var(--accent)";
+                } else {
+                    this.classList.add('selected-wrong');
+                    feedback.textContent = "✕ Not quite. Try again!";
+                    feedback.style.color = "#ef4444";
+                }
+                feedback.style.display = "block";
+            });
+        });
+    </script>
+</body>
+
+</html>

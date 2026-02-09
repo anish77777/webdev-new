@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSS Review: Lists, Links, Backgrounds & Borders</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Fira+Code:wght@400;500&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+    <nav class="side-nav">
+        <div class="nav-header">Topics</div>
+        <ul>
+            <li><a href="#lists">Styling Lists</a></li>
+            <li><a href="#links">Styling Links</a></li>
+            <li><a href="#backgrounds">Backgrounds</a></li>
+            <li><a href="#borders">Borders</a></li>
+            <li><a href="#gradients">Gradients</a></li>
+        </ul>
+    </nav>
+
+    <main class="content-area">
+        <header class="main-header">
+            <h1>CSS Comprehensive Review</h1>
+            <p>A deep dive into Lists, Links, Backgrounds, and Borders.</p>
+        </header>
+
+        <!-- Styling Lists Section -->
+        <section id="lists" class="review-section">
+            <h2>Styling Lists</h2>
+
+            <article class="concept">
+                <h3>line-height Property</h3>
+                <p>Used to create space between lines of text. Values include <code>normal</code>, numbers, percentages,
+                    and length units like <code>em</code>.</p>
+                <div class="example-box">
+                    <code>line-height: 1.6;</code>
+                </div>
+            </article>
+
+            <article class="concept">
+                <h3>list-style-type</h3>
+                <p>Specifies the marker for a list item (e.g., <code>circle</code>, <code>disc</code>,
+                    <code>decimal</code>, <code>square</code>).</p>
+                <div class="preview-box">
+                    <ul class="square-list">
+                        <li>Item 1</li>
+                        <li>Item 2</li>
+                        <li>Item 3</li>
+                    </ul>
+                </div>
+                <pre><code>ul { list-style-type: square; }</code></pre>
+            </article>
+
+            <article class="concept">
+                <h3>list-style-position</h3>
+                <p>Sets the marker position: <code>inside</code> or <code>outside</code>.</p>
+                <div class="preview-box">
+                    <ul class="inside-list">
+                        <li>Inside position item</li>
+                    </ul>
+                    <ul class="outside-list">
+                        <li>Outside position item</li>
+                    </ul>
+                </div>
+            </article>
+
+            <article class="concept">
+                <h3>Spacing with Margins</h3>
+                <p>Use <code>margin-bottom</code> on <code>li</code> elements to control the gap between items.</p>
+                <pre><code>.list li { margin-bottom: 20px; }</code></pre>
+            </article>
+        </section>
+
+        <!-- Styling Links Section -->
+        <section id="links" class="review-section">
+            <h2>Styling Links & Pseudo-classes</h2>
+            <p>Pseudo-classes select elements based on state:</p>
+            <div class="states-grid">
+                <div class="state-card"><code>:link</code> - Unvisited</div>
+                <div class="state-card"><code>:visited</code> - Visited</div>
+                <div class="state-card"><code>:hover</code> - Active hover</div>
+                <div class="state-card"><code>:focus</code> - Received focus</div>
+                <div class="state-card"><code>:active</code> - Activated (click)</div>
+            </div>
+            <pre><code>a:hover { color: green; text-decoration: underline; }</code></pre>
+        </section>
+
+        <!-- Backgrounds Section -->
+        <section id="backgrounds" class="review-section">
+            <h2>Working with Backgrounds</h2>
+            <div class="grid-layout">
+                <article class="concept">
+                    <h3>background-size</h3>
+                    <p><code>cover</code> fills the element; <code>contain</code> fits within it.</p>
+                </article>
+                <article class="concept">
+                    <h3>background-repeat</h3>
+                    <p>Default is <code>repeat</code>. Use <code>no-repeat</code> to stop tiling.</p>
+                </article>
+                <article class="concept">
+                    <h3>background-attachment</h3>
+                    <p><code>scroll</code> (default) or <code>fixed</code> (parallax effect).</p>
+                </article>
+            </div>
+            <div class="shorthand-box">
+                <h3>The Shorthand Property</h3>
+                <pre><code>background: center top no-repeat url("image.jpg");</code></pre>
+            </div>
+        </section>
+
+        <!-- Borders Section -->
+        <section id="borders" class="review-section">
+            <h2>Borders & Radius</h2>
+            <article class="concept">
+                <h3>Individual Sides</h3>
+                <p>Set <code>border-top</code>, <code>border-right</code>, etc., independently.</p>
+                <div class="preview-box">
+                    <div class="mixed-borders">Box with mixed borders</div>
+                </div>
+            </article>
+            <article class="concept">
+                <h3>border-radius</h3>
+                <p>Creates rounded corners for elements.</p>
+                <div class="preview-box">
+                    <div class="rounded-box">Rounded Box (15px)</div>
+                </div>
+            </article>
+        </section>
+
+        <!-- Gradients Section -->
+        <section id="gradients" class="review-section">
+            <h2>Gradients</h2>
+            <div class="grid-layout">
+                <div class="gradient-demo linear">Linear Gradient</div>
+                <div class="gradient-demo radial">Radial Gradient</div>
+            </div>
+        </section>
+
+        <footer class="page-footer">
+            <p>&copy; 2026 CSS Mastery Review</p>
+        </footer>
+    </main>
+</body>
+
+</html>

@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Design Terminology for Developers</title>
+    <link rel="stylesheet" href="styles.css">
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700&family=Plus+Jakarta+Sans:wght@300;400;500;700&display=swap"
+        rel="stylesheet">
+</head>
+
+<body>
+    <div class="glass-bg"></div>
+
+    <nav class="sidebar">
+        <div class="logo">
+            <span class="logo-icon">✨</span>
+            <span class="logo-text">DesignHub</span>
+        </div>
+        <ul class="nav-links">
+            <li><a href="#layout" class="active">Layout</a></li>
+            <li><a href="#alignment">Alignment</a></li>
+            <li><a href="#composition">Composition</a></li>
+            <li><a href="#hierarchy">Hierarchy</a></li>
+            <li><a href="#contrast">Contrast</a></li>
+            <li><a href="#whitespace">White Space</a></li>
+            <li><a href="#uiux">UI vs UX</a></li>
+            <li><a href="#quiz">Test Your Knowledge</a></li>
+        </ul>
+    </nav>
+
+    <main class="content">
+        <header class="main-header">
+            <h1>Design Terminology</h1>
+            <p>Master the shared vocabulary of designers to build better products together.</p>
+        </header>
+
+        <!-- Layout Section -->
+        <section id="layout" class="card">
+            <div class="card-header">
+                <h2>Layout</h2>
+                <span class="badge">Fundamental</span>
+            </div>
+            <p><strong>Layout</strong> is how visual elements are arranged on a page to communicate a message. It's the
+                "blueprint" of your design, considering placement, size, and hierarchy.</p>
+
+            <div class="demo-box">
+                <div class="shop-preview">
+                    <header class="preview-header">
+                        <div class="preview-logo">ShopMate</div>
+                        <nav class="preview-nav">
+                            <span>Home</span><span>Shop</span><span>About</span>
+                        </nav>
+                    </header>
+                    <div class="preview-hero">
+                        <h3>Fall Collection 2025</h3>
+                        <button class="preview-btn">Shop Now</button>
+                    </div>
+                    <div class="preview-grid">
+                        <div class="preview-item"></div>
+                        <div class="preview-item"></div>
+                        <div class="preview-item"></div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Alignment Section -->
+        <section id="alignment" class="card">
+            <div class="card-header">
+                <h2>Alignment</h2>
+                <span class="badge">Structure</span>
+            </div>
+            <p><strong>Alignment</strong> creates visual order by placing elements in relation to one another along
+                imaginary lines or edges.</p>
+
+            <div class="alignment-grid">
+                <div class="align-box left">
+                    <h4>Left Aligned</h4>
+                    <p>Standard for body text. Easy to read.</p>
+                    <div class="align-line"></div>
+                </div>
+                <div class="align-box center">
+                    <h4>Center Aligned</h4>
+                    <p>Great for headlines and focal points.</p>
+                    <div class="align-line"></div>
+                </div>
+                <div class="align-box right">
+                    <h4>Right Aligned</h4>
+                    <p>Used for stylistic emphasis or edge cases.</p>
+                    <div class="align-line"></div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Composition Section -->
+        <section id="composition" class="card">
+            <div class="card-header">
+                <h2>Composition & Balance</h2>
+                <span class="badge">Artistic</span>
+            </div>
+            <p>While layout is placement, <strong>Composition</strong> is the <em>artistic</em> arrangement of elements.
+                <strong>Balance</strong> is how visual weight is distributed.</p>
+
+            <div class="balance-demo">
+                <div class="balance-type">
+                    <h5>Symmetrical</h5>
+                    <div class="balance-container sym">
+                        <div class="box sm"></div>
+                        <div class="box lg"></div>
+                        <div class="box sm"></div>
+                    </div>
+                </div>
+                <div class="balance-type">
+                    <h5>Asymmetrical</h5>
+                    <div class="balance-container asym">
+                        <div class="box lg"></div>
+                        <div class="box sm"></div>
+                        <div class="box md"></div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Hierarchy Section -->
+        <section id="hierarchy" class="card">
+            <div class="card-header">
+                <h2>Visual Hierarchy</h2>
+                <span class="badge">Importance</span>
+            </div>
+            <p><strong>Hierarchy</strong> establishes the order of importance. It guides the eye to the most critical
+                information first using size, color, and weight.</p>
+
+            <div class="hierarchy-demo">
+                <div class="h-card">
+                    <h3 class="h-level-1">Upgrade to Pro</h3>
+                    <h4 class="h-level-2">Get unlimited features</h4>
+                    <p class="h-level-3">Unlock advanced tools and 10x more storage for your team's productivity.</p>
+                    <button class="h-cta">Start Free Trial</button>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contrast Section -->
+        <section id="contrast" class="card">
+            <div class="card-header">
+                <h2>Contrast</h2>
+                <span class="badge">Attention</span>
+            </div>
+            <p><strong>Contrast</strong> draws attention by creating clear distinctions (color, size, shape). It's also
+                vital for accessibility and readability.</p>
+
+            <div class="contrast-demo">
+                <div class="contrast-item high">High Contrast</div>
+                <div class="contrast-item low">Low Contrast (Hard to read)</div>
+                <button class="contrast-btn">Action Button</button>
+            </div>
+        </section>
+
+        <!-- White Space Section -->
+        <section id="whitespace" class="card">
+            <div class="card-header">
+                <h2>White Space</h2>
+                <span class="badge">Breathing Room</span>
+            </div>
+            <p>Also known as "Negative Space", <strong>White Space</strong> is the empty area surrounding elements. It
+                prevents designs from feeling cramped and improves focus.</p>
+
+            <div class="whitespace-demo">
+                <div class="ws-good">
+                    <p>Good Spacing</p>
+                    <div class="ws-box">Room to breathe</div>
+                </div>
+                <div class="ws-bad">
+                    <p>Cramped</p>
+                    <div class="ws-box">No breathing room</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- UI/UX Section -->
+        <section id="uiux" class="card">
+            <div class="card-header">
+                <h2>UI vs UX</h2>
+                <span class="badge">Experience</span>
+            </div>
+            <div class="comparison-grid">
+                <div class="comp-box">
+                    <h3>UI (User Interface)</h3>
+                    <p>The visual and interactive elements (buttons, icons, typography).</p>
+                    <div class="comp-icon">🎨</div>
+                </div>
+                <div class="comp-box">
+                    <h3>UX (User Experience)</h3>
+                    <p>How a user <em>feels</em>. Is it intuitive? Efficient? Accessible?</p>
+                    <div class="comp-icon">🧠</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Quiz Section -->
+        <section id="quiz" class="card quiz-card">
+            <div class="card-header">
+                <h2>Knowledge Check</h2>
+            </div>
+            <div id="quiz-container">
+                <div class="question" data-answer="Balance">
+                    <p>1. Which principle refers to visual weight distribution?</p>
+                    <div class="options">
+                        <button onclick="checkAnswer(this, 'Alignment')">Alignment</button>
+                        <button onclick="checkAnswer(this, 'Balance')">Balance</button>
+                        <button onclick="checkAnswer(this, 'Hierarchy')">Hierarchy</button>
+                    </div>
+                </div>
+                <div class="question" data-answer="White Space">
+                    <p>2. What is the term for empty space around elements?</p>
+                    <div class="options">
+                        <button onclick="checkAnswer(this, 'Layout')">Layout</button>
+                        <button onclick="checkAnswer(this, 'White Space')">White Space</button>
+                        <button onclick="checkAnswer(this, 'Contrast')">Contrast</button>
+                    </div>
+                </div>
+                <div class="question" data-answer="Hierarchy">
+                    <p>3. Which principle establishes the order of importance?</p>
+                    <div class="options">
+                        <button onclick="checkAnswer(this, 'Contrast')">Contrast</button>
+                        <button onclick="checkAnswer(this, 'Hierarchy')">Hierarchy</button>
+                        <button onclick="checkAnswer(this, 'Alignment')">Alignment</button>
+                    </div>
+                </div>
+            </div>
+            <div id="quiz-feedback" class="feedback-msg"></div>
+        </section>
+    </main>
+
+    <script>
+        function checkAnswer(btn, selection) {
+            const questionDiv = btn.closest('.question');
+            const correctAnswer = questionDiv.getAttribute('data-answer');
+            const buttons = questionDiv.querySelectorAll('button');
+
+            buttons.forEach(b => b.disabled = true);
+
+            if (selection === correctAnswer) {
+                btn.classList.add('correct');
+            } else {
+                btn.classList.add('wrong');
+                buttons.forEach(b => {
+                    if (b.innerText === correctAnswer) b.classList.add('correct');
+                });
+            }
+        }
+
+        // Simple scroll spy for sidebar
+        const sections = document.querySelectorAll('section');
+        const navLinks = document.querySelectorAll('.nav-links a');
+
+        window.onscroll = () => {
+            let current = "";
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop;
+                if (pageYOffset >= sectionTop - 100) {
+                    current = section.getAttribute('id');
+                }
+            });
+
+            navLinks.forEach(a => {
+                a.classList.remove('active');
+                if (a.getAttribute('href').includes(current)) {
+                    a.classList.add('active');
+                }
+            });
+        };
+    </script>
+</body>
+
+</html>
