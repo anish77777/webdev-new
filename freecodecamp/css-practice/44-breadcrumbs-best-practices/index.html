@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Breadcrumbs Best Practices | Hierarchical Navigation</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700;800&family=Plus+Jakarta+Sans:wght@300;400;500;700&family=Fira+Code&display=swap"
+        rel="stylesheet">
+</head>
+
+<body>
+    <div class="glass-bg"></div>
+
+    <nav class="sidebar">
+        <div class="logo">
+            <span class="logo-icon">🥖</span>
+            <span class="logo-text">Breadcrumbs</span>
+        </div>
+        <ul class="nav-links">
+            <li><a href="#intro" class="active">Introduction</a></li>
+            <li><a href="#separators">Separators</a></li>
+            <li><a href="#placement">Placement</a></li>
+            <li><a href="#sizing">Sizing & Purpose</a></li>
+            <li><a href="#quiz">Quiz</a></li>
+        </ul>
+    </nav>
+
+    <main class="content">
+        <header class="main-header" id="intro">
+            <h1>Breadcrumbs Best Practices</h1>
+            <p>Guide your users through complex hierarchies with clear, intuitive navigational aids.</p>
+        </header>
+
+        <!-- What are Breadcrumbs -->
+        <section id="introduction" class="card">
+            <h2>What are Breadcrumbs?</h2>
+            <p>Breadcrumbs are a navigation aid that shows the user where they are in the site's hierarchy. They help
+                users understand their location and provide an easy way to move back to previous levels.</p>
+
+            <div class="demo-box">
+                <div class="breadcrumb-preview">
+                    <span class="crumb">Home</span>
+                    <span class="separator">/</span>
+                    <span class="crumb">Electronics</span>
+                    <span class="separator">/</span>
+                    <span class="crumb">Phones</span>
+                    <span class="separator">/</span>
+                    <span class="crumb">Smartphone XYZ</span>
+                </div>
+            </div>
+
+            <div class="code-block" style="margin-top: 30px;">
+                <code><span class="code-selector">/* HTML Structure */</span>
+<span class="code-selector">&lt;nav aria-label="Breadcrumb"&gt;</span>
+  <span class="code-selector">&lt;ol&gt;</span>
+    <span class="code-selector">&lt;li&gt;&lt;a href="/"&gt;</span>Home<span class="code-selector">&lt;/a&gt;&lt;/li&gt;</span>
+    <span class="code-selector">&lt;li&gt;</span>Smartphone XYZ<span class="code-selector">&lt;/li&gt;</span>
+  <span class="code-selector">&lt;/ol&gt;</span>
+<span class="code-selector">&lt;/nav&gt;</span></code>
+            </div>
+        </section>
+
+        <!-- Separators -->
+        <section id="separators" class="card">
+            <h2>1. Choosing a Separator</h2>
+            <p>The separator is the character that separates different levels of the hierarchy. Common choices include
+                `>`, `/`, or `»`.</p>
+
+            <div class="demo-box">
+                <div class="breadcrumb-preview" id="preview-active">
+                    <span class="crumb">Home</span>
+                    <span class="separator active-sep">></span>
+                    <span class="crumb">Electronics</span>
+                    <span class="separator active-sep">></span>
+                    <span class="crumb">Smartphone XYZ</span>
+                </div>
+
+                <div class="layer-controls">
+                    <button class="btn-toggle active" onclick="setSeparator('>', this)">Greater Than (>)</button>
+                    <button class="btn-toggle" onclick="setSeparator('/', this)">Forward Slash (/)</button>
+                    <button class="btn-toggle" onclick="setSeparator('»', this)">Quotation mark (»)</button>
+                </div>
+            </div>
+
+            <div class="code-block" style="margin-top: 30px;">
+                <code><span class="code-selector">.breadcrumb li + li::before</span> {
+    <span class="code-property">content</span>: <span class="code-value">">"</span>;
+    <span class="code-property">padding</span>: <span class="code-value">0 8px</span>;
+}</code>
+            </div>
+        </section>
+
+        <!-- Placement -->
+        <section id="placement" class="card">
+            <h2>2. Placement</h2>
+            <p>Breadcrumbs are typically placed at the top of the page, either above or below the main navigation bar.
+                They should be visible and easy to find without struggling.</p>
+
+            <div class="demo-box">
+                <nav class="nav-sim">
+                    <a href="#">Home</a>
+                    <a href="#">Products</a>
+                    <a href="#">About</a>
+                </nav>
+                <div class="breadcrumb-preview" style="background: none; padding: 0;">
+                    <span class="crumb" style="font-size: 14px;">Home</span>
+                    <span class="separator">></span>
+                    <span class="crumb" style="font-size: 14px;">Products</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- Sizing -->
+        <section id="sizing" class="card">
+            <h2>3. Sizing & Hierarchy</h2>
+            <p>Breadcrumbs should be large enough to read but secondary to primary navigation. They are most useful for
+                sites with deep hierarchies, like e-commerce or technical documentation.</p>
+
+            <div class="code-block">
+                <code><span class="code-selector">.breadcrumbs</span> {
+    <span class="code-property">font-size</span>: <span class="code-value">0.9rem</span>;
+    <span class="code-property">color</span>: <span class="code-value">var(--text-muted)</span>;
+}</code>
+            </div>
+        </section>
+
+        <!-- Quiz Section -->
+        <section id="quiz" class="card quiz-card">
+            <h2>Knowledge Check</h2>
+            <div class="question"
+                data-answer="A navigation aid that shows the user where they are in the site's hierarchy.">
+                <p>1. What are breadcrumbs?</p>
+                <div class="options">
+                    <button
+                        onclick="checkAnswer(this, 'A navigation aid that shows the user where they are in the site\'s hierarchy.')">Navigation
+                        aid showing site hierarchy</button>
+                    <button onclick="checkAnswer(this, 'A type of container for images.')">Container for images</button>
+                    <button onclick="checkAnswer(this, 'A navigation aid only found on mobile sites.')">Mobile-only
+                        aid</button>
+                </div>
+            </div>
+
+            <div class="question" data-answer="If your site has a deep hierarchy for navigation.">
+                <p>2. When should you use breadcrumbs on your site?</p>
+                <div class="options">
+                    <button
+                        onclick="checkAnswer(this, 'If your site is simple and has a shallow hierarchy.')">Simple/Shallow
+                        hierarchy</button>
+                    <button onclick="checkAnswer(this, 'If your site has a deep hierarchy for navigation.')">Deep
+                        hierarchy for navigation</button>
+                    <button onclick="checkAnswer(this, 'You should never use breadcrumbs.')">Never use them</button>
+                </div>
+            </div>
+
+            <div class="question" data-answer="/">
+                <p>3. Which of the following is a common separator for breadcrumbs?</p>
+                <div class="options">
+                    <button onclick="checkAnswer(this, '>>>>')">>>>> </button>
+                    <button onclick="checkAnswer(this, '&&&')">&&&</button>
+                    <button onclick="checkAnswer(this, '/')">Forward Slash (/)</button>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <script>
+        // Separator Toggle
+        function setSeparator(sep, btn) {
+            const separators = document.querySelectorAll('.active-sep');
+            const btns = document.querySelectorAll('.btn-toggle');
+
+            separators.forEach(s => s.innerText = sep);
+            btns.forEach(b => b.classList.remove('active'));
+            btn.classList.add('active');
+        }
+
+        // Quiz Logic
+        function checkAnswer(btn, selection) {
+            const questionDiv = btn.closest('.question');
+            const correctAnswer = questionDiv.getAttribute('data-answer');
+            const buttons = questionDiv.querySelectorAll('button');
+
+            buttons.forEach(b => b.disabled = true);
+
+            if (selection === correctAnswer) {
+                btn.classList.add('correct');
+            } else {
+                btn.classList.add('wrong');
+                buttons.forEach(opt => {
+                    if (opt.onclick.toString().includes(correctAnswer)) opt.classList.add('correct');
+                });
+            }
+        }
+
+        // Scroll Spy
+        const sections = document.querySelectorAll('section, header');
+        const navLinks = document.querySelectorAll('.nav-links a');
+
+        window.onscroll = () => {
+            let current = "";
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop;
+                if (pageYOffset >= sectionTop - 150) {
+                    current = section.getAttribute('id');
+                }
+            });
+
+            navLinks.forEach(a => {
+                a.classList.remove('active');
+                if (a.getAttribute('href').includes(current)) {
+                    a.classList.add('active');
+                }
+            });
+        };
+    </script>
+</body>
+
+</html>

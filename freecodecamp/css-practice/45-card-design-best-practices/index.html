@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Card Design Best Practices | Structured Information</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700;800&family=Plus+Jakarta+Sans:wght@300;400;500;700&family=Fira+Code&display=swap"
+        rel="stylesheet">
+</head>
+
+<body>
+    <div class="glass-bg"></div>
+
+    <nav class="sidebar">
+        <div class="logo">
+            <span class="logo-icon">🃏</span>
+            <span class="logo-text">CardCraft</span>
+        </div>
+        <ul class="nav-links">
+            <li><a href="#intro" class="active">Introduction</a></li>
+            <li><a href="#simplicity">Simplicity</a></li>
+            <li><a href="#interaction">Interaction</a></li>
+            <li><a href="#media">Media & Hierarchy</a></li>
+            <li><a href="#quiz">Quiz</a></li>
+        </ul>
+    </nav>
+
+    <main class="content">
+        <header class="main-header" id="intro">
+            <h1>Card Design Best Practices</h1>
+            <p>Master the art of displaying information in a structured, focused, and trust-building format.</p>
+        </header>
+
+        <!-- What are Cards -->
+        <section id="introduction" class="card">
+            <h2>Introduction</h2>
+            <p>Card components are extremely common in e-commerce, social media, and news sites. They help display
+                information in a structured way that is easy to scan and digest.</p>
+        </section>
+
+        <!-- Simplicity Section -->
+        <section id="simplicity" class="card">
+            <h2>1. Prioritize Simplicity</h2>
+            <p>Avoid visual clutter. Good spacing and focused information make it easier for users to process your
+                content.</p>
+
+            <div class="demo-row">
+                <!-- Cluttered Card -->
+                <div class="product-card">
+                    <p style="font-size: 10px; color: #ef4444; margin-bottom: 5px; font-weight: 700;">CLUSTERED DESIGN
+                    </p>
+                    <img src="https://placehold.co/150x150" alt="Product">
+                    <h3>Ultimate Edition Pro Max X</h3>
+                    <p class="cluttered-info">This incredible product features 24/7 support, water resistance, and extra
+                        battery life. Don't wait, buy now before stock runs out!</p>
+                    <div class="price">$199.99</div>
+                    <button class="product-btn">Buy Now</button>
+                    <div class="cluttered-btns">
+                        <button class="product-btn btn-secondary">Wishlist</button>
+                        <button class="product-btn btn-secondary">Compare</button>
+                    </div>
+                    <p class="cluttered-info">Rated 4.8 stars by 2k users. Only 3 left!</p>
+                </div>
+
+                <!-- Simple Card -->
+                <div class="product-card">
+                    <p style="font-size: 10px; color: #10b981; margin-bottom: 5px; font-weight: 700;">CLEAN DESIGN</p>
+                    <img src="https://placehold.co/150x150" alt="Product">
+                    <h3>Product Name</h3>
+                    <div class="price">$199.99</div>
+                    <button class="product-btn">Buy Now</button>
+                </div>
+            </div>
+
+            <div class="code-block" style="margin-top: 30px;">
+                <code><span class="code-selector">.card</span> {
+    <span class="code-property">padding</span>: <span class="code-value">24px</span>;
+    <span class="code-property">max-width</span>: <span class="code-value">300px</span>;
+    <span class="code-property">text-align</span>: <span class="code-value">center</span>;
+}</code>
+            </div>
+        </section>
+
+        <!-- Interaction Section -->
+        <section id="interaction" class="card">
+            <h2>2. Define Clickable Areas</h2>
+            <p>Indicate clickability through hover effects. Whether it's a single button or the entire card, the
+                feedback must be consistent.</p>
+
+            <div class="demo-row">
+                <a href="#" class="product-card clickable-card">
+                    <img src="https://placehold.co/150x150" alt="Product">
+                    <h3>Clickable Card</h3>
+                    <p style="font-size: 14px;">Hover over me to see the shadow effect.</p>
+                </a>
+            </div>
+
+            <div class="code-block" style="margin-top: 30px;">
+                <code><span class="code-selector">.card:hover</span> {
+    <span class="code-property">box-shadow</span>: <span class="code-value">0 4px 8px rgba(0, 0, 0, 0.2)</span>;
+    <span class="code-property">cursor</span>: <span class="code-value">pointer</span>;
+}</code>
+            </div>
+        </section>
+
+        <!-- Media & Hierarchy -->
+        <section id="media" class="card">
+            <h2>3. Media Quality & Hierarchy</h2>
+            <p>Use high-quality media to build trust. Implement color hierarchy by using prominent colors for the most
+                important actions (CTAs).</p>
+
+            <div class="demo-row">
+                <div class="product-card hierarchy-card">
+                    <img src="https://placehold.co/150x150" alt="Product">
+                    <h3>Product Name</h3>
+                    <button class="product-btn primary-cta">Buy Now</button>
+                </div>
+            </div>
+
+            <div class="code-block" style="margin-top: 30px;">
+                <code><span class="code-selector">.primary-cta</span> {
+    <span class="code-property">background-color</span>: <span class="code-value">#28a745</span>; /* Prominent Color */
+    <span class="code-property">font-weight</span>: <span class="code-value">bold</span>;
+}</code>
+            </div>
+        </section>
+
+        <!-- Quiz Section -->
+        <section id="quiz" class="card quiz-card">
+            <h2>Knowledge Check</h2>
+            <div class="question"
+                data-answer="You want users to have a good user experience and digest the information easily.">
+                <p>1. Why is it important to have a simple card design?</p>
+                <div class="options">
+                    <button
+                        onclick="checkAnswer(this, 'You want users to have a good user experience and digest the information easily.')">To
+                        digest information easily</button>
+                    <button onclick="checkAnswer(this, 'You want users to be overwhelmed.')">To overwhelm users</button>
+                    <button onclick="checkAnswer(this, 'You want users to be confused.')">To confuse users</button>
+                </div>
+            </div>
+
+            <div class="question" data-answer="To highlight the most important information on the card.">
+                <p>2. Why is it important to have good color hierarchy on your card?</p>
+                <div class="options">
+                    <button onclick="checkAnswer(this, 'To make it difficult for users to understand.')">Make it
+                        difficult</button>
+                    <button
+                        onclick="checkAnswer(this, 'To highlight the most important information on the card.')">Highlight
+                        important info</button>
+                    <button onclick="checkAnswer(this, 'To make the site perform better.')">Improve performance</button>
+                </div>
+            </div>
+
+            <div class="question" data-answer="Users will trust the quality of your products and services.">
+                <p>3. What are the advantages of using high quality media on cards?</p>
+                <div class="options">
+                    <button onclick="checkAnswer(this, 'Users will leave the site immediately.')">Users will
+                        leave</button>
+                    <button
+                        onclick="checkAnswer(this, 'Users will trust the quality of your products and services.')">Build
+                        trust in quality</button>
+                    <button onclick="checkAnswer(this, 'There are no advantages.')">No advantages</button>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <script>
+        // Quiz Logic
+        function checkAnswer(btn, selection) {
+            const questionDiv = btn.closest('.question');
+            const correctAnswer = questionDiv.getAttribute('data-answer');
+            const buttons = questionDiv.querySelectorAll('button');
+
+            buttons.forEach(b => b.disabled = true);
+
+            if (selection === correctAnswer) {
+                btn.classList.add('correct');
+            } else {
+                btn.classList.add('wrong');
+                buttons.forEach(opt => {
+                    if (opt.onclick.toString().includes(correctAnswer)) opt.classList.add('correct');
+                });
+            }
+        }
+
+        // Scroll Spy
+        const sections = document.querySelectorAll('section, header');
+        const navLinks = document.querySelectorAll('.nav-links a');
+
+        window.onscroll = () => {
+            let current = "";
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop;
+                if (pageYOffset >= sectionTop - 150) {
+                    current = section.getAttribute('id');
+                }
+            });
+
+            navLinks.forEach(a => {
+                a.classList.remove('active');
+                if (a.getAttribute('href').includes(current)) {
+                    a.classList.add('active');
+                }
+            });
+        };
+    </script>
+</body>
+
+</html>

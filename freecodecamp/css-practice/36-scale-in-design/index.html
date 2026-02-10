@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Scale in Design | Mastering Visual Size</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700&family=Plus+Jakarta+Sans:wght@300;400;500;700&family=Fira+Code&display=swap"
+        rel="stylesheet">
+</head>
+
+<body>
+    <div class="glass-bg"></div>
+
+    <nav class="sidebar">
+        <div class="logo">
+            <span class="logo-icon">📐</span>
+            <span class="logo-text">DesignScale</span>
+        </div>
+        <ul class="nav-links">
+            <li><a href="#intro" class="active">Introduction</a></li>
+            <li><a href="#text">Text Scaling</a></li>
+            <li><a href="#images">Image Scaling</a></li>
+            <li><a href="#interactivity">Interactivity</a></li>
+            <li><a href="#quiz">Quiz</a></li>
+        </ul>
+    </nav>
+
+    <main class="content">
+        <header class="main-header" id="intro">
+            <h1>Scale in Design</h1>
+            <p>The "scale" of something refers to its size.</p>
+        </header>
+
+        <!-- What is Scale -->
+        <section id="what-is-scale" class="card">
+            <h2>Understanding Scale</h2>
+            <p>
+                When you're looking at scaling in your web design, you're looking at the size relationships between
+                different elements, and how these elements might adapt to different screen sizes.
+                Using the correct scale for your elements plays an important role in <strong>visual hierarchy</strong>.
+                Larger elements will draw more attention, which can guide your users through the content in the way that
+                you want.
+            </p>
+
+            <div class="code-block">
+                <code><span class="code-selector">.big-heading</span> {
+    <span class="code-property">font-size</span>: <span class="code-value">40px</span>;
+    <span class="code-property">font-weight</span>: <span class="code-value">bold</span>;
+    <span class="code-property">margin-bottom</span>: <span class="code-value">12px</span>;
+}
+
+<span class="code-selector">.paragraph</span> {
+    <span class="code-property">font-size</span>: <span class="code-value">16px</span>;
+    <span class="code-property">max-width</span>: <span class="code-value">600px</span>;
+    <span class="code-property">line-height</span>: <span class="code-value">1.6</span>;
+}</code>
+            </div>
+        </section>
+
+        <!-- Text Scaling -->
+        <section id="text" class="card">
+            <h2>Text Scaling & Attention</h2>
+            <p>For example, the visual separation between a heading and a paragraph draws your reader’s attention, but
+                the scale should be appropriate to get an eye-catching text that pulls your reader to that section.</p>
+
+            <div class="demo-vessel">
+                <div class="section">
+                    <div class="big-heading"
+                        style="font-size: 40px; font-weight: bold; margin-bottom: 12px; color: var(--accent);">Discover
+                        the Power of Smart Design</div>
+                    <p class="paragraph"
+                        style="font-size: 16px; max-width: 600px; line-height: 1.6; color: var(--text-muted);">
+                        Great design isn’t just about colors or fonts — it’s also about scale.
+                        A large heading like this one instantly grabs your attention, while the paragraph beneath it
+                        provides context and detail.
+                        Proper scaling creates a clear path for the reader’s eye to follow.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Image Scaling -->
+        <section id="images" class="card">
+            <h2>Scaling for Different Screens</h2>
+            <p>Scale doesn't apply just to text, though. It's also important for images. And while the scale of a banner
+                image might make sense for a desktop layout, it might be too large on a mobile layout.</p>
+            <p>By scaling an image down to a more appropriate ratio, you can keep the visual impact while ensuring the
+                information on the site is visible.</p>
+
+            <div class="code-block">
+                <code><span class="code-selector">.banner</span> {
+    <span class="code-property">max-width</span>: <span class="code-value">100%</span>;
+    <span class="code-property">height</span>: <span class="code-value">auto</span>;
+    <span class="code-property">display</span>: <span class="code-value">block</span>;
+}
+
+<span class="code-keyword">@media</span> (<span class="code-property">max-width</span>: <span class="code-value">600px</span>) {
+    <span class="code-selector">.banner</span> {
+        <span class="code-property">max-width</span>: <span class="code-value">90%</span>;
+    }
+}</code>
+            </div>
+
+            <div class="demo-vessel image-demo">
+                <div class="banner-vessel" id="banner-vessel"
+                    style="max-width: 100%; border-radius: 8px; overflow: hidden; margin: 0 auto 20px auto;">
+                    <img src="https://placehold.co/1200x400/6366f1/ffffff?text=Large+Banner+Image" alt="Banner"
+                        class="banner-img" style="width: 100%; height: auto; display: block;">
+                </div>
+                <div class="content-sub"
+                    style="max-width: 600px; margin: 0 auto; color: var(--text-muted); font-size: 16px; line-height: 1.6;">
+                    <p>
+                        This banner image looks great on a large screen, but on smaller devices, it scales down
+                        automatically.
+                        That way, it still delivers a strong visual impression without pushing the actual content off
+                        the screen.
+                        Scaling images properly helps maintain balance and accessibility across layouts.
+                    </p>
+                </div>
+                <div class="resize-controls" style="margin-top: 20px;">
+                    <button class="btn-resize" onclick="resizeBanner('100%')">Desktop View</button>
+                    <button class="btn-resize" onclick="resizeBanner('90%')">Mobile View</button>
+                </div>
+            </div>
+        </section>
+
+        <!-- Interactive Scaling -->
+        <section id="interactivity" class="card">
+            <h2>Interactivity & Usability</h2>
+            <p>Scale is also important for interactivity, and the ability to actually use your website. If the text in a
+                navigation bar is not at an appropriate scale, mobile phone users will have a hard time tapping on the
+                links.</p>
+
+            <div class="code-block">
+                <code><span class="code-selector">.nav-link</span> {
+    <span class="code-property">font-size</span>: <span class="code-value">18px</span>;
+    <span class="code-property">padding</span>: <span class="code-value">10px 15px</span>;
+}
+
+<span class="code-keyword">@media</span> (<span class="code-property">max-width</span>: <span class="code-value">600px</span>) {
+    <span class="code-selector">.nav-link</span> {
+        <span class="code-property">font-size</span>: <span class="code-value">20px</span>;
+        <span class="code-property">padding</span>: <span class="code-value">14px 18px</span>;
+    }
+}</code>
+            </div>
+
+            <div class="demo-vessel nav-demo-vessel">
+                <div class="mock-navbar" id="mock-navbar"
+                    style="background-color: #004080; padding: 15px 20px; display: flex; flex-wrap: wrap; gap: 20px; border-radius: 12px; transition: all 0.4s ease;">
+                    <a href="#" class="mock-nav-link"
+                        style="color: white; text-decoration: none; font-size: 18px; padding: 10px 15px; display: inline-block; border-radius: 4px; border: 1px solid transparent; transition: 0.3s;">Home</a>
+                    <a href="#" class="mock-nav-link"
+                        style="color: white; text-decoration: none; font-size: 18px; padding: 10px 15px; display: inline-block; border-radius: 4px; border: 1px solid transparent; transition: 0.3s;">About</a>
+                    <a href="#" class="mock-nav-link"
+                        style="color: white; text-decoration: none; font-size: 18px; padding: 10px 15px; display: inline-block; border-radius: 4px; border: 1px solid transparent; transition: 0.3s;">Services</a>
+                    <a href="#" class="mock-nav-link"
+                        style="color: white; text-decoration: none; font-size: 18px; padding: 10px 15px; display: inline-block; border-radius: 4px; border: 1px solid transparent; transition: 0.3s;">Contact</a>
+                </div>
+                <div style="padding: 20px; text-align: center;">
+                    <button class="btn-resize" onclick="toggleNavScaleExact()">Toggle Mobile Scale (20px)</button>
+                </div>
+            </div>
+        </section>
+
+        <!-- Quiz Section -->
+        <section id="quiz" class="card quiz-card">
+            <h2>Questions</h2>
+            <div class="question" data-answer="To guide users through content.">
+                <p>1. What is the primary purpose of using correct scale in web design?</p>
+                <div class="options">
+                    <button onclick="checkAnswer(this, 'To make everything the same size.')">To make everything the same
+                        size.</button>
+                    <button onclick="checkAnswer(this, 'To guide users through content.')">To guide users through
+                        content.</button>
+                    <button onclick="checkAnswer(this, 'To use as much space as possible.')">To use as much space as
+                        possible.</button>
+                    <button onclick="checkAnswer(this, 'To make text harder to read.')">To make text harder to
+                        read.</button>
+                </div>
+            </div>
+
+            <div class="question" data-answer="It takes up too much screen space.">
+                <p>2. Why might a large banner image be problematic on a mobile layout?</p>
+                <div class="options">
+                    <button onclick="checkAnswer(this, 'It loads too slowly.')">It loads too slowly.</button>
+                    <button onclick="checkAnswer(this, 'It\'s not visually appealing.')">It's not visually
+                        appealing.</button>
+                    <button onclick="checkAnswer(this, 'It takes up too much screen space.')">It takes up too much
+                        screen space.</button>
+                    <button onclick="checkAnswer(this, 'It\'s not interactive enough.')">It's not interactive
+                        enough.</button>
+                </div>
+            </div>
+
+            <div class="question" data-answer="Ensuring they're easy to tap.">
+                <p>3. What is an important consideration for scaling navigation elements on mobile devices?</p>
+                <div class="options">
+                    <button onclick="checkAnswer(this, 'Making them as small as possible.')">Making them as small as
+                        possible.</button>
+                    <button onclick="checkAnswer(this, 'Ensuring they\'re easy to tap.')">Ensuring they're easy to
+                        tap.</button>
+                    <button onclick="checkAnswer(this, 'Using bright colors.')">Using bright colors.</button>
+                    <button onclick="checkAnswer(this, 'Removing them entirely.')">Removing them entirely.</button>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <script>
+        // Banner Resize Logic
+        function resizeBanner(width) {
+            document.getElementById('banner-vessel').style.width = width;
+        }
+
+        // Exact Nav Scale Toggle from user's request
+        function toggleNavScaleExact() {
+            const navbar = document.getElementById('mock-navbar');
+            const links = navbar.querySelectorAll('.mock-nav-link');
+            const isScaled = links[0].style.fontSize === '20px';
+
+            links.forEach(link => {
+                link.style.fontSize = isScaled ? '18px' : '20px';
+                link.style.padding = isScaled ? '10px 15px' : '14px 18px';
+            });
+        }
+
+        // Quiz Logic
+        function checkAnswer(btn, selection) {
+            const questionDiv = btn.closest('.question');
+            const correctAnswer = questionDiv.getAttribute('data-answer');
+            const buttons = questionDiv.querySelectorAll('button');
+
+            buttons.forEach(b => b.disabled = true);
+
+            if (selection === correctAnswer) {
+                btn.classList.add('correct');
+            } else {
+                btn.classList.add('wrong');
+                buttons.forEach(opt => {
+                    if (opt.innerText === correctAnswer) opt.classList.add('correct');
+                });
+            }
+        }
+
+        // Scroll Spy
+        const sections = document.querySelectorAll('section, header');
+        const navLinks = document.querySelectorAll('.nav-links a');
+
+        window.onscroll = () => {
+            let current = "";
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop;
+                if (pageYOffset >= sectionTop - 150) {
+                    current = section.getAttribute('id');
+                }
+            });
+
+            navLinks.forEach(a => {
+                a.classList.remove('active');
+                if (a.getAttribute('href').includes(current)) {
+                    a.classList.add('active');
+                }
+            });
+        };
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Research & Testing | Empirical Web Design</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700;800&family=Plus+Jakarta+Sans:wght@300;400;500;700&family=Fira+Code&display=swap"
+        rel="stylesheet">
+</head>
+
+<body>
+    <div class="glass-bg"></div>
+
+    <nav class="sidebar">
+        <div class="logo">
+            <span class="logo-icon">📊</span>
+            <span class="logo-text">ResearchHub</span>
+        </div>
+        <ul class="nav-links">
+            <li><a href="#intro" class="active">Introduction</a></li>
+            <li><a href="#research">User Research</a></li>
+            <li><a href="#testing">User Testing</a></li>
+            <li><a href="#requirements">Requirements</a></li>
+            <li><a href="#quiz">Quiz</a></li>
+        </ul>
+    </nav>
+
+    <main class="content">
+        <header class="main-header" id="intro">
+            <h1>Research, Testing & Requirements</h1>
+            <p>Systematic study and data-driven decisions for building products that people actually want and love to
+                use.</p>
+        </header>
+
+        <!-- User Research -->
+        <section id="research" class="card">
+            <h2>User Research</h2>
+            <p>User research is the systematic study of the people who use your product. The goal is to measure user
+                needs, behaviors, and pain points.</p>
+
+            <h3>Net Promoter Score (NPS)</h3>
+            <p>NPS measures how likely users are to recommend your product. It is measured on a scale of 0 to 10.
+                Promoters (9-10) are your biggest fans.</p>
+
+            <div class="pe-demo">
+                <div class="nps-container">
+                    <div id="nps-display" class="nps-value">5</div>
+                    <div id="nps-label" class="nps-status" style="color: #64748b;">Passive</div>
+                    <input type="range" min="0" max="10" value="5" class="nps-slider" id="nps-slider"
+                        oninput="updateNPS(this.value)">
+                </div>
+            </div>
+
+            <p style="margin-top: 20px;">Another research vector is an <strong>exit interview</strong>, capturing data
+                when users cancel a subscription to understand churn.</p>
+        </section>
+
+        <!-- User Testing -->
+        <section id="testing" class="card">
+            <h2>User Testing</h2>
+            <p>User testing involves capturing data as users interface with your application. A common method for web
+                developers is <strong>A/B Testing</strong>.</p>
+
+            <div class="pe-demo">
+                <h3>A/B Testing Simulation</h3>
+                <p style="font-size: 14px; margin-bottom: 15px;">We shipped two button designs. Which one converted
+                    better?</p>
+                <div class="ab-container">
+                    <div class="ab-variation ab-a">
+                        <p>Version A</p>
+                        <button class="ab-btn">Buy Now</button>
+                        <p style="font-size: 12px; margin-top: 10px; color: #94a3b8;">12% Conversion</p>
+                    </div>
+                    <div class="ab-variation ab-b winner" id="winner-tag">
+                        <p>Version B</p>
+                        <button class="ab-btn">Buy Now</button>
+                        <p id="winner-stat" style="font-size: 12px; margin-top: 10px; color: #10b981;">28% Conversion 🏆
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Requirements -->
+        <section id="requirements" class="card">
+            <h2>User Requirements</h2>
+            <p>Requirements define the rubric your application must follow. They can be functional (how it works) or
+                non-functional (how it behaves).</p>
+
+            <div class="req-list">
+                <div class="req-col">
+                    <h3>Functional</h3>
+                    <div class="req-item">"User can add item to cart"</div>
+                    <div class="req-item">"Admin can delete user accounts"</div>
+                    <div class="req-item">"Search bar must return results"</div>
+                </div>
+                <div class="req-col">
+                    <h3>Non-Functional</h3>
+                    <div class="req-item">"Page must load in < 2s"</div>
+                            <div class="req-item">"Must support high-contrast mode"</div>
+                            <div class="req-item">"App should handle 10k users"</div>
+                    </div>
+                </div>
+
+                <div class="code-block" style="margin-top: 30px;">
+                    <code><span class="code-selector">requirement</span> {
+    <span class="code-property">type</span>: <span class="code-value">"functional"</span>;
+    <span class="code-property">status</span>: <span class="code-value">"evolving"</span>;
+}</code>
+                </div>
+        </section>
+
+        <!-- Quiz Section -->
+        <section id="quiz" class="card quiz-card">
+            <h2>Knowledge Check</h2>
+            <div class="question" data-answer="To measure user needs, behaviors, and pain points.">
+                <p>1. What is the primary purpose of user research?</p>
+                <div class="options">
+                    <button onclick="checkAnswer(this, 'To increase sales of a product.')">Increase sales</button>
+                    <button onclick="checkAnswer(this, 'To measure user needs, behaviors, and pain points.')">Measure
+                        needs, behaviors, and pain points</button>
+                    <button onclick="checkAnswer(this, 'To develop new features for an application.')">Develop new
+                        features</button>
+                </div>
+            </div>
+
+            <div class="question" data-answer="Version Control.">
+                <p>2. Which of the following is NOT a typical method of user research or testing?</p>
+                <div class="options">
+                    <button onclick="checkAnswer(this, 'Net Promoter Score (NPS).')">Net Promoter Score (NPS)</button>
+                    <button onclick="checkAnswer(this, 'A/B testing.')">A/B testing</button>
+                    <button onclick="checkAnswer(this, 'Version Control.')">Version Control</button>
+                </div>
+            </div>
+
+            <div class="question"
+                data-answer="Functional requirements define how the application should work, while non-functional requirements define how it should behave.">
+                <p>3. What is the difference between functional and non-functional requirements?</p>
+                <div class="options">
+                    <button
+                        onclick="checkAnswer(this, 'Functional requirements are important, while non-functional requirements are optional.')">Functional
+                        is important, Non-functional optional</button>
+                    <button
+                        onclick="checkAnswer(this, 'Functional requirements define how the application should work, while non-functional requirements define how it should behave.')">Functional
+                        = how it works, Non-functional = how it behaves</button>
+                    <button
+                        onclick="checkAnswer(this, 'Functional requirements are static, while non-functional requirements change over time.')">Functional
+                        static, Non-functional dynamic</button>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <script>
+        // NPS Logic
+        function updateNPS(val) {
+            const display = document.getElementById('nps-display');
+            const label = document.getElementById('nps-label');
+            display.innerText = val;
+
+            if (val <= 6) {
+                label.innerText = 'Detractor';
+                label.style.color = '#ef4444';
+            } else if (val <= 8) {
+                label.innerText = 'Passive';
+                label.style.color = '#f59e0b';
+            } else {
+                label.innerText = 'Promoter 🚀';
+                label.style.color = '#10b981';
+            }
+        }
+
+        // Quiz Logic
+        function checkAnswer(btn, selection) {
+            const questionDiv = btn.closest('.question');
+            const correctAnswer = questionDiv.getAttribute('data-answer');
+            const buttons = questionDiv.querySelectorAll('button');
+
+            buttons.forEach(b => b.disabled = true);
+
+            if (selection === correctAnswer) {
+                btn.classList.add('correct');
+            } else {
+                btn.classList.add('wrong');
+                buttons.forEach(opt => {
+                    if (opt.onclick.toString().includes(correctAnswer)) opt.classList.add('correct');
+                });
+            }
+        }
+
+        // Scroll Spy
+        const sections = document.querySelectorAll('section, header');
+        const navLinks = document.querySelectorAll('.nav-links a');
+
+        window.onscroll = () => {
+            let current = "";
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop;
+                if (pageYOffset >= sectionTop - 150) {
+                    current = section.getAttribute('id');
+                }
+            });
+
+            navLinks.forEach(a => {
+                a.classList.remove('active');
+                if (a.getAttribute('href').includes(current)) {
+                    a.classList.add('active');
+                }
+            });
+        };
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User-Centered Design | Designing for the Human Experience</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700;800;900&family=Plus+Jakarta+Sans:wght@300;400;500;700&family=Fira+Code&display=swap"
+        rel="stylesheet">
+</head>
+
+<body>
+    <div class="glass-bg"></div>
+
+    <nav class="sidebar">
+        <div class="logo">
+            <span class="logo-icon">👤</span>
+            <span class="logo-text">Humanly</span>
+        </div>
+        <ul class="nav-links">
+            <li><a href="#intro" class="active">Introduction</a></li>
+            <li><a href="#demographics">Demographics</a></li>
+            <li><a href="#goals">User Goals</a></li>
+            <li><a href="#behavior">Behavior & Analytics</a></li>
+            <li><a href="#feedback">User Feedback</a></li>
+            <li><a href="#quiz">Quiz</a></li>
+        </ul>
+    </nav>
+
+    <main class="content">
+        <header class="main-header" id="intro">
+            <h1>User-Centered Design</h1>
+            <p>Prioritizing the end user is not just a technique—it's a mindset that leads to intuitive, efficient, and
+                pleasing experiences.</p>
+        </header>
+
+        <!-- What is UCD -->
+        <section id="what-is-ucd" class="card">
+            <h2>The User First</h2>
+            <p>
+                User-centered design is a web development approach that prioritizes the end user, from their needs to
+                their preferences and limitations.
+                The goal is to craft a web page that is intuitive, efficient to use, and pleasing for your users to
+                interact with.
+            </p>
+        </section>
+
+        <!-- Demographics -->
+        <section id="demographics" class="card">
+            <h2>Target Demographics</h2>
+            <p>If your intended user-base is younger, you might leverage more flashy eye-catching designs. For an older
+                audience, you might focus more on clear and streamlined designs without distractions.</p>
+
+            <div class="pe-demo">
+                <div id="demo-box" class="demo-preview young">
+                    <h3 id="demo-title" class="young-heading">Hyper Dynamic</h3>
+                    <p id="demo-text">Flashy gradients and bold typography grab attention immediately.</p>
+                </div>
+
+                <div class="layer-controls" style="margin-top: 20px;">
+                    <button class="layer-btn active" onclick="setDemo('young')">Younger Audience</button>
+                    <button class="layer-btn" onclick="setDemo('older')">Older Audience</button>
+                </div>
+            </div>
+
+            <div class="code-block">
+                <code><span class="code-selector">/* Younger Audience */</span>
+<span class="code-property">font-weight</span>: <span class="code-value">900</span>;
+<span class="code-property">background</span>: <span class="code-value">linear-gradient(...)</span>;</code>
+            </div>
+        </section>
+
+        <!-- User Goals -->
+        <section id="goals" class="card">
+            <h2>Understanding User Goals</h2>
+            <p>If you're building an e-commerce page, you probably don't want to advertise someone else's products. But
+                if you're building a personal blog, you might include advertisement elements to generate revenue. Always
+                align design with what the user came to do.</p>
+        </section>
+
+        <!-- Behavior & Analytics -->
+        <section id="behavior" class="card">
+            <h2>Behavior & Analytics</h2>
+            <p>Leveraging tools like Google Analytics reveals where users might be getting "stuck" or leaving your page.
+                Measuring engagement allows you to find opportunities to improve the overall interaction flow.</p>
+
+            <div class="code-block">
+                <code><span class="code-selector">window.gtag</span>(<span class="code-value">'event'</span>, <span class="code-value">'scroll'</span>, {
+    <span class="code-property">'event_category'</span>: <span class="code-value">'engagement'</span>
+});</code>
+            </div>
+        </section>
+
+        <!-- User Feedback -->
+        <section id="feedback" class="card">
+            <h2>Direct Feedback</h2>
+            <p>The key to UCD is actually involving your users. A feedback channel allows you to capture pain points and
+                iterate on your site based on real experiences.</p>
+
+            <div class="pe-demo">
+                <div class="feedback-preview">
+                    <form onsubmit="alert('Feedback received! Thank you for helping us improve.'); return false;">
+                        <textarea rows="3"
+                            placeholder="How was your experience today? Share your pain points..."></textarea>
+                        <button type="submit">Send Feedback</button>
+                    </form>
+                </div>
+            </div>
+        </section>
+
+        <!-- Quiz Section -->
+        <section id="quiz" class="card quiz-card">
+            <h2>Knowledge Check</h2>
+            <div class="question" data-answer="To create a website that is intuitive and efficient for users.">
+                <p>1. What is the main goal of user-centered design?</p>
+                <div class="options">
+                    <button onclick="checkAnswer(this, 'To make the website visually appealing.')">Make it visually
+                        appealing</button>
+                    <button
+                        onclick="checkAnswer(this, 'To create a website that is intuitive and efficient for users.')">Intuitive
+                        & efficient for users</button>
+                    <button onclick="checkAnswer(this, 'To reduce development costs.')">Reduce development
+                        costs</button>
+                </div>
+            </div>
+
+            <div class="question" data-answer="To choose appropriate design elements for the intended audience.">
+                <p>2. Why is it important to consider target demographics?</p>
+                <div class="options">
+                    <button onclick="checkAnswer(this, 'To determine the website\'s color scheme.')">Determine color
+                        scheme</button>
+                    <button
+                        onclick="checkAnswer(this, 'To choose appropriate design elements for the intended audience.')">Tailor
+                        elements for intended audience</button>
+                    <button onclick="checkAnswer(this, 'To set the price of products or services.')">Set product
+                        prices</button>
+                </div>
+            </div>
+
+            <div class="question" data-answer="Implement analytics tools like Google Analytics.">
+                <p>3. How can you gather information about user behavior?</p>
+                <div class="options">
+                    <button onclick="checkAnswer(this, 'Ask friends and family for opinions.')">Ask friends and
+                        family</button>
+                    <button onclick="checkAnswer(this, 'Implement analytics tools like Google Analytics.')">Use Google
+                        Analytics</button>
+                    <button onclick="checkAnswer(this, 'Use social media polls.')">Use social media polls</button>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <script>
+        // Demo Logic
+        function setDemo(type) {
+            const box = document.getElementById('demo-box');
+            const title = document.getElementById('demo-title');
+            const p = document.getElementById('demo-text');
+            const btns = document.querySelectorAll('.layer-btn');
+
+            btns.forEach(b => b.classList.remove('active'));
+
+            if (type === 'young') {
+                box.className = 'demo-preview young';
+                title.className = 'young-heading';
+                title.innerText = 'Hyper Dynamic';
+                p.innerText = 'Flashy gradients and bold typography grab attention immediately.';
+                btns[0].classList.add('active');
+            } else {
+                box.className = 'demo-preview older';
+                title.className = 'older-heading';
+                title.innerText = 'Streamlined Clarity';
+                p.innerText = 'Clear labels and minimal distractions focus on usability.';
+                btns[1].classList.add('active');
+            }
+        }
+
+        // Quiz Logic
+        function checkAnswer(btn, selection) {
+            const questionDiv = btn.closest('.question');
+            const correctAnswer = questionDiv.getAttribute('data-answer');
+            const buttons = questionDiv.querySelectorAll('button');
+
+            buttons.forEach(b => b.disabled = true);
+
+            if (selection === correctAnswer) {
+                btn.classList.add('correct');
+            } else {
+                btn.classList.add('wrong');
+                buttons.forEach(opt => {
+                    if (opt.onclick.toString().includes(correctAnswer)) opt.classList.add('correct');
+                });
+            }
+        }
+
+        // Scroll Spy
+        const sections = document.querySelectorAll('section, header');
+        const navLinks = document.querySelectorAll('.nav-links a');
+
+        window.onscroll = () => {
+            let current = "";
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop;
+                if (pageYOffset >= sectionTop - 150) {
+                    current = section.getAttribute('id');
+                }
+            });
+
+            navLinks.forEach(a => {
+                a.classList.remove('active');
+                if (a.getAttribute('href').includes(current)) {
+                    a.classList.add('active');
+                }
+            });
+        };
+    </script>
+</body>
+
+</html>

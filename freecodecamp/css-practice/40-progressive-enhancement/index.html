@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Progressive Enhancement | Designing for Everyone</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700&family=Plus+Jakarta+Sans:wght@300;400;500;700&family=Fira+Code&display=swap"
+        rel="stylesheet">
+</head>
+
+<body>
+    <div class="glass-bg"></div>
+
+    <nav class="sidebar">
+        <div class="logo">
+            <span class="logo-icon">🚀</span>
+            <span class="logo-text">DesignEvolve</span>
+        </div>
+        <ul class="nav-links">
+            <li><a href="#intro" class="active">Introduction</a></li>
+            <li><a href="#principles">Core Principles</a></li>
+            <li><a href="#benefits">Accessibility & Performance</a></li>
+            <li><a href="#seo">SEO Impact</a></li>
+            <li><a href="#demo">Interactive Demo</a></li>
+            <li><a href="#quiz">Quiz</a></li>
+        </ul>
+    </nav>
+
+    <main class="content">
+        <header class="main-header" id="intro">
+            <h1>Progressive Enhancement</h1>
+            <p>A design approach that ensures essential content is accessible to all users, regardless of browser or
+                connection power.</p>
+        </header>
+
+        <!-- What is PE -->
+        <section id="what-is-pe" class="card">
+            <h2>Evolving the Experience</h2>
+            <p>
+                Progressive enhancement focus on delivering a core experience that works for everyone,
+                while offering extra features and improvements to users with more advanced browsers or better internet
+                connections.
+            </p>
+        </section>
+
+        <!-- Core Principles -->
+        <section id="principles" class="card">
+            <h2>The Core Principles</h2>
+            <ul class="principles-list">
+                <li>All core content and basic functionality should be accessible on all browsers</li>
+                <li>All advanced layouts should be provided through external CSS stylesheets</li>
+                <li>All advanced functionality should be provided through external JavaScript files</li>
+                <li>A user's browser preferences should be respected</li>
+            </ul>
+        </section>
+
+        <!-- Accessibility & Speed -->
+        <section id="benefits" class="card">
+            <h2>Speed & Accessibility</h2>
+            <p>Using this approach makes applications more accessible because core content is never blocked. For users
+                on slow connections, the browser downloads necessary resources first, ensuring they can read the content
+                even if the "bells and whistles" take longer.</p>
+
+            <div class="code-block">
+                <code><span class="code-selector">/* Layer 1: Core Content (HTML) */</span>
+<span class="code-selector">/* Layer 2: Presentation (CSS) */</span>
+<span class="code-selector">/* Layer 3: Interactivity (JS) */</span></code>
+            </div>
+        </section>
+
+        <!-- SEO Section -->
+        <section id="seo" class="card">
+            <h2>SEO & Crawlability</h2>
+            <p>Search engines can easily crawl your application because the core content is available in the initial
+                HTML response. This improves visibility compared to apps that require complex JS execution just to show
+                basic text.</p>
+        </section>
+
+        <!-- Interactive Demo -->
+        <section id="demo" class="card">
+            <h2>See the Layers</h2>
+            <p>Experience how a component evolves from raw HTML to a premium, interactive experience.</p>
+
+            <div class="pe-demo">
+                <div id="demo-box" class="pe-preview html-only">
+                    <h3 id="demo-title">Core Headline</h3>
+                    <p id="demo-text">This is the essential information.</p>
+                    <button id="demo-btn">Submit</button>
+                </div>
+
+                <div class="layer-controls">
+                    <button class="layer-btn active" onclick="setLayer('html')">Layer 1: HTML Only</button>
+                    <button class="layer-btn" id="btn-css" onclick="setLayer('css')">Layer 2: Add CSS</button>
+                    <button class="layer-btn" id="btn-js" onclick="setLayer('js')">Layer 3: Add JS</button>
+                </div>
+            </div>
+        </section>
+
+        <!-- Quiz Section -->
+        <section id="quiz" class="card quiz-card">
+            <h2>Knowledge Check</h2>
+            <div class="question"
+                data-answer="To ensure all users, regardless of browser or device, can access the essential content and functionality of an application.">
+                <p>1. What is the main goal of progressive enhancement?</p>
+                <div class="options">
+                    <button
+                        onclick="checkAnswer(this, 'To ensure that the application is heavily reliant on JavaScript.')">Heavily
+                        reliant on JS</button>
+                    <button
+                        onclick="checkAnswer(this, 'To ensure all users, regardless of browser or device, can access the essential content and functionality of an application.')">Accessible
+                        content for all users/devices</button>
+                    <button
+                        onclick="checkAnswer(this, 'To ensure that the latest complex features are available to all users.')">Complex
+                        features for all</button>
+                </div>
+            </div>
+
+            <div class="question" data-answer="A user's browser preferences should be ignored.">
+                <p>2. Which of the following is NOT a core principle of progressive enhancement?</p>
+                <div class="options">
+                    <button
+                        onclick="checkAnswer(this, 'All advanced layouts should be provided through external CSS stylesheets.')">Use
+                        external CSS for layouts</button>
+                    <button onclick="checkAnswer(this, 'A user\'s browser preferences should be ignored.')">Ignore
+                        browser preferences</button>
+                    <button onclick="checkAnswer(this, 'All core content should be accessible on all browsers.')">Core
+                        content accessible on all browsers</button>
+                </div>
+            </div>
+
+            <div class="question"
+                data-answer="It is not always realistic for applications that rely heavily on JavaScript for their functionality.">
+                <p>3. What is a common criticism of the progressive enhancement approach?</p>
+                <div class="options">
+                    <button
+                        onclick="checkAnswer(this, 'It is not always realistic for applications that rely heavily on JavaScript for their functionality.')">Not
+                        realistic for JS-heavy apps</button>
+                    <button onclick="checkAnswer(this, 'It leads to bloated web pages.')">Leads to bloated
+                        pages</button>
+                    <button onclick="checkAnswer(this, 'It requires excessive testing on older browsers.')">Requires
+                        excessive testing</button>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <script>
+        // Layer Demo Logic
+        function setLayer(layer) {
+            const box = document.getElementById('demo-box');
+            const btns = document.querySelectorAll('.layer-btn');
+
+            // UI Reset
+            btns.forEach(b => b.classList.remove('active'));
+            box.className = 'pe-preview';
+
+            if (layer === 'html') {
+                box.classList.add('html-only');
+                btns[0].classList.add('active');
+                box.onclick = null;
+            } else if (layer === 'css') {
+                box.classList.add('css-applied');
+                btns[1].classList.add('active');
+                box.onclick = null;
+            } else if (layer === 'js') {
+                box.classList.add('css-applied', 'js-active');
+                btns[2].classList.add('active');
+                box.onclick = () => alert("JS Enhancement: Micro-interaction active!");
+            }
+        }
+
+        // Quiz Logic
+        function checkAnswer(btn, selection) {
+            const questionDiv = btn.closest('.question');
+            const correctAnswer = questionDiv.getAttribute('data-answer');
+            const buttons = questionDiv.querySelectorAll('button');
+
+            buttons.forEach(b => b.disabled = true);
+
+            if (selection === correctAnswer) {
+                btn.classList.add('correct');
+            } else {
+                btn.classList.add('wrong');
+                buttons.forEach(opt => {
+                    if (opt.onclick.toString().includes(correctAnswer)) opt.classList.add('correct');
+                });
+            }
+        }
+
+        // Scroll Spy
+        const sections = document.querySelectorAll('section, header');
+        const navLinks = document.querySelectorAll('.nav-links a');
+
+        window.onscroll = () => {
+            let current = "";
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop;
+                if (pageYOffset >= sectionTop - 150) {
+                    current = section.getAttribute('id');
+                }
+            });
+
+            navLinks.forEach(a => {
+                a.classList.remove('active');
+                if (a.getAttribute('href').includes(current)) {
+                    a.classList.add('active');
+                }
+            });
+        };
+    </script>
+</body>
+
+</html>

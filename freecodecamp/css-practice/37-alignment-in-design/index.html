@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Alignment in Design | Mastering Visual Connection</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700&family=Plus+Jakarta+Sans:wght@300;400;500;700&family=Fira+Code&display=swap"
+        rel="stylesheet">
+</head>
+
+<body>
+    <div class="glass-bg"></div>
+
+    <nav class="sidebar">
+        <div class="logo">
+            <span class="logo-icon">📏</span>
+            <span class="logo-text">DesignAlign</span>
+        </div>
+        <ul class="nav-links">
+            <li><a href="#intro" class="active">Introduction</a></li>
+            <li><a href="#left">Left Alignment</a></li>
+            <li><a href="#right">Right Alignment</a></li>
+            <li><a href="#center">Center Alignment</a></li>
+            <li><a href="#justified">Justified Alignment</a></li>
+            <li><a href="#vertical">Vertical Alignment</a></li>
+            <li><a href="#quiz">Quiz</a></li>
+        </ul>
+    </nav>
+
+    <main class="content">
+        <header class="main-header" id="intro">
+            <h1>Alignment in Design</h1>
+            <p>Creating visual connections and organizing space for clarity and impact.</p>
+        </header>
+
+        <!-- What is Alignment -->
+        <section id="what-is-alignment" class="card">
+            <h2>The Process of Order</h2>
+            <p>
+                Alignment is the process of arranging text and images in a way that creates a visual connection between
+                elements.
+                It helps to create a sense of order and organization on the page, making it easier for users to navigate
+                and understand the content.
+            </p>
+        </section>
+
+        <!-- Left Alignment -->
+        <section id="left" class="card">
+            <h2>1. Left Alignment</h2>
+            <p>Left alignment is commonly used with text where each element is aligned to the left margin. Aligning all
+                of the headings and paragraphs to the left margin makes it easier for the user to read and follow the
+                content.</p>
+
+            <div class="code-block">
+                <code><span class="code-selector">h1, h2, h3, p</span> {
+    <span class="code-property">text-align</span>: <span class="code-value">left</span>;
+}</code>
+            </div>
+
+            <div class="demo-box">
+                <div class="demo-preview">
+                    <h3>Why Left Alignment Matters</h3>
+                    <p>Left alignment is one of the most common and effective ways to present text on web pages. It
+                        creates a clean and consistent reading flow.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Right Alignment -->
+        <section id="right" class="card">
+            <h2>2. Right Alignment</h2>
+            <p>Right alignment aligns elements to the right margin. This is often used to display additional content
+                like promotional banners or advertisements to separate them visually from the main content.</p>
+
+            <div class="code-block">
+                <code><span class="code-selector">.promo-content</span> {
+    <span class="code-property">text-align</span>: <span class="code-value">right</span>;
+}</code>
+            </div>
+
+            <div class="demo-box">
+                <div class="demo-preview" style="text-align: right;">
+                    <h3>Right Alignment in Web Design</h3>
+                    <p>Right alignment is commonly used to display additional or promotional content. This layout helps
+                        ads stand out without distracting from the main flow.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Center Alignment -->
+        <section id="center" class="card">
+            <h2>3. Center Alignment</h2>
+            <p>Center alignment is perfect for drawing attention to headings, logos, and other important elements. By
+                centering key content, you make it stand out and create a balanced visual appeal.</p>
+
+            <div class="code-block">
+                <code><span class="code-selector">.hero-heading</span> {
+    <span class="code-property">text-align</span>: <span class="code-value">center</span>;
+    <span class="code-property">margin</span>: <span class="code-value">0 auto</span>;
+}</code>
+            </div>
+
+            <div class="demo-box">
+                <div class="demo-preview" style="text-align: center;">
+                    <h3>Center Alignment for Impact</h3>
+                    <p style="max-width: 500px; margin: 0 auto;">By centering key content, you make it stand out. This
+                        technique is often used for logos and hero headings.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Justified Alignment -->
+        <section id="justified" class="card">
+            <h2>4. Justified Alignment</h2>
+            <p>Justified alignment ensures that each line of text stretches evenly between margins, creating a
+                block-like appearance that looks polished and professional.</p>
+
+            <div class="code-block">
+                <code><span class="code-selector">article p</span> {
+    <span class="code-property">text-align</span>: <span class="code-value">justify</span>;
+    <span class="code-property">line-height</span>: <span class="code-value">1.7</span>;
+}</code>
+            </div>
+
+            <div class="demo-box">
+                <div class="demo-preview" style="text-align: justify; font-family: Georgia, serif;">
+                    <h3>Justified Alignment for Clean Text Blocks</h3>
+                    <p>Justified alignment ensures that each line of text stretches evenly between the left and right
+                        margins. This creates a smooth, block-like appearance that looks very polished and professional.
+                        It’s commonly used in newspapers and formal documents where a uniform look is desired.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Vertical Alignment -->
+        <section id="vertical" class="card">
+            <h2>5. Vertical Alignment (Axis)</h2>
+            <p>Vertical alignment aligns elements along a vertical axis. This is perfect for forms, making it easier for
+                users to fill out fields like name, email, and message.</p>
+
+            <div class="code-block">
+                <code><span class="code-selector">form</span> {
+    <span class="code-property">display</span>: <span class="code-value">flex</span>;
+    <span class="code-property">flex-direction</span>: <span class="code-value">column</span>;
+    <span class="code-property">gap</span>: <span class="code-value">15px</span>;
+}</code>
+            </div>
+
+            <div class="demo-box">
+                <div class="form-preview">
+                    <form onsubmit="return false;">
+                        <label for="name">Name</label>
+                        <input type="text" id="name" placeholder="e.g., Jane Doe">
+
+                        <label for="email">Email</label>
+                        <input type="email" id="email" placeholder="janedoe@example.com">
+
+                        <label for="message">Message</label>
+                        <textarea id="message" rows="3" placeholder="Write your message here"></textarea>
+
+                        <button type="submit">Submit</button>
+                    </form>
+                </div>
+            </div>
+        </section>
+
+        <!-- Quiz Section -->
+        <section id="quiz" class="card quiz-card">
+            <h2>Knowledge Check</h2>
+            <div class="question"
+                data-answer="The process of arranging text and images in a way that creates a visual connection between elements.">
+                <p>1. What is alignment in design?</p>
+                <div class="options">
+                    <button onclick="checkAnswer(this, 'The process of adding borders to elements on a page.')">Adding
+                        borders to elements</button>
+                    <button
+                        onclick="checkAnswer(this, 'The process of arranging text and images in a way that creates a visual connection between elements.')">Arranging
+                        text/images for visual connection</button>
+                    <button onclick="checkAnswer(this, 'The process of adding color to a design.')">Adding color to a
+                        design</button>
+                </div>
+            </div>
+
+            <div class="question"
+                data-answer="It's commonly used with text where each element is aligned to the left margin.">
+                <p>2. What is left alignment commonly used for?</p>
+                <div class="options">
+                    <button onclick="checkAnswer(this, 'It\'s commonly used with videos.')">Commonly used with
+                        videos</button>
+                    <button
+                        onclick="checkAnswer(this, 'It\'s commonly used with text where each element is aligned to the left margin.')">Text
+                        aligned to the left margin</button>
+                    <button onclick="checkAnswer(this, 'It\'s commonly used with footer elements.')">Used with footer
+                        elements</button>
+                </div>
+            </div>
+
+            <div class="question" data-answer="It's used to align elements along a vertical axis.">
+                <p>3. What is vertical alignment?</p>
+                <div class="options">
+                    <button onclick="checkAnswer(this, 'It\'s used to align elements along a vertical axis.')">Align
+                        elements along a vertical axis</button>
+                    <button onclick="checkAnswer(this, 'It\'s used to align elements along a horizontal axis.')">Align
+                        elements along a horizontal axis</button>
+                    <button onclick="checkAnswer(this, 'It\'s used to align elements along a diagonal axis.')">Align
+                        elements along a diagonal axis</button>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <script>
+        // Quiz Logic
+        function checkAnswer(btn, selection) {
+            const questionDiv = btn.closest('.question');
+            const correctAnswer = questionDiv.getAttribute('data-answer');
+            const buttons = questionDiv.querySelectorAll('button');
+
+            buttons.forEach(b => b.disabled = true);
+
+            if (selection === correctAnswer) {
+                btn.classList.add('correct');
+            } else {
+                btn.classList.add('wrong');
+                buttons.forEach(opt => {
+                    if (opt.onclick.toString().includes(correctAnswer)) opt.classList.add('correct');
+                });
+            }
+        }
+
+        // Scroll Spy
+        const sections = document.querySelectorAll('section, header');
+        const navLinks = document.querySelectorAll('.nav-links a');
+
+        window.onscroll = () => {
+            let current = "";
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop;
+                if (pageYOffset >= sectionTop - 150) {
+                    current = section.getAttribute('id');
+                }
+            });
+
+            navLinks.forEach(a => {
+                a.classList.remove('active');
+                if (a.getAttribute('href').includes(current)) {
+                    a.classList.add('active');
+                }
+            });
+        };
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dark Mode Best Practices | Designing for Comfort</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700;800&family=Plus+Jakarta+Sans:wght@300;400;500;700&family=Fira+Code&display=swap"
+        rel="stylesheet">
+</head>
+
+<body class="dark"> <!-- Default to dark for premium feel -->
+    <div class="glass-bg"></div>
+
+    <nav class="sidebar">
+        <div class="logo">
+            <span class="logo-icon">🌓</span>
+            <span class="logo-text">ThemeCraft</span>
+        </div>
+        <ul class="nav-links">
+            <li><a href="#intro" class="active">Introduction</a></li>
+            <li><a href="#saturation">Saturation</a></li>
+            <li><a href="#contrast">Contrast</a></li>
+            <li><a href="#brand">Brand Identity</a></li>
+            <li><a href="#quiz">Quiz</a></li>
+        </ul>
+        <div class="theme-switch-container">
+            <button class="theme-btn" id="global-toggle">
+                <span id="toggle-icon">☀️</span>
+                <span>Switch Theme</span>
+            </button>
+        </div>
+    </nav>
+
+    <main class="content">
+        <header class="main-header" id="intro">
+            <h1>Dark Mode Best Practices</h1>
+            <p>Go beyond just flipping colors. Learn how to design a dark mode that reduces eye strain and maintains
+                visual harmony.</p>
+        </header>
+
+        <!-- Intro Section -->
+        <section id="introduction" class="card">
+            <h2>What is Dark Mode?</h2>
+            <p>
+                Dark mode is a special feature on web applications where you can change the default light color scheme
+                to a dark color scheme.
+                This helps reduce eye strain and improve readability in low-light conditions.
+            </p>
+
+            <div class="code-block">
+                <code><span class="code-selector">/* Toggle Logic (JavaScript) */</span>
+<span class="code-selector">toggleBtn</span>.<span class="code-property">addEventListener</span>(<span class="code-value">'click'</span>, () => {
+    <span class="code-selector">document.body</span>.<span class="code-property">classList</span>.<span class="code-value">toggle</span>(<span class="code-value">'dark'</span>);
+});</code>
+            </div>
+        </section>
+
+        <!-- Saturation Section -->
+        <section id="saturation" class="card">
+            <h2>1. Avoid High Saturation</h2>
+            <p>Bright, saturated colors can be too intense against a dark background, causing "halidating" or eye
+                strain. Use desaturated colors for a more comfortable experience.</p>
+
+            <div class="comp-box">
+                <div class="comp-item">
+                    <p style="margin-bottom: 15px; font-size: 14px;">Too Intense</p>
+                    <button class="saturated-btn">Saturated</button>
+                </div>
+                <div class="comp-item">
+                    <p style="margin-bottom: 15px; font-size: 14px;">Comfortable</p>
+                    <button class="desaturated-btn">Desaturated</button>
+                </div>
+            </div>
+
+            <div class="code-block" style="margin-top: 30px;">
+                <code><span class="code-selector">.desaturated-button</span> {
+    <span class="code-property">background-color</span>: <span class="code-value">#925f88</span>; /* Muted Tone */
+}</code>
+            </div>
+        </section>
+
+        <!-- Contrast Section -->
+        <section id="contrast" class="card">
+            <h2>2. Soften the Contrast</h2>
+            <p>Pure black (#000) and white (#FFF) can be harsh. Using deep grays and off-whites creates a softer, more
+                readable experience.</p>
+
+            <div class="comp-box">
+                <div class="comp-item harsh-dark">
+                    <p>Harsh Contrast</p>
+                    <p style="font-size: 12px; margin-top: 10px;">#000000 Background</p>
+                </div>
+                <div class="comp-item soft-dark">
+                    <p>Soft Contrast</p>
+                    <p style="font-size: 12px; margin-top: 10px;">#1E1E1E Background</p>
+                </div>
+            </div>
+
+            <div class="code-block" style="margin-top: 30px;">
+                <code><span class="code-selector">body.dark</span> {
+    <span class="code-property">background-color</span>: <span class="code-value">#1e1e1e</span>; /* Deep Charcoal */
+    <span class="code-property">color</span>: <span class="code-value">#cccccc</span>;           /* Soft Gray */
+}</code>
+            </div>
+        </section>
+
+        <!-- Brand Section -->
+        <section id="brand" class="card">
+            <h2>3. Brand Identity</h2>
+            <p>Ensure dark mode stays consistent with your brand's style. Icons and primary brand colors can remain
+                saturated to maintain identity, while structural elements are muted.</p>
+
+            <div class="code-block">
+                <code><span class="code-selector">.brand-logo</span> {
+    <span class="code-property">filter</span>: <span class="code-value">drop-shadow(0 0 10px var(--primary-glow))</span>;
+    <span class="code-property">opacity</span>: <span class="code-value">1</span>; /* Maintain full saturation */
+}</code>
+            </div>
+        </section>
+
+        <!-- Quiz Section -->
+        <section id="quiz" class="card quiz-card">
+            <h2>Knowledge Check</h2>
+            <div class="question"
+                data-answer="A feature that changes the default light color scheme to a dark color scheme.">
+                <p>1. What is dark mode?</p>
+                <div class="options">
+                    <button
+                        onclick="checkAnswer(this, 'A feature that changes the default light color scheme to a dark color scheme.')">Changes
+                        light to dark color scheme</button>
+                    <button
+                        onclick="checkAnswer(this, 'A feature that changes the default font size to a larger size.')">Changes
+                        font size</button>
+                    <button onclick="checkAnswer(this, 'A feature that changes the default layout.')">Changes page
+                        layout</button>
+                </div>
+            </div>
+
+            <div class="question" data-answer="Pure black backgrounds with white text can be too harsh on the eyes.">
+                <p>2. Why avoid pure black backgrounds with white text in dark mode?</p>
+                <div class="options">
+                    <button onclick="checkAnswer(this, 'Pure black backgrounds can cause security issues.')">Causes
+                        security issues</button>
+                    <button
+                        onclick="checkAnswer(this, 'Pure black backgrounds with white text can be too harsh on the eyes.')">Can
+                        be too harsh on the eyes</button>
+                    <button onclick="checkAnswer(this, 'Pure black backgrounds can cause performance issues.')">Causes
+                        performance issues</button>
+                </div>
+            </div>
+
+            <div class="question" data-answer="Desaturated colors.">
+                <p>3. What types of colors are suggested to use in dark mode?</p>
+                <div class="options">
+                    <button onclick="checkAnswer(this, 'Bright colors.')">Bright colors</button>
+                    <button onclick="checkAnswer(this, 'Desaturated colors.')">Desaturated colors</button>
+                    <button onclick="checkAnswer(this, 'Red colors.')">Red colors</button>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <script>
+        // Global Theme Toggle
+        const body = document.body;
+        const toggleBtn = document.getElementById('global-toggle');
+        const toggleIcon = document.getElementById('toggle-icon');
+
+        toggleBtn.addEventListener('click', () => {
+            body.classList.toggle('dark');
+            const isDark = body.classList.contains('dark');
+            toggleIcon.innerText = isDark ? '☀️' : '🌙';
+        });
+
+        // Quiz Logic
+        function checkAnswer(btn, selection) {
+            const questionDiv = btn.closest('.question');
+            const correctAnswer = questionDiv.getAttribute('data-answer');
+            const buttons = questionDiv.querySelectorAll('button');
+
+            buttons.forEach(b => b.disabled = true);
+
+            if (selection === correctAnswer) {
+                btn.classList.add('correct');
+            } else {
+                btn.classList.add('wrong');
+                buttons.forEach(opt => {
+                    if (opt.onclick.toString().includes(correctAnswer)) opt.classList.add('correct');
+                });
+            }
+        }
+
+        // Scroll Spy
+        const sections = document.querySelectorAll('section, header');
+        const navLinks = document.querySelectorAll('.nav-links a');
+
+        window.onscroll = () => {
+            let current = "";
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop;
+                if (pageYOffset >= sectionTop - 150) {
+                    current = section.getAttribute('id');
+                }
+            });
+
+            navLinks.forEach(a => {
+                a.classList.remove('active');
+                if (a.getAttribute('href').includes(current)) {
+                    a.classList.add('active');
+                }
+            });
+        };
+    </script>
+</body>
+
+</html>

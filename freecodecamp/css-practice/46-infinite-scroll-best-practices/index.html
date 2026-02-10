@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Infinite Scroll Best Practices | Flowing UX</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700;800&family=Plus+Jakarta+Sans:wght@300;400;500;700&family=Fira+Code&display=swap"
+        rel="stylesheet">
+</head>
+
+<body>
+    <div class="glass-bg"></div>
+
+    <button id="top-btn" class="fixed-btn" title="Back to Top">↑</button>
+
+    <nav class="sidebar">
+        <div class="logo">
+            <span class="logo-icon">🌊</span>
+            <span class="logo-text">ScrollFlow</span>
+        </div>
+        <ul class="nav-links">
+            <li><a href="#intro" class="active">Introduction</a></li>
+            <li><a href="#vspagination">Infinite vs Pagination</a></li>
+            <li><a href="#loadmore">Load More</a></li>
+            <li><a href="#feedback">Loading & Back Top</a></li>
+            <li><a href="#footer">Footer Strategy</a></li>
+            <li><a href="#quiz">Quiz</a></li>
+        </ul>
+    </nav>
+
+    <main class="content">
+        <header class="main-header" id="intro">
+            <h1>Infinite Scroll Best Practices</h1>
+            <p>Implement seamless content delivery while maintaining user control and accessibility.</p>
+        </header>
+
+        <!-- Intro Section -->
+        <section id="introduction" class="card">
+            <h2>What is Infinite Scrolling?</h2>
+            <p>Infinite scrolling is a design pattern that loads more content as the user scrolls down the page. It's
+                often used for data streams like social media feeds or news lists.</p>
+
+            <div class="demo-box">
+                <div class="scroll-container" id="infinite-scroll-demo">
+                    <div class="demo-list" id="infinite-list">
+                        <!-- Items generated here -->
+                        <div class="demo-post">Post 1</div>
+                        <div class="demo-post">Post 2</div>
+                        <div class="demo-post">Post 3</div>
+                        <div class="demo-post">Post 4</div>
+                        <div class="demo-post">Post 5</div>
+                    </div>
+                    <div id="scroll-loader" class="loading-box">
+                        <span class="spinner"></span><br>Loading...
+                    </div>
+                </div>
+                <p style="font-size: 14px; text-align: center; color: var(--accent);">Scroll inside the box above to see
+                    auto-loading.</p>
+            </div>
+
+            <div class="code-block" style="margin-top: 30px;">
+                <code><span class="code-selector">/* Detection Logic */</span>
+<span class="code-selector">window</span>.<span class="code-property">addEventListener</span>(<span class="code-value">'scroll'</span>, () => {
+  <span class="code-selector">if</span> (window.innerHeight + window.scrollY >= document.body.offsetHeight) {
+    <span class="code-property">loadMorePosts</span>();
+  }
+});</code>
+            </div>
+        </section>
+
+        <!-- Vs Pagination -->
+        <section id="vspagination" class="card">
+            <h2>Infinite Scroll vs. Pagination</h2>
+            <p>Pagination breaks content into discrete pages. It's better for search results where users want to find
+                specific items or reach the footer easily.</p>
+
+            <div class="demo-box">
+                <div class="demo-list" id="paginated-list">
+                    <!-- Page items here -->
+                </div>
+                <div class="controls-row">
+                    <button id="prev-btn" class="btn-action">Previous</button>
+                    <button id="next-btn" class="btn-action">Next</button>
+                </div>
+            </div>
+        </section>
+
+        <!-- Load More Section -->
+        <section id="#loadmore" class="card">
+            <h2>1. Provide Control (Load More)</h2>
+            <p>Instead of auto-loading, a "Load More" button gives the user control over their data usage and browsing
+                speed.</p>
+
+            <div class="demo-box">
+                <div class="demo-list" id="load-more-list">
+                    <div class="demo-post">Result 1</div>
+                    <div class="demo-post">Result 2</div>
+                    <div class="demo-post">Result 3</div>
+                </div>
+                <div class="controls-row">
+                    <button class="btn-action" id="btn-load-more">Load More Content</button>
+                </div>
+            </div>
+        </section>
+
+        <!-- Loading & Back Top -->
+        <section id="feedback" class="card">
+            <h2>2. Feedback & "Back to Top"</h2>
+            <p>Always provide a loading indicator so users don't think the page is broken. A "Back to Top" button is
+                essential when feeds become long.</p>
+
+            <div class="code-block">
+                <code><span class="code-selector">.back-to-top</span> {
+    <span class="code-property">position</span>: <span class="code-value">fixed</span>;
+    <span class="code-property">bottom</span>: <span class="code-value">30px</span>;
+    <span class="code-property">right</span>: <span class="code-value">30px</span>;
+}</code>
+            </div>
+        </section>
+
+        <!-- Footer Strategy -->
+        <section id="footer" class="card">
+            <h2>3. Footer Accessibility</h2>
+            <p>Infinite scroll often "buries" the footer. If your footer contains critical links, consider using a
+                sticky footer or a "Load More" button to ensure it can be reached.</p>
+
+            <div class="footer-sim">
+                <h3>Footer Content</h3>
+                <p>Links • Legal • Support</p>
+                <p style="font-size: 12px; color: var(--accent); margin-top: 10px;">Reached easily if loading is manual.
+                </p>
+            </div>
+        </section>
+
+        <!-- Quiz Section -->
+        <section id="quiz" class="card quiz-card">
+            <h2>Knowledge Check</h2>
+            <div class="question"
+                data-answer="A design pattern that loads more content as the user scrolls down the page">
+                <p>1. What is infinite scrolling?</p>
+                <div class="options">
+                    <button
+                        onclick="checkAnswer(this, 'A design pattern that changes the scrollbar on the page.')">Changes
+                        scrollbar</button>
+                    <button
+                        onclick="checkAnswer(this, 'A design pattern that loads more content as the user scrolls down the page')">Loads
+                        content on scroll down</button>
+                    <button onclick="checkAnswer(this, 'A design pattern that changes the size of the page.')">Changes
+                        page size</button>
+                </div>
+            </div>
+
+            <div class="question" data-answer="To give users control over when they want to see more content.">
+                <p>2. What is the role of a 'load more' button?</p>
+                <div class="options">
+                    <button onclick="checkAnswer(this, 'It reloads the page.')">Reloads the page</button>
+                    <button
+                        onclick="checkAnswer(this, 'To give users control over when they want to see more content.')">Gives
+                        user control</button>
+                    <button onclick="checkAnswer(this, 'It restricts the amount of data.')">Restricts data</button>
+                </div>
+            </div>
+
+            <div class="question"
+                data-answer="So the user can access the links and important information from the footer at all times.">
+                <p>3. Why keep the footer accessible in infinite scrolling?</p>
+                <div class="options">
+                    <button onclick="checkAnswer(this, 'It helps make the colors stand out more on the page.')">Colors
+                        stand out</button>
+                    <button
+                        onclick="checkAnswer(this, 'So the user can access the links and important information from the footer at all times.')">Access
+                        important info/links</button>
+                    <button onclick="checkAnswer(this, 'It is not important.')">Not important</button>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <script>
+        // --- Infinite Scroll Box Demo ---
+        const scrollBox = document.getElementById('infinite-scroll-demo');
+        const scrollList = document.getElementById('infinite-list');
+        const scrollLoader = document.getElementById('scroll-loader');
+        let isLoading = false;
+
+        scrollBox.addEventListener('scroll', () => {
+            if (scrollBox.scrollTop + scrollBox.clientHeight >= scrollBox.scrollHeight - 20) {
+                if (!isLoading) {
+                    loadItems();
+                }
+            }
+        });
+
+        function loadItems() {
+            isLoading = true;
+            scrollLoader.style.display = 'block';
+            setTimeout(() => {
+                for (let i = 1; i <= 3; i++) {
+                    const post = document.createElement('div');
+                    post.className = 'demo-post';
+                    post.innerText = `Post ${scrollList.children.length + 1}`;
+                    scrollList.appendChild(post);
+                }
+                scrollLoader.style.display = 'none';
+                isLoading = false;
+            }, 800);
+        }
+
+        // --- Pagination Demo ---
+        const pageList = document.getElementById('paginated-list');
+        const prevBtn = document.getElementById('prev-btn');
+        const nextBtn = document.getElementById('next-btn');
+        let currentPage = 1;
+        const totalPages = 3;
+
+        function renderPage() {
+            pageList.innerHTML = '';
+            for (let i = 1; i <= 3; i++) {
+                const itemNum = ((currentPage - 1) * 3) + i;
+                const post = document.createElement('div');
+                post.className = 'demo-post';
+                post.innerText = `Page ${currentPage} - Item ${itemNum}`;
+                pageList.appendChild(post);
+            }
+            prevBtn.disabled = currentPage === 1;
+            nextBtn.disabled = currentPage === totalPages;
+        }
+
+        prevBtn.addEventListener('click', () => { currentPage--; renderPage(); });
+        nextBtn.addEventListener('click', () => { currentPage++; renderPage(); });
+        renderPage();
+
+        // --- Load More Demo ---
+        const btnMore = document.getElementById('btn-load-more');
+        const loadMoreList = document.getElementById('load-more-list');
+
+        btnMore.addEventListener('click', () => {
+            for (let i = 1; i <= 2; i++) {
+                const post = document.createElement('div');
+                post.className = 'demo-post';
+                post.innerText = `Loaded Item ${loadMoreList.children.length + 1}`;
+                loadMoreList.appendChild(post);
+            }
+        });
+
+        // --- Back to Top ---
+        const topBtn = document.getElementById('top-btn');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 300) topBtn.classList.add('visible');
+            else topBtn.classList.remove('visible');
+        });
+
+        topBtn.addEventListener('click', () => {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        });
+
+        // --- Quiz Logic ---
+        function checkAnswer(btn, selection) {
+            const questionDiv = btn.closest('.question');
+            const correctAnswer = questionDiv.getAttribute('data-answer');
+            const buttons = questionDiv.querySelectorAll('button');
+            buttons.forEach(b => b.disabled = true);
+            if (selection === correctAnswer) {
+                btn.classList.add('correct');
+            } else {
+                btn.classList.add('wrong');
+                buttons.forEach(opt => {
+                    if (opt.onclick.toString().includes(correctAnswer)) opt.classList.add('correct');
+                });
+            }
+        }
+
+        // --- Scroll Spy ---
+        const sections = document.querySelectorAll('section, header');
+        const navLinks = document.querySelectorAll('.nav-links a');
+        window.onscroll = () => {
+            let current = "";
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop;
+                if (pageYOffset >= sectionTop - 150) {
+                    current = section.getAttribute('id');
+                }
+            });
+            navLinks.forEach(a => {
+                a.classList.remove('active');
+                if (a.getAttribute('href').includes(current)) {
+                    a.classList.add('active');
+                }
+            });
+        };
+    </script>
+</body>
+
+</html>

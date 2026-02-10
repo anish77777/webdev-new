@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Visual Hierarchy | Design for Clarity</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700&family=Plus+Jakarta+Sans:wght@300;400;500;700&display=swap"
+        rel="stylesheet">
+</head>
+
+<body>
+    <div class="glass-bg"></div>
+
+    <nav class="sidebar">
+        <div class="logo">
+            <span class="logo-icon">📐</span>
+            <span class="logo-text">HierarchyPro</span>
+        </div>
+        <ul class="nav-links">
+            <li><a href="#intro" class="active">Introduction</a></li>
+            <li><a href="#comparison">Weak vs Strong</a></li>
+            <li><a href="#headings">Heading Tiers</a></li>
+            <li><a href="#conversions">Conversion & CTAs</a></li>
+            <li><a href="#navigation">Navigation & Footers</a></li>
+            <li><a href="#quiz">Quiz</a></li>
+        </ul>
+    </nav>
+
+    <main class="content">
+        <header class="main-header" id="intro">
+            <h1>Visual Hierarchy</h1>
+            <p>Guiding the user's eye and defining the path of least resistance.</p>
+        </header>
+
+        <!-- Dynamic Comparison Section -->
+        <section id="comparison" class="card">
+            <div class="section-header">
+                <h2>The Power of Structure</h2>
+                <div class="toggle-container">
+                    <span>Weak</span>
+                    <label class="switch">
+                        <input type="checkbox" id="hierarchy-toggle" onchange="toggleHierarchy()">
+                        <span class="slider round"></span>
+                    </label>
+                    <span>Strong</span>
+                </div>
+            </div>
+            <p>Toggle between a "Weak" and "Strong" hierarchy to see how much easier it is to process information when
+                it's structured correctly.</p>
+
+            <div id="hierarchy-demo" class="demo-vessel weak">
+                <header class="demo-header">
+                    <h1 class="demo-title">My Website</h1>
+                </header>
+                <nav class="demo-nav">
+                    <a href="#">Home</a><a href="#">About</a><a href="#">Services</a><a href="#">Contact</a>
+                </nav>
+                <main class="demo-main">
+                    <section class="demo-section">
+                        <h2 class="demo-h2">Welcome</h2>
+                        <p class="demo-p">This is the welcome section of the homepage. It contains some basic
+                            information about our site.</p>
+                    </section>
+                    <section class="demo-section">
+                        <h2 class="demo-h2">Our Services</h2>
+                        <p class="demo-p">Here we describe what we offer. We provide high-quality solutions for your
+                            business needs.</p>
+                        <div class="demo-cta-container">
+                            <a href="#" class="demo-cta">Learn More</a>
+                        </div>
+                    </section>
+                </main>
+            </div>
+        </section>
+
+        <!-- Heading Tiers -->
+        <section id="headings" class="card">
+            <h2>Heading Tiers</h2>
+            <p>Headings are the anchors of your content. Distinct sizes create a mental map for the reader.</p>
+
+            <div class="tier-box">
+                <div class="tier h1">
+                    <h1>Level 1: Main Topic (H1)</h1><span>32px+</span>
+                </div>
+                <div class="tier h2">
+                    <h2>Level 2: Sub-section (H2)</h2><span>24px</span>
+                </div>
+                <div class="tier h3">
+                    <h3>Level 3: Component (H3)</h3><span>18px</span>
+                </div>
+                <div class="tier p">
+                    <p>Body Text: The details.</p><span>16px</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- Conversion & CTAs -->
+        <section id="conversions" class="card">
+            <h2>Boosting Conversions</h2>
+            <p>Visual hierarchy isn't just about reading—it's about <strong>action</strong>. Callout boxes and CTA
+                buttons draw focus where it matters most.</p>
+
+            <div class="cta-demo">
+                <div class="callout-box">
+                    <h3>Ready to upgrade?</h3>
+                    <p>Join 10,000+ happy users today.</p>
+                    <a href="#" class="btn-primary">Get Started Now</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Navigation & footers -->
+        <section id="navigation" class="card">
+            <h2>Essential Signposts</h2>
+            <p>Navigation and footers use hierarchy to hide complexity until it's needed, helping users find specific
+                links without overwhelming the main content.</p>
+
+            <div class="nav-preview">
+                <div class="p-nav">
+                    <strong>Primary Links</strong>
+                    <div class="dots"><span></span><span></span><span></span></div>
+                </div>
+                <div class="p-footer">
+                    <strong>Footer Links</strong>
+                    <div class="links-small">
+                        <span>Legal</span><span>Privacy</span><span>Careers</span><span>Support</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Quiz Section -->
+        <section id="quiz" class="card quiz-card">
+            <h2>Quick Quiz</h2>
+            <div class="question" data-answer="To guide the viewer's attention in a specific order">
+                <p>1. What is the primary purpose of visual hierarchy?</p>
+                <div class="options">
+                    <button onclick="checkAnswer(this, 'To make things colorful')">Make things colorful</button>
+                    <button onclick="checkAnswer(this, 'To guide the viewer\'s attention in a specific order')">Guide
+                        attention in order</button>
+                    <button onclick="checkAnswer(this, 'To speed up loading')">Speed up loading</button>
+                </div>
+            </div>
+            <div class="question" data-answer="Applying animation effects to elements">
+                <p>2. Which is NOT a technique mentioned for creating hierarchy?</p>
+                <div class="options">
+                    <button onclick="checkAnswer(this, 'Using different font sizes')">Font sizes</button>
+                    <button onclick="checkAnswer(this, 'Implementing callout boxes')">Callout boxes</button>
+                    <button onclick="checkAnswer(this, 'Applying animation effects to elements')">Animations</button>
+                </div>
+            </div>
+            <div class="question" data-answer="By drawing attention to Call-to-Action (CTA) buttons">
+                <p>3. How does hierarchy impact user conversion?</p>
+                <div class="options">
+                    <button onclick="checkAnswer(this, 'By adding more pictures')">More pictures</button>
+                    <button
+                        onclick="checkAnswer(this, 'By drawing attention to Call-to-Action (CTA) buttons')">Highlighting
+                        CTAs</button>
+                    <button onclick="checkAnswer(this, 'By increasing SEO rank')">Increasing SEO rank</button>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <script>
+        function toggleHierarchy() {
+            const vessel = document.getElementById('hierarchy-demo');
+            if (vessel.classList.contains('weak')) {
+                vessel.classList.remove('weak');
+                vessel.classList.add('strong');
+            } else {
+                vessel.classList.remove('strong');
+                vessel.classList.add('weak');
+            }
+        }
+
+        function checkAnswer(btn, selection) {
+            const questionDiv = btn.closest('.question');
+            const correctAnswer = questionDiv.getAttribute('data-answer');
+            const buttons = questionDiv.querySelectorAll('button');
+
+            buttons.forEach(b => b.disabled = true);
+
+            if (selection === correctAnswer) {
+                btn.classList.add('correct');
+            } else {
+                btn.classList.add('wrong');
+                buttons.forEach(b => {
+                    if (b.innerText === correctAnswer) b.classList.add('correct');
+                });
+            }
+        }
+
+        // Scroll Spy
+        const sections = document.querySelectorAll('section, header');
+        const navLinks = document.querySelectorAll('.nav-links a');
+
+        window.onscroll = () => {
+            let current = "";
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop;
+                if (pageYOffset >= sectionTop - 150) {
+                    current = section.getAttribute('id');
+                }
+            });
+
+            navLinks.forEach(a => {
+                a.classList.remove('active');
+                if (a.getAttribute('href').includes(current)) {
+                    a.classList.add('active');
+                }
+            });
+        };
+    </script>
+</body>
+
+</html>

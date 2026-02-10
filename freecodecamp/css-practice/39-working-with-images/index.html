@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Working with Images | Designing for Visual Appeal</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700&family=Plus+Jakarta+Sans:wght@300;400;500;700&family=Fira+Code&display=swap"
+        rel="stylesheet">
+</head>
+
+<body>
+    <div class="glass-bg"></div>
+
+    <nav class="sidebar">
+        <div class="logo">
+            <span class="logo-icon">🖼️</span>
+            <span class="logo-text">DesignImg</span>
+        </div>
+        <ul class="nav-links">
+            <li><a href="#intro" class="active">Introduction</a></li>
+            <li><a href="#responsive">Responsive Images</a></li>
+            <li><a href="#resolution">Resolution & PPI</a></li>
+            <li><a href="#balance">Balance & Hierarchy</a></li>
+            <li><a href="#alignment">Alignment</a></li>
+            <li><a href="#accessibility">Accessibility</a></li>
+            <li><a href="#quiz">Quiz</a></li>
+        </ul>
+    </nav>
+
+    <main class="content">
+        <header class="main-header" id="intro">
+            <h1>Best Practices for Images</h1>
+            <p>Adding images to your websites is a great way to engage your users and increase visual appeal, but it
+                requires mindful design and optimization.</p>
+        </header>
+
+        <!-- Responsive Images -->
+        <section id="responsive" class="card">
+            <h2>1. Responsive Images</h2>
+            <p>Responsive images are images that scale to fit the size of the screen they are being viewed on. This
+                ensures your images look good on all devices, from desktops to mobile phones.</p>
+
+            <div class="code-block">
+                <code><span class="code-selector">img</span> {
+    <span class="code-property">max-width</span>: <span class="code-value">100%</span>;
+    <span class="code-property">height</span>: <span class="code-value">auto</span>;
+}</code>
+            </div>
+
+            <div class="image-preview-box">
+                <img src="https://cdn.freecodecamp.org/curriculum/cat-photo-app/cats.jpg"
+                    alt="Two cats peacefully sleeping together." class="img-responsive">
+                <p style="font-size: 14px; margin-top: 15px;">Resize your screen to see this image scale automatically!
+                </p>
+            </div>
+        </section>
+
+        <!-- Resolution & PPI -->
+        <section id="resolution" class="card">
+            <h2>2. Resolution & PPI</h2>
+            <p><strong>Pixels per inch (PPI)</strong> is the number of pixels in one inch of an image. Higher PPI means
+                better quality. High-quality images look professional, but for the web, they must be properly optimized
+                to ensure fast loading.</p>
+            <div class="demo-box">
+                <p>Always use high-resolution images that are optimized for web use to prevent slowing down your site.
+                </p>
+            </div>
+        </section>
+
+        <!-- Balance & Hierarchy -->
+        <section id="balance" class="card">
+            <h2>3. Balance & Hierarchy</h2>
+            <p><strong>Balance</strong> is the distribution of visual weight. Pair text blocks with images evenly to
+                create a harmonious design.</p>
+            <p><strong>Hierarchy</strong> is the order in which elements are viewed. Place important images higher to
+                connect users emotionally with your mission right away.</p>
+
+            <div class="balanced-container">
+                <div class="balanced-text">
+                    <h3>Balanced Layout</h3>
+                    <p>By evenly distributing visual weight—such as pairing this text with an image—you create a layout
+                        that feels structured and easy to navigate.</p>
+                </div>
+                <div class="balanced-image">
+                    <img src="https://cdn.freecodecamp.org/curriculum/cat-photo-app/cats.jpg"
+                        alt="Two cats peacefully sleeping together.">
+                </div>
+            </div>
+        </section>
+
+        <!-- Alignment -->
+        <section id="alignment" class="card">
+            <h2>4. Alignment</h2>
+            <p>Alignment is the placement of elements in relation to each other. Aligning images with text creates a
+                cohesive layout where elements feel like they belong together. This improves readability and reinforces
+                structure.</p>
+
+            <div class="code-block">
+                <code><span class="code-selector">.aligned-content</span> {
+    <span class="code-property">display</span>: <span class="code-value">flex</span>;
+    <span class="code-property">align-items</span>: <span class="code-value">center</span>;
+    <span class="code-property">gap</span>: <span class="code-value">20px</span>;
+}</code>
+            </div>
+        </section>
+
+        <!-- Accessibility -->
+        <section id="accessibility" class="card">
+            <h2>5. Accessibility</h2>
+            <p>Ensuring images are accessible means using <strong>alt text</strong>. Screen readers read this text to
+                users with visual impairments, allowing everyone to understand your content.</p>
+
+            <div class="code-block">
+                <code><span class="code-selector">&lt;img</span> <span class="code-property">alt</span>=<span class="code-value">"Descriptive text here"</span> <span class="code-selector">&gt;</span></code>
+            </div>
+        </section>
+
+        <!-- Quiz Section -->
+        <section id="quiz" class="card quiz-card">
+            <h2>Knowledge Check</h2>
+            <div class="question" data-answer="To create a harmonious design by distributing visual weight.">
+                <p>1. What is the importance of balance in design when placing images?</p>
+                <div class="options">
+                    <button onclick="checkAnswer(this, 'To ensure images are the right size.')">To ensure the right
+                        size</button>
+                    <button onclick="checkAnswer(this, 'To make images accessible to all users')">To make images
+                        accessible</button>
+                    <button
+                        onclick="checkAnswer(this, 'To create a harmonious design by distributing visual weight.')">Distribute
+                        visual weight harmoniously</button>
+                </div>
+            </div>
+
+            <div class="question" data-answer="To ensure that your images look good on all devices.">
+                <p>2. What is the purpose of using high resolution images in your designs?</p>
+                <div class="options">
+                    <button onclick="checkAnswer(this, 'To make sure your images have the right color.')">To get the
+                        right color</button>
+                    <button onclick="checkAnswer(this, 'To ensure that your images look good on all devices.')">Look
+                        good on all devices</button>
+                    <button onclick="checkAnswer(this, 'To make sure that your images are the right size.')">Get the
+                        right size</button>
+                </div>
+            </div>
+
+            <div class="question" data-answer="The number of pixels per one inch of an image.">
+                <p>3. What is PPI?</p>
+                <div class="options">
+                    <button onclick="checkAnswer(this, 'The number of pixels per one inch of an image.')">Pixels per one
+                        inch</button>
+                    <button onclick="checkAnswer(this, 'The number of points per one inch of an image.')">Points per one
+                        inch</button>
+                    <button onclick="checkAnswer(this, 'The number of pixels per one centimeter of an image.')">Pixels
+                        per centimeter</button>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <script>
+        // Quiz Logic
+        function checkAnswer(btn, selection) {
+            const questionDiv = btn.closest('.question');
+            const correctAnswer = questionDiv.getAttribute('data-answer');
+            const buttons = questionDiv.querySelectorAll('button');
+
+            buttons.forEach(b => b.disabled = true);
+
+            if (selection === correctAnswer) {
+                btn.classList.add('correct');
+            } else {
+                btn.classList.add('wrong');
+                buttons.forEach(opt => {
+                    if (opt.onclick.toString().includes(correctAnswer)) opt.classList.add('correct');
+                });
+            }
+        }
+
+        // Scroll Spy
+        const sections = document.querySelectorAll('section, header');
+        const navLinks = document.querySelectorAll('.nav-links a');
+
+        window.onscroll = () => {
+            let current = "";
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop;
+                if (pageYOffset >= sectionTop - 150) {
+                    current = section.getAttribute('id');
+                }
+            });
+
+            navLinks.forEach(a => {
+                a.classList.remove('active');
+                if (a.getAttribute('href').includes(current)) {
+                    a.classList.add('active');
+                }
+            });
+        };
+    </script>
+</body>
+
+</html>
