@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Modal Dialog Best Practices | UI Mastery</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700;800&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Fira+Code&display=swap"
+        rel="stylesheet">
+</head>
+
+<body>
+    <div class="glass-bg"></div>
+
+    <nav class="sidebar">
+        <div class="logo">
+            <span class="logo-icon">✨</span>
+            <span class="logo-text">UIMastery</span>
+        </div>
+        <ul class="nav-links">
+            <li><a href="#intro" class="active">Introduction</a></li>
+            <li><a href="#basics">What is a Modal?</a></li>
+            <li><a href="#backdrop">The Backdrop</a></li>
+            <li><a href="#dismissal">Clicking Outside</a></li>
+            <li><a href="#ctas">CTAs & Buttons</a></li>
+            <li><a href="#quiz">Knowledge Check</a></li>
+        </ul>
+    </nav>
+
+    <main class="content">
+        <header class="main-header" id="intro">
+            <h1>Modal Dialog Best Practices</h1>
+            <p>Master the art of interrupting users gracefully. Learn how to design modals that focus attention without
+                causing frustration.</p>
+        </header>
+
+        <!-- Basics -->
+        <section id="basics" class="card">
+            <h2>🏠 What is a Modal?</h2>
+            <p>A modal is a pop-up element that appears on top of the main content, requiring user interaction before
+                they can return to the main flow. Modern web design uses the HTML <code>&lt;dialog&gt;</code> element to
+                create these accessible overlays.</p>
+
+            <div class="demo-box">
+                <button class="btn-trigger" id="open-basic">Interactive Preview</button>
+                <dialog id="basic-modal">
+                    <h3>Hello! 👋</h3>
+                    <p>This is a basic modal dialog using the native HTML element.</p>
+                    <div class="dialog-footer">
+                        <button class="close-btn" id="close-basic">Close</button>
+                    </div>
+                </dialog>
+            </div>
+
+            <div class="code-block">
+                <code><span class="code-selector">&lt;dialog&gt;</span><br>
+  &lt;h2&gt;Subscribe!&lt;/h2&gt;<br>
+  &lt;p&gt;Get the latest updates.&lt;/p&gt;<br>
+  &lt;button&gt;Close&lt;/button&gt;<br>
+<span class="code-selector">&lt;/dialog&gt;</span></code>
+            </div>
+        </section>
+
+        <!-- Backdrop -->
+        <section id="backdrop" class="card">
+            <h2>🌑 The Backdrop</h2>
+            <p>Dimming the content behind a modal is crucial. It helps users visually focus on the interactive area and
+                signals that the background is temporarily inactive.</p>
+
+            <div class="demo-box">
+                <button class="btn-trigger" id="open-backdrop">View Background Dimming</button>
+                <dialog id="backdrop-modal">
+                    <h3>Focus Mode</h3>
+                    <p>Notice how the rest of the page is dimmed? This is handled by the <code>::backdrop</code>
+                        pseudo-element.</p>
+                    <div class="dialog-footer">
+                        <button class="close-btn" id="close-backdrop">I see it</button>
+                    </div>
+                </dialog>
+            </div>
+
+            <div class="code-block">
+                <code><span class="code-selector">dialog::backdrop</span> {<br>
+  <span class="code-property">background</span>: <span class="code-value">rgba(0, 0, 0, 0.5)</span>;<br>
+}</code>
+            </div>
+        </section>
+
+        <!-- Dismissal -->
+        <section id="dismissal" class="card">
+            <h2>🖱️ Clicking Outside</h2>
+            <p>Users often expect to be able to dismiss a modal by clicking the area outside of it. This provides a
+                natural, low-effort way to back out of a prompt.</p>
+
+            <div class="demo-box">
+                <button class="btn-trigger" id="open-outside">Try Dismissal</button>
+                <dialog id="outside-modal">
+                    <h3>Dismissable Modal</h3>
+                    <p>Try clicking anywhere on the dimmed background to close this dialog instantly.</p>
+                    <div class="dialog-footer">
+                        <button class="close-btn" id="close-outside">Close Manually</button>
+                    </div>
+                </dialog>
+            </div>
+        </section>
+
+        <!-- CTAs -->
+        <section id="ctas" class="card">
+            <h2>🎯 CTAs & Dismissal Buttons</h2>
+            <p>Modals are usually for Call-to-Actions (CTAs). These should be prominent and easily identifiable.
+                However, always include a clear close button to ensure users don't feel "trapped".</p>
+
+            <div class="demo-box">
+                <button class="btn-trigger" id="open-cta">Designed CTAs</button>
+                <dialog id="cta-modal">
+                    <h3>Stay Updated! 📬</h3>
+                    <p>Subscribe to our newsletter for premium design tips and tutorials delivered weekly.</p>
+                    <div class="dialog-footer">
+                        <button class="close-btn" id="close-cta">Maybe Later</button>
+                        <button class="cta-btn">Subscribe Now</button>
+                    </div>
+                </dialog>
+            </div>
+
+            <div class="code-block">
+                <code><span class="code-selector">.cta-btn</span> {<br>
+  <span class="code-property">background-color</span>: <span class="code-value">#6366f1</span>;<br>
+  <span class="code-property">color</span>: <span class="code-value">white</span>;<br>
+}</code>
+            </div>
+        </section>
+
+        <!-- Quiz Section -->
+        <section id="quiz" class="card quiz-card">
+            <h2>🧠 Knowledge Check</h2>
+            <div class="question" data-answer="To help users visually identify the area they should interact with.">
+                <p>1. What is the purpose of dimming the content behind a modal dialog?</p>
+                <div class="options">
+                    <button onclick="checkAnswer(this, 'To save battery life on mobile devices.')">To save battery life
+                        on mobile devices.</button>
+                    <button
+                        onclick="checkAnswer(this, 'To help users visually identify the area they should interact with.')">To
+                        help users visually identify the area they should interact with.</button>
+                    <button onclick="checkAnswer(this, 'To make the website load faster.')">To make the website load
+                        faster.</button>
+                </div>
+            </div>
+
+            <div class="question" data-answer="Call-to-Action.">
+                <p>2. What does CTA stand for in the context of modal design?</p>
+                <div class="options">
+                    <button onclick="checkAnswer(this, 'Click To Activate.')">Click To Activate.</button>
+                    <button onclick="checkAnswer(this, 'Complete The Action.')">Complete The Action.</button>
+                    <button onclick="checkAnswer(this, 'Call-to-Action.')">Call-to-Action.</button>
+                </div>
+            </div>
+
+            <div class="question"
+                data-answer="To give users an option to exit the modal and resume their previous activity.">
+                <p>3. Why is it important to include a close button in a modal dialog?</p>
+                <div class="options">
+                    <button onclick="checkAnswer(this, 'It\'s required by law in some countries.')">It's required by law
+                        in some countries.</button>
+                    <button onclick="checkAnswer(this, 'To prevent the modal from crashing the browser.')">To prevent
+                        the modal from crashing the browser.</button>
+                    <button
+                        onclick="checkAnswer(this, 'To give users an option to exit the modal and resume their previous activity.')">To
+                        give users an option to exit the modal and resume their previous activity.</button>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <script>
+        // --- Modal Logic ---
+        function setupModal(triggerId, modalId, closeId, closeOutside = false) {
+            const trigger = document.getElementById(triggerId);
+            const modal = document.getElementById(modalId);
+            const closeBtn = document.getElementById(closeId);
+
+            trigger.addEventListener('click', () => modal.showModal());
+            closeBtn.addEventListener('click', () => modal.close());
+
+            if (closeOutside) {
+                modal.addEventListener('click', (event) => {
+                    const rect = modal.getBoundingClientRect();
+                    const isInDialog = (
+                        event.clientX >= rect.left &&
+                        event.clientX <= rect.right &&
+                        event.clientY >= rect.top &&
+                        event.clientY <= rect.bottom
+                    );
+                    if (!isInDialog) {
+                        modal.close();
+                    }
+                });
+            }
+        }
+
+        setupModal('open-basic', 'basic-modal', 'close-basic');
+        setupModal('open-backdrop', 'backdrop-modal', 'close-backdrop');
+        setupModal('open-outside', 'outside-modal', 'close-outside', true);
+        setupModal('open-cta', 'cta-modal', 'close-cta');
+
+        // --- Quiz Logic ---
+        function checkAnswer(btn, selection) {
+            const questionDiv = btn.closest('.question');
+            const correctAnswer = questionDiv.getAttribute('data-answer');
+            const buttons = questionDiv.querySelectorAll('button');
+
+            buttons.forEach(b => b.disabled = true);
+
+            if (selection === correctAnswer) {
+                btn.classList.add('correct');
+            } else {
+                btn.classList.add('wrong');
+                buttons.forEach(opt => {
+                    if (opt.innerText === correctAnswer) opt.classList.add('correct');
+                });
+            }
+        }
+
+        // --- Scroll Spy & Smooth Scroll ---
+        const sections = document.querySelectorAll('section');
+        const navLinks = document.querySelectorAll('.nav-links a');
+
+        window.onscroll = () => {
+            let current = "";
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop;
+                if (pageYOffset >= sectionTop - 150) {
+                    current = section.getAttribute('id');
+                }
+            });
+
+            navLinks.forEach(a => {
+                a.classList.remove('active');
+                if (a.getAttribute('href').includes(current)) {
+                    a.classList.add('active');
+                }
+            });
+        };
+    </script>
+</body>
+
+</html>
