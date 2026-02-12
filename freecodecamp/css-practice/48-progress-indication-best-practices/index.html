@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Progress Indication Best Practices | UI Mastery</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700;800&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Fira+Code&display=swap"
+        rel="stylesheet">
+</head>
+
+<body>
+    <div class="glass-bg"></div>
+
+    <nav class="sidebar">
+        <div class="logo">
+            <span class="logo-icon">🌿</span>
+            <span class="logo-text">UIMastery</span>
+        </div>
+        <ul class="nav-links">
+            <li><a href="#intro" class="active">Introduction</a></li>
+            <li><a href="#importance">Why Progress?</a></li>
+            <li><a href="#multi-step">Multi-Step Flow</a></li>
+            <li><a href="#accessibility">Accessibility</a></li>
+            <li><a href="#quiz">Knowledge Check</a></li>
+        </ul>
+    </nav>
+
+    <main class="content">
+        <header class="main-header" id="intro">
+            <h1>Progress Indication Best Practices</h1>
+            <p>Transparency is key to a smooth user experience. Learn how to guide users through complex tasks with
+                clear progress indicators.</p>
+        </header>
+
+        <!-- Importance -->
+        <section id="importance" class="card">
+            <h2>🌍 Why Progress Indication?</h2>
+            <p>Progress indication shows users how far they are in a process. Whether it's a registration form or a
+                multi-step setup, helping users understand "how much is left" reduces anxiety and increases completion
+                rates.</p>
+            <p>Transparency allows users to decide if they have enough time to complete the task now or if they should
+                return later.</p>
+        </section>
+
+        <!-- Multi-Step Demo -->
+        <section id="multi-step" class="card">
+            <h2>🚀 Interactive Multi-Step Form</h2>
+            <p>Keep it simple and allow users to go back. Clear section titles and step labels provide necessary
+                context.</p>
+
+            <div class="demo-form">
+                <div class="form-progress">
+                    <div class="progress-header">
+                        <span class="progress-label">Registration Progress</span>
+                        <span class="progress-stats" id="stats-text">Step 1 of 3</span>
+                    </div>
+                    <div class="progress-container">
+                        <div class="progress-bar" id="form-progress-bar"></div>
+                    </div>
+                </div>
+
+                <form id="multiStepForm">
+                    <!-- Step 1 -->
+                    <fieldset class="form-step active">
+                        <legend>Personal Information</legend>
+                        <label for="name">Full Name</label>
+                        <input type="text" id="name" placeholder="John Doe" required>
+                        <label for="email">Email Address</label>
+                        <input type="email" id="email" placeholder="john@example.com" required>
+                        <div class="btn-group">
+                            <button type="button" class="btn-form btn-next">Next Step</button>
+                        </div>
+                    </fieldset>
+
+                    <!-- Step 2 -->
+                    <fieldset class="form-step">
+                        <legend>Security Setup</legend>
+                        <label for="username">Username</label>
+                        <input type="text" id="username" placeholder="johndoe123" required>
+                        <label for="password">Password</label>
+                        <input type="password" id="password" placeholder="••••••••" required>
+                        <div class="btn-group">
+                            <button type="button" class="btn-form btn-prev">Previous</button>
+                            <button type="button" class="btn-form btn-next">Next Step</button>
+                        </div>
+                    </fieldset>
+
+                    <!-- Step 3 -->
+                    <fieldset class="form-step">
+                        <legend>Review & Confirm</legend>
+                        <p style="margin-bottom: 20px; font-size: 14px;">Please review all your details. Once submitted,
+                            your account will be created immediately.</p>
+                        <div class="btn-group">
+                            <button type="button" class="btn-form btn-prev">Previous</button>
+                            <button type="submit" class="btn-form btn-submit">Complete Setup</button>
+                        </div>
+                    </fieldset>
+                </form>
+            </div>
+        </section>
+
+        <!-- Accessibility -->
+        <section id="accessibility" class="card">
+            <h2>♿ Accessibility & Context</h2>
+            <p>Don't just rely on colors. Use percentages, step numbers, and ARIA attributes
+                (<code>role="progressbar"</code>) to ensure all users can understand their progress.</p>
+
+            <div class="code-block"
+                style="background: #0b0e14; border-radius: 12px; padding: 20px; font-family: 'Fira Code', monospace; font-size: 14px;">
+                <code>&lt;div role="progressbar" <br>
+     aria-valuenow="66" <br>
+     aria-valuemin="0" <br>
+     aria-valuemax="100"&gt;<br>
+&lt;/div&gt;</code>
+            </div>
+        </section>
+
+        <!-- Quiz Section -->
+        <section id="quiz" class="card quiz-card">
+            <h2>🧠 Knowledge Check</h2>
+            <div class="question"
+                data-answer="To inform users about how far they are in the process and what is left to do.">
+                <p>1. What is the primary goal of using a progress indication in forms?</p>
+                <div class="options">
+                    <button onclick="checkAnswer(this, 'To entertain users while they complete the form.')">To entertain
+                        users while they complete the form.</button>
+                    <button
+                        onclick="checkAnswer(this, 'To inform users about how far they are in the process and what is left to do.')">To
+                        inform users about how far they are in the process and what is left to do.</button>
+                    <button onclick="checkAnswer(this, 'To reduce the number of steps in the process.')">To reduce the
+                        number of steps in the process.</button>
+                </div>
+            </div>
+
+            <div class="question" data-answer="To let users change their answers or review previous entries.">
+                <p>2. Why allow users to go back to previous steps?</p>
+                <div class="options">
+                    <button
+                        onclick="checkAnswer(this, 'To let users change their answers or review previous entries.')">To
+                        let users change their answers or review previous entries.</button>
+                    <button onclick="checkAnswer(this, 'To make the form more complex.')">To make the form more
+                        complex.</button>
+                    <button onclick="checkAnswer(this, 'To increase the time users spend on the site.')">To increase the
+                        time users spend on the site.</button>
+                </div>
+            </div>
+
+            <div class="question"
+                data-answer="It should be easy to find and clearly labeled with context like section titles or percentages.">
+                <p>3. What should you consider when placing a progress indication?</p>
+                <div class="options">
+                    <button
+                        onclick="checkAnswer(this, 'It should be as small as possible to avoid distracting the user.')">It
+                        should be as small as possible to avoid distracting the user.</button>
+                    <button
+                        onclick="checkAnswer(this, 'It should be easy to find and clearly labeled with context like section titles or percentages.')">It
+                        should be easy to find and clearly labeled with context like section titles or
+                        percentages.</button>
+                    <button onclick="checkAnswer(this, 'It should be hidden until the user reaches the final step.')">It
+                        should be hidden until the user reaches the final step.</button>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <script>
+        // --- Multi-Step Form Logic ---
+        const form = document.getElementById('multiStepForm');
+        const steps = form.querySelectorAll('.form-step');
+        const progressBar = document.getElementById('form-progress-bar');
+        const statsText = document.getElementById('stats-text');
+        let currentStep = 0;
+
+        function updateProgress() {
+            const percent = ((currentStep + 1) / steps.length) * 100;
+            progressBar.style.width = percent + '%';
+            statsText.innerText = `Step ${currentStep + 1} of ${steps.length}`;
+        }
+
+        function showStep(index) {
+            steps.forEach((step, i) => {
+                step.classList.toggle('active', i === index);
+            });
+            updateProgress();
+        }
+
+        form.querySelectorAll('.btn-next').forEach(btn => {
+            btn.addEventListener('click', () => {
+                if (currentStep < steps.length - 1) {
+                    currentStep++;
+                    showStep(currentStep);
+                }
+            });
+        });
+
+        form.querySelectorAll('.btn-prev').forEach(btn => {
+            btn.addEventListener('click', () => {
+                if (currentStep > 0) {
+                    currentStep--;
+                    showStep(currentStep);
+                }
+            });
+        });
+
+        form.addEventListener('submit', (e) => {
+            e.preventDefault();
+            alert('Setup Complete! 🎉 Welcome aboard.');
+        });
+
+        // Initialize Progress
+        updateProgress();
+
+        // --- Quiz Logic ---
+        function checkAnswer(btn, selection) {
+            const questionDiv = btn.closest('.question');
+            const correctAnswer = questionDiv.getAttribute('data-answer');
+            const buttons = questionDiv.querySelectorAll('button');
+
+            buttons.forEach(b => b.disabled = true);
+
+            if (selection === correctAnswer) {
+                btn.classList.add('correct');
+            } else {
+                btn.classList.add('wrong');
+                buttons.forEach(opt => {
+                    if (opt.innerText === correctAnswer) opt.classList.add('correct');
+                });
+            }
+        }
+
+        // --- Scroll Spy ---
+        const sections = document.querySelectorAll('section');
+        const navLinks = document.querySelectorAll('.nav-links a');
+
+        window.onscroll = () => {
+            let current = "";
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop;
+                if (pageYOffset >= sectionTop - 150) {
+                    current = section.getAttribute('id');
+                }
+            });
+
+            navLinks.forEach(a => {
+                a.classList.remove('active');
+                if (a.getAttribute('href').includes(current)) {
+                    a.classList.add('active');
+                }
+            });
+        };
+    </script>
+</body>
+
+</html>

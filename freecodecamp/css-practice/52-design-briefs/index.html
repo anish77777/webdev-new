@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Design Briefs and Developers | UI Mastery</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700;800&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Fira+Code&display=swap"
+        rel="stylesheet">
+</head>
+
+<body>
+    <div class="glass-bg"></div>
+
+    <nav class="sidebar">
+        <div class="logo">
+            <span class="logo-icon">📜</span>
+            <span class="logo-text">UIMastery</span>
+        </div>
+        <ul class="nav-links">
+            <li><a href="#intro" class="active">Introduction</a></li>
+            <li><a href="#brief-elements">Brief Elements</a></li>
+            <li><a href="#scope">Project Scope</a></li>
+            <li><a href="#dev-role">Developer Role</a></li>
+            <li><a href="#quiz">Knowledge Check</a></li>
+        </ul>
+    </nav>
+
+    <main class="content">
+        <header class="main-header" id="intro">
+            <h1>Design Briefs & Developers</h1>
+            <p>Understand the roadmap of your project. Learn how design briefs guide the creative process and what your
+                role as a developer entails.</p>
+        </header>
+
+        <!-- Brief Elements -->
+        <section id="brief-elements" class="card">
+            <h2>🗺️ The Project Roadmap</h2>
+            <p>A design brief is a document that outlines the objectives, goals, and requirements of a project. It
+                ensures the final product meets the client's needs.</p>
+
+            <div class="demo-box">
+                <div class="brief-tabs" id="brief-tabs">
+                    <button class="brief-tab active" onclick="showSection('overview')">Overview</button>
+                    <button class="brief-tab" onclick="showSection('goals')">Goals</button>
+                    <button class="brief-tab" onclick="showSection('audience')">Audience</button>
+                </div>
+                <div class="brief-content" id="brief-content">
+                    <div id="overview-sec">
+                        <h4 class="brief-section-title">Business Overview</h4>
+                        <p style="font-size: 14px; color: var(--text-main);">Company: SolarTech Solutions<br>Mission:
+                            Providing affordable, renewable energy for every household.<br>Values: Innovation,
+                            Sustainability, Transparency.</p>
+                    </div>
+                    <div id="goals-sec" class="hidden">
+                        <h4 class="brief-section-title">Project Goals</h4>
+                        <ul style="font-size: 14px; color: var(--text-main); line-height: 1.6;">
+                            <li>Increase monthly solar panel inquiries by 25%.</li>
+                            <li>Reduce homepage bounce rate to under 40%.</li>
+                            <li>Modernize visual brand identity.</li>
+                        </ul>
+                    </div>
+                    <div id="audience-sec" class="hidden">
+                        <h4 class="brief-section-title">Target Audience</h4>
+                        <p style="font-size: 14px; color: var(--text-main);">Demographics: Homeowners aged
+                            30-55.<br>Interests: Eco-friendly living, long-term savings, smart home tech.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="code-section">
+                <h4 class="code-title">Navigation Tabs CSS</h4>
+                <div class="code-block">
+                    <code><span class="code-selector">.brief-tab.active</span> {<br>
+  <span class="code-property">background</span>: <span class="code-value">#fda4af</span>;<br>
+  <span class="code-property">color</span>: <span class="code-value">#0f172a</span>;<br>
+  <span class="code-property">box-shadow</span>: <span class="code-value">0 8px 16px rgba(253, 164, 175, 0.4)</span>;<br>
+}</code>
+                </div>
+            </div>
+        </section>
+
+        <!-- Project Scope -->
+        <section id="scope" class="card">
+            <h2>📏 Defining Project Scope</h2>
+            <p>Scope includes deliverables, timeline, and budget. Clearly defining it prevents "scope creep" and ensures
+                projects stay on track.</p>
+
+            <div class="demo-box">
+                <h4 class="brief-section-title">Deliverables Checklist</h4>
+                <ul class="scope-list">
+                    <li class="scope-item">
+                        <div class="scope-dot"></div> Low-fidelity Wireframes
+                    </li>
+                    <li class="scope-item">
+                        <div class="scope-dot"></div> High-fidelity UI Mockups
+                    </li>
+                    <li class="scope-item">
+                        <div class="scope-dot"></div> Interactive Prototypes
+                    </li>
+                    <li class="scope-item">
+                        <div class="scope-dot" style="background: var(--text-muted);"></div> Production-ready Code
+                        [Pending]
+                    </li>
+                </ul>
+            </div>
+
+            <div class="code-section">
+                <h4 class="code-title">List Item Spacing CSS</h4>
+                <div class="code-block">
+                    <code><span class="code-selector">.scope-item</span> {<br>
+  <span class="code-property">display</span>: <span class="code-value">flex</span>;<br>
+  <span class="code-property">align-items</span>: <span class="code-value">center</span>;<br>
+  <span class="code-property">gap</span>: <span class="code-value">12px</span>;<br>
+  <span class="code-property">padding</span>: <span class="code-value">12px 0</span>;<br>
+}</code>
+                </div>
+            </div>
+        </section>
+
+        <!-- Developer Role -->
+        <section id="dev-role" class="card">
+            <h2>💻 The Developer's Role</h2>
+            <p>Developers take the design brief and turned it into a working product. This involves code, testing, and
+                debugging to meet the documented requirements.</p>
+
+            <div class="code-section">
+                <h4 class="code-title">Responsive Sidebar CSS</h4>
+                <div class="code-block">
+                    <code><span class="code-keyword">@media</span> <span class="code-selector">(max-width: 1024px)</span> {<br>
+  <span class="code-selector">.sidebar</span> { <span class="code-property">width</span>: <span class="code-value">80px</span>; }<br>
+  <span class="code-selector">.logo-text</span> { <span class="code-property">display</span>: <span class="code-value">none</span>; }<br>
+  <span class="code-selector">.content</span> { <span class="code-property">margin-left</span>: <span class="code-value">80px</span>; }<br>
+}</code>
+                </div>
+            </div>
+        </section>
+
+        <!-- Quiz Section -->
+        <section id="quiz" class="card quiz-card">
+            <h2>🧠 Knowledge Check</h2>
+            <div class="question"
+                data-answer="A document that outlines the objectives, goals, and requirements of a project.">
+                <p>1. What is a design brief?</p>
+                <div class="options">
+                    <button onclick="checkAnswer(this, 'A schedule of meetings and deadlines.')">A schedule of
+                        meetings</button>
+                    <button
+                        onclick="checkAnswer(this, 'A document that outlines the objectives, goals, and requirements of a project.')">Document
+                        outlining goals & requirements</button>
+                    <button onclick="checkAnswer(this, 'A manual on how to use software tools.')">Software
+                        manual</button>
+                </div>
+            </div>
+
+            <div class="question" data-answer="To ensure that the project stays on track and within budget.">
+                <p>2. Why is defining project scope important?</p>
+                <div class="options">
+                    <button onclick="checkAnswer(this, 'To plan the social media strategy.')">Social media
+                        planning</button>
+                    <button
+                        onclick="checkAnswer(this, 'To ensure that the project stays on track and within budget.')">To
+                        stay on track and within budget</button>
+                    <button onclick="checkAnswer(this, 'To choose the best color palette.')">Choosing color
+                        palettes</button>
+                </div>
+            </div>
+
+            <div class="question" data-answer="To take the design brief and turn it into a working product.">
+                <p>3. What is the role of the developer?</p>
+                <div class="options">
+                    <button onclick="checkAnswer(this, 'To change the timeline in the brief.')">Changing the
+                        timeline</button>
+                    <button
+                        onclick="checkAnswer(this, 'To take the design brief and turn it into a working product.')">Turn
+                        the brief into a working product</button>
+                    <button onclick="checkAnswer(this, 'To change the project scope to include more features.')">Adding
+                        more features to scope</button>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <script>
+        // --- Brief Tab Logic ---
+        function showSection(sectionId) {
+            // Update tabs
+            const tabs = document.querySelectorAll('.brief-tab');
+            tabs.forEach(tab => {
+                tab.classList.remove('active');
+                if (tab.innerText.toLowerCase() === sectionId) {
+                    tab.classList.add('active');
+                }
+            });
+
+            // Update content
+            const sections = ['overview', 'goals', 'audience'];
+            sections.forEach(sec => {
+                document.getElementById(sec + '-sec').classList.add('hidden');
+            });
+            document.getElementById(sectionId + '-sec').classList.remove('hidden');
+        }
+
+        // --- Quiz Logic ---
+        function checkAnswer(btn, selection) {
+            const questionDiv = btn.closest('.question');
+            const correctAnswer = questionDiv.getAttribute('data-answer');
+            const buttons = questionDiv.querySelectorAll('button');
+
+            buttons.forEach(b => b.disabled = true);
+
+            if (selection === correctAnswer) {
+                btn.classList.add('correct');
+            } else {
+                btn.classList.add('wrong');
+                buttons.forEach(opt => {
+                    // Match by partial text since button labels are shortened
+                    if (correctAnswer.includes(opt.innerText) || opt.innerText.includes(correctAnswer.slice(0, 10))) {
+                        opt.classList.add('correct');
+                    }
+                });
+            }
+        }
+
+        // --- Scroll Spy ---
+        const sections = document.querySelectorAll('section');
+        const navLinks = document.querySelectorAll('.nav-links a');
+
+        window.onscroll = () => {
+            let current = "";
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop;
+                if (pageYOffset >= sectionTop - 150) {
+                    current = section.getAttribute('id');
+                }
+            });
+
+            navLinks.forEach(a => {
+                a.classList.remove('active');
+                if (a.getAttribute('href').includes(current)) {
+                    a.classList.add('active');
+                }
+            });
+        };
+    </script>
+</body>
+
+</html>

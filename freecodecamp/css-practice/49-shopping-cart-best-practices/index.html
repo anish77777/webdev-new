@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shopping Cart Best Practices | UI Mastery</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700;800&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Fira+Code&display=swap"
+        rel="stylesheet">
+</head>
+
+<body>
+    <div class="glass-bg"></div>
+
+    <nav class="sidebar">
+        <div class="logo">
+            <span class="logo-icon">🛒</span>
+            <span class="logo-text">UIMastery</span>
+        </div>
+        <ul class="nav-links">
+            <li><a href="#intro" class="active">Introduction</a></li>
+            <li><a href="#visibility">Visibility</a></li>
+            <li><a href="#interactivity">Interactivity</a></li>
+            <li><a href="#recognizable">Recognizability</a></li>
+            <li><a href="#checkout">Checkout CTA</a></li>
+            <li><a href="#quiz">Knowledge Check</a></li>
+        </ul>
+    </nav>
+
+    <main class="content">
+        <header class="main-header" id="intro">
+            <h1>Shopping Cart Best Practices</h1>
+            <p>Design a seamless path to purchase. Learn how to keep the cart accessible, interactive, and optimized for
+                conversion.</p>
+        </header>
+
+        <!-- Visibility -->
+        <section id="visibility" class="card">
+            <h2>👀 Cart Visibility</h2>
+            <p>The shopping cart should be visible at all times, typically in the upper right corner. Display the item
+                count prominently to keep users informed about their selection.</p>
+
+            <div class="demo-box">
+                <div class="cart-header-demo">
+                    <div class="cart-icon-wrapper" aria-label="Shopping cart">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none"
+                            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <circle cx="9" cy="21" r="1"></circle>
+                            <circle cx="20" cy="21" r="1"></circle>
+                            <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"></path>
+                        </svg>
+                        <span class="cart-badge" id="badge-count">3</span>
+                    </div>
+                </div>
+                <p style="text-align: center; font-size: 14px; margin-top: 15px; color: var(--accent);">Badge updates
+                    automatically when items are added.</p>
+            </div>
+
+            <div class="code-section">
+                <h4 class="code-title">Positioning & Badges CSS</h4>
+                <div class="code-block">
+                    <code><span class="code-selector">.cart-badge</span> {<br>
+  <span class="code-property">position</span>: <span class="code-value">absolute</span>;<br>
+  <span class="code-property">top</span>: <span class="code-value">-8px</span>; <span class="code-property">right</span>: <span class="code-value">-8px</span>;<br>
+  <span class="code-property">background</span>: <span class="code-value">#ef4444</span>;<br>
+  <span class="code-property">border-radius</span>: <span class="code-value">50%</span>;<br>
+  <span class="code-property">min-width</span>: <span class="code-value">20px</span>;<br>
+}</code>
+                </div>
+            </div>
+        </section>
+
+        <!-- Interactivity -->
+        <section id="interactivity" class="card">
+            <h2>➕ Easy Updates & Removal</h2>
+            <p>Allow users to update quantities or remove items directly within the cart. Fast, responsive controls
+                prevent friction during the review process.</p>
+
+            <div class="demo-box">
+                <ul class="cart-list" id="cart-list-demo">
+                    <li class="cart-item" data-id="1">
+                        <div class="item-info">
+                            <div class="item-name">Premium T-Shirt</div>
+                            <div class="item-price">$20.00</div>
+                        </div>
+                        <div class="qty-controls">
+                            <button class="qty-btn minus">-</button>
+                            <span class="qty-val">2</span>
+                            <button class="qty-btn plus">+</button>
+                        </div>
+                        <button class="remove-btn">Remove</button>
+                    </li>
+                    <li class="cart-item" data-id="2">
+                        <div class="item-info">
+                            <div class="item-name">Lifestyle Hat</div>
+                            <div class="item-price">$15.00</div>
+                        </div>
+                        <div class="qty-controls">
+                            <button class="qty-btn minus">-</button>
+                            <span class="qty-val">1</span>
+                            <button class="qty-btn plus">+</button>
+                        </div>
+                        <button class="remove-btn">Remove</button>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="code-section">
+                <h4 class="code-title">Item Layout CSS</h4>
+                <div class="code-block">
+                    <code><span class="code-selector">.cart-item</span> {<br>
+  <span class="code-property">display</span>: <span class="code-value">flex</span>;<br>
+  <span class="code-property">align-items</span>: <span class="code-value">center</span>;<br>
+  <span class="code-property">justify-content</span>: <span class="code-value">space-between</span>;<br>
+  <span class="code-property">gap</span>: <span class="code-value">20px</span>;<br>
+}</code>
+                </div>
+            </div>
+        </section>
+
+        <!-- Checkout Section -->
+        <section id="checkout" class="card">
+            <h2>💳 Total & Checkout CTA</h2>
+            <p>Display the total cost prominently and provide a clear, high-contrast Call-to-Action (CTA) for the
+                checkout process.</p>
+
+            <div class="demo-box">
+                <div class="cart-summary">
+                    <div class="total-row">Total: <span class="total-val" id="total-price">$55.00</span></div>
+                    <button class="btn-checkout">Proceed to Checkout</button>
+                </div>
+            </div>
+
+            <div class="code-section">
+                <h4 class="code-title">Checkout Button CSS</h4>
+                <div class="code-block">
+                    <code><span class="code-selector">.btn-checkout</span> {<br>
+  <span class="code-property">width</span>: <span class="code-value">100%</span>;<br>
+  <span class="code-property">background</span>: <span class="code-value">#f59e0b</span>;<br>
+  <span class="code-property">color</span>: <span class="code-value">white</span>;<br>
+  <span class="code-property">font-weight</span>: <span class="code-value">800</span>;<br>
+  <span class="code-property">box-shadow</span>: <span class="code-value">0 10px 20px rgba(245, 158, 11, 0.4)</span>;<br>
+}</code>
+                </div>
+            </div>
+        </section>
+
+        <!-- Quiz Section -->
+        <section id="quiz" class="card quiz-card">
+            <h2>🧠 Knowledge Check</h2>
+            <div class="question" data-answer="The position of the shopping cart on the page.">
+                <p>1. What is a crucial aspect of designing a shopping cart that can impact sales?</p>
+                <div class="options">
+                    <button onclick="checkAnswer(this, 'The color of the shopping cart icon.')">The color of the
+                        shopping cart icon.</button>
+                    <button onclick="checkAnswer(this, 'The position of the shopping cart on the page.')">The position
+                        of the shopping cart on the page.</button>
+                    <button onclick="checkAnswer(this, 'The number of items in the cart.')">The number of items in the
+                        cart.</button>
+                </div>
+            </div>
+
+            <div class="question" data-answer="By entering a new number in a quantity input field.">
+                <p>2. How should users update item quantities in their cart?</p>
+                <div class="options">
+                    <button onclick="checkAnswer(this, 'By contacting customer service.')">By contacting customer
+                        service.</button>
+                    <button onclick="checkAnswer(this, 'By entering a new number in a quantity input field.')">By
+                        inputting new numbers or using controls.</button>
+                    <button onclick="checkAnswer(this, 'By adding a new item with the desired quantity.')">By adding a
+                        new item.</button>
+                </div>
+            </div>
+
+            <div class="question" data-answer="A clear and prominent checkout button.">
+                <p>3. What feature helps users proceed with their purchase?</p>
+                <div class="options">
+                    <button onclick="checkAnswer(this, 'A Save for Later option.')">A "Save for Later" option.</button>
+                    <button onclick="checkAnswer(this, 'Multiple call-to-action buttons.')">Multiple CTA
+                        buttons.</button>
+                    <button onclick="checkAnswer(this, 'A clear and prominent checkout button.')">A clear and prominent
+                        checkout button.</button>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <script>
+        // --- Shopping Cart Logic ---
+        let cart = [
+            { id: 1, name: "Premium T-Shirt", price: 20.0, qty: 2 },
+            { id: 2, name: "Lifestyle Hat", price: 15.0, qty: 1 }
+        ];
+
+        function renderCart() {
+            const list = document.getElementById('cart-list-demo');
+            const totalDisplay = document.getElementById('total-price');
+            const badge = document.getElementById('badge-count');
+
+            list.innerHTML = '';
+            let total = 0;
+            let totalQty = 0;
+
+            cart.forEach(item => {
+                const li = document.createElement('li');
+                li.className = 'cart-item';
+                li.innerHTML = `
+                    <div class="item-info">
+                        <div class="item-name">${item.name}</div>
+                        <div class="item-price">$${item.price.toFixed(2)}</div>
+                    </div>
+                    <div class="qty-controls">
+                        <button class="qty-btn" onclick="updateQty(${item.id}, -1)">-</button>
+                        <span class="qty-val">${item.qty}</span>
+                        <button class="qty-btn" onclick="updateQty(${item.id}, 1)">+</button>
+                    </div>
+                    <button class="remove-btn" onclick="removeItem(${item.id})">Remove</button>
+                `;
+                list.appendChild(li);
+                total += item.price * item.qty;
+                totalQty += item.qty;
+            });
+
+            totalDisplay.innerText = `$${total.toFixed(2)}`;
+            badge.innerText = totalQty;
+
+            if (cart.length === 0) {
+                list.innerHTML = '<li style="text-align: center; color: var(--text-muted); width: 100%;">Your cart is empty</li>';
+                totalDisplay.innerText = '$0.00';
+            }
+        }
+
+        window.updateQty = (id, change) => {
+            const item = cart.find(i => i.id === id);
+            if (item) {
+                item.qty = Math.max(1, item.qty + change);
+                renderCart();
+            }
+        };
+
+        window.removeItem = (id) => {
+            cart = cart.filter(i => i.id !== id);
+            renderCart();
+        };
+
+        // --- Quiz Logic ---
+        function checkAnswer(btn, selection) {
+            const questionDiv = btn.closest('.question');
+            const correctAnswer = questionDiv.getAttribute('data-answer');
+            const buttons = questionDiv.querySelectorAll('button');
+
+            buttons.forEach(b => b.disabled = true);
+
+            if (selection === correctAnswer) {
+                btn.classList.add('correct');
+            } else {
+                btn.classList.add('wrong');
+                buttons.forEach(opt => {
+                    if (opt.innerText === correctAnswer) opt.classList.add('correct');
+                    // Special case for slightly different display text in button
+                    if (correctAnswer.includes('entering a new number') && opt.innerText.includes('inputting new numbers')) opt.classList.add('correct');
+                });
+            }
+        }
+
+        // --- Scroll Spy ---
+        const sections = document.querySelectorAll('section');
+        const navLinks = document.querySelectorAll('.nav-links a');
+
+        window.onscroll = () => {
+            let current = "";
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop;
+                if (pageYOffset >= sectionTop - 150) {
+                    current = section.getAttribute('id');
+                }
+            });
+
+            navLinks.forEach(a => {
+                a.classList.remove('active');
+                if (a.getAttribute('href').includes(current)) {
+                    a.classList.add('active');
+                }
+            });
+        };
+
+        renderCart();
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ems and Rems in CSS | UI Mastery</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700;800&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Fira+Code&display=swap"
+        rel="stylesheet">
+</head>
+
+<body>
+    <div class="glass-bg"></div>
+
+    <nav class="sidebar">
+        <div class="logo">
+            <span class="logo-icon">🔗</span>
+            <span class="logo-text">UIMastery</span>
+        </div>
+        <ul class="nav-links">
+            <li><a href="#intro" class="active">Introduction</a></li>
+            <li><a href="#em">The em Unit</a></li>
+            <li><a href="#rem">The rem Unit</a></li>
+            <li><a href="#best-practices">Best Practices</a></li>
+            <li><a href="#quiz">Knowledge Check</a></li>
+        </ul>
+    </nav>
+
+    <main class="content">
+        <header class="main-header" id="intro">
+            <h1>EMS and REMS in CSS</h1>
+            <p>Master modular and accessible layouts. Learn how to use relative units that scale with your typography
+                and user preferences.</p>
+        </header>
+
+        <!-- EM Units -->
+        <section id="em" class="card">
+            <h2>🧱 The em Unit: Local Relative</h2>
+            <p>The <code>em</code> unit is relative to the font size of the element itself. It's perfect for modular
+                components like buttons, where you want padding and margins to scale proportionally if the font size
+                changes.</p>
+
+            <div class="demo-box">
+                <div class="demo-title">Interact: Modular Button Scaling</div>
+                <div class="em-wrapper">
+                    <a href="#" id="modular-btn" class="modular-btn">Dynamic Button</a>
+                </div>
+                <div class="control-panel">
+                    <label for="btn-font-size">Component Font Size: <span id="font-size-val">16</span>px</label>
+                    <input type="range" id="btn-font-size" value="16" min="12" max="32" oninput="updateEmDemo()">
+                    <p style="font-size: 12px; color: var(--text-muted); margin-top: 5px;">Note how padding,
+                        border-radius, and shadow scale perfectly with the font size because they use <code>em</code>
+                        units.</p>
+                </div>
+            </div>
+
+            <div class="code-section">
+                <h4 class="code-title">Modular Component CSS</h4>
+                <div class="code-block">
+                    <code><span class="code-selector">.modular-btn</span> {<br>
+  <span class="code-property">font-size</span>: <span class="code-value">16px</span>;<br>
+  <span class="code-property">padding</span>: <span class="code-value">0.8em 1.6em</span>;<br>
+  <span class="code-property">border-radius</span>: <span class="code-value">0.5em</span>;<br>
+  <span class="code-property">box-shadow</span>: <span class="code-value">0 0.5em 1em rgba(...)</span>;<br>
+}</code>
+                </div>
+            </div>
+        </section>
+
+        <!-- REM Units -->
+        <section id="rem" class="card">
+            <h2>🌐 The rem Unit: Root Relative</h2>
+            <p>A <code>rem</code> unit is relative to the font size of the <strong>root (html)</strong> element. This is
+                preferred for typography because it respects user browser settings, making your site more accessible.
+            </p>
+
+            <div class="demo-box">
+                <div class="rem-demo-text">
+                    <p>Standard root text (16px default).</p>
+                    <div class="rem-target">I am 1.5rem (24px)</div>
+                    <p style="font-size: 13px; color: var(--text-muted);">If a user scales their browser font-size to
+                        20px, this 1.5rem element will automatically grow to 30px!</p>
+                </div>
+            </div>
+
+            <div class="code-section">
+                <h4 class="code-title">Accessible Typography CSS</h4>
+                <div class="code-block">
+                    <code><span class="code-selector">.header</span> {<br>
+  <span class="code-property">font-size</span>: <span class="code-value">2rem</span>; <span style="color: grey;">/* 32px by default */</span><br>
+}<br><br>
+<span class="code-selector">.para</span> {<br>
+  <span class="code-property">font-size</span>: <span class="code-value">1rem</span>; <span style="color: grey;">/* 16px by default */</span><br>
+}</code>
+                </div>
+            </div>
+        </section>
+
+        <!-- Best Practices -->
+        <section id="best-practices" class="card">
+            <h2>🚀 When to use what?</h2>
+            <ul style="list-style: none; display: flex; flex-direction: column; gap: 15px;">
+                <li style="display: flex; gap: 12px;">
+                    <span style="color: var(--secondary);">✨</span>
+                    <div><strong>Use REM for:</strong> Font sizes and global spacing (margins/padding between sections).
+                        This ensures the whole layout scales with accessibility settings.</div>
+                </li>
+                <li style="display: flex; gap: 12px;">
+                    <span style="color: var(--secondary);">✨</span>
+                    <div><strong>Use EM for:</strong> Sizing internal properties of a component (like the padding of a
+                        button) so it maintains its aspect ratio regardless of its font size.</div>
+                </li>
+            </ul>
+        </section>
+
+        <!-- Quiz Section -->
+        <section id="quiz" class="card quiz-card">
+            <h2>🧠 Knowledge Check</h2>
+            <div class="question" data-answer="The font-size of the element or the parent element.">
+                <p>1. What is an em unit relative to?</p>
+                <div class="options">
+                    <button onclick="checkAnswer(this, 'The font-size of the root element.')">The font-size of the root
+                        element</button>
+                    <button onclick="checkAnswer(this, 'The font-size of the element or the parent element.')">The
+                        font-size of the element or parent</button>
+                    <button onclick="checkAnswer(this, 'The font size of the figure element.')">The font size of the
+                        figure element</button>
+                </div>
+            </div>
+
+            <div class="question" data-answer="They scale proportionally with the user's browser settings.">
+                <p>2. Why are rem units preferred for typography?</p>
+                <div class="options">
+                    <button onclick="checkAnswer(this, 'They increase website performance.')">They increase
+                        performance</button>
+                    <button
+                        onclick="checkAnswer(this, 'They scale proportionally with the user\'s browser settings.')">They
+                        scale with browser accessibility settings</button>
+                    <button onclick="checkAnswer(this, 'They make your designs more colorful.')">They make designs more
+                        colorful</button>
+                </div>
+            </div>
+
+            <div class="question" data-answer="The font-size of the root element.">
+                <p>3. What are rem units relative to?</p>
+                <div class="options">
+                    <button onclick="checkAnswer(this, 'The font-size of the root element.')">The font-size of the root
+                        element</button>
+                    <button onclick="checkAnswer(this, 'The font-size of the element or the parent element.')">The
+                        font-size of the element or parent</button>
+                    <button onclick="checkAnswer(this, 'The fontsize of the img element.')">The fontsize of the img
+                        element</button>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <script>
+        // --- EM Demo Logic ---
+        function updateEmDemo() {
+            const slider = document.getElementById('btn-font-size');
+            const btn = document.getElementById('modular-btn');
+            const valSpan = document.getElementById('font-size-val');
+            const val = slider.value;
+
+            btn.style.fontSize = val + 'px';
+            valSpan.innerText = val;
+        }
+
+        // --- Quiz Logic ---
+        function checkAnswer(btn, selection) {
+            const questionDiv = btn.closest('.question');
+            const correctAnswer = questionDiv.getAttribute('data-answer');
+            const buttons = questionDiv.querySelectorAll('button');
+
+            buttons.forEach(b => b.disabled = true);
+
+            if (selection === correctAnswer || selection.includes(correctAnswer.slice(0, 10))) {
+                btn.classList.add('correct');
+            } else {
+                btn.classList.add('wrong');
+                buttons.forEach(opt => {
+                    if (correctAnswer.includes(opt.innerText) || opt.innerText.includes(correctAnswer.slice(0, 5))) {
+                        opt.classList.add('correct');
+                    }
+                });
+            }
+        }
+
+        // --- Scroll Spy ---
+        const sections = document.querySelectorAll('section');
+        const navLinks = document.querySelectorAll('.nav-links a');
+
+        window.onscroll = () => {
+            let current = "";
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop;
+                if (pageYOffset >= sectionTop - 150) {
+                    current = section.getAttribute('id');
+                }
+            });
+
+            navLinks.forEach(a => {
+                a.classList.remove('active');
+                if (a.getAttribute('href').includes(current)) {
+                    a.classList.add('active');
+                }
+            });
+        };
+    </script>
+</body>
+
+</html>

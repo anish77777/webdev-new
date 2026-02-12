@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VH & VW Units in CSS | UI Mastery</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700;800&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Fira+Code&display=swap"
+        rel="stylesheet">
+</head>
+
+<body>
+    <div class="glass-bg"></div>
+
+    <nav class="sidebar">
+        <div class="logo">
+            <span class="logo-icon">🖼️</span>
+            <span class="logo-text">UIMastery</span>
+        </div>
+        <ul class="nav-links">
+            <li><a href="#intro" class="active">Introduction</a></li>
+            <li><a href="#viewport">The Viewport Units</a></li>
+            <li><a href="#hero">Full-Screen Layouts</a></li>
+            <li><a href="#typography">Responsive Text</a></li>
+            <li><a href="#quiz">Knowledge Check</a></li>
+        </ul>
+    </nav>
+
+    <main class="content">
+        <header class="main-header" id="intro">
+            <h1>VH & VW Units in CSS</h1>
+            <p>Master viewport dimensions. Learn how to size elements relative to the browser window for seamless
+                full-screen experiences and fluid typography.</p>
+        </header>
+
+        <!-- Viewport Units -->
+        <section id="viewport" class="card">
+            <h2>📏 Understanding vh & vw</h2>
+            <p>These are viewport-relative units. <code>vh</code> stands for "viewport height" and <code>vw</code>
+                stands for "viewport width". Each unit represents 1% of the respective browser dimension.</p>
+
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px;">
+                <div
+                    style="background: rgba(255,255,255,0.05); padding: 20px; border-radius: 16px; text-align: center; border: 1px solid var(--glass-border);">
+                    <strong style="color: var(--primary); font-size: 24px;">1vh</strong><br>
+                    <span style="font-size: 14px; color: var(--text-muted);">1% of Viewport Height</span>
+                </div>
+                <div
+                    style="background: rgba(255,255,255,0.05); padding: 20px; border-radius: 16px; text-align: center; border: 1px solid var(--glass-border);">
+                    <strong style="color: var(--secondary); font-size: 24px;">1vw</strong><br>
+                    <span style="font-size: 14px; color: var(--text-muted);">1% of Viewport Width</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- Hero Section Demo -->
+        <section id="hero" class="card">
+            <h2>🚀 Full-Screen Hero Sections</h2>
+            <p>Viewport units are essential for hero sections that need to cover the entire screen. Setting
+                <code>height: 100vh</code> ensures the section fills the viewport depth regardless of the physical pixel
+                count.</p>
+
+            <div class="demo-box">
+                <div class="viewport-mock">
+                    <div class="mock-browser-top">
+                        <div class="dot"></div>
+                        <div class="dot"></div>
+                        <div class="dot"></div>
+                    </div>
+                    <div class="mock-content">
+                        <div>
+                            <h3>Hero Layout</h3>
+                            <p style="font-size: 12px; margin: 5px 0 0 0; color: rgba(255,255,255,0.8);">Sized with
+                                100vh / 100vw</p>
+                        </div>
+                    </div>
+                </div>
+                <p style="font-size: 13px; margin-top: 15px; color: var(--text-muted); text-align: center;">This layout
+                    will adapt its size in real-time as the browser window resizes.</p>
+            </div>
+
+            <div class="code-section">
+                <h4 class="code-title">Full Screen CSS</h4>
+                <div class="code-block">
+                    <code><span class="code-selector">.hero</span> {<br>
+  <span class="code-property">width</span>: <span class="code-value">100vw</span>;<br>
+  <span class="code-property">height</span>: <span class="code-value">100vh</span>;<br>
+  <span class="code-property">background</span>: <span class="code-value">url('hero-bg.jpg')</span>;<br>
+}</code>
+                </div>
+            </div>
+        </section>
+
+        <!-- Typography -->
+        <section id="typography" class="card">
+            <h2>🔠 Fluid Typography</h2>
+            <p>By using <code>vw</code> units for font-size, text will smoothly scale up and down with the width of the
+                browser window. This creates a "breathable" design on any device.</p>
+
+            <div class="demo-box">
+                <div class="text-demo-box">
+                    <h3 class="scaling-header">Responsive Title</h3>
+                    <p style="font-size: 14px; color: var(--text-muted);">Resize your screen to see this header scale!
+                    </p>
+                </div>
+            </div>
+
+            <div class="code-section">
+                <h4 class="code-title">Viewport Scaling Fonts</h4>
+                <div class="code-block">
+                    <code><span class="code-selector">h1</span> {<br>
+  <span class="code-property">font-size</span>: <span class="code-value">5vw</span>;<br>
+}</code>
+                </div>
+            </div>
+        </section>
+
+        <!-- Quiz Section -->
+        <section id="quiz" class="card quiz-card">
+            <h2>🧠 Knowledge Check</h2>
+            <div class="question" data-answer="Half the height of the viewport.">
+                <p>1. What does 50vh represent in CSS?</p>
+                <div class="options">
+                    <button onclick="checkAnswer(this, '50 pixels.')">50 pixels</button>
+                    <button onclick="checkAnswer(this, 'Half the height of the viewport.')">Half the height of the
+                        viewport</button>
+                    <button onclick="checkAnswer(this, '50% of parent height.')">50% of parent height</button>
+                </div>
+            </div>
+
+            <div class="question" data-answer="Creating a square element that's always 20% of the viewport width.">
+                <p>2. Which of the following is a valid use case for vw units?</p>
+                <div class="options">
+                    <button onclick="checkAnswer(this, 'Setting a fixed width for a sidebar.')">Fixed width for a
+                        sidebar</button>
+                    <button
+                        onclick="checkAnswer(this, 'Creating a square element that\'s always 20% of the viewport width.')">A
+                        square element at 20% viewport width</button>
+                    <button onclick="checkAnswer(this, 'Defining the maximum width of an image.')">Defining max-width of
+                        an image</button>
+                </div>
+            </div>
+
+            <div class="question"
+                data-answer="They can cause layout shifts when the mobile browser's address bar appears or disappears.">
+                <p>3. What issue might arise from using vh units on mobile devices?</p>
+                <div class="options">
+                    <button onclick="checkAnswer(this, 'Layout shifts when the address bar appears/disappears.')">Layout
+                        shifts from address bar behavior</button>
+                    <button onclick="checkAnswer(this, 'They load slower on mobile devices.')">Slow loading on
+                        mobile</button>
+                    <button onclick="checkAnswer(this, 'They don\'t work with touch screens.')">Incompatibility with
+                        touch screens</button>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <script>
+        // --- Quiz Logic ---
+        function checkAnswer(btn, selection) {
+            const questionDiv = btn.closest('.question');
+            const correctAnswer = questionDiv.getAttribute('data-answer');
+            const buttons = questionDiv.querySelectorAll('button');
+
+            buttons.forEach(b => b.disabled = true);
+
+            if (selection === correctAnswer || selection.includes(correctAnswer.slice(0, 10))) {
+                btn.classList.add('correct');
+            } else {
+                btn.classList.add('wrong');
+                buttons.forEach(opt => {
+                    if (correctAnswer.includes(opt.innerText.slice(0, 5)) || opt.innerText.includes(correctAnswer.slice(0, 5))) {
+                        opt.classList.add('correct');
+                    }
+                });
+            }
+        }
+
+        // --- Scroll Spy ---
+        const sections = document.querySelectorAll('section');
+        const navLinks = document.querySelectorAll('.nav-links a');
+
+        window.onscroll = () => {
+            let current = "";
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop;
+                if (pageYOffset >= sectionTop - 150) {
+                    current = section.getAttribute('id');
+                }
+            });
+
+            navLinks.forEach(a => {
+                a.classList.remove('active');
+                if (a.getAttribute('href').includes(current)) {
+                    a.classList.add('active');
+                }
+            });
+        };
+    </script>
+</body>
+
+</html>

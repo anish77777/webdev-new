@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lazy Registration Best Practices | UI Mastery</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700;800&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Fira+Code&display=swap"
+        rel="stylesheet">
+</head>
+
+<body>
+    <div class="glass-bg"></div>
+
+    <nav class="sidebar">
+        <div class="logo">
+            <span class="logo-icon">💜</span>
+            <span class="logo-text">UIMastery</span>
+        </div>
+        <ul class="nav-links">
+            <li><a href="#intro" class="active">Introduction</a></li>
+            <li><a href="#value">Value Discovery</a></li>
+            <li><a href="#ecommerce">E-commerce Flow</a></li>
+            <li><a href="#social">Social Interaction</a></li>
+            <li><a href="#security">Security & Trust</a></li>
+            <li><a href="#quiz">Knowledge Check</a></li>
+        </ul>
+    </nav>
+
+    <main class="content">
+        <header class="main-header" id="intro">
+            <h1>Deferred & Lazy Registration</h1>
+            <p>Don't stop your users at the door. Let them experience the value of your application before asking for
+                their information.</p>
+        </header>
+
+        <!-- Value Discovery -->
+        <section id="value" class="card">
+            <h2>💎 Show Value First</h2>
+            <p>Users need to see what your site offers before they're willing to register. Think of an e-commerce site:
+                let them browse products and add items to a cart freely. Only ask for registration when they're ready to
+                purchase.</p>
+
+            <div class="code-section">
+                <h4 class="code-title">Glassmorphism Card CSS</h4>
+                <div class="code-block">
+                    <code><span class="code-selector">.card</span> {<br>
+  <span class="code-property">background</span>: <span class="code-value">rgba(30, 41, 59, 0.7)</span>;<br>
+  <span class="code-property">backdrop-filter</span>: <span class="code-value">blur(12px)</span>;<br>
+  <span class="code-property">border</span>: <span class="code-value">1px solid rgba(255, 255, 255, 0.1)</span>;<br>
+  <span class="code-property">border-radius</span>: <span class="code-value">28px</span>;<br>
+}</code>
+                </div>
+            </div>
+        </section>
+
+        <!-- E-commerce Flow -->
+        <section id="ecommerce" class="card">
+            <h2>🛒 Interactive E-commerce Demo</h2>
+            <p>In this demo, you can add items to your cart without being logged in. The "Registration Wall" only
+                appears when you attempt to Checkout.</p>
+
+            <div class="demo-box" style="text-align: left;">
+                <div class="app-header">
+                    <span style="font-weight: 800; font-size: 20px;">Violet Store</span>
+                    <div class="cart-icon">
+                        📦 <span class="cart-count" id="cart-count">0</span>
+                    </div>
+                </div>
+
+                <div class="product-item">
+                    <span>Premium Headphones ($299)</span>
+                    <button class="btn-demo" onclick="addToCart()">Add to Cart</button>
+                </div>
+                <div class="product-item">
+                    <span>Smart Watch ($199)</span>
+                    <button class="btn-demo" onclick="addToCart()">Add to Cart</button>
+                </div>
+
+                <button class="btn-demo" style="width: 100%; margin-top: 20px; background: var(--secondary);"
+                    onclick="triggerReg()">Proceed to Checkout</button>
+            </div>
+
+            <div class="code-section">
+                <h4 class="code-title">Layout & Spacing CSS</h4>
+                <div class="code-block">
+                    <code><span class="code-selector">.product-item</span> {<br>
+  <span class="code-property">display</span>: <span class="code-value">flex</span>;<br>
+  <span class="code-property">justify-content</span>: <span class="code-value">space-between</span>;<br>
+  <span class="code-property">align-items</span>: <span class="code-value">center</span>;<br>
+  <span class="code-property">margin-bottom</span>: <span class="code-value">10px</span>;<br>
+}</code>
+                </div>
+            </div>
+        </section>
+
+        <!-- Social Interaction -->
+        <section id="social" class="card">
+            <h2>📺 Social Interaction (YouTube Style)</h2>
+            <p>Platforms like YouTube allow you to watch videos anonymously. However, engagement actions like Liking or
+                Subscribing require registration.</p>
+
+            <div class="demo-box">
+                <div
+                    style="aspect-ratio: 16/9; background: #000; border-radius: 12px; display: flex; align-items: center; justify-content: center; color: var(--text-muted);">
+                    [ Mock Video Player ]
+                </div>
+                <div class="video-actions">
+                    <button class="action-btn" onclick="triggerReg()">👍 Like</button>
+                    <button class="action-btn" onclick="triggerReg()">💾 Save</button>
+                    <button class="action-btn" onclick="triggerReg()"
+                        style="background: var(--error); border-color: transparent;">Subscribe</button>
+                </div>
+            </div>
+        </section>
+
+        <!-- Security & Trust -->
+        <section id="security" class="card">
+            <h2>🛡️ Communicate Security</h2>
+            <p>When you finally ask for information, make sure to communicate that the user's sensitive data will be
+                protected and secure. Trust is the foundation of registration.</p>
+
+            <div class="code-section">
+                <h4 class="code-title">Button Gradient & Shadow CSS</h4>
+                <div class="code-block">
+                    <code><span class="code-selector">.btn-demo</span> {<br>
+  <span class="code-property">background</span>: <span class="code-value">#7c3aed</span>;<br>
+  <span class="code-property">box-shadow</span>: <span class="code-value">0 8px 16px rgba(124, 58, 237, 0.4)</span>;<br>
+  <span class="code-property">transition</span>: <span class="code-value">transform 0.3s ease</span>;<br>
+}</code>
+                </div>
+            </div>
+        </section>
+
+        <!-- Quiz Section -->
+        <section id="quiz" class="card quiz-card">
+            <h2>🧠 Knowledge Check</h2>
+            <div class="question"
+                data-answer="It encourages users to engage with content before asking for their registration details.">
+                <p>1. How does lazy registration impact user interaction?</p>
+                <div class="options">
+                    <button onclick="checkAnswer(this, 'It immediately limits user access.')">Limits access
+                        immediately</button>
+                    <button
+                        onclick="checkAnswer(this, 'It encourages users to engage with content before asking for their registration details.')">Encourages
+                        engagement before asking details</button>
+                    <button
+                        onclick="checkAnswer(this, 'It makes registration mandatory before viewing anything.')">Mandatory
+                        registration before viewing</button>
+                </div>
+            </div>
+
+            <div class="question" data-answer="Users can see the value of the application before deciding to register.">
+                <p>2. What is a main benefit of lazy registration?</p>
+                <div class="options">
+                    <button
+                        onclick="checkAnswer(this, 'Users can immediately make purchases without registering.')">Purchases
+                        without registering</button>
+                    <button
+                        onclick="checkAnswer(this, 'Users can see the value of the application before deciding to register.')">See
+                        value before deciding to register</button>
+                    <button onclick="checkAnswer(this, 'Users are required to register to view any content.')">Required
+                        to register for all content</button>
+                </div>
+            </div>
+
+            <div class="question"
+                data-answer="An e-commerce site allowing users to browse products and add items to a cart before registering.">
+                <p>3. Which platform uses lazy registration?</p>
+                <div class="options">
+                    <button onclick="checkAnswer(this, 'A banking app requiring registration before browsing.')">Banking
+                        app browsing</button>
+                    <button
+                        onclick="checkAnswer(this, 'An e-commerce site allowing users to browse products and add items to a cart before registering.')">E-commerce
+                        browsing and cart usage</button>
+                    <button
+                        onclick="checkAnswer(this, 'An email service asking for registration before reading emails.')">Email
+                        service registration</button>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Global Registration Modal -->
+    <div class="modal-overlay" id="reg-modal">
+        <div class="modal">
+            <h3>Join Violet Store</h3>
+            <p>Create an account to finalize your order, save videos, or participate in the community.</p>
+            <div style="display: flex; flex-direction: column; gap: 10px;">
+                <button class="btn-demo" onclick="closeModal()">Sign Up with Email</button>
+                <button class="btn-demo" style="background: white; color: black;" onclick="closeModal()">Continue with
+                    Google</button>
+                <button class="btn-close" onclick="closeModal()">Maybe Later</button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // --- Shopping Cart Logic ---
+        let count = 0;
+        function addToCart() {
+            count++;
+            document.getElementById('cart-count').innerText = count;
+            alert('Item added to cart! You can continue browsing.');
+        }
+
+        // --- Modal Logic ---
+        const modal = document.getElementById('reg-modal');
+        function triggerReg() {
+            modal.classList.add('active');
+        }
+
+        function closeModal() {
+            modal.classList.remove('active');
+        }
+
+        // Close on overlay click
+        modal.addEventListener('click', (e) => {
+            if (e.target === modal) closeModal();
+        });
+
+        // --- Quiz Logic ---
+        function checkAnswer(btn, selection) {
+            const questionDiv = btn.closest('.question');
+            const correctAnswer = questionDiv.getAttribute('data-answer');
+            const buttons = questionDiv.querySelectorAll('button');
+
+            buttons.forEach(b => b.disabled = true);
+
+            if (selection === correctAnswer) {
+                btn.classList.add('correct');
+            } else {
+                btn.classList.add('wrong');
+                buttons.forEach(opt => {
+                    // Match by partial text since button labels are shortened
+                    if (correctAnswer.includes(opt.innerText) || opt.innerText.includes(correctAnswer.slice(0, 5))) {
+                        opt.classList.add('correct');
+                    }
+                });
+            }
+        }
+
+        // --- Scroll Spy ---
+        const sections = document.querySelectorAll('section');
+        const navLinks = document.querySelectorAll('.nav-links a');
+
+        window.onscroll = () => {
+            let current = "";
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop;
+                if (pageYOffset >= sectionTop - 150) {
+                    current = section.getAttribute('id');
+                }
+            });
+
+            navLinks.forEach(a => {
+                a.classList.remove('active');
+                if (a.getAttribute('href').includes(current)) {
+                    a.classList.add('active');
+                }
+            });
+        };
+    </script>
+</body>
+
+</html>

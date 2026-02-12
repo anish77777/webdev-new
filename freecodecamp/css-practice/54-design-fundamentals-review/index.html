@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Design Fundamentals Master Review | UI Mastery</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800;900&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Fira+Code&display=swap"
+        rel="stylesheet">
+</head>
+
+<body>
+    <div class="glass-bg"></div>
+
+    <nav class="sidebar">
+        <div class="logo">
+            <span class="logo-icon">✨</span>
+            <span class="logo-text">UIMastery</span>
+        </div>
+        <ul class="nav-links">
+            <li><a href="#intro" class="active">Master Review</a></li>
+            <li><a href="#terminology">Terminology</a></li>
+            <li><a href="#fundamentals">UI Fundamentals</a></li>
+            <li><a href="#best-practices">Best Practices</a></li>
+            <li><a href="#tools">Common Tools</a></li>
+            <li><a href="#final-quiz">Final Check</a></li>
+        </ul>
+    </nav>
+
+    <main class="content">
+        <header class="main-header" id="intro">
+            <h1>Design Fundamentals Review</h1>
+            <p>Congratulations on reaching the final review! Let's recap everything you've learned about layouts,
+                terminology, best practices, and the industry-standard tools.</p>
+        </header>
+
+        <!-- Terminology -->
+        <section id="terminology" class="card">
+            <h2>🏷️ Key Design Terminology</h2>
+            <p>Hover over each card to reveal its definition. These terms are the building blocks of every design
+                conversation.</p>
+
+            <div class="term-grid">
+                <!-- Layout -->
+                <div class="flip-card">
+                    <div class="flip-card-inner">
+                        <div class="flip-card-front">
+                            <h4>Layout</h4>
+                        </div>
+                        <div class="flip-card-back">
+                            <p>How visual elements are arranged on a page to communicate a message.</p>
+                        </div>
+                    </div>
+                </div>
+                <!-- Hierarchy -->
+                <div class="flip-card">
+                    <div class="flip-card-inner">
+                        <div class="flip-card-front">
+                            <h4>Hierarchy</h4>
+                        </div>
+                        <div class="flip-card-back">
+                            <p>Establishes the order of importance, ensuring key info is noticed first.</p>
+                        </div>
+                    </div>
+                </div>
+                <!-- Contrast -->
+                <div class="flip-card">
+                    <div class="flip-card-inner">
+                        <div class="flip-card-front">
+                            <h4>Contrast</h4>
+                        </div>
+                        <div class="flip-card-back">
+                            <p>Creating clear distinctions via color, size, or shape to improve readability.</p>
+                        </div>
+                    </div>
+                </div>
+                <!-- Balance -->
+                <div class="flip-card">
+                    <div class="flip-card-inner">
+                        <div class="flip-card-front">
+                            <h4>Balance</h4>
+                        </div>
+                        <div class="flip-card-back">
+                            <p>Distribution of visual weight via symmetrical or asymmetrical arrangements.</p>
+                        </div>
+                    </div>
+                </div>
+                <!-- White Space -->
+                <div class="flip-card">
+                    <div class="flip-card-inner">
+                        <div class="flip-card-front">
+                            <h4>White Space</h4>
+                        </div>
+                        <div class="flip-card-back">
+                            <p>The empty area surrounding elements, also known as negative space.</p>
+                        </div>
+                    </div>
+                </div>
+                <!-- UI vs UX -->
+                <div class="flip-card">
+                    <div class="flip-card-inner">
+                        <div class="flip-card-front">
+                            <h4>UX</h4>
+                        </div>
+                        <div class="flip-card-back">
+                            <p>How users feel: intuitive, easy to use, efficient, and enjoyable.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="code-section">
+                <h4 class="code-title">Flip Card Inner Transitions</h4>
+                <div class="code-block">
+                    <code><span class="code-selector">.flip-card-inner</span> {<br>
+  <span class="code-property">transition</span>: <span class="code-value">transform 0.6s</span>;<br>
+  <span class="code-property">transform-style</span>: <span class="code-value">preserve-3d</span>;<br>
+}</code>
+                </div>
+            </div>
+        </section>
+
+        <!-- UI Design Fundamentals -->
+        <section id="fundamentals" class="card">
+            <h2>🧩 UI Design Fundamentals</h2>
+            <p>From accessibility to user-centered design, these principles ensure your application is functional and
+                inclusive.</p>
+
+            <div
+                style="background: rgba(255,255,255,0.03); padding: 30px; border-radius: 20px; border: 1px solid var(--glass-border);">
+                <ul style="list-style: none; display: flex; flex-direction: column; gap: 20px;">
+                    <li style="display: flex; gap: 15px;">
+                        <span style="color: var(--primary);">✅</span>
+                        <div><strong>WCAG Contrast:</strong> 4.5:1 for normal text, 3:1 for large text.</div>
+                    </li>
+                    <li style="display: flex; gap: 15px;">
+                        <span style="color: var(--primary);">✅</span>
+                        <div><strong>Progressive Enhancement:</strong> Ensuring all users can access essential content.
+                        </div>
+                    </li>
+                    <li style="display: flex; gap: 15px;">
+                        <span style="color: var(--primary);">✅</span>
+                        <div><strong>User Research:</strong> Systematic study of people to measure needs and behaviors.
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- Best Practices -->
+        <section id="best-practices" class="card">
+            <h2>🚀 Patterns & Best Practices</h2>
+            <p>Quick recap of the powerful UI patterns we've covered throughout the series.</p>
+
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 20px;">
+                <div style="background: rgba(255,255,255,0.05); padding: 20px; border-radius: 16px;">
+                    <strong style="color: var(--primary);">Dark Mode</strong>
+                    <p style="font-size: 13px; margin-top: 5px;">Use desaturated colors for better readability.</p>
+                </div>
+                <div style="background: rgba(255,255,255,0.05); padding: 20px; border-radius: 16px;">
+                    <strong style="color: var(--primary);">Infinite Scroll</strong>
+                    <p style="font-size: 13px; margin-top: 5px;">Include Load More and Back to Top buttons.</p>
+                </div>
+                <div style="background: rgba(255,255,255,0.05); padding: 20px; border-radius: 16px;">
+                    <strong style="color: var(--primary);">Modals</strong>
+                    <p style="font-size: 13px; margin-top: 5px;">Allow users to click outside to close the dialog.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Tools -->
+        <section id="tools" class="card">
+            <h2>🛠️ Industry Standard Tools</h2>
+            <p>Developers work with designers using these key platforms.</p>
+
+            <div style="display: flex; flex-wrap: wrap; gap: 15px;">
+                <span
+                    style="background: #1e293b; padding: 10px 20px; border-radius: 30px; border: 1px solid var(--primary);">Figma</span>
+                <span
+                    style="background: #1e293b; padding: 10px 20px; border-radius: 30px; border: 1px solid var(--primary);">Sketch</span>
+                <span
+                    style="background: #1e293b; padding: 10px 20px; border-radius: 30px; border: 1px solid var(--primary);">Adobe
+                    XD</span>
+                <span
+                    style="background: #1e293b; padding: 10px 20px; border-radius: 30px; border: 1px solid var(--primary);">Canva</span>
+            </div>
+        </section>
+
+        <!-- Final Quiz -->
+        <section id="final-quiz" class="card quiz-card">
+            <h2>🎯 Final Knowledge Check</h2>
+            <div class="question" data-answer="Progressive Disclosure">
+                <p>1. Which design pattern shows only relevant content to reduce cognitive load?</p>
+                <div class="options">
+                    <button onclick="checkAnswer(this, 'Progressive Enhancement')">Progressive Enhancement</button>
+                    <button onclick="checkAnswer(this, 'Progressive Disclosure')">Progressive Disclosure</button>
+                    <button onclick="checkAnswer(this, 'Lazy Registration')">Lazy Registration</button>
+                </div>
+            </div>
+
+            <div class="question" data-answer="4.5:1">
+                <p>2. What is the minimum recommended contrast ratio for normal text?</p>
+                <div class="options">
+                    <button onclick="checkAnswer(this, '3:1')">3:1</button>
+                    <button onclick="checkAnswer(this, '4.5:1')">4.5:1</button>
+                    <button onclick="checkAnswer(this, '7:1')">7:1</button>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <script>
+        // --- Quiz Logic ---
+        function checkAnswer(btn, selection) {
+            const questionDiv = btn.closest('.question');
+            const correctAnswer = questionDiv.getAttribute('data-answer');
+            const buttons = questionDiv.querySelectorAll('button');
+
+            buttons.forEach(b => b.disabled = true);
+
+            if (selection === correctAnswer) {
+                btn.classList.add('correct');
+            } else {
+                btn.classList.add('wrong');
+                buttons.forEach(opt => {
+                    if (opt.innerText === correctAnswer) opt.classList.add('correct');
+                });
+            }
+        }
+
+        // --- Scroll Spy ---
+        const sections = document.querySelectorAll('section');
+        const navLinks = document.querySelectorAll('.nav-links a');
+
+        window.onscroll = () => {
+            let current = "";
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop;
+                if (pageYOffset >= sectionTop - 150) {
+                    current = section.getAttribute('id');
+                }
+            });
+
+            navLinks.forEach(a => {
+                a.classList.remove('active');
+                if (a.getAttribute('href').includes(current)) {
+                    a.classList.add('active');
+                }
+            });
+        };
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Industry Design Tools | UI Mastery</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700;800&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Fira+Code&display=swap"
+        rel="stylesheet">
+</head>
+
+<body>
+    <div class="glass-bg"></div>
+
+    <nav class="sidebar">
+        <div class="logo">
+            <span class="logo-icon">🎨</span>
+            <span class="logo-text">UIMastery</span>
+        </div>
+        <ul class="nav-links">
+            <li><a href="#intro" class="active">Introduction</a></li>
+            <li><a href="#figma">Figma</a></li>
+            <li><a href="#sketch">Sketch</a></li>
+            <li><a href="#adobe-xd">Adobe XD</a></li>
+            <li><a href="#canva">Canva</a></li>
+            <li><a href="#quiz">Knowledge Check</a></li>
+        </ul>
+    </nav>
+
+    <main class="content">
+        <header class="main-header" id="intro">
+            <h1>Common Design Tools</h1>
+            <p>Master the tools of the trade. Learn which platforms designers use to build vector-based designs and
+                interactive prototypes.</p>
+        </header>
+
+        <!-- Figma -->
+        <section id="figma" class="card">
+            <h2>☁️ Figma: The Cloud Leader</h2>
+            <p>Figma is the essential cloud-based tool for UI/UX design. It enables real-time collaboration and offers
+                powerful vector-based features.</p>
+
+            <div class="demo-box">
+                <h4 class="code-title" style="color: var(--primary); margin-bottom: 20px;">Key Built-in Features</h4>
+                <div class="feature-list">
+                    <div class="feature-item">
+                        <div class="feature-bullet"></div> Real-time Collaboration
+                    </div>
+                    <div class="feature-item">
+                        <div class="feature-bullet"></div> Auto Layout
+                    </div>
+                    <div class="feature-item">
+                        <div class="feature-bullet"></div> Version History
+                    </div>
+                    <div class="feature-item">
+                        <div class="feature-bullet"></div> Design Systems
+                    </div>
+                </div>
+            </div>
+
+            <div class="code-section">
+                <h4 class="code-title">Card Hover Transition CSS</h4>
+                <div class="code-block">
+                    <code><span class="code-selector">.tool-card</span> {<br>
+  <span class="code-property">transition</span>: <span class="code-value">all 0.3s cubic-bezier(0.4, 0, 0.2, 1)</span>;<br>
+}<br><br>
+<span class="code-selector">.tool-card:hover</span> {<br>
+  <span class="code-property">transform</span>: <span class="code-value">translateY(-8px)</span>;<br>
+  <span class="code-property">border-color</span>: <span class="code-value">var(--primary)</span>;<br>
+}</code>
+                </div>
+            </div>
+        </section>
+
+        <!-- Sketch & XD -->
+        <section id="sketch-xd" class="card">
+            <h2>📐 Sketch & Adobe XD</h2>
+            <p>Sketch is known for its simplicity and native performance on macOS. Adobe XD stands out for its deep
+                integration with the Creative Cloud suite.</p>
+
+            <div class="tool-grid">
+                <div class="tool-card" id="sketch">
+                    <h4>Sketch</h4>
+                    <p>Intuitive interface and simplicity, ideal for quick prototypes.</p>
+                    <span class="tool-tag">macOS Only</span>
+                </div>
+                <div class="tool-card" id="xd">
+                    <h4>Adobe XD</h4>
+                    <p>Seamless integration with Photoshop and Illustrator.</p>
+                    <span class="tool-tag">Cross-Platform</span>
+                </div>
+            </div>
+
+            <div class="code-section">
+                <h4 class="code-title">Grid Layout CSS</h4>
+                <div class="code-block">
+                    <code><span class="code-selector">.tool-grid</span> {<br>
+  <span class="code-property">display</span>: <span class="code-value">grid</span>;<br>
+  <span class="code-property">grid-template-columns</span>: <span class="code-value">repeat(auto-fill, minmax(280px, 1fr))</span>;<br>
+  <span class="code-property">gap</span>: <span class="code-value">24px</span>;<br>
+}</code>
+                </div>
+            </div>
+        </section>
+
+        <!-- Canva -->
+        <section id="canva" class="card">
+            <h2>🎨 Canva: Design for Everyone</h2>
+            <p>Ideal for beginners, Canva offers a rich library of templates and a user-friendly interface for
+                everything from posters to web layouts.</p>
+
+            <div class="code-section">
+                <h4 class="code-title">Gradient Text CSS</h4>
+                <div class="code-block">
+                    <code><span class="code-selector">.logo-icon</span> {<br>
+  <span class="code-property">background</span>: <span class="code-value">linear-gradient(135deg, var(--primary), var(--secondary))</span>;<br>
+  <span class="code-property">-webkit-background-clip</span>: <span class="code-value">text</span>;<br>
+  <span class="code-property">-webkit-text-fill-color</span>: <span class="code-value">transparent</span>;<br>
+}</code>
+                </div>
+            </div>
+        </section>
+
+        <!-- Quiz Section -->
+        <section id="quiz" class="card quiz-card">
+            <h2>🧠 Knowledge Check</h2>
+            <div class="question"
+                data-answer="It is known for its intuitive interface and simplicity, ideal for quick prototypes.">
+                <p>1. Which of these best describes Sketch?</p>
+                <div class="options">
+                    <button onclick="checkAnswer(this, 'It is difficult to learn.')">Difficult to learn</button>
+                    <button
+                        onclick="checkAnswer(this, 'It is known for its intuitive interface and simplicity, ideal for quick prototypes.')">Intuitive,
+                        ideal for quick prototypes</button>
+                    <button onclick="checkAnswer(this, 'It is backend development only.')">Backend development
+                        only</button>
+                </div>
+            </div>
+
+            <div class="question" data-answer="Coding environment.">
+                <p>2. Which of these is NOT a feature of Figma?</p>
+                <div class="options">
+                    <button onclick="checkAnswer(this, 'Vector-based design.')">Vector-based design</button>
+                    <button onclick="checkAnswer(this, 'Real-time collaboration.')">Real-time collaboration</button>
+                    <button onclick="checkAnswer(this, 'Coding environment.')">Coding environment</button>
+                </div>
+            </div>
+
+            <div class="question"
+                data-answer="Seamless integration with other Adobe apps like Photoshop and Illustrator.">
+                <p>3. What is Adobe XD known for?</p>
+                <div class="options">
+                    <button onclick="checkAnswer(this, 'Complex video editing.')">Complex video editing</button>
+                    <button
+                        onclick="checkAnswer(this, 'Seamless integration with other Adobe apps like Photoshop and Illustrator.')">Seamless
+                        Adobe app integration</button>
+                    <button onclick="checkAnswer(this, '3D modeling.')">3D modeling</button>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <script>
+        // --- Tool Card Hover Logic ---
+        document.querySelectorAll('.tool-card').forEach(card => {
+            card.addEventListener('mousemove', e => {
+                const rect = card.getBoundingClientRect();
+                const x = ((e.clientX - rect.left) / rect.width) * 100;
+                const y = ((e.clientY - rect.top) / rect.height) * 100;
+                card.style.setProperty('--mouse-x', `${x}%`);
+                card.style.setProperty('--mouse-y', `${y}%`);
+            });
+        });
+
+        // --- Quiz Logic ---
+        function checkAnswer(btn, selection) {
+            const questionDiv = btn.closest('.question');
+            const correctAnswer = questionDiv.getAttribute('data-answer');
+            const buttons = questionDiv.querySelectorAll('button');
+
+            buttons.forEach(b => b.disabled = true);
+
+            if (selection === correctAnswer) {
+                btn.classList.add('correct');
+            } else {
+                btn.classList.add('wrong');
+                buttons.forEach(opt => {
+                    // Match by partial text since button labels are shortened
+                    if (correctAnswer.includes(opt.innerText) || opt.innerText.includes(correctAnswer.slice(0, 10))) {
+                        opt.classList.add('correct');
+                    }
+                });
+            }
+        }
+
+        // --- Scroll Spy ---
+        const sections = document.querySelectorAll('section, h2'); // H2 for finer tracking
+        const navLinks = document.querySelectorAll('.nav-links a');
+
+        window.onscroll = () => {
+            let current = "";
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop;
+                if (pageYOffset >= sectionTop - 150) {
+                    const id = section.getAttribute('id');
+                    if (id) current = id;
+                }
+            });
+
+            // Special handling for Sketch/XD section which shares an ID-like area
+            if (pageYOffset > document.getElementById('sketch-xd').offsetTop - 200) {
+                current = "sketch"; // Or XD
+            }
+
+            navLinks.forEach(a => {
+                a.classList.remove('active');
+                if (a.getAttribute('href').includes(current)) {
+                    a.classList.add('active');
+                }
+            });
+        };
+    </script>
+</body>
+
+</html>

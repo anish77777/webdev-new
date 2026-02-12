@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Absolute Units in CSS | UI Mastery</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700;800&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Fira+Code&display=swap"
+        rel="stylesheet">
+</head>
+
+<body>
+    <div class="glass-bg"></div>
+
+    <nav class="sidebar">
+        <div class="logo">
+            <span class="logo-icon">📏</span>
+            <span class="logo-text">UIMastery</span>
+        </div>
+        <ul class="nav-links">
+            <li><a href="#intro" class="active">Introduction</a></li>
+            <li><a href="#pixel">The Pixel (px)</a></li>
+            <li><a href="#usage">Practical Usage</a></li>
+            <li><a href="#others">Other Absolute Units</a></li>
+            <li><a href="#quiz">Knowledge Check</a></li>
+        </ul>
+    </nav>
+
+    <main class="content">
+        <header class="main-header" id="intro">
+            <h1>Absolute Units in CSS</h1>
+            <p>Master fixed-length measurements. Learn how to use pixels and other absolute units to gain precise
+                control over your layouts.</p>
+        </header>
+
+        <!-- Definition -->
+        <section id="pixel" class="card">
+            <h2>🎯 Precision with Pixels</h2>
+            <p>Absolute length units are fixed and do not scale relative to other elements. The pixel (px) is the most
+                common absolute unit, providing atomic-level control over your grid.</p>
+
+            <div class="demo-box">
+                <div class="demo-controls">
+                    <label for="px-input">Adjust Width:</label>
+                    <input type="number" id="px-input" value="150" step="10" min="50" max="400" oninput="updateBox()">
+                    <span>px</span>
+                </div>
+                <div id="demo-box" class="box-preview" style="width: 150px;">150px</div>
+            </div>
+
+            <div class="code-section">
+                <h4 class="code-title">Box Sizing with Pixels</h4>
+                <div class="code-block">
+                    <code><span class="code-selector">.box</span> {<br>
+  <span class="code-property">width</span>: <span class="code-value">100px</span>;<br>
+  <span class="code-property">height</span>: <span class="code-value">100px</span>;<br>
+  <span class="code-property">background-color</span>: <span class="code-value">red</span>;<br>
+}</code>
+                </div>
+            </div>
+        </section>
+
+        <!-- Practical Usage -->
+        <section id="usage" class="card">
+            <h2>🏢 Practical Application</h2>
+            <p>Pixels are used where you need absolute control—borders, padding, and fixed-width containers. Unlike
+                relative units, they remain consistent regardless of screen size changes.</p>
+
+            <div class="code-section">
+                <h4 class="code-title">Margins & Spacing</h4>
+                <div class="code-block">
+                    <code><span class="code-selector">.box</span> {<br>
+  <span class="code-property">margin</span>: <span class="code-value">10px</span>;<br>
+  <span class="code-property">padding</span>: <span class="code-value">20px</span>;<br>
+  <span class="code-property">border</span>: <span class="code-value">2px solid white</span>;<br>
+}</code>
+                </div>
+            </div>
+        </section>
+
+        <!-- Other Units -->
+        <section id="others" class="card">
+            <h2>🌍 Beyond Pixels</h2>
+            <p>While pixels dominate screens, other absolute units exist primarily for print media or specific physical
+                measurements.</p>
+
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 15px;">
+                <div
+                    style="background: rgba(255,255,255,0.05); padding: 15px; border-radius: 12px; text-align: center;">
+                    <strong>in</strong><br><span style="font-size: 12px; color: var(--text-muted);">Inches (96px)</span>
+                </div>
+                <div
+                    style="background: rgba(255,255,255,0.05); padding: 15px; border-radius: 12px; text-align: center;">
+                    <strong>cm</strong><br><span style="font-size: 12px; color: var(--text-muted);">Centimeters</span>
+                </div>
+                <div
+                    style="background: rgba(255,255,255,0.05); padding: 15px; border-radius: 12px; text-align: center;">
+                    <strong>pt</strong><br><span style="font-size: 12px; color: var(--text-muted);">Points (1/72
+                        in)</span>
+                </div>
+                <div
+                    style="background: rgba(255,255,255,0.05); padding: 15px; border-radius: 12px; text-align: center;">
+                    <strong>pc</strong><br><span style="font-size: 12px; color: var(--text-muted);">Picas (12pt)</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- Quiz Section -->
+        <section id="quiz" class="card quiz-card">
+            <h2>🧠 Knowledge Check</h2>
+            <div class="question"
+                data-answer="An absolute fixed-size unit of measurement in CSS, providing precise control over dimensions.">
+                <p>1. What is a pixel?</p>
+                <div class="options">
+                    <button
+                        onclick="checkAnswer(this, 'An absolute fixed-size unit of measurement in CSS, providing precise control over dimensions.')">Absolute
+                        fixed-size unit for precise control</button>
+                    <button onclick="checkAnswer(this, 'A relative unit of measurement in CSS.')">A relative unit of
+                        measurement</button>
+                    <button onclick="checkAnswer(this, 'A unit relative to screen size.')">Unit relative to screen
+                        size</button>
+                </div>
+            </div>
+
+            <div class="question" data-answer="absolute and relative units.">
+                <p>2. What are the two types of units you can use in CSS?</p>
+                <div class="options">
+                    <button onclick="checkAnswer(this, 'margins and padding.')">Margins and Padding</button>
+                    <button onclick="checkAnswer(this, 'absolute and relative units.')">Absolute and Relative
+                        units</button>
+                    <button onclick="checkAnswer(this, 'cm and mm.')">CM and MM</button>
+                </div>
+            </div>
+
+            <div class="question" data-answer="rem">
+                <p>3. Which of the following is NOT an absolute unit?</p>
+                <div class="options">
+                    <button onclick="checkAnswer(this, 'pt')">pt</button>
+                    <button onclick="checkAnswer(this, 'rem')">rem</button>
+                    <button onclick="checkAnswer(this, 'px')">px</button>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <script>
+        // --- Demo Logic ---
+        function updateBox() {
+            const input = document.getElementById('px-input');
+            const box = document.getElementById('demo-box');
+            const val = input.value;
+
+            box.style.width = val + 'px';
+            box.innerText = val + 'px';
+        }
+
+        // --- Quiz Logic ---
+        function checkAnswer(btn, selection) {
+            const questionDiv = btn.closest('.question');
+            const correctAnswer = questionDiv.getAttribute('data-answer');
+            const buttons = questionDiv.querySelectorAll('button');
+
+            buttons.forEach(b => b.disabled = true);
+
+            if (selection === correctAnswer || selection.includes(correctAnswer.slice(0, 10))) {
+                btn.classList.add('correct');
+            } else {
+                btn.classList.add('wrong');
+                buttons.forEach(opt => {
+                    if (correctAnswer.includes(opt.innerText.slice(0, 10))) {
+                        opt.classList.add('correct');
+                    }
+                });
+            }
+        }
+
+        // --- Scroll Spy ---
+        const sections = document.querySelectorAll('section');
+        const navLinks = document.querySelectorAll('.nav-links a');
+
+        window.onscroll = () => {
+            let current = "";
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop;
+                if (pageYOffset >= sectionTop - 150) {
+                    current = section.getAttribute('id');
+                }
+            });
+
+            navLinks.forEach(a => {
+                a.classList.remove('active');
+                if (a.getAttribute('href').includes(current)) {
+                    a.classList.add('active');
+                }
+            });
+        };
+    </script>
+</body>
+
+</html>

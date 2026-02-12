@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Percentages in CSS | UI Mastery</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700;800&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Fira+Code&display=swap"
+        rel="stylesheet">
+</head>
+
+<body>
+    <div class="glass-bg"></div>
+
+    <nav class="sidebar">
+        <div class="logo">
+            <span class="logo-icon">📊</span>
+            <span class="logo-text">UIMastery</span>
+        </div>
+        <ul class="nav-links">
+            <li><a href="#intro" class="active">Introduction</a></li>
+            <li><a href="#proportions">Relative Proportions</a></li>
+            <li><a href="#fluid">Fluid Layouts</a></li>
+            <li><a href="#centering">Vertical Centering</a></li>
+            <li><a href="#quiz">Knowledge Check</a></li>
+        </ul>
+    </nav>
+
+    <main class="content">
+        <header class="main-header" id="intro">
+            <h1>Percentages in CSS</h1>
+            <p>Master proportions. Learn how to use relative percentage units to create fluid, adaptive, and perfectly
+                balanced layouts.</p>
+        </header>
+
+        <!-- Relative Proportions -->
+        <section id="proportions" class="card">
+            <h2>🔗 Relative Proportions</h2>
+            <p>Percentages are relative units that define dimensions as a proportion of their parent element. Setting
+                <code>width: 50%</code> tells the element to occupy exactly half of its container.</p>
+
+            <div class="demo-box">
+                <div class="demo-title">Interact: Adjust Width</div>
+                <div class="fluid-container">
+                    <div id="fluid-child" class="fluid-child" style="width: 50%;">50%</div>
+                </div>
+                <div class="slider-controls">
+                    <label for="percent-slider">Parent Proportion:</label>
+                    <input type="range" id="percent-slider" value="50" min="10" max="100" oninput="updateFluid()">
+                </div>
+            </div>
+
+            <div class="code-section">
+                <h4 class="code-title">Fluid Child CSS</h4>
+                <div class="code-block">
+                    <code><span class="code-selector">.container</span> { <span class="code-property">width</span>: <span class="code-value">400px</span>; }<br><br>
+<span class="code-selector">.box</span> {<br>
+  <span class="code-property">width</span>: <span class="code-value">50%</span>;<br>
+  <span class="code-property">height</span>: <span class="code-value">100%</span>;<br>
+  <span class="code-property">background-color</span>: <span class="code-value">red</span>;<br>
+}</code>
+                </div>
+            </div>
+        </section>
+
+        <!-- Fluid Images -->
+        <section id="fluid" class="card">
+            <h2>🖼️ Fluid Layouts & Images</h2>
+            <p>Using percentages for images ensures they scale down gracefully on smaller screens.
+                <code>max-width: 100%</code> is a standard practice for responsive web design.</p>
+
+            <div class="demo-box" style="text-align: center;">
+                <img src="https://placehold.co/600x200/06b6d4/ffffff?text=Responsive+Image+Demo" alt="Fluid Demo"
+                    style="max-width: 100%; height: auto; border-radius: 12px; border: 1px solid var(--glass-border);">
+                <p style="font-size: 13px; margin-top: 10px; color: var(--text-muted);">Try resizing your browser to see
+                    this image scale proportionally!</p>
+            </div>
+
+            <div class="code-section">
+                <h4 class="code-title">Responsive Image CSS</h4>
+                <div class="code-block">
+                    <code><span class="code-selector">img</span> {<br>
+  <span class="code-property">max-width</span>: <span class="code-value">100%</span>;<br>
+  <span class="code-property">height</span>: <span class="code-value">auto</span>;<br>
+}</code>
+                </div>
+            </div>
+        </section>
+
+        <!-- Vertical Centering -->
+        <section id="centering" class="card">
+            <h2>🎯 Vertical Centering</h2>
+            <p>Percentages are handy for absolute positioning. Setting <code>top: 50%</code> moves the top edge to the
+                middle, and <code>translateY(-50%)</code> offsets the element by half its own height to perfectly center
+                it.</p>
+
+            <div class="demo-box">
+                <div class="centering-parent">
+                    <div class="centering-child">CENTERED</div>
+                </div>
+            </div>
+
+            <div class="code-section">
+                <h4 class="code-title">Perfect Centering CSS</h4>
+                <div class="code-block">
+                    <code><span class="code-selector">.centered</span> {<br>
+  <span class="code-property">position</span>: <span class="code-value">absolute</span>;<br>
+  <span class="code-property">top</span>: <span class="code-value">50%</span>;<br>
+  <span class="code-property">left</span>: <span class="code-value">50%</span>;<br>
+  <span class="code-property">transform</span>: <span class="code-value">translate(-50%, -50%)</span>;<br>
+}</code>
+                </div>
+            </div>
+        </section>
+
+        <!-- Quiz Section -->
+        <section id="quiz" class="card quiz-card">
+            <h2>🧠 Knowledge Check</h2>
+            <div class="question" data-answer="The element will be 150px wide.">
+                <p>1. What happens if you set width: 50% on an element whose parent has a width of 300px?</p>
+                <div class="options">
+                    <button onclick="checkAnswer(this, 'The element will be 150px wide.')">The element will be 150px
+                        wide</button>
+                    <button onclick="checkAnswer(this, 'The element will be 50px wide.')">The element will be 50px
+                        wide</button>
+                    <button onclick="checkAnswer(this, 'The element will have no width.')">The element will have no
+                        width</button>
+                </div>
+            </div>
+
+            <div class="question" data-answer="The top margin of the element.">
+                <p>2. In the rule .box { margin-top: 10%; }, what does the percentage value affect?</p>
+                <div class="options">
+                    <button onclick="checkAnswer(this, 'The height of the element.')">The height of the element</button>
+                    <button onclick="checkAnswer(this, 'The top margin of the element.')">The top margin of the
+                        element</button>
+                    <button onclick="checkAnswer(this, 'The width of the element.')">The width of the element</button>
+                </div>
+            </div>
+
+            <div class="question" data-answer="Specifying the line-height of text.">
+                <p>3. Which of the following is NOT a good use case for percentage values?</p>
+                <div class="options">
+                    <button onclick="checkAnswer(this, 'Setting the width of a responsive container.')">Responsive
+                        container width</button>
+                    <button
+                        onclick="checkAnswer(this, 'Defining the border-radius of a circular element.')">Border-radius
+                        for circles</button>
+                    <button onclick="checkAnswer(this, 'Specifying the line-height of text.')">Specifying line-height of
+                        text</button>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <script>
+        // --- Demo Logic ---
+        function updateFluid() {
+            const slider = document.getElementById('percent-slider');
+            const box = document.getElementById('fluid-child');
+            const val = slider.value;
+
+            box.style.width = val + '%';
+            box.innerText = val + '%';
+        }
+
+        // --- Quiz Logic ---
+        function checkAnswer(btn, selection) {
+            const questionDiv = btn.closest('.question');
+            const correctAnswer = questionDiv.getAttribute('data-answer');
+            const buttons = questionDiv.querySelectorAll('button');
+
+            buttons.forEach(b => b.disabled = true);
+
+            if (selection === correctAnswer || selection.includes(correctAnswer.slice(0, 10))) {
+                btn.classList.add('correct');
+            } else {
+                btn.classList.add('wrong');
+                buttons.forEach(opt => {
+                    if (correctAnswer.includes(opt.innerText) || opt.innerText.includes(correctAnswer.slice(0, 10))) {
+                        opt.classList.add('correct');
+                    }
+                });
+            }
+        }
+
+        // --- Scroll Spy ---
+        const sections = document.querySelectorAll('section');
+        const navLinks = document.querySelectorAll('.nav-links a');
+
+        window.onscroll = () => {
+            let current = "";
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop;
+                if (pageYOffset >= sectionTop - 150) {
+                    current = section.getAttribute('id');
+                }
+            });
+
+            navLinks.forEach(a => {
+                a.classList.remove('active');
+                if (a.getAttribute('href').includes(current)) {
+                    a.classList.add('active');
+                }
+            });
+        };
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Progressive Disclosure | UI Mastery</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700;800&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Fira+Code&display=swap"
+        rel="stylesheet">
+</head>
+
+<body>
+    <div class="glass-bg"></div>
+
+    <nav class="sidebar">
+        <div class="logo">
+            <span class="logo-icon">💠</span>
+            <span class="logo-text">UIMastery</span>
+        </div>
+        <ul class="nav-links">
+            <li><a href="#intro" class="active">Introduction</a></li>
+            <li><a href="#basics">The Pattern</a></li>
+            <li><a href="#advanced">Advanced Search</a></li>
+            <li><a href="#products">E-commerce Discovery</a></li>
+            <li><a href="#best-practices">Best Practices</a></li>
+            <li><a href="#quiz">Knowledge Check</a></li>
+        </ul>
+    </nav>
+
+    <main class="content">
+        <header class="main-header" id="intro">
+            <h1>Progressive Disclosure</h1>
+            <p>Reduce cognitive load by showing users only what they need, when they need it. Master the art of clean,
+                intuitive interface design.</p>
+        </header>
+
+        <!-- Basics -->
+        <section id="basics" class="card">
+            <h2>🧩 The Design Pattern</h2>
+            <p>Progressive disclosure is a technique used to maintain the focus of a user's attention by reducing
+                clutter and complexity. Instead of overwhelming users with all features at once, you reveal them only
+                upon request.</p>
+
+            <div class="demo-box">
+                <button class="disclosure-trigger" id="basic-trigger" aria-expanded="false"
+                    aria-controls="basic-details">
+                    Show More Details
+                </button>
+                <div id="basic-details" class="disclosure-content hidden" tabindex="-1">
+                    <p>Revealing content only when requested keeps the primary interface clean and focused.</p>
+                </div>
+            </div>
+
+            <div class="code-section">
+                <h4 class="code-title">Visibility Control CSS</h4>
+                <div class="code-block">
+                    <code><span class="code-selector">.hidden</span> {<br>
+  <span class="code-property">display</span>: <span class="code-value">none</span>;<br>
+}<br><br>
+<span class="code-selector">.disclosure-content</span> {<br>
+  <span class="code-property">animation</span>: <span class="code-value">slideDown 0.4s ease-out</span>;<br>
+}</code>
+                </div>
+            </div>
+        </section>
+
+        <!-- Advanced Search -->
+        <section id="advanced" class="card">
+            <h2>🔍 Advanced Search Flow</h2>
+            <p>Think of Google Search: the main page is minimal, but "Advanced Search" options are tucked away under
+                settings, ready for power users without distracting everyone else.</p>
+
+            <div class="demo-box">
+                <div style="display: flex; gap: 10px; margin-bottom: 20px;">
+                    <input type="text" placeholder="Search for anything..." style="margin-bottom: 0; flex: 1;">
+                    <button class="disclosure-trigger" style="padding: 10px 20px;">Search</button>
+                </div>
+                <button class="disclosure-trigger" id="advanced-trigger"
+                    style="background: transparent; color: var(--accent); box-shadow: none; padding: 0;"
+                    aria-expanded="false" aria-controls="advanced-panel">
+                    Advanced Search Options ↓
+                </button>
+                <div id="advanced-panel" class="disclosure-content hidden" tabindex="-1">
+                    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px; text-align: left;">
+                        <div>
+                            <label>Filter by Date</label>
+                            <select
+                                style="width: 100%; padding: 10px; background: #0a0c10; border: 1px solid var(--glass-border); color: white; border-radius: 8px;">
+                                <option>Any time</option>
+                                <option>Past 24 hours</option>
+                                <option>Past week</option>
+                            </select>
+                        </div>
+                        <div>
+                            <label>File Type</label>
+                            <select
+                                style="width: 100%; padding: 10px; background: #0a0c10; border: 1px solid var(--glass-border); color: white; border-radius: 8px;">
+                                <option>Any format</option>
+                                <option>PDF</option>
+                                <option>DOCX</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Products -->
+        <section id="products" class="card">
+            <h2>🛍️ E-commerce Discovery</h2>
+            <p>Online retailers like Amazon use this to show category images first. Specific product specs are only
+                "disclosed" when the user shows interest by clicking for details.</p>
+
+            <div class="product-grid">
+                <div class="product-card">
+                    <img src="https://placehold.co/200x200/3b82f6/white?text=Product+A" alt="Product Image">
+                    <button class="disclosure-trigger product-btn" aria-expanded="false" style="width: 100%;">More
+                        Details</button>
+                    <div class="disclosure-content hidden" style="text-align: left;">
+                        <p style="font-size: 14px; margin-bottom: 10px;">High-performance sapphire casing with impact
+                            resistance.</p>
+                        <ul style="font-size: 13px; color: var(--text-muted); padding-left: 20px;">
+                            <li>OLED Display</li>
+                            <li>24h Battery</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="product-card">
+                    <img src="https://placehold.co/200x200/2563eb/white?text=Product+B" alt="Product Image">
+                    <button class="disclosure-trigger product-btn" aria-expanded="false" style="width: 100%;">More
+                        Details</button>
+                    <div class="disclosure-content hidden" style="text-align: left;">
+                        <p style="font-size: 14px; margin-bottom: 10px;">Lightweight design for daily productivity and
+                            focus.</p>
+                        <ul style="font-size: 13px; color: var(--text-muted); padding-left: 20px;">
+                            <li>Ergonomic Grid</li>
+                            <li>Wireless Sync</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Best Practices -->
+        <section id="best-practices" class="card">
+            <h2>✅ Best Practices</h2>
+            <p>When implementing progressive disclosure, follow these two critical rules:</p>
+            <ol style="color: var(--text-muted); margin-left: 20px; line-height: 1.8;">
+                <li><strong>Core Info Stays Visible:</strong> Primary actions and essential data (like price or title)
+                    must never be hidden.</li>
+                <li><strong>Single Access Point:</strong> Use one clear trigger (button/link) rather than scattering
+                    multiple ways to find the same info.</li>
+            </ol>
+
+            <div class="code-section">
+                <h4 class="code-title">Transition Animation CSS</h4>
+                <div class="code-block">
+                    <code><span class="code-keyword">@keyframes</span> <span class="code-selector">slideDown</span> {<br>
+  <span class="code-keyword">from</span> { <span class="code-property">opacity</span>: <span class="code-value">0</span>; <span class="code-property">transform</span>: <span class="code-value">translateY(-10px)</span>; }<br>
+  <span class="code-keyword">to</span> { <span class="code-property">opacity</span>: <span class="code-value">1</span>; <span class="code-property">transform</span>: <span class="code-value">translateY(0)</span>; }<br>
+}</code>
+                </div>
+            </div>
+        </section>
+
+        <!-- Quiz Section -->
+        <section id="quiz" class="card quiz-card">
+            <h2>🧠 Knowledge Check</h2>
+            <div class="question" data-answer="To only show users relevant content based on their current activity.">
+                <p>1. What is the main purpose of using progressive disclosure in design?</p>
+                <div class="options">
+                    <button
+                        onclick="checkAnswer(this, 'To increase the number of features visible at all times.')">Increase
+                        visible features</button>
+                    <button
+                        onclick="checkAnswer(this, 'To only show users relevant content based on their current activity.')">Only
+                        show relevant content as needed</button>
+                    <button onclick="checkAnswer(this, 'To make the user interface more complex.')">Make UI more
+                        complex</button>
+                </div>
+            </div>
+
+            <div class="question"
+                data-answer="By offering an advanced search option that reveals more features when needed.">
+                <p>2. How does Google implement progressive disclosure?</p>
+                <div class="options">
+                    <button onclick="checkAnswer(this, 'By displaying all search options at once.')">Displaying all
+                        options at once</button>
+                    <button
+                        onclick="checkAnswer(this, 'By offering an advanced search option that reveals more features when needed.')">Advanced
+                        search reveals extra options</button>
+                    <button onclick="checkAnswer(this, 'By hiding the search bar behind a modal dialog.')">Hiding search
+                        bar in a modal</button>
+                </div>
+            </div>
+
+            <div class="question" data-answer="Using multiple access points to confuse users.">
+                <p>3. What should be avoided for a good user experience?</p>
+                <div class="options">
+                    <button
+                        onclick="checkAnswer(this, 'Providing a single, clear access point to additional information.')">Providing
+                        a single access point</button>
+                    <button onclick="checkAnswer(this, 'Using multiple access points to confuse users.')">Using multiple
+                        confusing access points</button>
+                    <button onclick="checkAnswer(this, 'Keeping important information visible at all times.')">Keeping
+                        core info visible</button>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <script>
+        // --- Disclosure Logic ---
+        function setupDisclosure(triggerId, panelId) {
+            const trigger = document.getElementById(triggerId);
+            const panel = document.getElementById(panelId);
+
+            if (!trigger || !panel) return;
+
+            trigger.addEventListener('click', () => {
+                const isHidden = panel.classList.toggle('hidden');
+                trigger.setAttribute('aria-expanded', !isHidden);
+                if (!isHidden) panel.focus();
+
+                if (triggerId === 'advanced-trigger') {
+                    trigger.innerText = isHidden ? 'Advanced Search Options ↓' : 'Advanced Search Options ↑';
+                }
+            });
+        }
+
+        setupDisclosure('basic-trigger', 'basic-details');
+        setupDisclosure('advanced-trigger', 'advanced-panel');
+
+        // Product Details Logic
+        document.querySelectorAll('.product-btn').forEach(btn => {
+            btn.addEventListener('click', () => {
+                const panel = btn.nextElementSibling;
+                const isHidden = panel.classList.toggle('hidden');
+                btn.setAttribute('aria-expanded', !isHidden);
+                btn.innerText = isHidden ? 'More Details' : 'Hide Details';
+                if (!isHidden) panel.focus();
+            });
+        });
+
+        // --- Quiz Logic ---
+        function checkAnswer(btn, selection) {
+            const questionDiv = btn.closest('.question');
+            const correctAnswer = questionDiv.getAttribute('data-answer');
+            const buttons = questionDiv.querySelectorAll('button');
+
+            buttons.forEach(b => b.disabled = true);
+
+            if (selection === correctAnswer) {
+                btn.classList.add('correct');
+            } else {
+                btn.classList.add('wrong');
+                buttons.forEach(opt => {
+                    if (opt.innerText === correctAnswer) opt.classList.add('correct');
+                    // Special logic for matching longer text to button labels
+                    if (correctAnswer.includes(opt.innerText) && opt.innerText.length > 5) opt.classList.add('correct');
+                });
+            }
+        }
+
+        // --- Scroll Spy ---
+        const sections = document.querySelectorAll('section');
+        const navLinks = document.querySelectorAll('.nav-links a');
+
+        window.onscroll = () => {
+            let current = "";
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop;
+                if (pageYOffset >= sectionTop - 150) {
+                    current = section.getAttribute('id');
+                }
+            });
+
+            navLinks.forEach(a => {
+                a.classList.remove('active');
+                if (a.getAttribute('href').includes(current)) {
+                    a.classList.add('active');
+                }
+            });
+        };
+    </script>
+</body>
+
+</html>
