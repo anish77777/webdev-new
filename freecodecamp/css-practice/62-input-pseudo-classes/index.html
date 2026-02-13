@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Input Pseudo-classes | Interactive Guide</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700;800&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap"
+        rel="stylesheet">
+</head>
+
+<body>
+    <div class="container">
+        <header>
+            <h1>Input Pseudo-classes</h1>
+            <p>Master <strong>form styling</strong> with state-specific selectors.</p>
+        </header>
+
+        <section class="lesson-card">
+            <h2>Enhancing Form UX</h2>
+            <p>Input pseudo-classes allow you to style elements based on their validation state, requirement status, and
+                user interaction, making forms intuitive and accessible.</p>
+        </section>
+
+        <section class="lesson-card">
+            <h2>Interactive Form Demo</h2>
+            <form class="demo-form" action="#" onsubmit="return false;">
+                <div class="form-group">
+                    <label for="name">Full Name (Required):</label>
+                    <input type="text" id="name" name="name" placeholder="Enter your name" required>
+                    <small>States: <code>:required</code>, <code>:focus</code>, <code>:hover</code></small>
+                </div>
+
+                <div class="form-group">
+                    <label for="email">Email Address (Validation):</label>
+                    <input type="email" id="email" name="email" placeholder="example@email.com">
+                    <small>States: <code>:valid</code>, <code>:invalid</code> (Type a valid email to see Green)</small>
+                </div>
+
+                <div class="form-group">
+                    <label for="id-code">ID Code (Disabled):</label>
+                    <input type="text" id="id-code" name="id-code" value="LUM-2024-X" disabled>
+                    <small>State: <code>:disabled</code> (Cursor turns to not-allowed)</small>
+                </div>
+
+                <div class="checkbox-group">
+                    <label class="custom-chk">
+                        <input type="checkbox" required>
+                        <span class="box"></span>
+                        I agree to the Cosmic Terms
+                    </label>
+                    <small>State: <code>:checked</code></small>
+                </div>
+
+                <button type="submit" class="submit-btn" disabled>Submit (Disabled)</button>
+            </form>
+        </section>
+
+        <section class="lesson-card">
+            <h2>Positional & State Mix</h2>
+            <div class="code-window">
+                <div class="code-header">CSS Examples</div>
+                <div class="code-body">
+                    <span class="token-tag">input</span><span class="token-pseudo">:required</span> { <span
+                        class="token-prop">border-color</span>: <span class="token-val">orange</span>; }<br>
+                    <span class="token-tag">input</span><span class="token-pseudo">:valid</span> { <span
+                        class="token-prop">border-color</span>: <span class="token-val">green</span>; }<br>
+                    <span class="token-tag">input</span><span class="token-pseudo">:invalid</span> { <span
+                        class="token-prop">border-color</span>: <span class="token-val">crimson</span>; }<br>
+                    <span class="token-tag">input</span><span class="token-pseudo">:disabled</span> { <span
+                        class="token-prop">cursor</span>: <span class="token-val">not-allowed</span>; }
+                </div>
+            </div>
+        </section>
+
+        <section class="lesson-card">
+            <h2>Knowledge Check</h2>
+            <div class="quiz-container">
+                <div class="question">
+                    <span class="question-text">1. Which pseudo-class identifies a field that MUST be filled?</span>
+                    <div class="options">
+                        <div class="option">:focus</div>
+                        <div class="option" data-correct="true">:required</div>
+                        <div class="option">:optional</div>
+                        <div class="option">:checked</div>
+                    </div>
+                </div>
+
+                <div class="question">
+                    <span class="question-text">2. How are :valid and :invalid typically used?</span>
+                    <div class="options">
+                        <div class="option">To change font size</div>
+                        <div class="option" data-correct="true">To provide visual cues during validation</div>
+                        <div class="option">To disable form elements</div>
+                        <div class="option">To auto-submit the form</div>
+                    </div>
+                </div>
+
+                <div class="question">
+                    <span class="question-text">3. What does cursor: not-allowed do?</span>
+                    <div class="options">
+                        <div class="option">Hides the cursor</div>
+                        <div class="option">Makes the element clickable</div>
+                        <div class="option" data-correct="true">Displays a circle-slash symbol</div>
+                        <div class="option">Changes cursor to a pointer</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="lesson-card">
+            <h2>Summary</h2>
+            <ul class="summary-list">
+                <li><strong>:focus</strong> &ndash; Highlights the active input field.</li>
+                <li><strong>:hover</strong> &ndash; Alerts users that an input is ready for action.</li>
+                <li><strong>:required</strong> &ndash; Signals mandatory fields.</li>
+                <li><strong>:valid / :invalid</strong> &ndash; Feedback based on data criteria.</li>
+                <li><strong>:disabled</strong> &ndash; Styles un-editable or locked elements.</li>
+            </ul>
+        </section>
+    </div>
+
+    <script>
+        document.querySelectorAll('.option').forEach(option => {
+            option.addEventListener('click', () => {
+                const parent = option.parentElement;
+                if (parent.classList.contains('answered')) return;
+
+                parent.classList.add('answered');
+                option.classList.add('selected');
+
+                if (option.dataset.correct === 'true') {
+                    option.classList.add('correct');
+                } else {
+                    option.classList.add('incorrect');
+                    parent.querySelectorAll('.option').forEach(opt => {
+                        if (opt.dataset.correct === 'true') {
+                            opt.classList.add('selected', 'correct');
+                        }
+                    });
+                }
+            });
+        });
+    </script>
+</body>
+
+</html>

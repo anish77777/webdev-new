@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Location Pseudo-classes | Interactive Guide</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700;800&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap"
+        rel="stylesheet">
+</head>
+
+<body>
+    <div class="container">
+        <header>
+            <h1>Location Pseudo-classes</h1>
+            <p>Target elements based on <strong>URL fragments</strong> and <strong>link status</strong>.</p>
+        </header>
+
+        <section class="lesson-card">
+            <h2>Understanding Navigation States</h2>
+            <p>Location pseudo-classes like <code>:link</code>, <code>:visited</code>, and <code>:target</code> allow
+                you to style elements based on the user's current destination or history within the document.</p>
+        </section>
+
+        <section class="lesson-card">
+            <h2>Interactive Navigation Demo</h2>
+            <p>Click the links below to see <code>:target</code> in action! The target section will light up.</p>
+
+            <nav class="demo-nav">
+                <ul>
+                    <li><a href="#intro" class="nav-link">Introduction</a></li>
+                    <li><a href="#features" class="nav-link">Key Features</a></li>
+                    <li><a href="#summary" class="nav-link">Summary</a></li>
+                </ul>
+            </nav>
+
+            <div class="target-container">
+                <section id="intro" class="target-item">
+                    <h3>🚀 Introduction</h3>
+                    <p>This is the introduction section. When you click the link above, this section becomes the
+                        "target" of the URL.</p>
+                </section>
+
+                <section id="features" class="target-item">
+                    <h3>✨ Key Features</h3>
+                    <p>This section highlights the features. Notice how the background and border change when it is
+                        active.</p>
+                </section>
+
+                <section id="summary" class="target-item">
+                    <h3>📋 Summary</h3>
+                    <p>Wrapping up the location lesson. The <code>:target</code> pseudo-class is perfect for single-page
+                        applications.</p>
+                </section>
+            </div>
+        </section>
+
+        <section class="lesson-card">
+            <h2>Link State Showcase</h2>
+            <div class="demo-grid">
+                <div class="demo-item">
+                    <h3>:link (Unvisited)</h3>
+                    <p>Styles links that have not been clicked yet.</p>
+                    <a href="https://example.com/new-page-1" target="_blank" class="state-link">New Frontier</a>
+                </div>
+                <div class="demo-item">
+                    <h3>:visited (Clicked)</h3>
+                    <p>Styles links the user has already explored.</p>
+                    <a href="https://www.google.com" target="_blank" class="state-link">Old Friend (Google)</a>
+                </div>
+                <div class="demo-item">
+                    <h3>:any-link</h3>
+                    <p>Matches any link regardless of visited status.</p>
+                    <a href="#" class="any-link-demo">Global Link Style</a>
+                </div>
+            </div>
+        </section>
+
+        <section class="lesson-card">
+            <h2>Code Reference</h2>
+            <div class="code-window">
+                <div class="code-header">CSS Implementation</div>
+                <div class="code-body">
+                    <span class="token-tag">section</span><span class="token-pseudo">:target</span> { <br>
+                    &nbsp;&nbsp;<span class="token-prop">background</span>: <span class="token-val">#10b981</span>; <br>
+                    &nbsp;&nbsp;<span class="token-prop">box-shadow</span>: <span class="token-val">0 0 20px
+                        #10b98155</span>; <br>
+                    }<br>
+                    <br>
+                    <span class="token-tag">a</span><span class="token-pseudo">:visited</span> { <span
+                        class="token-prop">color</span>: <span class="token-val">#a78bfa</span>; }
+                </div>
+            </div>
+        </section>
+
+        <section class="lesson-card">
+            <h2>Knowledge Check</h2>
+            <div class="quiz-container">
+                <div class="question">
+                    <span class="question-text">1. Which pseudo-class styles the section matching the #ID in the
+                        URL?</span>
+                    <div class="options">
+                        <div class="option">:focus</div>
+                        <div class="option" data-correct="true">:target</div>
+                        <div class="option">:local-link</div>
+                        <div class="option">:any-link</div>
+                    </div>
+                </div>
+
+                <div class="question">
+                    <span class="question-text">2. What does :any-link target?</span>
+                    <div class="options">
+                        <div class="option">Only unvisited links</div>
+                        <div class="option">Only visited links</div>
+                        <div class="option" data-correct="true">Any anchor with an href attribute</div>
+                        <div class="option">Any element with a link class</div>
+                    </div>
+                </div>
+
+                <div class="question">
+                    <span class="question-text">3. Is :local-link currently supported by browsers?</span>
+                    <div class="options">
+                        <div class="option">Yes, by all major browsers</div>
+                        <div class="option">Only by Chrome</div>
+                        <div class="option" data-correct="true">No browser currently supports it</div>
+                        <div class="option">Only by Firefox</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="lesson-card">
+            <h2>Summary</h2>
+            <ul class="summary-list">
+                <li><strong>:link</strong> &ndash; Default state for unclicked links.</li>
+                <li><strong>:visited</strong> &ndash; Feedback for explored destinations.</li>
+                <li><strong>:any-link</strong> &ndash; Selects links in any state.</li>
+                <li><strong>:target</strong> &ndash; Styles the active fragment identified in the URL.</li>
+            </ul>
+        </section>
+    </div>
+
+    <script>
+        document.querySelectorAll('.option').forEach(option => {
+            option.addEventListener('click', () => {
+                const parent = option.parentElement;
+                if (parent.classList.contains('answered')) return;
+
+                parent.classList.add('answered');
+                option.classList.add('selected');
+
+                if (option.dataset.correct === 'true') {
+                    option.classList.add('correct');
+                } else {
+                    option.classList.add('incorrect');
+                    parent.querySelectorAll('.option').forEach(opt => {
+                        if (opt.dataset.correct === 'true') {
+                            opt.classList.add('selected', 'correct');
+                        }
+                    });
+                }
+            });
+        });
+    </script>
+</body>
+
+</html>

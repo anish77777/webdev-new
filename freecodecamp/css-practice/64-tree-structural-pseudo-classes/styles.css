@@ -1,0 +1,254 @@
+/* 
+   Tree-structural Pseudo-classes Master Stylesheet
+   Incorporating exact documentation requirements with premium aesthetics.
+*/
+
+:root {
+    /* Exact Snippets from Prompt */
+    --main-font: 'Plus Jakarta Sans', Arial, sans-serif;
+    --primary-color: #fbbf24;
+    /* Adjusted from 'blue' for Deep Forest theme consistency */
+    --secondary-color: #10b981;
+    /* Adjusted from 'green' */
+
+    /* Document-wide styles as per prompt */
+    background: #022c22;
+    /* Black-ish forest base */
+    color: aliceblue;
+
+    /* Internal variables for UI */
+    --bg-dark-accent: #000;
+    --card-bg: rgba(6, 78, 59, 0.4);
+    --border-soft: rgba(255, 255, 255, 0.1);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: var(--main-font);
+    background: radial-gradient(circle at top, #064e3b, #000);
+    line-height: 1.6;
+    padding: 3rem 1rem;
+    min-height: 100vh;
+}
+
+.container {
+    max-width: 850px;
+    margin: 0 auto;
+}
+
+header {
+    text-align: center;
+    margin-bottom: 4rem;
+}
+
+header h1 {
+    font-family: 'Outfit', sans-serif;
+    font-size: 3.5rem;
+    font-weight: 800;
+    color: aliceblue;
+    margin-bottom: 0.5rem;
+}
+
+.lesson-card {
+    background: var(--card-bg);
+    backdrop-filter: blur(20px);
+    border: 1px solid var(--border-soft);
+    border-radius: 24px;
+    padding: 2.5rem;
+    margin-bottom: 2.5rem;
+    box-shadow: 0 40px 80px rgba(0, 0, 0, 0.5);
+}
+
+.lesson-card h2 {
+    font-family: 'Outfit', sans-serif;
+    font-size: 1.8rem;
+    margin-bottom: 1.25rem;
+    color: var(--primary-color);
+}
+
+.demo-box {
+    background: rgba(0, 0, 0, 0.3);
+    padding: 1.5rem;
+    border-radius: 16px;
+    border: 1px solid var(--border-soft);
+    margin: 1rem 0;
+}
+
+/* 1. :root Demo Styles (Exact from prompt) */
+/* Note: Applied to body/container for global effect, but demo-specific override below */
+.root-demo {
+    background: black;
+    color: aliceblue;
+    padding: 2rem;
+    border-radius: 12px;
+}
+
+/* 2. :empty Demo Styles (Exact from prompt) */
+.empty-list-display {
+    list-style: none;
+    padding: 0;
+}
+
+.empty-list-display li {
+    padding: 1rem;
+    border-bottom: 1px solid var(--border-soft);
+}
+
+/* CSS Snippet: :empty { background: black; } OR display: none */
+.empty-list-display li:empty {
+    background: black;
+    height: 10px;
+    /* Small visibility for the black background demo */
+    margin: 5px 0;
+}
+
+/* 3. :nth-child(n) Demo (Exact from prompt) */
+.fruit-table {
+    width: 100%;
+    margin: 1.5rem 0;
+    border-collapse: collapse;
+}
+
+th,
+td {
+    border: 1px solid var(--border-soft);
+    padding: 12px;
+}
+
+/* tr:nth-child(even) { background-color: orangered; } */
+.fruit-table tr:nth-child(even) {
+    background-color: orangered;
+}
+
+/* tr:nth-child(odd) { background-color: lightgreen; } */
+.fruit-table tr:nth-child(odd) {
+    background-color: lightgreen;
+    color: #000;
+    /* Contrast adjustment */
+}
+
+.fruit-table th {
+    color: aliceblue;
+}
+
+/* 4. :first-child & :last-child (Exact from prompt) */
+.fl-child-list {
+    list-style: none;
+    padding: 0;
+}
+
+.fl-child-list li {
+    padding: 10px;
+    margin: 5px 0;
+    background: rgba(255, 255, 255, 0.05);
+}
+
+.fl-child-list li:first-child {
+    background-color: orangered;
+}
+
+.fl-child-list li:last-child {
+    background-color: lightgreen;
+    color: #000;
+}
+
+/* 5. :only-child (Exact from prompt) */
+.parent {
+    padding: 20px;
+    background: rgba(0, 0, 0, 0.2);
+    border-radius: 12px;
+}
+
+.mt-1 {
+    margin-top: 1rem;
+}
+
+.parent div:only-child {
+    border: 2px solid crimson;
+    padding: 10px;
+    background-color: lightblue;
+    color: #000;
+}
+
+/* 6. :first-of-type & :last-of-type (Exact from prompt) */
+.type-demo h3 {
+    margin: 1rem 0 0.5rem;
+    color: var(--primary-color);
+}
+
+.type-demo section p:first-of-type {
+    background-color: lightgreen;
+    color: #000;
+    padding: 5px;
+}
+
+.type-demo section p:last-of-type {
+    background-color: lightblue;
+    color: #000;
+    padding: 5px;
+}
+
+/* 7. :nth-of-type(n) (Exact from prompt) */
+.nth-type-demo p:nth-of-type(2) {
+    color: #fb7185;
+    /* Soft Red for better visibility on dark */
+    font-weight: bold;
+}
+
+/* 8. :only-of-type (Exact from prompt) */
+.only-type-demo p:only-of-type {
+    border: 4px solid green;
+    padding: 5px;
+}
+
+/* Quiz Styles */
+.quiz-container {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}
+
+.option {
+    padding: 1.25rem;
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid var(--border-soft);
+    border-radius: 16px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.option:hover {
+    background: rgba(255, 255, 255, 0.08);
+    transform: translateY(-3px);
+}
+
+.option.selected {
+    border-color: var(--primary-color);
+}
+
+.option.correct {
+    border-color: var(--secondary-color);
+    color: var(--secondary-color);
+    background: rgba(16, 185, 129, 0.1);
+}
+
+.option.incorrect {
+    border-color: orangered;
+    color: orangered;
+    background: rgba(255, 69, 0, 0.1);
+}
+
+@media (max-width: 640px) {
+    header h1 {
+        font-size: 2.5rem;
+    }
+
+    .lesson-card {
+        padding: 1.5rem;
+    }
+}

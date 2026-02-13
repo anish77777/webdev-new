@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Action Pseudo-classes | Interactive Guide</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700;800&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap"
+        rel="stylesheet">
+</head>
+
+<body>
+    <div class="container">
+        <header>
+            <h1>User Action Pseudo-classes</h1>
+            <p>Provide <strong>visual feedback</strong> for user interactions without JavaScript.</p>
+        </header>
+
+        <section class="lesson-card">
+            <h2>The Importance of Feedback</h2>
+            <p>User feedback helps users understand the state of interactive elements. CSS provides action
+                pseudo-classes like <code>:hover</code>, <code>:active</code>, <code>:focus</code>, and
+                <code>:visited</code> to automate this feedback.</p>
+        </section>
+
+        <section class="lesson-card">
+            <h2>Interaction Showcase</h2>
+            <div class="demo-grid">
+                <div class="demo-item">
+                    <h3>:hover & :active</h3>
+                    <p>Change styles when mousing over or clicking.</p>
+                    <button class="action-btn">Interact with me</button>
+                    <div class="code-window">
+                        <div class="code-body">
+                            <span class="token-tag">button</span><span class="token-pseudo">:hover</span> { ... }<br>
+                            <span class="token-tag">button</span><span class="token-pseudo">:active</span> { ... }
+                        </div>
+                    </div>
+                </div>
+
+                <div class="demo-item">
+                    <h3>:focus</h3>
+                    <p>Styles when an element gains focus (keyboard/click).</p>
+                    <input type="text" placeholder="Type here..." class="focus-input">
+                    <div class="code-window">
+                        <div class="code-body">
+                            <span class="token-tag">input</span><span class="token-pseudo">:focus</span> { ... }
+                        </div>
+                    </div>
+                </div>
+
+                <div class="demo-item">
+                    <h3>:visited</h3>
+                    <p>Styles a link after it has been visited.</p>
+                    <a href="https://www.example.com" target="_blank" class="visited-link">Visit Example.com</a>
+                    <div class="code-window">
+                        <div class="code-body">
+                            <span class="token-tag">a</span><span class="token-pseudo">:visited</span> { ... }
+                        </div>
+                    </div>
+                </div>
+
+                <div class="demo-item">
+                    <h3>:checked</h3>
+                    <p>Styles checkboxes and radio buttons when selected.</p>
+                    <div class="checkbox-container">
+                        <label class="custom-checkbox">
+                            <input type="checkbox">
+                            <span class="checkmark"></span>
+                            Agree to Terms
+                        </label>
+                    </div>
+                    <div class="code-window">
+                        <div class="code-body">
+                            <span class="token-tag">input</span><span class="token-pseudo">:checked</span> { ... }
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="lesson-card">
+            <h2>Knowledge Check</h2>
+            <div class="quiz-container">
+                <div class="question">
+                    <span class="question-text">1. What is the main benefit of user action pseudo-classes?</span>
+                    <div class="options">
+                        <div class="option">Faster page loading</div>
+                        <div class="option" data-correct="true">Visual feedback without JavaScript</div>
+                        <div class="option">Smaller file sizes</div>
+                        <div class="option">Better SEO ranking</div>
+                    </div>
+                </div>
+
+                <div class="question">
+                    <span class="question-text">2. Which pseudo-class is crucial for keyboard accessibility?</span>
+                    <div class="options">
+                        <div class="option">:hover</div>
+                        <div class="option" data-correct="true">:focus</div>
+                        <div class="option">:visited</div>
+                        <div class="option">:active</div>
+                    </div>
+                </div>
+
+                <div class="question">
+                    <span class="question-text">3. What does the :checked pseudo-class target?</span>
+                    <div class="options">
+                        <div class="option">A submitted form</div>
+                        <div class="option">A focused input</div>
+                        <div class="option" data-correct="true">Selected checkboxes or radio buttons</div>
+                        <div class="option">A hovered button</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="lesson-card">
+            <h2>Summary</h2>
+            <ul class="summary-list">
+                <li><strong>:active</strong> &ndash; Feedback during a click or activation.</li>
+                <li><strong>:hover</strong> &ndash; Visual cue for mouse attention.</li>
+                <li><strong>:focus</strong> &ndash; Critical for accessibility (Tab navigation).</li>
+                <li><strong>:visited</strong> &ndash; Helps users track their navigation history.</li>
+                <li><strong>:checked</strong> &ndash; Custom styling for form selections.</li>
+            </ul>
+        </section>
+    </div>
+
+    <script>
+        document.querySelectorAll('.option').forEach(option => {
+            option.addEventListener('click', () => {
+                const parent = option.parentElement;
+                if (parent.classList.contains('answered')) return;
+
+                parent.classList.add('answered');
+                option.classList.add('selected');
+
+                if (option.dataset.correct === 'true') {
+                    option.classList.add('correct');
+                } else {
+                    option.classList.add('incorrect');
+                    parent.querySelectorAll('.option').forEach(opt => {
+                        if (opt.dataset.correct === 'true') {
+                            opt.classList.add('selected', 'correct');
+                        }
+                    });
+                }
+            });
+        });
+    </script>
+</body>
+
+</html>

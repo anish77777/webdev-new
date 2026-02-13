@@ -4,220 +4,47 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>The calc() Function | UI Mastery</title>
+    <title>Lumina Galactic Festival | Event Flyer</title>
     <link rel="stylesheet" href="styles.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link
-        href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700;800&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Fira+Code&display=swap"
+        href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700;800&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap"
         rel="stylesheet">
 </head>
 
 <body>
-    <div class="glass-bg"></div>
+    <!-- User Story 1: You should have a header element within the body. -->
+    <header>
+        <!-- User Story 2: Your header element should have an img as its first child. -->
+        <img src="https://cdn.freecodecamp.org/curriculum/labs/event.jpg" alt="Galaxy Background">
+        <!-- User Story 3 & 5: Your header element should have an h1 with the event title as its second child. -->
+        <!-- User Story 4: You should only have one h1 element. -->
+        <h1>Lumina Galactic Festival</h1>
+    </header>
 
-    <nav class="sidebar">
-        <div class="logo">
-            <span class="logo-icon">🧮</span>
-            <span class="logo-text">UIMastery</span>
-        </div>
-        <ul class="nav-links">
-            <li><a href="#intro" class="active">Introduction</a></li>
-            <li><a href="#anatomy">Anatomy of calc()</a></li>
-            <li><a href="#demo">Dynamic Demos</a></li>
-            <li><a href="#best-practices">Best Practices</a></li>
-            <li><a href="#quiz">Knowledge Check</a></li>
-        </ul>
-    </nav>
-
-    <main class="content">
-        <header class="main-header" id="intro">
-            <h1>The CSS calc() Function</h1>
-            <p>Perform calculations directly in your stylesheets. Learn how to mix units like percentages and pixels to
-                create perfectly fluid, responsive interfaces.</p>
-        </header>
-
-        <!-- Anatomy -->
-        <section id="anatomy" class="card">
-            <h2>🧱 Anatomy of a Function</h2>
-            <p>A function is a block of code that perform a specific task. In CSS, <code>calc()</code> takes one
-                <strong>argument</strong>: an <strong>expression</strong>. This expression is a combination of values
-                (operands) and operators.</p>
-
-            <div class="code-section">
-                <h4 class="code-title">Syntax Breakdown</h4>
-                <div class="code-block">
-                    <code><span class="code-selector">div</span> {<br>
-  <span class="code-property">width</span>: <span class="code-func">calc</span>(50% - 20px);<br>
-}</code>
-                </div>
-                <p style="font-size: 14px; margin-top: 10px;">In this expression, <code>50%</code> and <code>20px</code>
-                    are operands, and <code>-</code> is the operator.</p>
-            </div>
+    <!-- User Story 6: You should have a main element within the body. -->
+    <main>
+        <!-- User Story 15: You should have at least one hr element. -->
+        <hr>
+        
+        <!-- User Story 7: Your main element should have at least two section elements. -->
+        <section class="event-details">
+            <!-- User Story 8 & 9: Each section should have a non-empty h2. -->
+            <h2>Cosmic Experience</h2>
+            <p>Join us for an unforgettable journey through the stars. The Lumina Galactic Festival brings together the
+                most brilliant minds in art, science, and music for a three-day celebration of human curiosity and
+                creativity.</p>
         </section>
 
-        <!-- Dynamic Demo -->
-        <section id="demo" class="card">
-            <h2>🎮 Interactive Math</h2>
-            <p>The real power of <code>calc()</code> is mixing relative and absolute units. Adjust the offset below to
-                see how the emerald box recalculates its width based on <code>50% + offset</code>.</p>
-
-            <div class="demo-box">
-                <div class="calc-container">
-                    <div id="calc-child" class="calc-child">RESULT</div>
-                </div>
-                <div class="controls">
-                    <label for="offset-slider">Adjust Offset: <span id="offset-val">0</span>px</label>
-                    <input type="range" id="offset-slider" value="0" min="-100" max="100" oninput="updateCalc()">
-                    <p class="formula-display">width: calc(50% + <span id="formula-offset">0px</span>);</p>
-                </div>
-            </div>
-        </section>
-
-        <!-- Best Practices -->
-        <section id="best-practices" class="card">
-            <h2>💡 Essential Rules</h2>
-            <p>To avoid syntax errors and ensure your calculations work across browsers, follow these strictly defined
-                best practices.</p>
-
-            <ul style="list-style: none; display: flex; flex-direction: column; gap: 20px;">
-                <li
-                    style="display: flex; gap: 15px; background: rgba(255,255,255,0.03); padding: 20px; border-radius: 16px;">
-                    <span style="color: var(--primary);">⚠️</span>
-                    <div>
-                        <strong>Operator Whitespace:</strong> Addition (+) and Subtraction (-) MUST have a space before
-                        and after the operator.
-                        <div style="font-size: 13px; margin-top: 10px; opacity: 0.8; font-family: monospace;">❌
-                            calc(100%-20px)<br>✅ calc(100% - 20px)</div>
-                    </div>
-                </li>
-                <li
-                    style="display: flex; gap: 15px; background: rgba(255,255,255,0.03); padding: 20px; border-radius: 16px;">
-                    <span style="color: var(--primary);">⚠️</span>
-                    <div>
-                        <strong>Unit Rules:</strong> Multiplication and Division require one operand to be unitless.
-                        <div style="font-size: 13px; margin-top: 10px; opacity: 0.8; font-family: monospace;">❌ calc(2px
-                            * 5px)<br>✅ calc(2px * 5)</div>
-                    </div>
-                </li>
-                <li
-                    style="display: flex; gap: 15px; background: rgba(255,255,255,0.03); padding: 20px; border-radius: 16px;">
-                    <span style="color: var(--primary);">⚠️</span>
-                    <div>
-                        <strong>Zero Units:</strong> For calculations involving length, even <code>0</code> needs a unit
-                        (e.g., <code>0px</code>).
-                    </div>
-                </li>
-            </ul>
-        </section>
-
-        <!-- Quiz Section -->
-        <section id="quiz" class="card quiz-card">
-            <h2>🧠 Knowledge Check</h2>
-            <div class="question" data-answer="Addition, subtraction, multiplication, and division.">
-                <p>1. Which operations can be performed using the calc() function?</p>
-                <div class="options">
-                    <button onclick="checkAnswer(this, 'Addition and subtraction only.')">Addition and Subtraction
-                        only</button>
-                    <button onclick="checkAnswer(this, 'Addition, subtraction, multiplication, and division.')">All four
-                        basic math operations</button>
-                    <button onclick="checkAnswer(this, 'Addition only.')">Addition only</button>
-                </div>
-            </div>
-
-            <div class="question" data-answer="Pixels, percentages, em's, and other supported units.">
-                <p>2. What types of values can be used as operands in calc()?</p>
-                <div class="options">
-                    <button onclick="checkAnswer(this, 'Only pixels.')">Only Pixels</button>
-                    <button onclick="checkAnswer(this, 'Only percentages.')">Only Percentages</button>
-                    <button onclick="checkAnswer(this, 'Pixels, percentages, em\'s, and other supported units.')">Mixed
-                        supported units (px, %, em, etc.)</button>
-                </div>
-            </div>
-
-            <div class="question"
-                data-answer="By calculating element dimensions based on the viewport size or other elements.">
-                <p>3. How can calc() help create a responsive design?</p>
-                <div class="options">
-                    <button onclick="checkAnswer(this, 'By setting fixed widths for the elements.')">By setting fixed
-                        widths</button>
-                    <button
-                        onclick="checkAnswer(this, 'By calculating element dimensions based on the viewport size or other elements.')">By
-                        calculating dimensions dynamically</button>
-                    <button onclick="checkAnswer(this, 'By using media queries exclusively.')">Exclusively using media
-                        queries</button>
-                </div>
-            </div>
+        <section class="event-schedule">
+            <!-- User Story 8 & 9: Each section should have a non-empty h2. -->
+            <h2>Astral Attractions</h2>
+            <p>Experience zero-gravity art installations, holographic symphony performances, and interactive nebula
+                gardens. Witness the launch of the latest deep-space explorers while enjoying celestial delicacies from
+                across the quadrant.</p>
         </section>
     </main>
-
-    <script>
-        // --- Demo Logic ---
-        function updateCalc() {
-            const slider = document.getElementById('offset-slider');
-            const box = document.getElementById('calc-child');
-            const valSpan = document.getElementById('offset-val');
-            const formulaOffsetArea = document.getElementById('formula-offset');
-
-            const val = slider.value;
-            const unitVal = val + 'px';
-            const operator = val >= 0 ? '+' : '-';
-            const absVal = Math.abs(val) + 'px';
-
-            // String for CSS: calc(50% + 20px) or calc(50% - 20px)
-            // Note: Since slider gives negative values for -, we can just do calc(50% + -20px) but for clarity:
-            const calcString = `calc(50% + ${val}px)`;
-
-            box.style.width = calcString;
-            valSpan.innerText = val;
-            formulaOffsetArea.innerText = unitVal;
-            box.innerText = `calc(50% ${operator} ${absVal})`;
-        }
-
-        // Initialize
-        updateCalc();
-
-        // --- Quiz Logic ---
-        function checkAnswer(btn, selection) {
-            const questionDiv = btn.closest('.question');
-            const correctAnswer = questionDiv.getAttribute('data-answer');
-            const buttons = questionDiv.querySelectorAll('button');
-
-            buttons.forEach(b => b.disabled = true);
-
-            if (selection === correctAnswer || selection.includes("All four") || selection.includes("Mixed supported")) {
-                btn.classList.add('correct');
-            } else {
-                btn.classList.add('wrong');
-                buttons.forEach(opt => {
-                    if (opt.innerText.includes("All four") || opt.innerText.includes("Mixed supported") || opt.innerText.includes("calculating dimensions")) {
-                        opt.classList.add('correct');
-                    }
-                });
-            }
-        }
-
-        // --- Scroll Spy ---
-        const sections = document.querySelectorAll('section');
-        const navLinks = document.querySelectorAll('.nav-links a');
-
-        window.onscroll = () => {
-            let current = "";
-            sections.forEach(section => {
-                const sectionTop = section.offsetTop;
-                if (pageYOffset >= sectionTop - 150) {
-                    current = section.getAttribute('id');
-                }
-            });
-
-            navLinks.forEach(a => {
-                a.classList.remove('active');
-                if (a.getAttribute('href').includes(current)) {
-                    a.classList.add('active');
-                }
-            });
-        };
-    </script>
 </body>
 
 </html>

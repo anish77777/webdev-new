@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSS Pseudo-classes | Interactive Guide</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700;800&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap"
+        rel="stylesheet">
+</head>
+
+<body>
+    <div class="container">
+        <header>
+            <h1>CSS Pseudo-classes</h1>
+            <p>Select elements based on their <strong>state</strong> or <strong>position</strong>.</p>
+        </header>
+
+        <section class="lesson-card">
+            <h2>What are Pseudo-classes?</h2>
+            <p>Pseudo-classes are special keywords added to selectors that specify a special state of the selected
+                elements. They let you style elements dynamically based on user interaction or their position in the
+                document.</p>
+            <div class="code-window">
+                <div class="code-header">Syntax</div>
+                <div class="code-body">
+                    selector<span class="token-pseudo">:pseudo-class</span> {<br>
+                    &nbsp;&nbsp;<span class="token-prop">property</span>: <span class="token-val">value</span>;<br>
+                    }
+                </div>
+            </div>
+        </section>
+
+        <section class="lesson-card">
+            <h2>User Interaction States</h2>
+            <p>These pseudo-classes react to how a user interacts with elements like buttons and links.</p>
+
+            <div class="demo-grid">
+                <div class="demo-item">
+                    <h3>:hover</h3>
+                    <p>Triggered when the mouse pointer is over an element.</p>
+                    <a href="#" class="demo-link hover-demo">Hover over me!</a>
+                </div>
+                <div class="demo-item">
+                    <h3>:active</h3>
+                    <p>Triggered while an element is being activated (clicked).</p>
+                    <button class="demo-btn active-demo">Click me!</button>
+                </div>
+                <div class="demo-item">
+                    <h3>:disabled</h3>
+                    <p>Styles an element that is in a disabled state.</p>
+                    <button class="demo-btn" disabled>Disabled Button</button>
+                </div>
+                <div class="demo-item">
+                    <h3>:visited</h3>
+                    <p>Styles a link that the user has already visited.</p>
+                    <a href="https://example.com" target="_blank" class="demo-link visited-demo">Already Visited?</a>
+                </div>
+            </div>
+        </section>
+
+        <section class="lesson-card">
+            <h2>Positional Pseudo-classes</h2>
+            <p>These select elements based on their location within their parent container.</p>
+
+            <div class="demo-container">
+                <div class="list-demo">
+                    <p>first child (target with :first-child)</p>
+                    <p>second child</p>
+                    <p>third child</p>
+                    <p>last child (target with :last-child)</p>
+                </div>
+            </div>
+
+            <div class="code-window">
+                <div class="code-header">CSS</div>
+                <div class="code-body">
+                    <span class="token-tag">.container p</span><span class="token-pseudo">:first-child</span> { <span
+                        class="token-prop">background</span>: <span class="token-val">lightcoral</span>; }<br>
+                    <span class="token-tag">.container p</span><span class="token-pseudo">:last-child</span> { <span
+                        class="token-prop">background</span>: <span class="token-val">lightcoral</span>; }
+                </div>
+            </div>
+        </section>
+
+        <section class="lesson-card">
+            <h2>Knowledge Check</h2>
+            <div class="quiz-container">
+                <div class="question">
+                    <span class="question-text">1. What does the :hover pseudo-class do?</span>
+                    <div class="options">
+                        <div class="option">Selects an element when clicked</div>
+                        <div class="option" data-correct="true">Selects an element when mouse is over it</div>
+                        <div class="option">Selects the first child</div>
+                        <div class="option">Styles visited links</div>
+                    </div>
+                </div>
+
+                <div class="question">
+                    <span class="question-text">2. What are pseudo-classes?</span>
+                    <div class="options">
+                        <div class="option" data-correct="true">Keywords for element state/position</div>
+                        <div class="option">New HTML elements</div>
+                        <div class="option">Content change tools</div>
+                        <div class="option">Class replacements</div>
+                    </div>
+                </div>
+
+                <div class="question">
+                    <span class="question-text">3. Which pseudo-class styles a button the user cannot click?</span>
+                    <div class="options">
+                        <div class="option">:active</div>
+                        <div class="option">:hover</div>
+                        <div class="option" data-correct="true">:disabled</div>
+                        <div class="option">:visited</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="lesson-card">
+            <h2>Summary</h2>
+            <ul class="summary-list">
+                <li><strong>:hover</strong> &ndash; User mouses over element.</li>
+                <li><strong>:active</strong> &ndash; Element is being clicked.</li>
+                <li><strong>:disabled</strong> &ndash; Element cannot be interacted with.</li>
+                <li><strong>:first-child / :last-child</strong> &ndash; Target based on parent order.</li>
+                <li><strong>:visited</strong> &ndash; Target previously clicked links.</li>
+            </ul>
+        </section>
+    </div>
+
+    <script>
+        document.querySelectorAll('.option').forEach(option => {
+            option.addEventListener('click', () => {
+                const parent = option.parentElement;
+                if (parent.classList.contains('answered')) return;
+
+                parent.classList.add('answered');
+                option.classList.add('selected');
+
+                if (option.dataset.correct === 'true') {
+                    option.classList.add('correct');
+                } else {
+                    option.classList.add('incorrect');
+                    parent.querySelectorAll('.option').forEach(opt => {
+                        if (opt.dataset.correct === 'true') {
+                            opt.classList.add('selected', 'correct');
+                        }
+                    });
+                }
+            });
+        });
+    </script>
+</body>
+
+</html>

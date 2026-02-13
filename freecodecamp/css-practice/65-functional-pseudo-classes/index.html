@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Functional Pseudo-classes | Interactive Guide</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700;800&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap"
+        rel="stylesheet">
+</head>
+
+<body>
+    <div class="container">
+        <header>
+            <h1>What Are Examples of Functional Pseudo-classes?</h1>
+            <p>Mastering complex conditions with <strong>:is()</strong>, <strong>:where()</strong>,
+                <strong>:has()</strong>, and <strong>:not()</strong>.</p>
+        </header>
+
+        <section class="lesson-card">
+            <h2>Understanding Functional Pseudo-classes</h2>
+            <p>Functional pseudo-classes allow you to select elements based on more complex conditions or relationships.
+                Unlike regular pseudo-classes which target elements based on a state, for example, <code>:hover</code>,
+                <code>:focus</code>, functional pseudo-classes accept arguments within parentheses, hence the name
+                "functional pseudo-classes".</p>
+            <p>Examples of functional pseudo-classes are: <code>:is()</code>, <code>:where()</code>,
+                <code>:has()</code>, <code>:not()</code>.</p>
+        </section>
+
+        <!-- :is() Section -->
+        <section class="lesson-card">
+            <h2>The :is() Pseudo-class</h2>
+            <p>The <code>:is()</code> pseudo-class is useful when you want to style a group of elements that share some,
+                but not all, characteristics. For example, you might want to style different types of buttons on your
+                website, including button elements, links styled as buttons, and input elements with types submit and
+                reset.</p>
+
+            <p>Without the <code>:is()</code> function, you would have to write a complex selector like this:</p>
+            <div class="code-window">
+                <div class="code-header">Standard CSS</div>
+                <div class="code-body">
+                    <span class="token-tag">button</span>, <span class="token-tag">a</span>.<span
+                        class="token-val">button</span>, <br>
+                    <span class="token-tag">input</span>[<span class="token-prop">type</span>=<span
+                        class="token-val">'submit'</span>], <br>
+                    <span class="token-tag">input</span>[<span class="token-prop">type</span>=<span
+                        class="token-val">'reset'</span>] { ... }
+                </div>
+            </div>
+
+            <p>With the <code>:is()</code> function, you can write a more compact and understandable selector like this:
+            </p>
+            <div class="code-window">
+                <div class="code-header">Optimized with :is()</div>
+                <div class="code-body">
+                    <span class="token-pseudo">:is</span>(button, a.button, input[type='submit'], input[type='reset']) {
+                    <br>
+                    &nbsp;&nbsp;<span class="token-prop">background-color</span>: <span
+                        class="token-val">darkblue</span>;<br>
+                    }
+                </div>
+            </div>
+
+            <div class="demo-box is-demo">
+                <button>Example Button</button>
+                <a href="#" class="button">Link styled like a button</a>
+                <input type="submit" value="Submit" />
+                <input type="reset" value="Reset" />
+            </div>
+        </section>
+
+        <!-- :where() Section -->
+        <section class="lesson-card">
+            <h2>The :where() Pseudo-class</h2>
+            <p>The <code>:where()</code> pseudo-class functions similarly to <code>:is()</code>, but it doesn't increase
+                the specificity of your selectors. This makes it ideal for applying styles without affecting the
+                specificity of other rules.</p>
+            <p>For example, you can use the <code>:where()</code> function to apply zero margin and padding to heading
+                elements. This ensures that the reset won't interfere with more specific styles you might apply later.
+            </p>
+
+            <div class="demo-box where-demo">
+                <h1>Page Title</h1>
+                <h2>Subtitle</h2>
+                <h3>A point</h3>
+                <p>Example paragraph.</p>
+            </div>
+
+            <div class="code-window">
+                <div class="code-header">Zero Specificity Code</div>
+                <div class="code-body">
+                    <span class="token-pseudo">:where</span>(h1, h2, h3) {<br>
+                    &nbsp;&nbsp;<span class="token-prop">margin</span>: <span class="token-val">0</span>;<br>
+                    &nbsp;&nbsp;<span class="token-prop">padding</span>: <span class="token-val">0</span>;<br>
+                    }
+                </div>
+            </div>
+        </section>
+
+        <!-- :has() Section -->
+        <section class="lesson-card">
+            <h2>The :has() Pseudo-class</h2>
+            <p>Styling a parent element based on its children's states was previously challenging until the
+                <code>:has()</code> pseudo-class was introduced. It allows you to apply styles to a parent element based
+                on the presence or state of its child elements.</p>
+            <p>For example, the CSS below will only apply to any <code>&lt;article&gt;</code> element that has an
+                <code>&lt;h2&gt;</code> in it:</p>
+
+            <div class="demo-box article-demo">
+                <article>
+                    <h2>Subheading</h2>
+                    <p>Lorem ipsum dolor sit amet.</p>
+                </article>
+                <article>
+                    <h3>A point</h3>
+                    <p>Lorem ipsum dolor sit amet.</p>
+                </article>
+            </div>
+
+            <div class="code-window">
+                <div class="code-header">Parent Detection Snippet</div>
+                <div class="code-body">
+                    <span class="token-tag">article</span><span class="token-pseudo">:has</span>(h2) {<br>
+                    &nbsp;&nbsp;<span class="token-prop">border</span>: <span class="token-val">2px solid
+                        hotpink</span>;<br>
+                    }
+                </div>
+            </div>
+        </section>
+
+        <!-- :not() Section -->
+        <section class="lesson-card">
+            <h2>The :not() Pseudo-class</h2>
+            <p>The <code>:not()</code> pseudo-class is ideal for situations where you want to apply styles to a group of
+                elements, excluding one or more specific exceptions. In the CSS below, any button that is not a primary
+                button will have a grey background:</p>
+
+            <div class="demo-box not-demo">
+                <button class="primary">Primary Button</button>
+                <button class="secondary">Secondary Button</button>
+                <button class="danger">Another Button</button>
+            </div>
+
+            <div class="code-window">
+                <div class="code-header">Exception Handling</div>
+                <div class="code-body">
+                    <span class="token-tag">button</span><span class="token-pseudo">:not</span>(.primary) {<br>
+                    &nbsp;&nbsp;<span class="token-prop">background-color</span>: <span
+                        class="token-val">grey</span>;<br>
+                    }
+                </div>
+            </div>
+        </section>
+
+        <!-- Quiz Section -->
+        <section class="lesson-card">
+            <h2>Knowledge Check</h2>
+            <div class="quiz-container">
+                <div class="question">
+                    <span class="question-text">1. Which pseudo-class works like :is(), but doesn't add any specificity
+                        to your selectors?</span>
+                    <div class="options">
+                        <div class="option">:not()</div>
+                        <div class="option">:has()</div>
+                        <div class="option" data-correct="true">:where()</div>
+                        <div class="option">:empty</div>
+                    </div>
+                </div>
+
+                <div class="question">
+                    <span class="question-text">2. Which of these is not a functional pseudo-class?</span>
+                    <div class="options">
+                        <div class="option">:is()</div>
+                        <div class="option" data-correct="true">:first-child</div>
+                        <div class="option">:has()</div>
+                        <div class="option">:where()</div>
+                    </div>
+                </div>
+
+                <div class="question">
+                    <span class="question-text">3. Which pseudo-class is perfect for a situation in which you want to
+                        apply styles to a group of elements without one or two exceptions?</span>
+                    <div class="options">
+                        <div class="option">:has()</div>
+                        <div class="option">:is()</div>
+                        <div class="option" data-correct="true">:not()</div>
+                        <div class="option">:where()</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <script>
+        document.querySelectorAll('.option').forEach(option => {
+            option.addEventListener('click', () => {
+                const parent = option.parentElement;
+                if (parent.classList.contains('answered')) return;
+
+                parent.classList.add('answered');
+                option.classList.add('selected');
+
+                if (option.dataset.correct === 'true') {
+                    option.classList.add('correct');
+                } else {
+                    option.classList.add('incorrect');
+                    parent.querySelectorAll('.option').forEach(opt => {
+                        if (opt.dataset.correct === 'true') {
+                            opt.classList.add('selected', 'correct');
+                        }
+                    });
+                }
+            });
+        });
+    </script>
+</body>
+
+</html>

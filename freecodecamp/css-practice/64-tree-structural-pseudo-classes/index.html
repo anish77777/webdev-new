@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tree-structural Pseudo-classes | Detailed Guide</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700;800&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap"
+        rel="stylesheet">
+</head>
+
+<body>
+    <div class="container main-content">
+        <header>
+            <h1>Tree-structural Pseudo-classes</h1>
+            <p>Targeting elements based on their <strong>hierarchical position</strong>.</p>
+        </header>
+
+        <!-- :root Example -->
+        <section class="lesson-card">
+            <h2>1. The :root Pseudo-class</h2>
+            <p>Targets the highest level in the document (the &lt;html&gt; element). It's commonly used for setting
+                global styles and CSS variables.</p>
+            <div class="demo-box root-demo">
+                <h3>Welcome to My Website</h3>
+                <p>This is a sample paragraph to demonstrate the :root pseudo-class.</p>
+            </div>
+        </section>
+
+        <!-- :empty Example -->
+        <section class="lesson-card">
+            <h2>2. The :empty Pseudo-class</h2>
+            <p>Targets elements with no children (not even text nodes). Useful for hiding empty placeholders.</p>
+            <div class="demo-box">
+                <ul class="empty-list-display">
+                    <li>Item 1</li>
+                    <li></li> <!-- This list is empty -->
+                    <li>Item 2</li>
+                    <li></li> <!-- Another empty list -->
+                    <li>Item 3</li>
+                </ul>
+                <p><small>*Empty items are styled with a black background in this demo.</small></p>
+            </div>
+        </section>
+
+        <!-- :nth-child(n) & :nth-last-child(n) Example -->
+        <section class="lesson-card">
+            <h2>3. :nth-child(n) & :nth-last-child(n)</h2>
+            <p>Selects elements based on their position. Ideal for zebra-striping tables.</p>
+            <table class="fruit-table">
+                <tr>
+                    <th>Item</th>
+                    <th>Price</th>
+                </tr>
+                <tr>
+                    <td>Apple</td>
+                    <td>$1.00</td>
+                </tr>
+                <tr>
+                    <td>Banana</td>
+                    <td>$0.50</td>
+                </tr>
+                <tr>
+                    <td>Orange</td>
+                    <td>$0.80</td>
+                </tr>
+            </table>
+        </section>
+
+        <!-- :first-child & :last-child Example -->
+        <section class="lesson-card">
+            <h2>4. :first-child & :last-child</h2>
+            <p>Identifies the initial and final siblings in a container.</p>
+            <div class="demo-box">
+                <ul class="fl-child-list">
+                    <li>Item 1</li>
+                    <li>Item 2</li>
+                    <li>Item 3</li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- :only-child Example -->
+        <section class="lesson-card">
+            <h2>5. The :only-child Pseudo-class</h2>
+            <p>Selects an element only if it has no siblings.</p>
+            <div class="demo-box only-child-demo">
+                <div class="parent">
+                    <div>This is the only item in this container.</div>
+                </div>
+                <div class="parent mt-1">
+                    <div>This is one of two items in this container.</div>
+                    <div>Here is the second item.</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- :first-of-type & :last-of-type Example -->
+        <section class="lesson-card">
+            <h2>6. :first-of-type & :last-of-type</h2>
+            <p>Targets the first and last occurrence of a specific tag type among siblings.</p>
+            <div class="demo-box type-demo">
+                <section>
+                    <h3>Introduction</h3>
+                    <p>This is the first paragraph in the first section</p>
+                    <p>This is the second paragraph in the first section</p>
+                </section>
+                <section>
+                    <h3>Details</h3>
+                    <p>This is the first paragraph in the second section.</p>
+                    <p>This is the second paragraph in the second section.</p>
+                </section>
+            </div>
+        </section>
+
+        <!-- :nth-of-type(n) Example -->
+        <section class="lesson-card">
+            <h2>7. :nth-of-type(n)</h2>
+            <p>Targets a specific element by its index within items of the same type.</p>
+            <div class="demo-box nth-type-demo">
+                <div class="type-container">
+                    <p>First paragraph</p>
+                    <p>Second paragraph (Targeted)</p>
+                    <p>Third paragraph</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- :only-of-type Example -->
+        <section class="lesson-card">
+            <h2>8. :only-of-type</h2>
+            <p>Selects an element if it's the only one of its kind within its parent.</p>
+            <div class="demo-box only-type-demo">
+                <div class="parent">
+                    <p>The only paragraph</p>
+                </div>
+                <div class="parent mt-1">
+                    <p>The first paragraph</p>
+                    <p>The second paragraph</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="lesson-card">
+            <h2>Knowledge Check</h2>
+            <div class="quiz-container">
+                <div class="question">
+                    <span class="question-text">1. What is the difference between the :first-of-type and :last-of-type
+                        pseudo-classes?</span>
+                    <div class="options">
+                        <div class="option">They target different sections of the document.</div>
+                        <div class="option" data-correct="true">:first-of-type selects the first occurrence of a
+                            specific element type, while :last-of-type selects the last occurrence within its parent.
+                        </div>
+                        <div class="option">They apply styles to all elements of a specific type.</div>
+                        <div class="option">They target different element types entirely.</div>
+                    </div>
+                </div>
+
+                <div class="question">
+                    <span class="question-text">2. What is the difference between the :first-child and :last-child
+                        pseudo-classes?</span>
+                    <div class="options">
+                        <div class="option" data-correct="true">:first-child targets the first element within its
+                            parent, while :last-child targets the last element within the same parent.</div>
+                        <div class="option">They target elements in different parents.</div>
+                        <div class="option">They target specific element types only.</div>
+                        <div class="option">They target all elements EXCEPT the first and last.</div>
+                    </div>
+                </div>
+
+                <div class="question">
+                    <span class="question-text">3. Which pseudo-class allows you to target elements that have no
+                        children, including those that contain only whitespace?</span>
+                    <div class="options">
+                        <div class="option" data-correct="true">:empty</div>
+                        <div class="option">:first-child</div>
+                        <div class="option">:last-child</div>
+                        <div class="option">:only-of-type</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <script>
+        document.querySelectorAll('.option').forEach(option => {
+            option.addEventListener('click', () => {
+                const parent = option.parentElement;
+                if (parent.classList.contains('answered')) return;
+
+                parent.classList.add('answered');
+                option.classList.add('selected');
+
+                if (option.dataset.correct === 'true') {
+                    option.classList.add('correct');
+                } else {
+                    option.classList.add('incorrect');
+                    parent.querySelectorAll('.option').forEach(opt => {
+                        if (opt.dataset.correct === 'true') {
+                            opt.classList.add('selected', 'correct');
+                        }
+                    });
+                }
+            });
+        });
+    </script>
+</body>
+
+</html>

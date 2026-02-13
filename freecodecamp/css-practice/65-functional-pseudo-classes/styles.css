@@ -1,0 +1,262 @@
+:root {
+    --bg-dark: #020617;
+    --card-bg: rgba(15, 23, 42, 0.7);
+    --accent: #38bdf8;
+    --primary-btn: #0284c7;
+    --text-primary: #f8fafc;
+    --text-secondary: #94a3b8;
+    --border: rgba(255, 255, 255, 0.1);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    background: radial-gradient(circle at center, #0f172a, #020617);
+    color: var(--text-primary);
+    line-height: 1.6;
+    padding: 3rem 1rem;
+    min-height: 100vh;
+}
+
+.container {
+    max-width: 850px;
+    margin: 0 auto;
+}
+
+header {
+    text-align: center;
+    margin-bottom: 4rem;
+}
+
+header h1 {
+    font-family: 'Outfit', sans-serif;
+    font-size: 3rem;
+    font-weight: 800;
+    background: linear-gradient(135deg, #fff, var(--accent));
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    margin-bottom: 1rem;
+}
+
+.lesson-card {
+    background: var(--card-bg);
+    backdrop-filter: blur(24px);
+    border: 1px solid var(--border);
+    border-radius: 28px;
+    padding: 3rem;
+    margin-bottom: 2.5rem;
+    box-shadow: 0 40px 100px rgba(0, 0, 0, 0.4);
+}
+
+.lesson-card h2 {
+    font-family: 'Outfit', sans-serif;
+    font-size: 1.8rem;
+    margin-bottom: 1.5rem;
+    color: var(--accent);
+}
+
+.lesson-card p {
+    margin-bottom: 1rem;
+    color: var(--text-secondary);
+}
+
+code {
+    background: rgba(255, 255, 255, 0.1);
+    padding: 0.2rem 0.4rem;
+    border-radius: 4px;
+    font-family: 'Fira Code', monospace;
+    color: var(--accent);
+}
+
+/* 1. :is() Demo Styles (Exact Snippets) */
+.is-demo {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin: 1.5rem 0;
+}
+
+.is-demo :is(button, a.button, input[type='submit'], input[type='reset']) {
+    background-color: darkblue;
+    color: white;
+    border: 1px solid darkblue;
+    padding: 10px 20px;
+    text-decoration: none;
+    border-radius: 5px;
+    cursor: pointer;
+    display: inline-block;
+    margin: 5px;
+    font-size: 16px;
+    text-align: center;
+    font-family: inherit;
+    transition: all 0.2s ease;
+}
+
+.is-demo :is(button, a.button, input[type='submit'], input[type='reset']):hover {
+    background-color: blue;
+    border-color: blue;
+}
+
+/* 2. :where() Demo (Exact Snippet) */
+.where-demo {
+    padding: 1.5rem;
+    background: rgba(0, 0, 0, 0.3);
+    border-radius: 12px;
+}
+
+.where-demo :where(h1, h2, h3) {
+    margin: 0;
+    padding: 0;
+}
+
+.where-demo h1 {
+    color: #fff;
+    font-size: 1.5rem;
+}
+
+.where-demo h2 {
+    color: #ccc;
+    font-size: 1.2rem;
+}
+
+.where-demo h3 {
+    color: #999;
+    font-size: 1rem;
+}
+
+/* 3. :has() Demo (Exact Snippet) */
+.article-demo {
+    display: grid;
+    gap: 1rem;
+    margin-top: 1rem;
+}
+
+.article-demo article {
+    padding: 1rem;
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 12px;
+}
+
+.article-demo article:has(h2) {
+    border: 2px solid hotpink;
+}
+
+/* 4. :not() Demo (Exact Snippets) */
+.not-demo {
+    display: flex;
+    gap: 10px;
+    margin-top: 1rem;
+}
+
+.not-demo button {
+    padding: 10px 20px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 16px;
+    border: none;
+    color: white;
+    font-family: inherit;
+}
+
+.not-demo button.primary {
+    background-color: deepskyblue;
+}
+
+.not-demo button:not(.primary) {
+    background-color: grey;
+}
+
+/* Code UI */
+.code-window {
+    background: #000;
+    border-radius: 12px;
+    margin: 1.5rem 0;
+    border: 1px solid var(--border);
+    overflow: hidden;
+}
+
+.code-header {
+    background: rgba(255, 255, 255, 0.05);
+    padding: 0.75rem 1.5rem;
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    color: var(--text-secondary);
+    border-bottom: 1px solid var(--border);
+}
+
+.code-body {
+    padding: 1.25rem;
+    font-family: 'Fira Code', monospace;
+    font-size: 0.9rem;
+    color: #cbd5e1;
+}
+
+.token-pseudo {
+    color: var(--accent);
+}
+
+.token-tag {
+    color: #f472b6;
+}
+
+.token-prop {
+    color: #38bdf8;
+}
+
+.token-val {
+    color: #fbbf24;
+}
+
+/* Quiz */
+.quiz-container {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}
+
+.option {
+    padding: 1.25rem;
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.option:hover {
+    background: rgba(255, 255, 255, 0.08);
+    border-color: var(--accent);
+}
+
+.option.selected {
+    border-color: var(--accent);
+    background: rgba(56, 189, 248, 0.1);
+}
+
+.option.correct {
+    border-color: #10b981;
+    color: #10b981;
+    background: rgba(16, 185, 129, 0.1);
+}
+
+.option.incorrect {
+    border-color: #ef4444;
+    color: #ef4444;
+    background: rgba(239, 68, 68, 0.1);
+}
+
+@media (max-width: 640px) {
+    header h1 {
+        font-size: 2.2rem;
+    }
+
+    .not-demo {
+        flex-direction: column;
+    }
+}
