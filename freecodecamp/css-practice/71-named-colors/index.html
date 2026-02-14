@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Named Colors in CSS - Tutorial</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+    <div class="container">
+        <header>
+            <h1>Named Colors in CSS</h1>
+            <p class="intro">Discover the 140 predefined color names used to quickly style web pages.</p>
+        </header>
+
+        <main>
+            <section id="what-are-named-colors">
+                <h2>What Are Named Colors?</h2>
+                <p>Named colors are <strong>predefined color names</strong> recognized by all modern browsers. They
+                    offer a simple, human-readable way to define colors without needing to remember hex codes or RGB
+                    values.</p>
+
+                <div class="example-box">
+                    <h3>Example: Styling a Paragraph</h3>
+                    <div class="code-preview">
+                        <pre><code>p {
+  color: red;
+}</code></pre>
+                        <p class="preview-text red-styled">This text is styled with the "red" named color.</p>
+                    </div>
+                </div>
+            </section>
+
+            <section id="benefits">
+                <h2>Why Use Named Colors?</h2>
+                <div class="benefits-grid">
+                    <div class="benefit-card">
+                        <span class="icon">🚀</span>
+                        <h4>Quick Prototyping</h4>
+                        <p>Fast implementation for mockups and testing.</p>
+                    </div>
+                    <div class="benefit-card">
+                        <span class="icon">📖</span>
+                        <h4>Readability</h4>
+                        <p>Self-descriptive names make code easy to understand.</p>
+                    </div>
+                    <div class="benefit-card">
+                        <span class="icon">✨</span>
+                        <h4>Simplicity</h4>
+                        <p>No complex calculations or values needed.</p>
+                    </div>
+                </div>
+            </section>
+
+            <section id="color-showcase">
+                <h2>Popular Named Colors</h2>
+                <p>Browsers recognize 140 standard color names. Here are a few examples:</p>
+                <div class="color-grid">
+                    <div class="color-item" style="background-color: navy;"><span>Navy</span></div>
+                    <div class="color-item" style="background-color: lightgray; color: #000;"><span>LightGray</span>
+                    </div>
+                    <div class="color-item" style="background-color: tomato;"><span>Tomato</span></div>
+                    <div class="color-item" style="background-color: aqua; color: #000;"><span>Aqua</span></div>
+                    <div class="color-item" style="background-color: fuchsia;"><span>Fuchsia</span></div>
+                    <div class="color-item" style="background-color: gold; color: #000;"><span>Gold</span></div>
+                    <div class="color-item" style="background-color: slateblue;"><span>SlateBlue</span></div>
+                    <div class="color-item" style="background-color: darkolivegreen;"><span>OliveGreen</span></div>
+                </div>
+            </section>
+
+            <section id="limitations">
+                <h2>The Limitations</h2>
+                <p>While convenient, named colors have a limited range of <strong>140 options</strong>. They lack the
+                    precision required for complex designs or brand-specific shades that need <em>exact</em> hex or HSL
+                    values.</p>
+            </section>
+
+            <section id="quiz">
+                <h2>Knowledge Check</h2>
+                <form id="quiz-form">
+                    <div class="question-container">
+                        <p>1. What is a key benefit of using named colors in CSS?</p>
+                        <div class="options">
+                            <label><input type="radio" name="q1" value="a"> Named colors allow you to create
+                                gradients.</label>
+                            <label><input type="radio" name="q1" value="b"> Named colors are simpler to write and make
+                                code more readable.</label>
+                            <label><input type="radio" name="q1" value="c"> Named colors provide a wider range of
+                                options than hex codes.</label>
+                        </div>
+                    </div>
+
+                    <div class="question-container">
+                        <p>2. In what scenario might named colors <strong>not</strong> be the best choice?</p>
+                        <div class="options">
+                            <label><input type="radio" name="q2" value="prototyping"> When you need to quickly prototype
+                                a design.</label>
+                            <label><input type="radio" name="q2" value="precision"> When your design requires very
+                                specific or nuanced shades.</label>
+                            <label><input type="radio" name="q2" value="collaboration"> When collaborating on a simple
+                                project.</label>
+                        </div>
+                    </div>
+
+                    <div class="question-container">
+                        <p>3. Which of the following is an example of a <strong>named color</strong> in CSS?</p>
+                        <div class="options">
+                            <label><input type="radio" name="q3" value="hex"> #ff5733</label>
+                            <label><input type="radio" name="q3" value="rgb"> rgb(255, 99, 71)</label>
+                            <label><input type="radio" name="q3" value="named"> tomato</label>
+                        </div>
+                    </div>
+
+                    <button type="submit" class="submit-btn" id="check-quiz">Check My Score</button>
+                    <div id="quiz-result" class="hidden"></div>
+                </form>
+            </section>
+        </main>
+
+        <footer>
+            <p>&copy; 2024 Advanced Web Dev Tutorial Series</p>
+        </footer>
+    </div>
+    <script src="script.js"></script>
+</body>
+
+</html>

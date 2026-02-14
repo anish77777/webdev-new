@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSS Pseudo-elements Tutorial</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700&family=JetBrains+Mono:wght@400;500&display=swap"
+        rel="stylesheet">
+</head>
+
+<body>
+    <div class="background-blobs">
+        <div class="blob blob-1"></div>
+        <div class="blob blob-2"></div>
+        <div class="blob blob-3"></div>
+    </div>
+
+    <main class="container">
+        <header class="header">
+            <h1 class="glow-text">What Are Pseudo-elements, and How Do They Work?</h1>
+            <p class="subtitle">Virtual elements for visual excellence</p>
+        </header>
+
+        <section class="card intro-card">
+            <h2>The Concept</h2>
+            <p>One of the most interesting aspects of CSS is the use of <strong>pseudo-elements</strong>. In this
+                context, "pseudo" means "not real", so pseudo-elements are virtual or synthetic elements that don't
+                directly match any actual HTML elements.</p>
+            <p>They allow you to style specific parts of an element or insert content without adding extra HTML.</p>
+
+            <div class="syntax-block">
+                <h3>Syntax</h3>
+                <p>Attach it to the selector using a <strong>double colon (::)</strong>.</p>
+                <pre><code>selector::pseudo-element {
+  property: value;
+}</code></pre>
+                <p class="note"><span>NOTE:</span> This double colon distinguishes pseudo-elements from pseudo-classes
+                    (which use a single colon).</p>
+            </div>
+        </section>
+
+        <section class="card">
+            <h2>::before and ::after</h2>
+            <p>These are the most common pseudo-elements. <code>::before</code> inserts content just before the
+                element's content, while <code>::after</code> inserts it after.</p>
+
+            <div class="demo-wrapper">
+                <div class="demo-box">
+                    <h3>Example: ::before</h3>
+                    <p>Adding a star icon before the text.</p>
+                    <button class="cta-button star-btn">Learn More</button>
+                    <div class="code-snippet">
+                        <pre><code>.cta-button::before {
+  content: "⭐";
+  position: absolute;
+  left: 3px;
+  top: 8px;
+  font-size: 0.75rem;
+}</code></pre>
+                    </div>
+                </div>
+
+                <div class="demo-box">
+                    <h3>Example: ::after</h3>
+                    <p>Adding an arrow icon with a hover effect.</p>
+                    <button class="cta-button arrow-btn">Learn More</button>
+                    <div class="code-snippet">
+                        <pre><code>.cta-button::after {
+  content: '➡️';
+  position: absolute;
+  right: 5px;
+  bottom: 6px;
+  font-size: 1.125rem;
+  transition: transform 0.3s ease;
+}
+
+.cta-button:hover::after {
+  transform: translateX(2px);
+}</code></pre>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="card">
+            <h2>Styling Text & Lists</h2>
+
+            <div class="grid-2">
+                <div class="sub-card">
+                    <h3>::first-letter</h3>
+                    <p>Targets the first letter of an element's content.</p>
+                    <p class="dropcap-demo">freeCodeCamp lets you learn to code without having to pay.</p>
+                    <div class="code-snippet">
+                        <pre><code>p::first-letter {
+  font-size: 4rem;
+}</code></pre>
+                    </div>
+                </div>
+
+                <div class="sub-card">
+                    <h3>::marker</h3>
+                    <p>Selects the marker, bullet, or numbering of list items.</p>
+                    <ul class="marker-demo">
+                        <li>Custom bullets</li>
+                        <li>Styled markers</li>
+                        <li>Branded lists</li>
+                    </ul>
+                    <div class="code-snippet">
+                        <pre><code>li::marker {
+  color: crimson;
+  font-size: 1.5em;
+  font-weight: bold;
+}</code></pre>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="card quiz-card" id="quiz">
+            <h2>Knowledge Check</h2>
+            <form id="quiz-form">
+                <div class="quiz-item">
+                    <p class="question">1. Which best describes the relationship between pseudo-elements and their
+                        originating element?</p>
+                    <div class="options">
+                        <label class="option">
+                            <input type="radio" name="q1" value="a">
+                            <span class="radio-custom"></span>
+                            Pseudo-elements can exist independently.
+                        </label>
+                        <label class="option">
+                            <input type="radio" name="q1" value="b">
+                            <span class="radio-custom"></span>
+                            Pseudo-elements must be declared before.
+                        </label>
+                        <label class="option">
+                            <input type="radio" name="q1" value="c">
+                            <span class="radio-custom"></span>
+                            Pseudo-elements depend on the originator element and cannot exist independently.
+                        </label>
+                        <label class="option">
+                            <input type="radio" name="q1" value="d">
+                            <span class="radio-custom"></span>
+                            Pseudo-elements create new HTML elements.
+                        </label>
+                    </div>
+                </div>
+
+                <div class="quiz-item">
+                    <p class="question">2. Which correctly distinguishes pseudo-elements from pseudo-classes?</p>
+                    <div class="options">
+                        <label class="option">
+                            <input type="radio" name="q2" value="a">
+                            <span class="radio-custom"></span>
+                            Pseudo-elements use a single colon.
+                        </label>
+                        <label class="option">
+                            <input type="radio" name="q2" value="b">
+                            <span class="radio-custom"></span>
+                            Pseudo-elements use a double colon (::), pseudo-classes use a single colon (:).
+                        </label>
+                        <label class="option">
+                            <input type="radio" name="q2" value="c">
+                            <span class="radio-custom"></span>
+                            Both use the same notation.
+                        </label>
+                    </div>
+                </div>
+
+                <div class="quiz-item">
+                    <p class="question">3. What is the primary function of pseudo-elements in CSS?</p>
+                    <div class="options">
+                        <label class="option">
+                            <input type="radio" name="q3" value="a">
+                            <span class="radio-custom"></span>
+                            Adding new HTML elements.
+                        </label>
+                        <label class="option">
+                            <input type="radio" name="q3" value="b">
+                            <span class="radio-custom"></span>
+                            Styling specific parts of content without adding extra HTML tags.
+                        </label>
+                        <label class="option">
+                            <input type="radio" name="q3" value="c">
+                            <span class="radio-custom"></span>
+                            Replacing the entire content.
+                        </label>
+                    </div>
+                </div>
+
+                <button type="submit" class="submit-btn">Check My Knowledge</button>
+            </form>
+            <div id="quiz-result" class="hidden"></div>
+        </section>
+    </main>
+
+    <footer class="main-footer">
+        <p>Built with ❤️ for Web Dev Enthusiasts</p>
+    </footer>
+
+    <script>
+        document.getElementById('quiz-form').addEventListener('submit', function (e) {
+            e.preventDefault();
+            const answers = {
+                q1: 'c',
+                q2: 'b',
+                q3: 'b'
+            };
+            const formData = new FormData(this);
+            let score = 0;
+            let total = 3;
+
+            for (let [key, value] of formData.entries()) {
+                if (value === answers[key]) {
+                    score++;
+                }
+            }
+
+            const resultDiv = document.getElementById('quiz-result');
+            resultDiv.classList.remove('hidden');
+            resultDiv.innerHTML = `<h3>Score: ${score}/${total}</h3><p>${score === total ? 'Perfect! You mastered pseudo-elements!' : 'Getting there! Review the concepts and try again.'}</p>`;
+            resultDiv.className = score === total ? 'quiz-result-success' : 'quiz-result-retry';
+        });
+    </script>
+</body>
+
+</html>

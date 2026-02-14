@@ -1,0 +1,255 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600&family=Space+Mono&display=swap');
+
+:root {
+    --bg-color: #0c0c0e;
+    --accent: #00d2ff;
+    --text-primary: #f8f9fa;
+    --text-secondary: #9ea3ac;
+    --glass-bg: rgba(255, 255, 255, 0.03);
+    --glass-border: rgba(255, 255, 255, 0.1);
+}
+
+body {
+    background-color: var(--bg-color);
+    color: var(--text-primary);
+    font-family: 'Montserrat', sans-serif;
+    line-height: 1.7;
+    margin: 0;
+    -webkit-font-smoothing: antialiased;
+}
+
+.container {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 4rem 2rem;
+}
+
+header {
+    text-align: center;
+    margin-bottom: 5rem;
+}
+
+h1 {
+    font-size: 3.5rem;
+    font-weight: 600;
+    letter-spacing: -1px;
+    background: linear-gradient(90deg, #00d2ff 0%, #3a7bd5 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    margin-bottom: 0.5rem;
+}
+
+.subtitle {
+    font-size: 1.25rem;
+    color: var(--text-secondary);
+}
+
+h2 {
+    font-size: 2.2rem;
+    color: var(--accent);
+    margin-top: 4rem;
+    margin-bottom: 1.5rem;
+    text-shadow: 0 0 20px rgba(0, 210, 255, 0.2);
+}
+
+p {
+    margin-bottom: 1.5rem;
+}
+
+#components {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 1.5rem;
+    margin-bottom: 3rem;
+}
+
+.component-card {
+    background: var(--glass-bg);
+    border: 1px solid var(--glass-border);
+    padding: 2rem;
+    border-radius: 20px;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.component-card:hover {
+    transform: translateY(-8px);
+    background: rgba(255, 255, 255, 0.05);
+    border-color: var(--accent);
+}
+
+.component-card h3 {
+    color: var(--accent);
+    margin-top: 0;
+}
+
+/* Mixer Section */
+.mixer-card {
+    background: linear-gradient(145deg, rgba(255, 255, 255, 0.05), rgba(255, 255, 255, 0.01));
+    border: 1px solid var(--glass-border);
+    border-radius: 30px;
+    padding: 3rem;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 3rem;
+    align-items: center;
+}
+
+.sliders {
+    flex: 1;
+    min-width: 300px;
+}
+
+.slider-group {
+    margin-bottom: 2rem;
+}
+
+.slider-group label {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 0.8rem;
+    font-weight: 600;
+}
+
+input[type="range"] {
+    width: 100%;
+    height: 6px;
+    background: #333;
+    border-radius: 10px;
+    accent-color: var(--accent);
+    cursor: pointer;
+}
+
+.preview-section {
+    flex: 1;
+    text-align: center;
+}
+
+#color-preview {
+    width: 200px;
+    height: 200px;
+    border-radius: 40px;
+    margin: 0 auto 2rem;
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.4);
+    border: 2px solid rgba(255, 255, 255, 0.1);
+    transition: background 0.15s linear;
+}
+
+code {
+    font-family: 'Space Mono', monospace;
+    background: rgba(0, 210, 255, 0.1);
+    color: var(--accent);
+    padding: 0.5rem 1rem;
+    border-radius: 8px;
+    display: inline-block;
+}
+
+/* Transparency Demo */
+.example-box {
+    background: var(--glass-bg);
+    border-radius: 20px;
+    padding: 2rem;
+}
+
+.demo-bg {
+    height: 120px;
+    background-image:
+        linear-gradient(45deg, #1a1a1e 25%, transparent 25%),
+        linear-gradient(-45deg, #1a1a1e 25%, transparent 25%),
+        linear-gradient(45deg, transparent 75%, #1a1a1e 75%),
+        linear-gradient(-45deg, transparent 75%, #1a1a1e 75%);
+    background-size: 20px 20px;
+    background-position: 0 0, 0 10px, 10px -10px, -10px 0px;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 1.5rem;
+}
+
+.hsla-box {
+    background: hsla(0, 100%, 50%, 0.5);
+    padding: 1.5rem 3rem;
+    border-radius: 8px;
+    font-weight: 600;
+}
+
+/* Quiz Styles */
+#quiz {
+    background: rgba(0, 210, 255, 0.03);
+    border: 1px solid rgba(0, 210, 255, 0.1);
+    border-radius: 30px;
+    padding: 3rem;
+    margin-top: 5rem;
+}
+
+.question {
+    margin-bottom: 2.5rem;
+}
+
+.options label {
+    display: block;
+    background: rgba(255, 255, 255, 0.02);
+    padding: 1.2rem;
+    margin: 0.8rem 0;
+    border-radius: 12px;
+    cursor: pointer;
+    border: 1px solid transparent;
+    transition: 0.2s;
+}
+
+.options label:hover {
+    background: rgba(0, 212, 255, 0.08);
+    border-color: rgba(0, 212, 255, 0.2);
+}
+
+.submit-btn {
+    background: var(--accent);
+    color: #000;
+    border: none;
+    padding: 1.2rem 3rem;
+    border-radius: 12px;
+    font-size: 1rem;
+    font-weight: 700;
+    cursor: pointer;
+    transition: all 0.3s;
+    width: 100%;
+}
+
+.submit-btn:hover {
+    box-shadow: 0 0 20px rgba(0, 212, 255, 0.4);
+    transform: scale(1.02);
+}
+
+#quiz-result {
+    margin-top: 2rem;
+    padding: 1.5rem;
+    border-radius: 12px;
+    text-align: center;
+    font-size: 1.1rem;
+    font-weight: 600;
+}
+
+.hidden {
+    display: none;
+}
+
+footer {
+    text-align: center;
+    margin-top: 8rem;
+    padding-bottom: 4rem;
+    color: var(--text-secondary);
+    font-size: 0.95rem;
+    border-top: 1px solid #222;
+    padding-top: 3rem;
+}
+
+@media (max-width: 768px) {
+    .mixer-card {
+        padding: 2rem;
+        gap: 2rem;
+    }
+
+    h1 {
+        font-size: 2.5rem;
+    }
+}

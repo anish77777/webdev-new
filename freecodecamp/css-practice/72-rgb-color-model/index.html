@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RGB Color Model Tutorial</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+    <div class="container">
+        <header>
+            <h1>Understanding the RGB Color Model</h1>
+            <p class="subtitle">Master the art of mixing light with CSS</p>
+        </header>
+
+        <main>
+            <section id="what-is-rgb">
+                <h2>What is RGB?</h2>
+                <p>RGB stands for <strong>Red, Green, and Blue</strong> — the primary colors of light. The RGB color
+                    model is an <strong>additive</strong> color model, meaning colors are created by combining light at
+                    varying intensities.</p>
+                <div class="info-card">
+                    <p>Intensity ranges from <strong>0</strong> (no light) to <strong>255</strong> (full light).</p>
+                    <ul>
+                        <li><span class="swatch" style="background: rgb(0,0,0)"></span> Black: <code>rgb(0, 0, 0)</code>
+                        </li>
+                        <li><span class="swatch" style="background: rgb(255,255,255); border: 1px solid #444;"></span>
+                            White: <code>rgb(255, 255, 255)</code></li>
+                        <li><span class="swatch" style="background: rgb(255,0,0)"></span> Red:
+                            <code>rgb(255, 0, 0)</code></li>
+                    </ul>
+                </div>
+            </section>
+
+            <section id="interactive-mixer">
+                <h2>Interactive RGB Mixer</h2>
+                <p>Experiment with the sliders to see how intensities combine to create colors.</p>
+                <div class="mixer-container">
+                    <div class="controls">
+                        <div class="control-group">
+                            <label for="r-range">Red (0-255)</label>
+                            <input type="range" id="r-range" min="0" max="255" value="187">
+                            <span id="r-val">187</span>
+                        </div>
+                        <div class="control-group">
+                            <label for="g-range">Green (0-255)</label>
+                            <input type="range" id="g-range" min="0" max="255" value="134">
+                            <span id="g-val">134</span>
+                        </div>
+                        <div class="control-group">
+                            <label for="b-range">Blue (0-255)</label>
+                            <input type="range" id="b-range" min="0" max="255" value="252">
+                            <span id="b-val">252</span>
+                        </div>
+                    </div>
+                    <div class="preview-box">
+                        <div id="color-preview"></div>
+                        <code id="rgb-code">rgb(187, 134, 252)</code>
+                    </div>
+                </div>
+            </section>
+
+            <section id="rgba">
+                <h2>Transparency with RGBA</h2>
+                <p>The <code>rgba()</code> function adds an <strong>alpha</strong> value to control transparency,
+                    ranging from <strong>0</strong> (transparent) to <strong>1</strong> (opaque).</p>
+                <div class="example-box">
+                    <code>background-color: rgba(0, 0, 255, 0.5);</code>
+                    <div class="alpha-demo">
+                        <div class="checkerboard"></div>
+                        <div class="translucent-box">Semi-transparent Blue</div>
+                    </div>
+                </div>
+            </section>
+
+            <section id="quiz">
+                <h2>Knowledge Check</h2>
+                <form id="quiz-form">
+                    <div class="question">
+                        <p>1. What do the numbers in the <code>rgb()</code> function represent?</p>
+                        <label><input type="radio" name="q1" value="a"> Width, height, and depth.</label>
+                        <label><input type="radio" name="q1" value="b"> Amount of red, green, and blue light.</label>
+                        <label><input type="radio" name="q1" value="c"> Hue, saturation, and lightness.</label>
+                    </div>
+
+                    <div class="question">
+                        <p>2. Which CSS function controls the transparency of a color?</p>
+                        <label><input type="radio" name="q2" value="rgb"> <code>rgb()</code></label>
+                        <label><input type="radio" name="q2" value="rgba"> <code>rgba()</code></label>
+                        <label><input type="radio" name="q2" value="hex"> <code>hex()</code></label>
+                    </div>
+
+                    <div class="question">
+                        <p>3. What is the maximum value for any individual color in RGB?</p>
+                        <label><input type="radio" name="q3" value="100"> 100</label>
+                        <label><input type="radio" name="q3" value="255"> 255</label>
+                        <label><input type="radio" name="q3" value="360"> 360</label>
+                    </div>
+                    <button type="submit" class="submit-btn">Evaluate My Answers</button>
+                    <p id="quiz-result" class="hidden"></p>
+                </form>
+            </section>
+        </main>
+
+        <footer>
+            <p>Monitors use tiny red, green, and blue pixels to create the vast spectrum of colors we see every day.</p>
+        </footer>
+    </div>
+    <script src="script.js"></script>
+</body>
+
+</html>

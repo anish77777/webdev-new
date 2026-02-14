@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>What Is Color Theory in Design? - Tutorial</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+    <div class="container">
+        <header>
+            <h1>What Is Color Theory in Design?</h1>
+            <p class="subtitle">Master the art and science of color interaction</p>
+        </header>
+
+        <main>
+            <section id="introduction">
+                <p><strong>Color theory</strong> is the study of how colors interact with each other and how they affect
+                    our perception. It covers color relationships, color harmony, and the psychological impact of color.
+                    Colors can be classified as either <strong>primary</strong>, <strong>secondary</strong>, or
+                    <strong>tertiary</strong>.</p>
+            </section>
+
+            <section id="classification">
+                <h2>Color Classification</h2>
+                <div class="card">
+                    <h3>Primary Colors</h3>
+                    <p>Yellow, blue, and red are the fundamental hues from which all other colors are derived.</p>
+                    <div class="color-palette primary-pal">
+                        <div class="color-swatch red">Red</div>
+                        <div class="color-swatch blue">Blue</div>
+                        <div class="color-swatch yellow">Yellow</div>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <h3>Secondary Colors</h3>
+                    <p>Secondary colors result from mixing equal amounts of two primary colors. Green, orange, and
+                        purple are examples of secondary colors.</p>
+                    <div class="color-palette secondary-pal">
+                        <div class="color-swatch orange">Orange</div>
+                        <div class="color-swatch purple">Purple</div>
+                        <div class="color-swatch green">Green</div>
+                    </div>
+                    <p class="formula">E.g., Yellow + Blue = <span class="green-text">Green</span></p>
+                </div>
+
+                <div class="card">
+                    <h3>Tertiary Colors</h3>
+                    <p>Tertiary colors result from combining a primary color with a neighboring secondary color.
+                        Yellow-Green, Blue-Green, and Blue-Violet are examples.</p>
+                </div>
+            </section>
+
+            <section id="temperature">
+                <h2>Temperature & Psychology</h2>
+                <p>Colors can be classified as <strong>warm</strong> or <strong>cool</strong> based on their
+                    "temperature".</p>
+                <div class="flex-row">
+                    <div class="temp-box warm">
+                        <h3>Warm Colors</h3>
+                        <p>Reds, oranges, yellows. Evoke comfort, warmth, and coziness.</p>
+                    </div>
+                    <div class="temp-box cool">
+                        <h3>Cool Colors</h3>
+                        <p>Blues, greens, purples. Evoke calmness, serenity, and professionalism.</p>
+                    </div>
+                </div>
+            </section>
+
+            <section id="models">
+                <h2>Color Models</h2>
+                <p>Models are essential for describing and reproducing colors in a standard way. Frequently used models
+                    include:</p>
+                <ul>
+                    <li><strong>RGB:</strong> Red, Green, Blue (Digital screens)</li>
+                    <li><strong>HSV:</strong> Hue, Saturation, Value</li>
+                    <li><strong>HSL:</strong> Hue, Saturation, Lightness</li>
+                </ul>
+            </section>
+
+            <section id="color-wheel">
+                <h2>The Color Wheel</h2>
+                <p>A circular diagram showing how colors relate. It helps designers select combinations and create color
+                    palettes.</p>
+                <div class="wheel-visual">
+                    <!-- CSS Animated Color Wheel Placeholder -->
+                    <div class="wheel"></div>
+                </div>
+            </section>
+
+            <section id="schemes">
+                <h2>Color Schemes</h2>
+                <div class="scheme-grid">
+                    <div class="scheme-card analogous">
+                        <h4>Analogous</h4>
+                        <p>Adjacent colors on the wheel. Cohesive and soothing.</p>
+                    </div>
+                    <div class="scheme-card complementary">
+                        <h4>Complementary</h4>
+                        <p>Opposite ends of the wheel. High contrast and visual impact.</p>
+                    </div>
+                    <div class="scheme-card triadic">
+                        <h4>Triadic</h4>
+                        <p>Approximately equidistant. Vibrant and balanced.</p>
+                    </div>
+                    <div class="scheme-card monochromatic">
+                        <h4>Monochromatic</h4>
+                        <p>Derived from the same base color. Unity and harmony.</p>
+                    </div>
+                </div>
+            </section>
+
+            <section id="accessibility">
+                <h2>Contrast & Accessibility</h2>
+                <p>Color contrast ensures text and important elements are distinguishable from their background. This is
+                    crucial for web accessibility and users with visual disabilities.</p>
+            </section>
+
+            <section id="quiz">
+                <h2>Knowledge Check</h2>
+                <form id="quiz-form">
+                    <div class="question">
+                        <p>1. Why is color theory important for web development?</p>
+                        <label><input type="radio" name="q1" value="a"> It's not important because it has no
+                            impact.</label>
+                        <label><input type="radio" name="q1" value="b"> It helps designers create visually appealing
+                            websites.</label>
+                        <label><input type="radio" name="q1" value="c"> It's only important for print design.</label>
+                    </div>
+
+                    <div class="question">
+                        <p>2. Which color scheme is most likely to create cohesive and soothing experiences?</p>
+                        <label><input type="radio" name="q2" value="analogous"> Analogous</label>
+                        <label><input type="radio" name="q2" value="complementary"> Complementary</label>
+                        <label><input type="radio" name="q2" value="triadic"> Triadic</label>
+                    </div>
+
+                    <div class="question">
+                        <p>3. The concept of color harmony refers to:</p>
+                        <label><input type="radio" name="q3" value="a"> Using only one color in a design.</label>
+                        <label><input type="radio" name="q3" value="b"> Combining colors that clash.</label>
+                        <label><input type="radio" name="q3" value="c"> Creating visually effective color
+                            combinations.</label>
+                    </div>
+                    <button type="submit" class="submit-btn" id="check-answers">Check My Score</button>
+                    <p id="result" class="hidden"></p>
+                </form>
+            </section>
+        </main>
+
+        <footer>
+            <p>Tips for effective use:</p>
+            <ul>
+                <li>Define your website's branding.</li>
+                <li>Evoke emotions matching your goals.</li>
+                <li>Ensure high contrast for accessibility.</li>
+                <li>Highlight CTAs with distinct colors.</li>
+            </ul>
+        </footer>
+    </div>
+    <script src="script.js"></script>
+</body>
+
+</html>

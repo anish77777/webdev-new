@@ -1,0 +1,100 @@
+/* Step 3: Body selector with font, padding, and text-align */
+body {
+    font-family: Arial, sans-serif;
+    padding: 40px;
+    text-align: center;
+    /* Step 4: Body background-color */
+    background-color: brown;
+}
+
+/* Step 4: Card background-color */
+/* Step 5: Card max-width, padding, and margin */
+/* Step 6: Card border-radius and box-shadow */
+/* Step 14: Card transition */
+.card {
+    background-color: white;
+    max-width: 400px;
+    padding: 40px;
+    margin: 0 auto;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px gray;
+    transition: transform 0.3s, background-color 0.3s ease;
+}
+
+/* Step 12: Card hover background-color */
+/* Step 13: Card hover transform scale */
+.card:hover {
+    background-color: khaki;
+    transform: scale(1.1);
+}
+
+/* Step 15: Emoji before h1 */
+h1::before {
+    content: "🥳 ";
+}
+
+/* Step 16: Emoji after h1 */
+h1::after {
+    content: " 🥳";
+}
+
+/* Step 17: Message styling */
+.message {
+    font-size: 1.2em;
+    margin-bottom: 20px;
+}
+
+/* Step 18: Card links container styling */
+.card-links {
+    margin-top: 20px;
+    display: flex;
+    justify-content: space-around;
+}
+
+/* Step 19: Anchor elements inside card-links styling */
+/* Step 21: Anchor transition */
+.card-links a {
+    text-decoration: none;
+    font-size: 1em;
+    padding: 10px 20px;
+    border-radius: 5px;
+    color: white;
+    background-color: midnightblue;
+    transition: background-color 0.3s ease;
+}
+
+/* Step 22: Active state for links */
+.card-links a:active {
+    background-color: midnightblue;
+}
+
+/* Step 23: Focus state for links */
+.card-links a:focus {
+    outline: 2px solid yellow;
+}
+
+/* Step 24: Visited state for links */
+.card-links a:visited {
+    color: crimson;
+}
+
+/* Step 25: Section elements styling */
+/* Step 27: Initially hide sections */
+section {
+    margin: 20px auto;
+    max-width: 600px;
+    background-color: whitesmoke;
+    padding: 20px;
+    border-radius: 10px;
+    display: none;
+}
+
+/* Step 26: Section hover skew */
+section:hover {
+    transform: skewX(10deg);
+}
+
+/* Step 27: Show section when targeted */
+section:target {
+    display: block;
+}

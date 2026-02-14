@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HSL Color Model Tutorial</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+    <div class="container">
+        <header>
+            <h1>What Is the HSL Color Model?</h1>
+            <p class="subtitle">Hue, Saturation, and Lightness: The human-centric color model</p>
+        </header>
+
+        <main>
+            <section id="introduction">
+                <p>One of the most versatile and intuitive ways to work with color is by using the <strong>HSL</strong>
+                    color model. HSL stands for <strong>Hue, Saturation, and Lightness</strong> — three key components
+                    that define a color in a way that aligns with how humans perceive it.</p>
+            </section>
+
+            <section id="components">
+                <div class="component-card">
+                    <h3>Hue</h3>
+                    <p>The color type, represented as an angle on the color wheel (0° to 360°). 0° is red, 120° is
+                        green, and 240° is blue.</p>
+                </div>
+                <div class="component-card">
+                    <h3>Saturation</h3>
+                    <p>The intensity or purity of the color (0% to 100%). 100% is fully vivid, while 0% appears as
+                        grayscale.</p>
+                </div>
+                <div class="component-card">
+                    <h3>Lightness</h3>
+                    <p>How light or dark the color is (0% to 100%). 0% is black, 50% is the normal tone, and 100% is
+                        white.</p>
+                </div>
+            </section>
+
+            <section id="interactive-mixer">
+                <h2>Interactive HSL Mixer</h2>
+                <div class="mixer-card">
+                    <div class="sliders">
+                        <div class="slider-group">
+                            <label for="hue">Hue: <span id="hue-val">120</span>°</label>
+                            <input type="range" id="hue" min="0" max="360" value="120">
+                        </div>
+                        <div class="slider-group">
+                            <label for="sat">Saturation: <span id="sat-val">100</span>%</label>
+                            <input type="range" id="sat" min="0" max="100" value="100">
+                        </div>
+                        <div class="slider-group">
+                            <label for="light">Lightness: <span id="light-val">50</span>%</label>
+                            <input type="range" id="light" min="0" max="100" value="50">
+                        </div>
+                    </div>
+                    <div class="preview-section">
+                        <div id="color-preview"></div>
+                        <code id="hsl-code">hsl(120, 100%, 50%)</code>
+                    </div>
+                </div>
+            </section>
+
+            <section id="transparency">
+                <h2>Transparency with HSLA</h2>
+                <p>Just like RGB has RGBA, HSL has <strong>HSLA</strong>. The fourth parameter is the
+                    <strong>alpha</strong> value, controlling opacity from 0 (transparent) to 1 (opaque).</p>
+                <div class="example-box">
+                    <div class="demo-bg">
+                        <div class="hsla-box">Semi-transparent Red (0.5 Alpha)</div>
+                    </div>
+                    <code>background-color: hsla(0, 100%, 50%, 0.5);</code>
+                </div>
+            </section>
+
+            <section id="quiz">
+                <h2>Knowledge Check</h2>
+                <form id="quiz-form">
+                    <div class="question">
+                        <p>1. What does the first value in the <code>hsl()</code> function represent?</p>
+                        <div class="options">
+                            <label><input type="radio" name="q1" value="a"> Saturation</label>
+                            <label><input type="radio" name="q1" value="b"> Lightness</label>
+                            <label><input type="radio" name="q1" value="c"> Hue</label>
+                        </div>
+                    </div>
+
+                    <div class="question">
+                        <p>2. Which percentage for lightness results in pure white?</p>
+                        <div class="options">
+                            <label><input type="radio" name="q2" value="0"> 0%</label>
+                            <label><input type="radio" name="q2" value="50"> 50%</label>
+                            <label><input type="radio" name="q2" value="100"> 100%</label>
+                        </div>
+                    </div>
+
+                    <div class="question">
+                        <p>3. How do you make a color semi-transparent in the HSL model?</p>
+                        <div class="options">
+                            <label><input type="radio" name="q3" value="a"> By lowering lightness to 0%.</label>
+                            <label><input type="radio" name="q3" value="b"> By using <code>hsla()</code> and adjusting
+                                alpha.</label>
+                            <label><input type="radio" name="q3" value="c"> By setting saturation to 0%.</label>
+                        </div>
+                    </div>
+                    <button type="submit" class="submit-btn" id="quiz-submit">Check Answers</button>
+                    <div id="quiz-result" class="hidden"></div>
+                </form>
+            </section>
+        </main>
+
+        <footer>
+            <p>HSL makes creating consistent color schemes easy by allowing you to adjust shades and tints without
+                changing the core color.</p>
+        </footer>
+    </div>
+    <script src="script.js"></script>
+</body>
+
+</html>
