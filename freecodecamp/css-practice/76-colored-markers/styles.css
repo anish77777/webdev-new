@@ -1,0 +1,72 @@
+/* 
+    GLOBAL STYLES
+    Ensuring the page is readable and centered.
+*/
+h1 {
+    text-align: center;
+}
+
+.container {
+    /* Using RGB(255, 255, 255) for white as learned in Step 22 */
+    background-color: rgb(255, 255, 255);
+    padding: 10px 0;
+    text-align: center;
+}
+
+/* 
+    CORE MARKER STYLES
+    Defining the shared shape and centering logic for all markers.
+*/
+.marker {
+    width: 200px;
+    height: 25px;
+    margin: 10px auto;
+}
+
+/* 
+    MARKER COMPONENTS
+    Positioning the cap and sleeve side-by-side using inline-block.
+*/
+.cap,
+.sleeve {
+    display: inline-block;
+}
+
+.cap {
+    width: 60px;
+    height: 25px;
+}
+
+.sleeve {
+    width: 110px;
+    height: 25px;
+    /* Using RGBA for a semi-transparent white sleeve (Step 70) */
+    background-color: rgba(255, 255, 255, 0.5);
+    /* Double border represents the marker's tip/cap line (Step 76) */
+    border-left: 10px double rgba(0, 0, 0, 0.75);
+}
+
+/* 
+    SPECIFIC COLOR MODELS
+    Demonstrating different ways to apply color in CSS.
+*/
+
+/* Red Marker: Using RGB Linear Gradient (Step 54) */
+.red {
+    background: linear-gradient(rgb(122, 74, 14), rgb(245, 62, 113), rgb(162, 27, 27));
+    box-shadow: 0 0 20px 0 red;
+}
+
+/* Green Marker: Using Hexadecimal Code (Step 57) */
+.green {
+    background: linear-gradient(#55680D, #71F53E, #116C31);
+    /* Hex shadow with alpha channel CC (Step 88) */
+    box-shadow: 0 0 20px 0 #3B7E20CC;
+}
+
+/* Blue Marker: Using HSL Color Model (Step 62-63) */
+.blue {
+    background: linear-gradient(hsl(186, 76%, 16%), hsl(223, 90%, 60%), hsl(240, 56%, 42%));
+    /* HSLA shadow with 0.8 alpha (Step 89) */
+    box-shadow: 0 0 20px 0 hsla(223, 59%, 31%, 0.8);
+}

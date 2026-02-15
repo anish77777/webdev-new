@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hex Codes in CSS - Tutorial</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+    <div class="container">
+        <header>
+            <h1>What Are Hex Codes?</h1>
+            <p class="subtitle">Precision color selection using hexadecimal notation</p>
+        </header>
+
+        <main>
+            <section id="basics">
+                <h2>The Hexadecimal Model</h2>
+                <p>A <strong>hex code</strong> is a concise way to represent colors in the RGB color model. It uses the
+                    base-16 numbering system (0-9 and A-F) to specify the intensity of red, green, and blue.</p>
+                <div class="pair-breakdown">
+                    <span class="hash">#</span>
+                    <span class="red-pair">RR</span>
+                    <span class="green-pair">GG</span>
+                    <span class="blue-pair">BB</span>
+                </div>
+            </section>
+
+            <section id="interactive-visualizer">
+                <h2>Interactive Hex Breakdown</h2>
+                <p>Enter a 6-digit or 3-digit hex code to see its component breakdown.</p>
+                <div class="visualizer-card">
+                    <div class="input-area">
+                        <label for="hex-input">Enter Hex Code:</label>
+                        <div class="input-wrapper">
+                            <span>#</span>
+                            <input type="text" id="hex-input" maxlength="6" value="FF5733" placeholder="RRGGBB">
+                        </div>
+                    </div>
+
+                    <div class="breakdown-display">
+                        <div class="component red">
+                            <label>Red</label>
+                            <div class="hex-val" id="r-hex">FF</div>
+                            <div class="dec-val" id="r-dec">255</div>
+                        </div>
+                        <div class="component green">
+                            <label>Green</label>
+                            <div class="hex-val" id="g-hex">57</div>
+                            <div class="dec-val" id="g-dec">87</div>
+                        </div>
+                        <div class="component blue">
+                            <label>Blue</label>
+                            <div class="hex-val" id="b-hex">33</div>
+                            <div class="dec-val" id="b-dec">51</div>
+                        </div>
+                    </div>
+
+                    <div id="result-preview"></div>
+                </div>
+            </section>
+
+            <section id="shorthand">
+                <h2>Shorthand Notation</h2>
+                <p>When both characters in each pair are the same, you can use a 3-digit shorthand. For example,
+                    <code>#FFFFFF</code> becomes <code>#FFF</code>.</p>
+                <div class="table-container">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Full Code</th>
+                                <th>Shorthand</th>
+                                <th>Color</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>#FFFFFF</td>
+                                <td><code>#FFF</code></td>
+                                <td><span class="swatch" style="background:#FFF"></span> White</td>
+                            </tr>
+                            <tr>
+                                <td>#000000</td>
+                                <td><code>#000</code></td>
+                                <td><span class="swatch" style="background:#000"></span> Black</td>
+                            </tr>
+                            <tr>
+                                <td>#007BFF</td>
+                                <td>-</td>
+                                <td><span class="swatch" style="background:#007BFF"></span> Azure</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </section>
+
+            <section id="quiz">
+                <h2>Knowledge Check</h2>
+                <form id="quiz-form">
+                    <div class="question">
+                        <p>1. What does each pair of characters in a hex code represent?</p>
+                        <div class="choices">
+                            <label><input type="radio" name="q1" value="a"> Opacity</label>
+                            <label><input type="radio" name="q1" value="b"> Intensity of Red, Green, or Blue</label>
+                            <label><input type="radio" name="q1" value="c"> Contrast</label>
+                        </div>
+                    </div>
+
+                    <div class="question">
+                        <p>2. How would you write the hex code for black using shorthand?</p>
+                        <div class="choices">
+                            <label><input type="radio" name="q2" value="000"> #000</label>
+                            <label><input type="radio" name="q2" value="FFF"> #FFF</label>
+                            <label><input type="radio" name="q2" value="black"> #black</label>
+                        </div>
+                    </div>
+
+                    <div class="question">
+                        <p>3. Why use hex codes over named colors?</p>
+                        <div class="choices">
+                            <label><input type="radio" name="q3" value="a"> They are easier to remember.</label>
+                            <label><input type="radio" name="q3" value="b"> They allow for more precise color
+                                selection.</label>
+                            <label><input type="radio" name="q3" value="c"> They work without CSS.</label>
+                        </div>
+                    </div>
+                    <button type="submit" class="submit-btn">Verify Answers</button>
+                    <div id="quiz-result" class="hidden"></div>
+                </form>
+            </section>
+        </main>
+
+        <footer>
+            <p>Hex codes offer a range of over 16 million colors for digital design precision.</p>
+        </footer>
+    </div>
+    <script src="script.js"></script>
+</body>
+
+</html>

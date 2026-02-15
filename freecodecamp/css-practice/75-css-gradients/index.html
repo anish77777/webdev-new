@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSS Gradients Tutorial - Master Smooth Transitions</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+    <div class="container">
+        <header>
+            <h1>Mastering CSS Gradients</h1>
+            <p class="subtitle">Create stunning smooth transitions between colors</p>
+        </header>
+
+        <main>
+            <section id="introduction">
+                <p>Gradients in CSS allow you to create smooth transitions between two or more colors. They add depth
+                    and texture to your designs without needing large image files.</p>
+            </section>
+
+            <section id="types">
+                <div class="type-card linear">
+                    <h2>Linear Gradients</h2>
+                    <p>Transition colors along a straight line. You can control the direction (e.g.,
+                        <code>to right</code>, <code>45deg</code>) and add multiple color stops.</p>
+                    <div class="gradient-preview linear-demo"></div>
+                </div>
+
+                <div class="type-card radial">
+                    <h2>Radial Gradients</h2>
+                    <p>Colors radiate from a central point. You can specify the shape (<code>circle</code> or
+                        <code>ellipse</code>) and starting position.</p>
+                    <div class="gradient-preview radial-demo"></div>
+                </div>
+            </section>
+
+            <section id="playground">
+                <h2>Interactive Gradient Playground</h2>
+                <div class="playground-card">
+                    <div class="controls">
+                        <div class="control-group">
+                            <label>Gradient Type</label>
+                            <div class="radio-toggle">
+                                <input type="radio" id="type-linear" name="grad-type" value="linear" checked>
+                                <label for="type-linear">Linear</label>
+                                <input type="radio" id="type-radial" name="grad-type" value="radial">
+                                <label for="type-radial">Radial</label>
+                            </div>
+                        </div>
+                        <div class="control-group" id="direction-control">
+                            <label for="direction">Direction/Position</label>
+                            <select id="direction">
+                                <option value="to right">To Right</option>
+                                <option value="to bottom">To Bottom</option>
+                                <option value="45deg">45 Degrees</option>
+                                <option value="135deg">135 Degrees</option>
+                            </select>
+                        </div>
+                        <div class="control-group" id="shape-control" style="display: none;">
+                            <label for="shape">Shape</label>
+                            <select id="shape">
+                                <option value="circle">Circle</option>
+                                <option value="ellipse">Ellipse</option>
+                            </select>
+                        </div>
+                        <div class="color-pickers">
+                            <div class="picker">
+                                <label for="color1">Color 1</label>
+                                <input type="color" id="color1" value="#ff5252">
+                            </div>
+                            <div class="picker">
+                                <label for="color2">Color 2</label>
+                                <input type="color" id="color2" value="#448aff">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="preview-area">
+                        <div id="main-preview"></div>
+                        <div class="code-output">
+                            <code id="css-output">background: linear-gradient(to right, #ff5252, #448aff);</code>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section id="quiz">
+                <h2>Knowledge Check</h2>
+                <form id="quiz-form">
+                    <div class="question">
+                        <p>1. What is the fundamental difference between linear and radial gradients?</p>
+                        <div class="options">
+                            <label><input type="radio" name="q1" value="a"> Linear gradients are only for text.</label>
+                            <label><input type="radio" name="q1" value="b"> Linear transitions along a line, radial
+                                radiates from a point.</label>
+                            <label><input type="radio" name="q1" value="c"> Radial gradients are much slower to
+                                render.</label>
+                        </div>
+                    </div>
+
+                    <div class="question">
+                        <p>2. What does <code>45deg</code> specify in a linear gradient?</p>
+                        <div class="options">
+                            <label><input type="radio" name="q2" value="a"> The temperature of the color.</label>
+                            <label><input type="radio" name="q2" value="b"> The direction of the gradient line.</label>
+                            <label><input type="radio" name="q2" value="c"> The size of the text.</label>
+                        </div>
+                    </div>
+
+                    <div class="question">
+                        <p>3. Which of the following is NOT a valid linear gradient direction?</p>
+                        <div class="options">
+                            <label><input type="radio" name="q3" value="a"> to bottom left</label>
+                            <label><input type="radio" name="q3" value="b"> 90deg</label>
+                            <label><input type="radio" name="q3" value="c"> diagonal</label>
+                        </div>
+                    </div>
+                    <button type="submit" class="submit-btn" id="quiz-submit">Check Scores</button>
+                    <div id="quiz-result" class="hidden"></div>
+                </form>
+            </section>
+        </main>
+
+        <footer>
+            <p>Always ensure high contrast for accessibility when placing text over gradients.</p>
+        </footer>
+    </div>
+    <script src="script.js"></script>
+</body>
+
+</html>

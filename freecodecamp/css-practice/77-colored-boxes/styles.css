@@ -1,0 +1,79 @@
+/* Story 1: Body background color */
+body {
+    background-color: #f4f4f4;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    margin: 0;
+    padding: 2rem;
+    color: #333;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+header {
+    text-align: center;
+    margin-bottom: 3rem;
+}
+
+h1 {
+    font-weight: 300;
+    font-size: 2.5rem;
+    color: #1a1a1a;
+}
+
+/* Story 2: Container for color boxes */
+.color-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 2rem;
+    max-width: 1200px;
+    width: 100%;
+    justify-content: center;
+}
+
+/* Story 5: Set width and height */
+.color-box {
+    width: 100%;
+    aspect-ratio: 1 / 1;
+    /* Ensures symmetric boxes */
+    min-height: 200px;
+    border-radius: 12px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.color-box:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.12);
+}
+
+/* Story 6: Hexadecimal color value */
+.color1 {
+    background-color: #4f46e5;
+}
+
+/* Story 7: RGB color value */
+.color2 {
+    background-color: rgb(225, 29, 72);
+}
+
+/* Story 8: Predefined color value */
+.color3 {
+    background-color: darkgoldenrod;
+}
+
+/* Story 9: HSL color value */
+.color4 {
+    background-color: hsl(142, 70%, 45%);
+}
+
+/* Story 10: General background color set */
+.color5 {
+    background-color: #0ea5e9;
+}
+
+footer {
+    margin-top: 5rem;
+    color: #888;
+    font-size: 0.9rem;
+}

@@ -1,0 +1,272 @@
+@import url('https://fonts.googleapis.com/css2?family=Clash+Display:wght@400;600&family=Inter:wght@300;400;600&display=swap');
+
+:root {
+    --bg-black: #050505;
+    --card-bg: rgba(255, 255, 255, 0.03);
+    --border: rgba(255, 255, 255, 0.1);
+    --accent: #bb86fc;
+    --text-main: #f8fafc;
+    --text-dim: #94a3b8;
+}
+
+body {
+    background-color: var(--bg-black);
+    color: var(--text-main);
+    font-family: 'Inter', sans-serif;
+    margin: 0;
+    line-height: 1.6;
+}
+
+.container {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 4rem 2rem;
+}
+
+header {
+    text-align: center;
+    margin-bottom: 6rem;
+}
+
+h1 {
+    font-family: 'Clash Display', sans-serif;
+    font-size: 4rem;
+    font-weight: 600;
+    margin: 0;
+    background: linear-gradient(90deg, #ff5252, #bb86fc, #03dac6);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.subtitle {
+    color: var(--text-dim);
+    font-size: 1.25rem;
+    margin-top: 1rem;
+}
+
+h2 {
+    font-family: 'Clash Display', sans-serif;
+    color: var(--accent);
+    font-size: 2.5rem;
+    margin-top: 5rem;
+}
+
+#types {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+    margin-bottom: 4rem;
+}
+
+.type-card {
+    background: var(--card-bg);
+    border: 1px solid var(--border);
+    padding: 2rem;
+    border-radius: 24px;
+    backdrop-filter: blur(10px);
+}
+
+.type-card h2 {
+    font-size: 1.5rem;
+    margin-top: 0;
+}
+
+.type-card p {
+    color: var(--text-dim);
+    font-size: 0.95rem;
+    min-height: 4em;
+}
+
+.gradient-preview {
+    height: 120px;
+    border-radius: 16px;
+    margin-top: 1.5rem;
+}
+
+.linear-demo {
+    background: linear-gradient(to right, #ff5252, #448aff);
+}
+
+.radial-demo {
+    background: radial-gradient(circle, #ff5252, #448aff);
+}
+
+/* Playground Styles */
+.playground-card {
+    background: var(--card-bg);
+    border: 1px solid var(--border);
+    border-radius: 32px;
+    padding: 3rem;
+    display: flex;
+    flex-direction: column;
+    gap: 3rem;
+}
+
+.controls {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 2rem;
+    align-items: flex-end;
+}
+
+.control-group {
+    flex: 1;
+    min-width: 200px;
+}
+
+.control-group label {
+    display: block;
+    font-size: 0.85rem;
+    color: var(--text-dim);
+    margin-bottom: 0.5rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.radio-toggle {
+    display: flex;
+    background: #111;
+    padding: 4px;
+    border-radius: 12px;
+}
+
+.radio-toggle input {
+    display: none;
+}
+
+.radio-toggle label {
+    flex: 1;
+    text-align: center;
+    padding: 10px;
+    margin: 0;
+    cursor: pointer;
+    border-radius: 8px;
+    transition: 0.2s;
+    color: var(--text-dim);
+}
+
+.radio-toggle input:checked+label {
+    background: var(--accent);
+    color: #000;
+}
+
+select {
+    width: 100%;
+    padding: 12px;
+    background: #111;
+    border: 1px solid var(--border);
+    color: #fff;
+    border-radius: 12px;
+    outline: none;
+}
+
+.color-pickers {
+    display: flex;
+    gap: 1rem;
+}
+
+.picker input {
+    width: 50px;
+    height: 50px;
+    padding: 0;
+    border: none;
+    background: none;
+    cursor: pointer;
+}
+
+.preview-area {
+    text-align: center;
+}
+
+#main-preview {
+    height: 300px;
+    border-radius: 20px;
+    margin-bottom: 2rem;
+    box-shadow: 0 30px 60px rgba(0, 0, 0, 0.5);
+    background: linear-gradient(to right, #ff5252, #448aff);
+    transition: background 0.2s linear;
+}
+
+.code-output {
+    background: #111;
+    padding: 1.5rem;
+    border-radius: 16px;
+    border: 1px solid var(--border);
+}
+
+#css-output {
+    font-family: 'Courier New', Courier, monospace;
+    color: var(--accent);
+    word-break: break-all;
+}
+
+/* Quiz Section */
+#quiz {
+    background: rgba(187, 134, 252, 0.02);
+    border: 1px solid rgba(187, 134, 252, 0.1);
+    padding: 4rem;
+    border-radius: 40px;
+    margin-top: 6rem;
+}
+
+.question {
+    margin-bottom: 3rem;
+}
+
+.options label {
+    display: block;
+    background: rgba(255, 255, 255, 0.02);
+    padding: 1.5rem;
+    margin: 0.8rem 0;
+    border-radius: 16px;
+    cursor: pointer;
+    border: 1px solid transparent;
+    transition: 0.2s;
+}
+
+.options label:hover {
+    background: rgba(187, 134, 252, 0.08);
+    border-color: rgba(187, 134, 252, 0.2);
+}
+
+.submit-btn {
+    background: var(--accent);
+    color: #000;
+    border: none;
+    padding: 1.5rem 4rem;
+    border-radius: 16px;
+    font-weight: 700;
+    font-size: 1.1rem;
+    cursor: pointer;
+    width: 100%;
+}
+
+#quiz-result {
+    margin-top: 2.5rem;
+    padding: 2rem;
+    border-radius: 16px;
+    text-align: center;
+    font-weight: 600;
+    font-size: 1.2rem;
+}
+
+.hidden {
+    display: none;
+}
+
+footer {
+    text-align: center;
+    margin-top: 10rem;
+    padding-bottom: 4rem;
+    color: var(--text-dim);
+}
+
+@media (max-width: 768px) {
+    #types {
+        grid-template-columns: 1fr;
+    }
+
+    h1 {
+        font-size: 2.5rem;
+    }
+}

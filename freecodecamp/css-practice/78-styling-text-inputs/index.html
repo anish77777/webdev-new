@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Styling Text Inputs | CSS Tutorial</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700&family=JetBrains+Mono:wght@400;500&display=swap"
+        rel="stylesheet">
+</head>
+
+<body>
+    <div class="app-container">
+        <aside class="sidebar">
+            <div class="sidebar-header">
+                <span class="logo">CSS Masterclass</span>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="#accessible-inputs" class="nav-link active">Accessible Inputs</a></li>
+                    <li><a href="#placeholders" class="nav-link">Placeholders</a></li>
+                    <li><a href="#modification-zoom" class="nav-link">Modification & Zoom</a></li>
+                    <li><a href="#focus-indicators" class="nav-link">Focus Indicators</a></li>
+                    <li><a href="#error-states" class="nav-link">Error States</a></li>
+                    <li><a href="#quiz" class="nav-link">Interactive Quiz</a></li>
+                </ul>
+            </nav>
+        </aside>
+
+        <main class="main-content">
+            <header class="top-header">
+                <h1>Best Practices for Styling Text Inputs</h1>
+                <p class="subtitle">Mastering accessibility and aesthetics for modern forms.</p>
+            </header>
+
+            <section id="accessible-inputs" class="content-section">
+                <h2>1. Accessible Text Inputs</h2>
+                <div class="text-content">
+                    <p>When styling text inputs, accessibility is paramount. Ensure your font size is readable (at least
+                        16px to prevent iOS auto-zoom) and that text color contrasts sufficiently with the background.
+                    </p>
+                </div>
+                <div class="demo-box" id="demo-accessible">
+                    <form class="accessible-form">
+                        <label for="username">Username</label>
+                        <input type="text" id="username" name="username" placeholder="Enter your username">
+                        <button type="submit">Submit</button>
+                    </form>
+                </div>
+                <div class="code-container">
+                    <pre><code>input[type="text"] {
+    font-size: 1rem;
+    border: 2px solid #555;
+    border-radius: 4px;
+    background-color: #fff;
+    color: #111;
+}</code></pre>
+                </div>
+            </section>
+
+            <section id="placeholders" class="content-section">
+                <h2>2. Placeholder Styling</h2>
+                <div class="text-content">
+                    <p>Placeholders are often overlooked. They must be readable even before the user starts typing. Use
+                        the <code>::placeholder</code> pseudo-element to ensure sufficient contrast.</p>
+                </div>
+                <div class="demo-box">
+                    <form class="accessible-form">
+                        <label for="email">Email address</label>
+                        <input type="email" id="email" name="email" placeholder="you@example.com">
+                        <button type="submit">Submit</button>
+                    </form>
+                </div>
+                <div class="code-container">
+                    <pre><code>input::placeholder {
+    color: #555; 
+    opacity: 1; 
+    font-style: italic;
+}</code></pre>
+                </div>
+            </section>
+
+            <section id="modification-zoom" class="content-section">
+                <h2>3. Modification & Zoom</h2>
+                <div class="text-content">
+                    <p>Always allow users to modify inputs. For textareas, do not remove the resize handle. Ensure
+                        elements scale correctly when the page is zoomed.</p>
+                </div>
+                <div class="demo-box">
+                    <form class="accessible-form">
+                        <label for="message">Your message</label>
+                        <textarea id="message" name="message" placeholder="Type your message here..."></textarea>
+                        <button type="submit">Send</button>
+                    </form>
+                </div>
+                <div class="code-container">
+                    <pre><code>textarea {
+    width: 100%;
+    min-height: 120px;
+    resize: both; 
+    box-sizing: border-box; 
+}</code></pre>
+                </div>
+            </section>
+
+            <section id="focus-indicators" class="content-section">
+                <h2>4. Focus Indicators</h2>
+                <div class="text-content">
+                    <p>Provide a noticeable indicator when an element has focus. Avoid removing the default focus ring
+                        unless you're replacing it with a custom, clearly visible one.</p>
+                </div>
+                <div class="demo-box">
+                    <form class="accessible-form">
+                        <label for="name">Full name</label>
+                        <input type="text" id="name" name="name" placeholder="Enter your full name">
+                        <button type="submit">Submit</button>
+                    </form>
+                </div>
+                <div class="code-container">
+                    <pre><code>input:focus {
+    border-color: #1e90ff;      
+    box-shadow: 0 0 0 3px rgba(30, 144, 255, 0.4); 
+    outline: none;              
+}</code></pre>
+                </div>
+            </section>
+
+            <section id="error-states" class="content-section">
+                <h2>5. Error States</h2>
+                <div class="text-content">
+                    <p>Visual error indicators should be distinct from focus states. Use color and descriptive text
+                        (connected via <code>aria-describedby</code>) to alert users.</p>
+                </div>
+                <div class="demo-box">
+                    <form class="accessible-form" id="error-form">
+                        <label for="email-error-input">Email address</label>
+                        <input type="email" id="email-error-input" class="error" placeholder="you@example.com"
+                            aria-describedby="email-error">
+                        <p id="email-error" class="error-message">Please enter a valid email address.</p>
+                        <button type="button" id="toggle-error">Toggle Error State</button>
+                    </form>
+                </div>
+                <div class="code-container">
+                    <pre><code>input.error {
+    border-color: #d93025;
+    background-color: #fff5f5;
+}</code></pre>
+                </div>
+            </section>
+
+            <section id="quiz" class="content-section quiz-section">
+                <h2>CSS Masterclass Quiz</h2>
+                <div id="quiz-container">
+                    <!-- Quiz will be injected by script.js -->
+                </div>
+            </section>
+        </main>
+    </div>
+    <script src="script.js"></script>
+</body>
+
+</html>
