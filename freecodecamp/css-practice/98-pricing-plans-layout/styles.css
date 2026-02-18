@@ -1,0 +1,124 @@
+/* Sapphire Depth Theme Variables */
+:root {
+    --bg-dark: #0a0c10;
+    --accent: #3b82f6;
+    --accent-glow: rgba(59, 130, 246, 0.3);
+    --glass-bg: rgba(255, 255, 255, 0.03);
+    --glass-border: rgba(255, 255, 255, 0.1);
+    --text-main: #e2e8f0;
+    --text-dim: #94a3b8;
+    --basic-accent: #60a5fa;
+    --pro-accent: #8b5cf6;
+    --premium-accent: #f43f5e;
+}
+
+/* Base styles */
+body {
+    background-color: var(--bg-dark);
+    color: var(--text-main);
+    font-family: 'Space Grotesk', sans-serif;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-height: 100vh;
+    padding: 60px 20px;
+}
+
+.background-glow {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 600px;
+    height: 600px;
+    background: radial-gradient(circle, var(--accent-glow) 0%, transparent 70%);
+    z-index: -1;
+    filter: blur(60px);
+}
+
+h1 {
+    font-size: 3rem;
+    margin-bottom: 40px;
+    text-transform: uppercase;
+    letter-spacing: -1px;
+    color: var(--accent);
+}
+
+/* Pricing Container */
+.pricing-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+    width: 100%;
+    max-width: 1000px;
+}
+
+/* Pricing Card */
+.pricing-card {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    flex: 0 0 200px;
+    border: 2px solid black;
+    /* Required for test */
+    padding: 30px;
+    border-radius: 24px;
+    background: var(--glass-bg);
+    backdrop-filter: blur(16px);
+    transition: transform 0.3s ease, border-color 0.3s ease;
+    text-align: center;
+}
+
+.pricing-card:hover {
+    transform: translateY(-10px);
+    border-color: var(--accent);
+}
+
+.pricing-card h2 {
+    margin-top: 0;
+    font-size: 1.8rem;
+}
+
+.pricing-card p {
+    font-size: 1.25rem;
+    font-weight: 600;
+    margin-bottom: 0;
+}
+
+/* Plan Specific Styles */
+.basic-plan {
+    order: 0;
+    border-color: var(--basic-accent);
+}
+
+.basic-plan h2 {
+    color: var(--basic-accent);
+}
+
+.pro-plan {
+    order: 1;
+    flex-grow: 2;
+    border-color: var(--pro-accent);
+}
+
+.pro-plan h2 {
+    color: var(--pro-accent);
+}
+
+.premium-plan {
+    order: 2;
+    border-color: var(--premium-accent);
+}
+
+.premium-plan h2 {
+    color: var(--premium-accent);
+}
+
+/* Responsive adjustments */
+@media (max-width: 600px) {
+    .pricing-card {
+        flex: 1 1 200px;
+    }
+}

@@ -1,0 +1,246 @@
+:root {
+    --obsidian: #0f172a;
+    --amber-flare: #f59e0b;
+    --amber-deep: #78350f;
+    --text-main: #f8fafc;
+    --text-dim: #94a3b8;
+    --glass: rgba(255, 255, 255, 0.03);
+    --glass-border: rgba(255, 255, 255, 0.1);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: var(--obsidian);
+    color: var(--text-main);
+    font-family: 'Space Grotesk', sans-serif;
+    line-height: 1.6;
+    overflow-x: hidden;
+    min-height: 100vh;
+    padding: 4rem 2rem;
+}
+
+.background-glow {
+    position: fixed;
+    top: -10%;
+    left: -10%;
+    width: 120%;
+    height: 120%;
+    background: radial-gradient(circle at 50% 50%, rgba(245, 158, 11, 0.05) 0%, transparent 70%);
+    z-index: -1;
+    pointer-events: none;
+}
+
+header {
+    text-align: center;
+    margin-bottom: 5rem;
+}
+
+h1 {
+    font-size: 3.5rem;
+    font-weight: 700;
+    letter-spacing: -0.05em;
+    margin-bottom: 0.5rem;
+}
+
+h1 .accent {
+    color: var(--amber-flare);
+    text-shadow: 0 0 20px rgba(245, 158, 11, 0.4);
+}
+
+.subtitle {
+    font-size: 1.25rem;
+    color: var(--text-dim);
+}
+
+main {
+    max-width: 900px;
+    margin: 0 auto;
+    display: grid;
+    gap: 3rem;
+}
+
+.glass {
+    background: var(--glass);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid var(--glass-border);
+    border-radius: 24px;
+    padding: 2.5rem;
+}
+
+.tutorial-card {
+    transition: transform 0.3s ease, border-color 0.3s ease;
+}
+
+.tutorial-card:hover {
+    transform: translateY(-5px);
+    border-color: rgba(245, 158, 11, 0.3);
+}
+
+.card-icon {
+    font-size: 2rem;
+    margin-bottom: 1.5rem;
+}
+
+h2 {
+    font-size: 1.75rem;
+    margin-bottom: 1.5rem;
+    color: var(--amber-flare);
+}
+
+p {
+    margin-bottom: 1.5rem;
+    color: var(--text-dim);
+}
+
+.concept-box {
+    background: rgba(0, 0, 0, 0.3);
+    padding: 2rem;
+    border-radius: 16px;
+    border: 1px solid var(--glass-border);
+}
+
+.formula {
+    font-weight: 700;
+    text-align: center;
+    color: var(--text-main);
+}
+
+.highlight {
+    color: var(--amber-flare);
+    padding: 0 0.5rem;
+    background: rgba(245, 158, 11, 0.1);
+    border-radius: 4px;
+}
+
+/* Demo Boxes */
+.demo-box {
+    background: rgba(255, 255, 255, 0.02);
+    padding: 3rem;
+    border-radius: 20px;
+    border: 1px solid var(--glass-border);
+    margin-bottom: 1rem;
+}
+
+.box {
+    padding: 1.5rem;
+    border-radius: 12px;
+    text-align: center;
+    font-weight: 600;
+    color: white;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+}
+
+/* Sibling Demo */
+.sibling1 {
+    background: #3b82f6;
+    margin-bottom: 20px;
+}
+
+.sibling2 {
+    background: #10b981;
+    margin-top: 30px;
+}
+
+/* Parent Demo */
+.parent-box {
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 16px;
+    margin-top: 40px;
+}
+
+.child-box {
+    background: #ec4899;
+    margin-top: 30px;
+}
+
+/* Empty Demo */
+.pre-box {
+    background: #6366f1;
+    margin-bottom: 10px;
+}
+
+.post-box {
+    background: #8b5cf6;
+    margin-top: 10px;
+}
+
+.empty-block {
+    margin-top: 20px;
+    margin-bottom: 10px;
+    border: 2px dashed var(--amber-flare);
+    height: 0;
+}
+
+.note {
+    font-size: 0.875rem;
+    color: var(--text-dim);
+    text-align: center;
+    font-style: italic;
+}
+
+/* Prevention List */
+ul {
+    list-style-type: none;
+    display: grid;
+    gap: 1rem;
+}
+
+li {
+    background: rgba(245, 158, 11, 0.05);
+    padding: 1rem 1.5rem;
+    border-radius: 12px;
+    border-left: 4px solid var(--amber-flare);
+    color: var(--text-main);
+}
+
+/* Quiz Section */
+.quiz-section {
+    border: 1px solid rgba(245, 158, 11, 0.2);
+}
+
+.options {
+    display: grid;
+    gap: 0.75rem;
+}
+
+.option-btn {
+    width: 100%;
+    text-align: left;
+    padding: 1rem 1.5rem;
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid var(--glass-border);
+    border-radius: 12px;
+    color: var(--text-main);
+    cursor: pointer;
+    font-family: inherit;
+    transition: all 0.2s ease;
+}
+
+.option-btn:hover {
+    background: rgba(255, 255, 255, 0.1);
+    transform: translateX(5px);
+}
+
+.option-btn.correct {
+    background: rgba(245, 158, 11, 0.2);
+    border-color: var(--amber-flare);
+    color: var(--amber-flare);
+}
+
+.option-btn.wrong {
+    background: rgba(239, 68, 68, 0.2);
+    border-color: #ef4444;
+    color: #ef4444;
+}
+
+@media (max-width: 640px) {
+    h1 {
+        font-size: 2.5rem;
+    }
+}

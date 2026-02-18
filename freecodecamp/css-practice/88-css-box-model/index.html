@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSS Box Model | Sapphire Depth</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
+</head>
+
+<body>
+    <div class="background-glow"></div>
+
+    <header>
+        <h1>CSS <span class="accent">Box Model</span></h1>
+        <p class="subtitle">The foundation of layout and element structure in web design.</p>
+    </header>
+
+    <main>
+        <section class="tutorial-card glass">
+            <div class="card-icon">📦</div>
+            <h2>What is the Box Model?</h2>
+            <p>Every element in HTML is essentially a rectangular box. The CSS Box Model defines these boxes and how
+                they interact with each other. It consists of four distinct parts:</p>
+            <div class="box-visual-container">
+                <div class="box-model-visual">
+                    <div class="layer margin-layer">Margin
+                        <div class="layer border-layer">Border
+                            <div class="layer padding-layer">Padding
+                                <div class="layer content-layer">Content</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="tutorial-card glass">
+            <div class="card-icon">🖊️</div>
+            <h2>1. The Content Area</h2>
+            <p>The innermost part containing text, images, or other HTML elements. Its dimensions are typically
+                controlled by <code>width</code> and <code>height</code>.</p>
+        </section>
+
+        <section class="tutorial-card glass">
+            <div class="card-icon">☁️</div>
+            <h2>2. The Padding</h2>
+            <p>The space between the <strong>content</strong> and the <strong>border</strong>. It adds breathing room
+                inside the element.</p>
+            <div class="code-block">
+                <code>padding: 15px 5px 2px 8px; /* TRBL */</code>
+            </div>
+            <div class="interactive-demo">
+                <div class="controls">
+                    <label>Padding: <span id="pad-val">20px</span></label>
+                    <input type="range" min="0" max="60" value="20" oninput="updateBox('padding', this.value)">
+                </div>
+                <div class="view">
+                    <div class="box-demo" id="padding-demo-box">Internal Space</div>
+                </div>
+            </div>
+        </section>
+
+        <section class="tutorial-card glass">
+            <div class="card-icon">🖼️</div>
+            <h2>3. The Border</h2>
+            <p>The visual edge surrounding the padding and content. You can customize its style, width, and color.</p>
+            <div class="code-block">
+                <code>border: 5px solid blue;</code>
+            </div>
+            <div class="interactive-demo">
+                <div class="controls">
+                    <label>Border Width: <span id="bor-val">5px</span></label>
+                    <input type="range" min="0" max="20" value="5" oninput="updateBox('borderWidth', this.value)">
+                </div>
+                <div class="view">
+                    <div class="box-demo" id="border-demo-box">Outer Frame</div>
+                </div>
+            </div>
+        </section>
+
+        <section class="tutorial-card glass">
+            <div class="card-icon">↔️</div>
+            <h2>4. The Margin</h2>
+            <p>The space outside the border, creating distance between this element and others.</p>
+            <div class="code-block">
+                <code>margin: 3px 12px 9px 7px;</code>
+            </div>
+            <div class="interactive-demo">
+                <div class="controls">
+                    <label>Margin: <span id="mar-val">20px</span></label>
+                    <input type="range" min="0" max="60" value="20" oninput="updateBox('margin', this.value)">
+                </div>
+                <div class="view" style="border: 1px dashed rgba(255,255,255,0.2)">
+                    <div class="box-demo" id="margin-demo-box">External Gap</div>
+                </div>
+            </div>
+        </section>
+
+        <section class="quiz-section glass">
+            <h2>Knowledge Check</h2>
+            <div id="quiz-container">
+                <div class="question">
+                    <p>1. Which component defines the space between content and border?</p>
+                    <div class="options">
+                        <button class="option-btn" onclick="checkAnswer(this, false)">Margin</button>
+                        <button class="option-btn" onclick="checkAnswer(this, true)">Padding</button>
+                        <button class="option-btn" onclick="checkAnswer(this, false)">Content</button>
+                    </div>
+                </div>
+                <div class="question">
+                    <p>2. In the shorthand <code>padding: 10px 20px 30px 40px;</code>, which side is 40px?</p>
+                    <div class="options">
+                        <button class="option-btn" onclick="checkAnswer(this, false)">Right</button>
+                        <button class="option-btn" onclick="checkAnswer(this, false)">Bottom</button>
+                        <button class="option-btn" onclick="checkAnswer(this, true)">Left</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <script>
+        function updateBox(prop, val) {
+            const display = document.getElementById(prop.charAt(0).substring(0, 3) + prop.slice(0, 3) + '-val');
+            // Simplified logic for demo display mapping
+            let displayId = '';
+            if (prop === 'padding') displayId = 'pad-val';
+            if (prop === 'borderWidth') displayId = 'bor-val';
+            if (prop === 'margin') displayId = 'mar-val';
+
+            document.getElementById(displayId).innerText = val + 'px';
+
+            const target = document.getElementById(prop.includes('Width') ? 'border-demo-box' : prop + '-demo-box');
+            if (prop === 'borderWidth') {
+                target.style.borderWidth = val + 'px';
+            } else {
+                target.style[prop] = val + 'px';
+            }
+        }
+
+        function checkAnswer(btn, isCorrect) {
+            const btns = btn.parentElement.querySelectorAll('.option-btn');
+            btns.forEach(b => b.classList.remove('correct', 'wrong'));
+            if (isCorrect) {
+                btn.classList.add('correct');
+            } else {
+                btn.classList.add('wrong');
+            }
+        }
+    </script>
+</body>
+
+</html>

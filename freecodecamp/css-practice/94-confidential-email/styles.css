@@ -1,0 +1,169 @@
+/* Obsidian Noir Theme Variables */
+:root {
+    --bg-darker: #050505;
+    --bg-dark: #0f0f0f;
+    --accent-red: #ff3e3e;
+    --accent-red-dim: rgba(255, 62, 62, 0.2);
+    --text-white: #f0f0f0;
+    --text-dim: #888888;
+    --glass-border: rgba(255, 255, 255, 0.05);
+}
+
+/* Base resets and classified vibe */
+body {
+    background-color: var(--bg-darker);
+    color: var(--text-white);
+    font-family: 'JetBrains Mono', monospace;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-height: 100vh;
+}
+
+.background-grain {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: radial-gradient(circle at 50% 50%, rgba(20, 20, 20, 0) 0%, rgba(0, 0, 0, 0.8) 100%),
+        url('https://www.transparenttextures.com/patterns/dark-matter.png');
+    opacity: 0.3;
+    z-index: -1;
+    pointer-events: none;
+}
+
+header {
+    text-align: center;
+    padding: 40px 0;
+}
+
+h1 {
+    font-size: 2.5rem;
+    font-weight: 700;
+    margin: 0;
+    letter-spacing: -2px;
+    text-transform: uppercase;
+}
+
+.accent {
+    color: var(--accent-red);
+    text-shadow: 0 0 10px var(--accent-red-dim);
+}
+
+.subtitle {
+    color: var(--text-dim);
+    font-size: 0.9rem;
+    margin-top: 5px;
+    letter-spacing: 2px;
+}
+
+/* REQUIREMENT: main element with id of email */
+#email {
+    /* REQUIREMENT: padding 50px */
+    padding: 50px;
+    /* REQUIREMENT: top margin 50px */
+    margin-top: 50px;
+    /* REQUIREMENT: width 500px */
+    width: 500px;
+    /* REQUIREMENT: border 2px */
+    border: 2px solid var(--glass-border);
+    /* REQUIREMENT: box-sizing border-box to ensure total width is 500px */
+    box-sizing: border-box;
+
+    background-color: var(--bg-dark);
+    box-shadow: 0 30px 60px rgba(0, 0, 0, 0.5);
+    border-radius: 4px;
+    position: relative;
+    overflow: hidden;
+}
+
+#email::before {
+    content: "DRAFT // UNCLASSIFIED UNTIL STAMPED";
+    position: absolute;
+    top: 10px;
+    right: 15px;
+    font-size: 0.6rem;
+    color: var(--text-dim);
+    opacity: 0.4;
+}
+
+.stamps-container {
+    margin-bottom: 30px;
+}
+
+/* REQUIREMENT: #confidential element */
+#confidential {
+    /* REQUIREMENT: display inline-block */
+    display: inline-block;
+    /* REQUIREMENT: padding */
+    padding: 5px 15px;
+    /* REQUIREMENT: left margin */
+    margin-left: 0;
+    /* REQUIREMENT: border */
+    border: 3px solid var(--accent-red);
+    /* REQUIREMENT: Rotate using transform */
+    transform: rotate(-15deg);
+
+    color: var(--accent-red);
+    font-weight: 700;
+    font-size: 1.2rem;
+    text-transform: uppercase;
+}
+
+/* REQUIREMENT: #top-secret element */
+#top-secret {
+    /* REQUIREMENT: display inline-block */
+    display: inline-block;
+    /* REQUIREMENT: padding */
+    padding: 5px 15px;
+    /* REQUIREMENT: left margin */
+    margin-left: 20px;
+    /* REQUIREMENT: border */
+    border: 3px solid var(--accent-red);
+    /* REQUIREMENT: Rotate using transform */
+    transform: rotate(5deg);
+
+    color: var(--accent-red);
+    font-weight: 700;
+    font-size: 1.2rem;
+    text-transform: uppercase;
+}
+
+.email-content {
+    line-height: 1.6;
+    color: var(--text-white);
+}
+
+.subject {
+    font-weight: 700;
+    margin-bottom: 20px;
+    border-bottom: 1px solid var(--glass-border);
+    padding-bottom: 10px;
+}
+
+p {
+    margin-bottom: 15px;
+    font-size: 0.95rem;
+}
+
+/* REQUIREMENT: .blurred selector blurs the element 3px using CSS filter */
+.blurred {
+    filter: blur(3px);
+    background-color: #222;
+    color: transparent;
+    border-radius: 2px;
+    user-select: none;
+    padding: 0 4px;
+}
+
+.footer-meta {
+    margin-top: 40px;
+    display: flex;
+    justify-content: space-between;
+    font-size: 0.7rem;
+    color: var(--text-dim);
+    border-top: 1px dashed var(--glass-border);
+    padding-top: 10px;
+}

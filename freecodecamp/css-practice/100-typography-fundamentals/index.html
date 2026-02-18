@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Typography Fundamentals | Sapphire Depth</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700;900&family=Roboto:ital,wght@0,400;0,700;1,400&display=swap"
+        rel="stylesheet">
+</head>
+
+<body>
+    <div class="background-glow"></div>
+
+    <header>
+        <h1><span class="accent">Typography</span> Fundamentals</h1>
+        <p class="subtitle">The Art of Designing with Type</p>
+    </header>
+
+    <main>
+        <!-- Type vs Font -->
+        <section class="tutorial-card glass">
+            <div class="card-icon">🖋️</div>
+            <h2>1. Typefaces vs Fonts</h2>
+            <p><strong>Typography</strong> is the art of choosing the right fonts and format to make text visually
+                appealing. <strong>"Type"</strong> refers to how individual characters are designed and arranged.</p>
+
+            <div class="property-group">
+                <h3>Difference</h3>
+                <ul>
+                    <li><strong>Typeface:</strong> The overall design (e.g., Times New Roman). It's the blueprint.</li>
+                    <li><strong>Font:</strong> A specific variation (e.g., Times New Roman Bold, 12pt). It's the
+                        technical implementation.</li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- Serif vs Sans Serif -->
+        <section class="tutorial-card glass">
+            <div class="card-icon">🔡</div>
+            <h2>2. Serif vs Sans Serif</h2>
+            <p>These are the two primary classifications of typefaces.</p>
+
+            <div class="property-group">
+                <h3>Serif</h3>
+                <p>Classical style with small lines (serifs) at the ends of characters. Often used for print.</p>
+                <div class="demo-area">
+                    <p class="demo-text serif-demo">The quick brown fox jumps over the lazy dog.</p>
+                </div>
+            </div>
+
+            <div class="property-group">
+                <h3>Sans Serif</h3>
+                <p>"Sans" means without. Modern look without the small lines. Preferred for screens.</p>
+                <div class="demo-area">
+                    <p class="demo-text sans-demo">The quick brown fox jumps over the lazy dog.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Anatomy of Type -->
+        <section class="tutorial-card glass">
+            <div class="card-icon">🦴</div>
+            <h2>3. Anatomy of Type</h2>
+            <p>Fundamental elements that define character relationships.</p>
+
+            <div class="anatomy-box">
+                <div class="baseline-marker"></div>
+                <span class="label" style="bottom: 45px; left: 10px;">Baseline</span>
+                <span>Hyg</span>
+            </div>
+
+            <div class="property-group">
+                <h3>Key Terms</h3>
+                <ul>
+                    <li><strong>Baseline:</strong> The imaginary line where characters rest.</li>
+                    <li><strong>Cap Height:</strong> Height of uppercase letters.</li>
+                    <li><strong>X-height:</strong> Height of lowercase letters (like 'x').</li>
+                    <li><strong>Ascenders:</strong> Parts that go above x-height (h, b, d).</li>
+                    <li><strong>Descenders:</strong> Parts that go below the baseline (y, g, p).</li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- Spacing Concepts -->
+        <section class="tutorial-card glass">
+            <div class="card-icon">↔️</div>
+            <h2>4. Kerning, Tracking & Leading</h2>
+            <p>Control the space around characters and lines.</p>
+
+            <div class="property-group">
+                <h3>Tracking (Letter Spacing)</h3>
+                <p>Adjusts space between <strong>all</strong> characters.</p>
+                <div class="demo-area">
+                    <p class="demo-text tracking-demo">WIDE TRACKING</p>
+                </div>
+            </div>
+
+            <div class="property-group">
+                <h3>Leading (Line Height)</h3>
+                <p>Vertical space between baselines.</p>
+                <div class="demo-area">
+                    <p class="demo-text leading-demo">Line one of text.<br>Line two of text.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Visual Hierarchy -->
+        <section class="tutorial-card glass">
+            <div class="card-icon">👑</div>
+            <h2>5. Visual Hierarchy</h2>
+            <p>Using typography to guide the reader's eye.</p>
+            <div class="demo-area">
+                <h1 style="font-size: 2.5rem; margin-bottom: 0.5rem;">Most Important Heading</h1>
+                <h3 style="margin-bottom: 1rem;">Secondary Information</h3>
+                <p>This is the body text which is smaller and less emphasized, but still highly readable due to proper
+                    line length and contrast.</p>
+            </div>
+        </section>
+
+        <!-- Quiz Section -->
+        <section class="quiz-section glass">
+            <div class="card-icon">🧠</div>
+            <h2>Knowledge Check</h2>
+            <div id="quiz-container">
+                <div class="question">
+                    <p>1. Which of the following refers to how individual characters are designed and arranged?</p>
+                    <div class="options">
+                        <button class="option-btn" onclick="checkAnswer(this, false)">Glyph</button>
+                        <button class="option-btn" onclick="checkAnswer(this, true)">Type</button>
+                        <button class="option-btn" onclick="checkAnswer(this, false)">Beak</button>
+                        <button class="option-btn" onclick="checkAnswer(this, false)">Shoulder</button>
+                    </div>
+                </div>
+                <div class="question">
+                    <p>2. What is the difference between a typeface and a font?</p>
+                    <div class="options">
+                        <button class="option-btn" onclick="checkAnswer(this, false)">A typeface is a style of a font,
+                            while a font is the overall design.</button>
+                        <button class="option-btn" onclick="checkAnswer(this, true)">A font is a specific style of a
+                            typeface, while a typeface is the design blueprint.</button>
+                        <button class="option-btn" onclick="checkAnswer(this, false)">There is no difference between a
+                            typeface and a font.</button>
+                        <button class="option-btn" onclick="checkAnswer(this, false)">A typeface is a collection of
+                            fonts, while a font is a single character.</button>
+                    </div>
+                </div>
+                <div class="question">
+                    <p>3. What is the main difference between serif and sans-serif fonts?</p>
+                    <div class="options">
+                        <button class="option-btn" onclick="checkAnswer(this, false)">Serif fonts are handwritten, while
+                            sans-serif are printed.</button>
+                        <button class="option-btn" onclick="checkAnswer(this, true)">Serif fonts have small lines at the
+                            ends of characters, sans-serif do not.</button>
+                        <button class="option-btn" onclick="checkAnswer(this, false)">Serif fonts are for headlines,
+                            sans-serif are for body text.</button>
+                        <button class="option-btn" onclick="checkAnswer(this, false)">Serif fonts are older than
+                            sans-serif fonts.</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>Typography Series | Step 100</p>
+    </footer>
+
+    <script>
+        function checkAnswer(btn, isCorrect) {
+            const btns = btn.parentElement.querySelectorAll('.option-btn');
+            btns.forEach(b => b.classList.remove('correct', 'wrong'));
+            if (isCorrect) {
+                btn.classList.add('correct');
+            } else {
+                btn.classList.add('wrong');
+            }
+        }
+    </script>
+</body>
+
+</html>

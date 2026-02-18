@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSS Flexbox Basics | Sapphire Depth</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
+</head>
+
+<body>
+    <div class="background-glow"></div>
+
+    <header>
+        <h1>CSS <span class="accent">Flexbox Basics</span></h1>
+        <p class="subtitle">Introduction to One-Dimensional Layouts</p>
+    </header>
+
+    <main>
+        <!-- What Is CSS Flexbox -->
+        <section class="tutorial-card glass">
+            <div class="card-icon">🔀</div>
+            <h2>1. What Is CSS Flexbox?</h2>
+            <p>CSS flexbox is a one-dimensional layout model that allows you to arrange elements in rows and columns
+                within a container. It focuses on arranging elements along a single axis at a time (horizontal or
+                vertical).</p>
+            <div class="alert note">
+                <strong>When to Use:</strong> Use it to create responsive websites that adapt to different screen sizes
+                and orientations.
+            </div>
+        </section>
+
+        <!-- Flex Container and Flex Item -->
+        <section class="tutorial-card glass">
+            <div class="card-icon">📦</div>
+            <h2>2. Container & Items</h2>
+            <p>A <strong>Flex Container</strong> is created with <code>display: flex</code>. Its direct children become
+                <strong>Flex Items</strong>.</p>
+
+            <div class="property-group">
+                <h3>Default Behavior (Block)</h3>
+                <p>Without Flexbox, div elements stack vertically.</p>
+                <div class="demo-area">
+                    <div class="block-preview">
+                        <div class="flex-item one"></div>
+                        <div class="flex-item two"></div>
+                        <div class="flex-item three"></div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="property-group">
+                <h3>Flex Behavior</h3>
+                <p>With <code>display: flex</code>, items align horizontally and shrink to fit.</p>
+                <div class="demo-area">
+                    <div class="flex-container">
+                        <div class="flex-item one"></div>
+                        <div class="flex-item two"></div>
+                        <div class="flex-item three"></div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- The Flex Model: Axes -->
+        <section class="tutorial-card glass">
+            <div class="card-icon">📏</div>
+            <h2>3. The Flex Model: Axes</h2>
+            <p>Every flex container has two perpendicular axes:</p>
+            <ul>
+                <li><strong>Main Axis:</strong> Primary direction (Horizontal by default).</li>
+                <li><strong>Cross Axis:</strong> Perpendicular to main axis (Vertical by default).</li>
+            </ul>
+            <div class="axis-visual">
+                <div class="main-axis-line">Main Axis <span>→</span></div>
+                <div class="cross-axis-line"><span>↓</span> Cross Axis</div>
+            </div>
+        </section>
+
+        <!-- flex-direction -->
+        <section class="tutorial-card glass">
+            <div class="card-icon">🧭</div>
+            <h2>4. flex-direction</h2>
+            <p>Sets the direction of the main axis.</p>
+
+            <div class="property-group">
+                <h3>row (Default) / row-reverse</h3>
+                <div class="demo-area">
+                    <p class="hint">row-reverse</p>
+                    <div class="flex-container dir-row-rev">
+                        <div class="flex-item one">1</div>
+                        <div class="flex-item two">2</div>
+                        <div class="flex-item three">3</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="property-group">
+                <h3>column / column-reverse</h3>
+                <div class="demo-area">
+                    <p class="hint">column</p>
+                    <div class="flex-container dir-col">
+                        <div class="flex-item one">1</div>
+                        <div class="flex-item two">2</div>
+                        <div class="flex-item three">3</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Interactive Quiz -->
+        <section class="quiz-section glass">
+            <div class="card-icon">🧠</div>
+            <h2>Knowledge Check</h2>
+            <div id="quiz-container">
+                <div class="question">
+                    <p>1. What is the primary purpose of CSS Flexbox?</p>
+                    <div class="options">
+                        <button class="option-btn" onclick="checkAnswer(this, false)">To control the font size of text
+                            elements.</button>
+                        <button class="option-btn" onclick="checkAnswer(this, true)">To create responsive and dynamic
+                            layouts.</button>
+                        <button class="option-btn" onclick="checkAnswer(this, false)">To define the color of
+                            elements.</button>
+                        <button class="option-btn" onclick="checkAnswer(this, false)">To adjust the spacing between
+                            elements.</button>
+                    </div>
+                </div>
+                <div class="question">
+                    <p>2. Which of the following CSS properties is used to control the direction in which child elements
+                        are arranged within a flex container?</p>
+                    <div class="options">
+                        <button class="option-btn" onclick="checkAnswer(this, false)">flex-wrap</button>
+                        <button class="option-btn" onclick="checkAnswer(this, false)">align-items</button>
+                        <button class="option-btn" onclick="checkAnswer(this, false)">justify-content</button>
+                        <button class="option-btn" onclick="checkAnswer(this, true)">flex-direction</button>
+                    </div>
+                </div>
+                <div class="question">
+                    <p>3. In the flex model, what is the relationship between the main axis and the cross axis?</p>
+                    <div class="options">
+                        <button class="option-btn" onclick="checkAnswer(this, false)">The main axis is always
+                            horizontal, while the cross axis is always vertical.</button>
+                        <button class="option-btn" onclick="checkAnswer(this, false)">The main axis is always vertical,
+                            while the cross axis is always horizontal.</button>
+                        <button class="option-btn" onclick="checkAnswer(this, true)">The main axis and cross axis are
+                            always perpendicular to each other.</button>
+                        <button class="option-btn" onclick="checkAnswer(this, false)">The main axis and cross axis are
+                            always parallel to each other.</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>CSS Flexbox Series | Step 96</p>
+    </footer>
+
+    <script>
+        function checkAnswer(btn, isCorrect) {
+            const btns = btn.parentElement.querySelectorAll('.option-btn');
+            btns.forEach(b => b.classList.remove('correct', 'wrong'));
+            if (isCorrect) {
+                btn.classList.add('correct');
+            } else {
+                btn.classList.add('wrong');
+            }
+        }
+    </script>
+</body>
+
+</html>

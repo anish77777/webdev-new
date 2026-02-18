@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Margin Collapsing | Amber Flare</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
+</head>
+
+<body>
+    <div class="background-glow"></div>
+
+    <header>
+        <h1>Margin <span class="accent">Collapsing</span></h1>
+        <p class="subtitle">Understanding how vertical margins overlap and interact.</p>
+    </header>
+
+    <main>
+        <section class="tutorial-card glass">
+            <div class="card-icon">🏗️</div>
+            <h2>What is Margin Collapsing?</h2>
+            <p>Margin collapsing occurs when the vertical margins of adjacent elements overlap, resulting in a single
+                margin equal to the larger of the two. This behavior only applies to <strong>vertical</strong> margins.
+            </p>
+            <div class="concept-box">
+                <div class="formula">20px (bottom) + 30px (top) = <span class="highlight">30px</span> (Collapses to
+                    Larger)</div>
+            </div>
+        </section>
+
+        <section class="tutorial-card glass">
+            <div class="card-icon">👫</div>
+            <h2>1. Adjacent Sibling Collapsing</h2>
+            <p>The most common scenario where the bottom margin of one element meets the top margin of the next.</p>
+            <div class="demo-box">
+                <div class="collapsing-demo">
+                    <div class="box sibling1">Margin Bottom: 20px</div>
+                    <div class="box sibling2">Margin Top: 30px</div>
+                </div>
+            </div>
+            <p class="note">The resulting gap is 30px, not 50px.</p>
+        </section>
+
+        <section class="tutorial-card glass">
+            <div class="card-icon">👨‍👩‍👦</div>
+            <h2>2. Parent and First/Last Child</h2>
+            <p>Margins can collapse between a parent and its internal child if there's no border, padding, or inline
+                content to separate them.</p>
+            <div class="demo-box">
+                <div class="parent-box">
+                    <div class="child-box">Child with 30px Top Margin</div>
+                </div>
+            </div>
+            <p class="note">The child's margin "leaks" out and merges with the parent's.</p>
+        </section>
+
+        <section class="tutorial-card glass">
+            <div class="card-icon">🕳️</div>
+            <h2>3. Empty Element Collapsing</h2>
+            <p>If an element has no content, height, or border, its top and bottom margins can collapse into a single
+                margin.</p>
+            <div class="demo-box empty-demo">
+                <div class="pre-box">Element Above</div>
+                <div class="empty-block">Empty (20px Top, 10px Bottom)</div>
+                <div class="post-box">Element Below</div>
+            </div>
+        </section>
+
+        <section class="tutorial-card glass">
+            <div class="card-icon">🛡️</div>
+            <h2>Prevention Techniques</h2>
+            <p>You can prevent collapsing by introducing a "separator" between margins:</p>
+            <ul>
+                <li>Adding a <strong>border</strong> to the parent.</li>
+                <li>Setting <strong>padding</strong> on the parent.</li>
+                <li>Using <strong>inline-block</strong> or <strong>flex/grid</strong> containers.</li>
+            </ul>
+        </section>
+
+        <section class="quiz-section glass">
+            <h2>Knowledge Check</h2>
+            <div id="quiz-container">
+                <div class="question">
+                    <p>1. In which direction does margin collapsing occur?</p>
+                    <div class="options">
+                        <button class="option-btn" onclick="checkAnswer(this, false)">Horizontal margins only</button>
+                        <button class="option-btn" onclick="checkAnswer(this, true)">Vertical margins only</button>
+                        <button class="option-btn" onclick="checkAnswer(this, false)">Both Horizontal and
+                            Vertical</button>
+                    </div>
+                </div>
+                <div class="question">
+                    <p>2. What happens when two adjacent elements have different margin values?</p>
+                    <div class="options">
+                        <button class="option-btn" onclick="checkAnswer(this, false)">The margins add up</button>
+                        <button class="option-btn" onclick="checkAnswer(this, true)">The larger margin is used</button>
+                        <button class="option-btn" onclick="checkAnswer(this, false)">The smaller margin is
+                            used</button>
+                    </div>
+                </div>
+                <div class="question">
+                    <p>3. Which of the following will NOT prevent collapsing between parent and first child?</p>
+                    <div class="options">
+                        <button class="option-btn" onclick="checkAnswer(this, false)">Adding a border to the
+                            parent</button>
+                        <button class="option-btn" onclick="checkAnswer(this, false)">Adding padding to the
+                            parent</button>
+                        <button class="option-btn" onclick="checkAnswer(this, true)">Setting margin-top: 0; on the
+                            child</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <script>
+        function checkAnswer(btn, isCorrect) {
+            const btns = btn.parentElement.querySelectorAll('.option-btn');
+            btns.forEach(b => b.classList.remove('correct', 'wrong'));
+            if (isCorrect) {
+                btn.classList.add('correct');
+            } else {
+                btn.classList.add('wrong');
+            }
+        }
+    </script>
+</body>
+
+</html>

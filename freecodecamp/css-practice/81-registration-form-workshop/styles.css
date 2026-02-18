@@ -1,0 +1,126 @@
+/* Step 3: Body size and viewpoint units */
+/* Step 4: Remove margin to hide horizontal scrollbar */
+body {
+    width: 100%;
+    height: 100vh;
+    margin: 0;
+    background-color: #0f172a;
+    /* Midnight Theme */
+    color: #f8fafc;
+    font-family: 'Outfit', 'Tahoma', sans;
+    font-size: 16px;
+}
+
+h1,
+p {
+    margin: 1em auto;
+    text-align: center;
+}
+
+h1 {
+    background: linear-gradient(135deg, #fbbf24, #d97706);
+    /* Gold gradient logo */
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+form {
+    width: 60vw;
+    max-width: 500px;
+    min-width: 300px;
+    margin: 0 auto;
+    padding-bottom: 2em;
+    background: rgba(30, 41, 59, 0.5);
+    padding: 2rem;
+    border-radius: 16px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+}
+
+/* Step 42: Fieldset padding and removal of default borders */
+fieldset {
+    border: none;
+    padding: 2rem 0;
+    border-bottom: 3px solid #334155;
+}
+
+/* Step 44: Remove border from last fieldset */
+fieldset:last-of-type {
+    border-bottom: none;
+}
+
+/* Step 11: Label display block and rem margins */
+label {
+    display: block;
+    margin: 0.5rem 0;
+}
+
+/* Step 45: Full width for inputs, textarea, and select */
+/* Step 51: Text color and min-height */
+/* Step 52: Universal min-height */
+input,
+textarea,
+select {
+    margin: 10px 0 0 0;
+    width: 100%;
+    min-height: 2.5em;
+    border-radius: 8px;
+    background-color: #1e293b;
+    border: 1px solid #475569;
+    color: #ffffff;
+    padding: 0 1rem;
+}
+
+/* Step 52: Select specifically with white dropdown indicator context */
+select {
+    padding: 0 0.5rem;
+}
+
+/* Step 46 & 47: Inline elements styling */
+/* Step 48: Right margin for inline elements */
+.inline {
+    width: unset;
+    margin: 0 0.5em 0 0;
+    vertical-align: middle;
+}
+
+/* Step 53, 54, 56: Submit button attribute selector and centering */
+input[type="submit"] {
+    display: block;
+    width: 60%;
+    margin: 2em auto;
+    height: 3em;
+    font-size: 1.1rem;
+    font-weight: 700;
+    background-color: #d97706;
+    color: #fff;
+    border: none;
+    border-radius: 12px;
+    cursor: pointer;
+    transition: transform 0.2s, background-color 0.2s;
+}
+
+input[type="submit"]:hover {
+    background-color: #b45309;
+    transform: translateY(-2px);
+}
+
+/* Step 58: File input specific padding */
+input[type="file"] {
+    padding: 10px 0;
+    background: none;
+    border: none;
+}
+
+/* Step 61: Anchor link color */
+a {
+    color: #fbbf24;
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+.terms-label {
+    margin-top: 1.5rem;
+}

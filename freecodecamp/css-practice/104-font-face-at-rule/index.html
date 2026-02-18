@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@font-face At-Rule | Sapphire Depth</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
+</head>
+
+<body>
+    <div class="background-glow"></div>
+
+    <header>
+        <h1><span class="accent">@font-face</span> At-Rule</h1>
+        <p class="subtitle">Defining Custom Typefaces in CSS</p>
+    </header>
+
+    <main>
+        <!-- What are At-Rules -->
+        <section class="tutorial-card glass">
+            <h2>1. What are At-Rules?</h2>
+            <p>At-rules are CSS statements providing instructions to the browser. They start with an <code>@</code>
+                symbol. Common examples include <code>@media</code>, <code>@keyframes</code>, and
+                <code>@font-face</code>.</p>
+        </section>
+
+        <!-- @font-face Syntax -->
+        <section class="tutorial-card glass">
+            <h2>2. The @font-face Syntax</h2>
+            <p>With <code>@font-face</code>, you can define a custom font by specifying its name and source file. This
+                allows you to go beyond standard web-safe fonts.</p>
+
+            <div class="code-window">
+                <pre><code><span class="k">@font-face</span> {
+  <span class="p">font-family</span>: <span class="v">"MyCustomFont"</span>;
+  <span class="p">src</span>: <span class="v">url("path/to/font.woff2")</span> <span class="v">format("woff2")</span>;
+}</code></pre>
+            </div>
+            <p>Once defined, you can use the name (e.g., "MyCustomFont") in your <code>font-family</code> properties
+                throughout your stylesheet.</p>
+        </section>
+
+        <!-- Descriptors -->
+        <section class="tutorial-card glass">
+            <h2>3. Key Descriptors</h2>
+            <p>Descriptors are used inside the curly brackets to customize the font face characteristics.</p>
+
+            <h3>The src Descriptor</h3>
+            <p>This is required. it provides a list of font resources. You can include multiple formats to ensure
+                compatibility across different browsers.</p>
+
+            <div class="code-window">
+                <pre><code><span class="k">@font-face</span> {
+  <span class="p">font-family</span>: <span class="v">"BrandFont"</span>;
+  <span class="p">src</span>: <span class="v">url("font.woff2")</span> <span class="v">format("woff2")</span>,
+       <span class="v">url("font.woff")</span> <span class="v">format("woff")</span>,
+       <span class="v">url("font.otf")</span> <span class="v">format("opentype")</span>;
+}</code></pre>
+            </div>
+
+            <p>Browsers will check each resource in order. WOFF2 is generally preferred for its superior compression.
+            </p>
+        </section>
+
+        <!-- Font Formats table -->
+        <section class="tutorial-card glass">
+            <h2>4. Font Formats</h2>
+            <p>Different formats provide different levels of compression and feature support.</p>
+
+            <table>
+                <thead>
+                    <tr>
+                        <th>Format Name</th>
+                        <th>File Extension</th>
+                        <th>Description</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>WOFF / WOFF2</td>
+                        <td>.woff / .woff2</td>
+                        <td>Web Open Font Format. Best for web use with high compression.</td>
+                    </tr>
+                    <tr>
+                        <td>OpenType</td>
+                        <td>.otf</td>
+                        <td>Scalable font format developed by Adobe and Microsoft.</td>
+                    </tr>
+                    <tr>
+                        <td>TrueType</td>
+                        <td>.ttf</td>
+                        <td>Older format, widely supported on operating systems.</td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+
+        <!-- Quiz Section -->
+        <section class="quiz-section glass">
+            <h2>Knowledge Check</h2>
+            <div class="question">
+                <p>1. What is the primary purpose of the @font-face at-rule in CSS?</p>
+                <div class="options">
+                    <button class="option-btn" onclick="checkAnswer(this, false)">To define the color of text.</button>
+                    <button class="option-btn" onclick="checkAnswer(this, false)">To control the font size.</button>
+                    <button class="option-btn" onclick="checkAnswer(this, true)">To define custom fonts.</button>
+                    <button class="option-btn" onclick="checkAnswer(this, false)">To adjust the line spacing.</button>
+                </div>
+            </div>
+
+            <div class="question">
+                <p>2. Which property is required within @font-face to specify the font file?</p>
+                <div class="options">
+                    <button class="option-btn" onclick="checkAnswer(this, false)">font-name</button>
+                    <button class="option-btn" onclick="checkAnswer(this, true)">src</button>
+                    <button class="option-btn" onclick="checkAnswer(this, false)">font-weight</button>
+                    <button class="option-btn" onclick="checkAnswer(this, false)">font-style</button>
+                </div>
+            </div>
+
+            <div class="question">
+                <p>3. What is the primary advantage of custom fonts over web-safe fonts?</p>
+                <div class="options">
+                    <button class="option-btn" onclick="checkAnswer(this, false)">Increased browser
+                        compatibility.</button>
+                    <button class="option-btn" onclick="checkAnswer(this, true)">Enhanced customization and
+                        branding.</button>
+                    <button class="option-btn" onclick="checkAnswer(this, false)">Faster page loading times.</button>
+                    <button class="option-btn" onclick="checkAnswer(this, false)">Simplified font management.</button>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>Font Series | Step 104</p>
+    </footer>
+
+    <script>
+        function checkAnswer(btn, isCorrect) {
+            const btns = btn.parentElement.querySelectorAll('.option-btn');
+            btns.forEach(b => b.classList.remove('correct', 'wrong'));
+            if (isCorrect) {
+                btn.classList.add('correct');
+            } else {
+                btn.classList.add('wrong');
+            }
+        }
+    </script>
+</body>
+
+</html>

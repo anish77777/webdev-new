@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSS Layouts & Effects Review | Sapphire Depth</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
+</head>
+
+<body>
+    <div class="background-glow"></div>
+
+    <header>
+        <h1>CSS <span class="accent">Layouts & Effects</span></h1>
+        <p class="subtitle">Comprehensive Review of Modern Styling Properties</p>
+    </header>
+
+    <main>
+        <!-- Topic 1: Overflow Property -->
+        <section class="tutorial-card glass">
+            <div class="card-icon">🌊</div>
+            <h2>1. CSS Overflow Property</h2>
+            <p>Overflow refers to how elements handle content that exceeds the size of its container. It's
+                two-dimensional (x and y axis).</p>
+            <div class="demo-area">
+                <div class="overflow-box">
+                    This is very long content that will overflow horizontally and vertically.
+                    <br />
+                    This is very long content that will overflow horizontally and vertically.
+                    <br />
+                    This is very long content that will overflow horizontally and vertically.
+                    <br />
+                    This is very long content that will overflow horizontally and vertically.
+                    <br />
+                    This is very long content that will overflow horizontally and vertically.
+                    <br />
+                    This is very long content that will overflow horizontally and vertically.
+                </div>
+            </div>
+            <p class="hint">Scroll horizontally and vertically to see the hidden content.</p>
+        </section>
+
+        <!-- Topic 2: Transform Property -->
+        <section class="tutorial-card glass">
+            <div class="card-icon">🔄</div>
+            <h2>2. CSS Transform Property</h2>
+            <p>Modify elements using translate, scale, rotate, and skew in 2D or 3D space.</p>
+            <div class="demo-area">
+                <div class="container-transform">
+                    <div class="transform-box translate">Translate</div>
+                    <div class="transform-box scale">Scale</div>
+                    <div class="transform-box rotate">Rotate</div>
+                    <div class="transform-box skew">Skew</div>
+                </div>
+            </div>
+            <div class="alert note">
+                <strong>Accessibility Tip:</strong> Content hidden or moved by transforms should still be accessible to
+                screen readers. Use <code>display: none</code> or <code>visibility: hidden</code> for true removal.
+            </div>
+        </section>
+
+        <!-- Topic 3: The Box Model -->
+        <section class="tutorial-card glass">
+            <div class="card-icon">📦</div>
+            <h2>3. The Box Model</h2>
+            <p>Every element is a box consisting of: Content, Padding, Border, and Margin.</p>
+            <div class="demo-area">
+                <div class="box-model-container">
+                    <div class="box-model">Content</div>
+                </div>
+            </div>
+            <div class="alert important">
+                <strong>Margin Collapse:</strong> Vertical margins of adjacent elements often overlap, resulting in a
+                single margin equal to the larger of the two.
+            </div>
+        </section>
+
+        <!-- Topic 4: Box-Sizing -->
+        <section class="tutorial-card glass">
+            <div class="card-icon">📐</div>
+            <h2>4. Content-box vs Border-box</h2>
+            <p>The <code>box-sizing</code> property determines how final dimensions are calculated.</p>
+            <div class="demo-area">
+                <div class="sizing-container">
+                    <div class="sizing-wrap">
+                        <div class="sizing-box content-box">Content-box</div>
+                        <span class="label">Total Width: 178px (150+10*2+4*2)</span>
+                    </div>
+                    <div class="sizing-wrap">
+                        <div class="sizing-box border-box">Border-box</div>
+                        <span class="label">Total Width: 150px</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Topic 5: CSS Filter Property -->
+        <section class="tutorial-card glass">
+            <div class="card-icon">✨</div>
+            <h2>5. CSS Filter Property</h2>
+            <p>Apply graphical effects like blurring, brightness, and color shifting.</p>
+            <div class="demo-area filter-grid">
+                <div class="filter-item">
+                    <img class="filter-img filter-blur"
+                        src="https://cdn.freecodecamp.org/curriculum/cat-photo-app/relaxing-cat.jpg" alt="Blur" />
+                    <span>Blur(3px)</span>
+                </div>
+                <div class="filter-item">
+                    <img class="filter-img filter-brightness"
+                        src="https://cdn.freecodecamp.org/curriculum/cat-photo-app/relaxing-cat.jpg" alt="Brightness" />
+                    <span>Brightness(130%)</span>
+                </div>
+                <div class="filter-item">
+                    <img class="filter-img filter-contrast"
+                        src="https://cdn.freecodecamp.org/curriculum/cat-photo-app/relaxing-cat.jpg" alt="Contrast" />
+                    <span>Contrast(150%)</span>
+                </div>
+                <div class="filter-item">
+                    <img class="filter-img filter-grayscale"
+                        src="https://cdn.freecodecamp.org/curriculum/cat-photo-app/relaxing-cat.jpg" alt="Grayscale" />
+                    <span>Grayscale(100%)</span>
+                </div>
+                <div class="filter-item">
+                    <img class="filter-img filter-sepia"
+                        src="https://cdn.freecodecamp.org/curriculum/cat-photo-app/relaxing-cat.jpg" alt="Sepia" />
+                    <span>Sepia(100%)</span>
+                </div>
+                <div class="filter-item">
+                    <img class="filter-img filter-hue"
+                        src="https://cdn.freecodecamp.org/curriculum/cat-photo-app/relaxing-cat.jpg" alt="Hue Rotate" />
+                    <span>Hue(90deg)</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- Topic 6: CSS Reset -->
+        <section class="tutorial-card glass">
+            <div class="card-icon">🧹</div>
+            <h2>6. CSS Reset</h2>
+            <p>Stylesheets that remove default browser formatting (e.g., Normalize.css, Sanitize.css) to provide a
+                consistent baseline.</p>
+        </section>
+    </main>
+
+    <footer>
+        <p>CSS Review Series | Step 95</p>
+    </footer>
+</body>
+
+</html>

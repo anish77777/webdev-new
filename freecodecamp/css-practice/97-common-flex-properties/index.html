@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Common Flex Properties | Sapphire Depth</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
+</head>
+
+<body>
+    <div class="background-glow"></div>
+
+    <header>
+        <h1>Common <span class="accent">Flex Properties</span></h1>
+        <p class="subtitle">Distribution and Wrapping of Flex Items</p>
+    </header>
+
+    <main>
+        <!-- flex-wrap -->
+        <section class="tutorial-card glass">
+            <div class="card-icon">🔄</div>
+            <h2>1. flex-wrap</h2>
+            <p>The <code>flex-wrap</code> property determines how flex items are wrapped within a container. By default,
+                items will shrink to fit (<code>nowrap</code>).</p>
+
+            <div class="property-group">
+                <h3>Wrap Values</h3>
+                <div class="demo-area">
+                    <p class="hint">nowrap (Default)</p>
+                    <div class="flex-container wrap-demo-box">
+                        <div class="flex-item one">1</div>
+                        <div class="flex-item two">2</div>
+                        <div class="flex-item three">3</div>
+                    </div>
+                    <p class="hint">wrap</p>
+                    <div class="flex-container wrap-demo-box wrap-on">
+                        <div class="flex-item one">1</div>
+                        <div class="flex-item two">2</div>
+                        <div class="flex-item three">3</div>
+                    </div>
+                    <p class="hint">wrap-reverse</p>
+                    <div class="flex-container wrap-demo-box wrap-reverse">
+                        <div class="flex-item one">1</div>
+                        <div class="flex-item two">2</div>
+                        <div class="flex-item three">3</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="alert note">
+                <strong>Tip:</strong> <code>flex-flow</code> is a shorthand for <code>flex-direction</code> and
+                <code>flex-wrap</code>. Example: <code>flex-flow: column wrap-reverse;</code>
+            </div>
+        </section>
+
+        <!-- justify-content -->
+        <section class="tutorial-card glass">
+            <div class="card-icon">↔️</div>
+            <h2>2. justify-content</h2>
+            <p>Aligns items along the <strong>Main Axis</strong>. This controls horizontal distribution by default.</p>
+
+            <div class="property-group">
+                <h3>Alignment & Spacing</h3>
+                <div class="demo-area">
+                    <p class="hint">flex-start (Default)</p>
+                    <div class="flex-container justify-start">
+                        <div class="flex-item one">1</div>
+                        <div class="flex-item two">2</div>
+                    </div>
+                    <p class="hint">flex-end</p>
+                    <div class="flex-container justify-end">
+                        <div class="flex-item one">1</div>
+                        <div class="flex-item two">2</div>
+                    </div>
+                    <p class="hint">center</p>
+                    <div class="flex-container justify-center">
+                        <div class="flex-item one">1</div>
+                        <div class="flex-item two">2</div>
+                    </div>
+                    <p class="hint">space-between</p>
+                    <div class="flex-container justify-between">
+                        <div class="flex-item one">1</div>
+                        <div class="flex-item two">2</div>
+                        <div class="flex-item three">3</div>
+                    </div>
+                    <p class="hint">space-around</p>
+                    <div class="flex-container justify-around">
+                        <div class="flex-item one">1</div>
+                        <div class="flex-item two">2</div>
+                        <div class="flex-item three">3</div>
+                    </div>
+                    <p class="hint">space-evenly</p>
+                    <div class="flex-container justify-evenly">
+                        <div class="flex-item one">1</div>
+                        <div class="flex-item two">2</div>
+                        <div class="flex-item three">3</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- align-items -->
+        <section class="tutorial-card glass">
+            <div class="card-icon">↕️</div>
+            <h2>3. align-items</h2>
+            <p>Aligns items along the <strong>Cross Axis</strong>. This controls vertical alignment by default.</p>
+
+            <div class="property-group">
+                <h3>Cross Axis Alignment</h3>
+                <div class="demo-area">
+                    <p class="hint">flex-start</p>
+                    <div class="flex-container align-container align-start">
+                        <div class="flex-item one">Start</div>
+                    </div>
+                    <p class="hint">flex-end</p>
+                    <div class="flex-container align-container align-end">
+                        <div class="flex-item one">End</div>
+                    </div>
+                    <p class="hint">center</p>
+                    <div class="flex-container align-container align-center">
+                        <div class="flex-item one">Center</div>
+                    </div>
+                    <p class="hint">stretch (Default if no height set)</p>
+                    <div class="flex-container align-container align-stretch">
+                        <div class="flex-item one">Stretch</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- align-self -->
+        <section class="tutorial-card glass">
+            <div class="card-icon">🎯</div>
+            <h2>4. align-self</h2>
+            <p>Overrides the container's <code>align-items</code> for an <strong>individual</strong> flex item.</p>
+
+            <div class="demo-area">
+                <div class="flex-container align-container align-start">
+                    <div class="flex-item one">Start</div>
+                    <div class="flex-item two self-center">Center</div>
+                    <div class="flex-item three self-end">End</div>
+                    <div class="flex-item special self-stretch">Stretch</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Knowledge Check -->
+        <section class="quiz-section glass">
+            <div class="card-icon">🧠</div>
+            <h2>Knowledge Check</h2>
+            <div id="quiz-container">
+                <div class="question">
+                    <p>1. Which CSS property is used to align child elements horizontally (by default) within a flex
+                        container?</p>
+                    <div class="options">
+                        <button class="option-btn" onclick="checkAnswer(this, false)">flex-direction</button>
+                        <button class="option-btn" onclick="checkAnswer(this, true)">justify-content</button>
+                        <button class="option-btn" onclick="checkAnswer(this, false)">align-items</button>
+                        <button class="option-btn" onclick="checkAnswer(this, false)">flex-wrap</button>
+                    </div>
+                </div>
+                <div class="question">
+                    <p>2. Which CSS property is used to align child elements vertically (by default) within a flex
+                        container?</p>
+                    <div class="options">
+                        <button class="option-btn" onclick="checkAnswer(this, false)">flex-direction</button>
+                        <button class="option-btn" onclick="checkAnswer(this, false)">justify-content</button>
+                        <button class="option-btn" onclick="checkAnswer(this, true)">align-items</button>
+                        <button class="option-btn" onclick="checkAnswer(this, false)">flex-wrap</button>
+                    </div>
+                </div>
+                <div class="question">
+                    <p>3. Which of the following properties can be combined into the flex-flow property?</p>
+                    <div class="options">
+                        <button class="option-btn" onclick="checkAnswer(this, false)">flex-direction and
+                            justify-content</button>
+                        <button class="option-btn" onclick="checkAnswer(this, false)">flex-direction and
+                            align-items</button>
+                        <button class="option-btn" onclick="checkAnswer(this, false)">flex-direction and
+                            align-content</button>
+                        <button class="option-btn" onclick="checkAnswer(this, true)">flex-direction and
+                            flex-wrap</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>CSS Flexbox Series | Step 97</p>
+    </footer>
+
+    <script>
+        function checkAnswer(btn, isCorrect) {
+            const btns = btn.parentElement.querySelectorAll('.option-btn');
+            btns.forEach(b => b.classList.remove('correct', 'wrong'));
+            if (isCorrect) {
+                btn.classList.add('correct');
+            } else {
+                btn.classList.add('wrong');
+            }
+        }
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Special Input Styling | CSS Tutorial</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700&family=JetBrains+Mono:wght@400;500&display=swap"
+        rel="stylesheet">
+</head>
+
+<body>
+    <div class="app-container">
+        <aside class="sidebar">
+            <div class="sidebar-header">
+                <span class="logo">CSS Masterclass</span>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="#challenges" class="nav-link active">Styling Challenges</a></li>
+                    <li><a href="#color-input" class="nav-link">Color Pickers</a></li>
+                    <li><a href="#date-input" class="nav-link">Date Selectors</a></li>
+                    <li><a href="#risks" class="nav-link">Risks & Alternatives</a></li>
+                    <li><a href="#quiz" class="nav-link">Interactive Quiz</a></li>
+                </ul>
+            </nav>
+        </aside>
+
+        <main class="main-content">
+            <header class="top-header">
+                <h1>Styling Special Input Elements</h1>
+                <p class="subtitle">Navigating the complexities of pseudo-elements and browser dependencies.</p>
+            </header>
+
+            <section id="challenges" class="content-section">
+                <h2>1. The Styling Challenge</h2>
+                <div class="text-content">
+                    <p>Special input types like <code>datetime-local</code> and <code>color</code> rely on complex,
+                        browser-specific pseudo-elements. Because default styling depends entirely on the browser, CSS
+                        that looks perfect in one might be broken in another.</p>
+                </div>
+            </section>
+
+            <section id="color-input" class="content-section">
+                <h2>2. Styling Color Pickers</h2>
+                <div class="text-content">
+                    <p>Color inputs are essentially a "swatch" that triggers a native color picker. You can style the
+                        outer box, but the internal "swatch" often requires specific selector targeting.</p>
+                </div>
+                <div class="demo-box">
+                    <form class="demo-form">
+                        <label for="color-picker" class="field-label">Pick your favorite color:</label>
+                        <input type="color" id="color-picker" class="custom-color-input">
+                    </form>
+                </div>
+                <div class="code-container">
+                    <pre><code>input[type="color"] {
+    width: 60px;
+    height: 40px;
+    padding: 0;
+    border: 2px solid #555;
+    border-radius: 4px;
+    cursor: pointer;
+}</code></pre>
+                </div>
+            </section>
+
+            <section id="date-input" class="content-section">
+                <h2>3. Date Selectors & Pseudo-elements</h2>
+                <div class="text-content">
+                    <p>The date selector is a complex component with many moving parts. In WebKit browsers, you can
+                        target specific areas like the calendar icon using pseudo-elements like
+                        <code>::-webkit-calendar-picker-indicator</code>.</p>
+                </div>
+                <div class="demo-box">
+                    <form class="demo-form">
+                        <label for="date-picker" class="field-label">Select your birthdate:</label>
+                        <input type="date" id="date-picker" class="custom-date-input">
+                    </form>
+                </div>
+                <div class="code-container">
+                    <pre><code>input[type="date"]::-webkit-calendar-picker-indicator {
+    background-color: #4CAF50;
+    color: white;
+    border-radius: 4px;
+    cursor: pointer;
+}</code></pre>
+                </div>
+            </section>
+
+            <section id="risks" class="content-section">
+                <h2>4. Risks & Alternatives</h2>
+                <div class="text-content">
+                    <p>Manual styling carries the risk of losing critical functionality like focus states or
+                        accessibility attributes. One wrong selector could break the component entirely.</p>
+                    <p><strong>The Pro Strategy:</strong> Many developers choose to use JavaScript libraries or build
+                        completely custom HTML/CSS components to ensure 100% consistency across all browsers.</p>
+                </div>
+            </section>
+
+            <section id="quiz" class="content-section quiz-section">
+                <h2>Special Inputs Mastery Quiz</h2>
+                <div id="quiz-container">
+                    <!-- Quiz will be injected by script.js -->
+                </div>
+            </section>
+        </main>
+    </div>
+    <script src="script.js"></script>
+</body>
+
+</html>

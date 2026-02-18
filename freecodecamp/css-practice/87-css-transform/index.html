@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSS Transform | Crimson Blaze</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
+</head>
+
+<body>
+    <div class="background-glow"></div>
+
+    <header>
+        <h1>CSS <span class="accent">Transform</span></h1>
+        <p class="subtitle">Modify elements visually without affecting the document flow.</p>
+    </header>
+
+    <main>
+        <section class="tutorial-card glass">
+            <div class="card-icon">🌀</div>
+            <h2>What is Transform?</h2>
+            <p>The <code>transform</code> property applies mathematical transformations to an element's coordinate
+                system. It allows you to rotate, scale, skew, or translate elements while keeping their original place
+                in the document flow intact.</p>
+            <div class="demo-box center-demo">
+                <div class="box base-box">Base Position</div>
+                <div class="box transform-box" id="main-demo-box">TRANSFORMED</div>
+            </div>
+        </section>
+
+        <section class="tutorial-card glass">
+            <div class="card-icon">🚀</div>
+            <h2>The <code>translate()</code> Function</h2>
+            <p>Moves an element from its current position along the X and Y axes.</p>
+            <div class="code-block">
+                <code>transform: translate(50px, 100px);</code>
+            </div>
+            <div class="demo-box slider-demo">
+                <div class="controls">
+                    <label>Translate X: <span id="val-tx">0px</span></label>
+                    <input type="range" min="-100" max="100" value="0"
+                        oninput="updateTransform('translateX', this.value, 'px')">
+                    <label>Translate Y: <span id="val-ty">0px</span></label>
+                    <input type="range" min="-100" max="100" value="0"
+                        oninput="updateTransform('translateY', this.value, 'px')">
+                </div>
+                <div class="view">
+                    <div class="box" id="translate-box">Translate Me</div>
+                </div>
+            </div>
+        </section>
+
+        <section class="tutorial-card glass">
+            <div class="card-icon">🔄</div>
+            <h2>The <code>rotate()</code> Function</h2>
+            <p>Rotates an element around a fixed point (usually the center) by a specified angle.</p>
+            <div class="code-block">
+                <code>transform: rotate(45deg);</code>
+            </div>
+            <div class="demo-box slider-demo">
+                <div class="controls">
+                    <label>Rotation: <span id="val-rot">0deg</span></label>
+                    <input type="range" min="0" max="360" value="0"
+                        oninput="updateTransform('rotate', this.value, 'deg')">
+                </div>
+                <div class="view">
+                    <div class="box" id="rotate-box">Rotate Me</div>
+                </div>
+            </div>
+        </section>
+
+        <section class="tutorial-card glass">
+            <div class="card-icon">⚖️</div>
+            <h2>The <code>scale()</code> Function</h2>
+            <p>Changes the size of an element. A value of <code>1.5</code> makes it 1.5x larger, while <code>0.5</code>
+                makes it half its original size.</p>
+            <div class="code-block">
+                <code>transform: scale(1.5, 2);</code>
+            </div>
+            <div class="demo-box slider-demo">
+                <div class="controls">
+                    <label>Scale: <span id="val-scale">1.0</span></label>
+                    <input type="range" min="0.5" max="2" step="0.1" value="1"
+                        oninput="updateTransform('scale', this.value, '')">
+                </div>
+                <div class="view">
+                    <div class="box" id="scale-box">Scale Me</div>
+                </div>
+            </div>
+        </section>
+
+        <section class="tutorial-card glass">
+            <div class="card-icon">♿</div>
+            <h2>Accessibility Concerns</h2>
+            <div class="a11y-grid">
+                <div class="a11y-item">
+                    <h3>Focus & Interaction</h3>
+                    <p>Ensure clickable areas remain intuitive. Drastic transforms can make buttons difficult to target.
+                    </p>
+                </div>
+                <div class="a11y-item">
+                    <h3>Screen Readers</h3>
+                    <p>Visual rearrangement via transform doesn't change DOM order. Screen readers follow the DOM order.
+                    </p>
+                </div>
+                <div class="a11y-item">
+                    <h3>Motion Sensitivity</h3>
+                    <p>Avoid excessive or rapid animations which can trigger discomfort or seizures.</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="quiz-section glass">
+            <h2>Knowledge Check</h2>
+            <div id="quiz-container">
+                <div class="question">
+                    <p>1. Which of the following is NOT an accessibility concern when using transforms?</p>
+                    <div class="options">
+                        <button class="option-btn" onclick="checkAnswer(this, false)">Motion sensitivity for
+                            animations.</button>
+                        <button class="option-btn" onclick="checkAnswer(this, true)">Transforms always improve
+                            accessibility.</button>
+                        <button class="option-btn" onclick="checkAnswer(this, false)">Screen readers following DOM order
+                            instead of visual order.</button>
+                    </div>
+                </div>
+                <div class="question">
+                    <p>2. What should you ensure when using transforms to hide content?</p>
+                    <div class="options">
+                        <button class="option-btn" onclick="checkAnswer(this, false)">Use bright colors for hidden
+                            content.</button>
+                        <button class="option-btn" onclick="checkAnswer(this, true)">Make sure it is truly hidden from
+                            screen readers if intended.</button>
+                        <button class="option-btn" onclick="checkAnswer(this, false)">Never hide content using
+                            transforms.</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <script>
+        const state = {
+            translateX: 0,
+            translateY: 0,
+            rotate: 0,
+            scale: 1
+        };
+
+        function updateTransform(prop, val, unit) {
+            state[prop] = val;
+            document.getElementById('val-' + (prop === 'translateX' ? 'tx' : prop === 'translateY' ? 'ty' : prop === 'rotate' ? 'rot' : 'scale')).innerText = val + unit;
+
+            const targetId = prop.includes('translate') ? 'translate-box' : prop + '-box';
+            const target = document.getElementById(targetId);
+
+            if (prop.includes('translate')) {
+                target.style.transform = `translate(${state.translateX}px, ${state.translateY}px)`;
+            } else if (prop === 'rotate') {
+                target.style.transform = `rotate(${val}deg)`;
+            } else {
+                target.style.transform = `scale(${val})`;
+            }
+        }
+
+        function checkAnswer(btn, isCorrect) {
+            const btns = btn.parentElement.querySelectorAll('.option-btn');
+            btns.forEach(b => b.classList.remove('correct', 'wrong'));
+            if (isCorrect) {
+                btn.classList.add('correct');
+            } else {
+                btn.classList.add('wrong');
+            }
+        }
+    </script>
+</body>
+
+</html>

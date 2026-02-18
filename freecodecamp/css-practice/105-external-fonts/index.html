@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>External Fonts | Sapphire Depth</title>
+    <!-- Google Fonts Embed Code (Link Method) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&family=Space+Grotesk:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+    <div class="background-glow"></div>
+
+    <header>
+        <h1>External <span class="accent">Fonts</span></h1>
+        <p class="subtitle">Leveraging Google Fonts and Font Squirrel</p>
+    </header>
+
+    <main>
+        <!-- What is an External Font? -->
+        <section class="tutorial-card glass">
+            <h2>1. What is an External Font?</h2>
+            <p>An external font is a file hosted on a separate server rather than being included in your project files.
+                This gives you access to a vast library of typefaces without requiring users to have them installed
+                locally.</p>
+        </section>
+
+        <!-- Google Fonts Integration -->
+        <section class="tutorial-card glass">
+            <h2>2. Google Fonts</h2>
+            <p>Google Fonts is the most popular service for free, high-quality web fonts. You can embed them using two
+                primary methods:</p>
+
+            <h3>Method A: &lt;link&gt; Element</h3>
+            <p>Paste the snippet in your HTML <code>&lt;head&gt;</code>. Best for performance as it allows parallel
+                downloading.</p>
+            <div class="code-window">
+                <pre><code>&lt;link rel="preconnect" href="https://fonts.googleapis.com"&gt;
+&lt;link rel="preconnect" href="https://fonts.gstatic.com" crossorigin&gt;
+&lt;link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet"&gt;</code></pre>
+            </div>
+
+            <h3>Method B: @import Rule</h3>
+            <p>Paste at the very top of your CSS file. Convenient for organizing purely within stylesheets.</p>
+            <div class="code-window">
+                <pre><code>@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');</code></pre>
+            </div>
+        </section>
+
+        <!-- Live Showcase -->
+        <section class="tutorial-card glass">
+            <h2>3. Live Example: Roboto Family</h2>
+            <p>Google Fonts allows you to select specific weights and styles. Below is a showcase of the
+                <strong>Roboto</strong> family styles loaded for this page.</p>
+
+            <div class="font-grid">
+                <div class="font-example">
+                    <span class="font-label">Roboto Thin (100)</span>
+                    <p class="example-text roboto-thin">The typography of the future.</p>
+                </div>
+                <div class="font-example">
+                    <span class="font-label">Roboto Medium (500)</span>
+                    <p class="example-text roboto-medium">The typography of the future.</p>
+                </div>
+                <div class="font-example">
+                    <span class="font-label">Roboto Black (900)</span>
+                    <p class="example-text roboto-black">The typography of the future.</p>
+                </div>
+                <div class="font-example">
+                    <span class="font-label">Roboto Bold Italic (700)</span>
+                    <p class="example-text roboto-bold-italic">The typography of the future.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Font Squirrel Section -->
+        <section class="tutorial-card glass">
+            <h2>4. Font Squirrel</h2>
+            <p>Font Squirrel is a great alternative for downloading font kits to host locally or for using their
+                "@font-face Generator" for specialized needs.</p>
+            <div class="alert">
+                <strong>Key Step:</strong> Visit the "Webfont Kit" tab to check licenses and download a pre-configured
+                CSS package.
+            </div>
+        </section>
+
+        <!-- Quiz Section -->
+        <section class="quiz-section glass">
+            <h2>Knowledge Check</h2>
+            <div class="question">
+                <p>1. What is the primary advantage of using external fonts?</p>
+                <div class="options">
+                    <button class="option-btn" onclick="checkAnswer(this, false)">Reduced font file size.</button>
+                    <button class="option-btn" onclick="checkAnswer(this, false)">Increased rendering speed.</button>
+                    <button class="option-btn" onclick="checkAnswer(this, true)">Expanded font selection and
+                        variety.</button>
+                    <button class="option-btn" onclick="checkAnswer(this, false)">Improved browser
+                        compatibility.</button>
+                </div>
+            </div>
+
+            <div class="question">
+                <p>2. What is a potential drawback of using too many external fonts?</p>
+                <div class="options">
+                    <button class="option-btn" onclick="checkAnswer(this, true)">Increased website load time.</button>
+                    <button class="option-btn" onclick="checkAnswer(this, false)">Increased likelihood of bugs.</button>
+                    <button class="option-btn" onclick="checkAnswer(this, false)">Limited customization
+                        options.</button>
+                    <button class="option-btn" onclick="checkAnswer(this, false)">Poor browser compatibility.</button>
+                </div>
+            </div>
+
+            <div class="question">
+                <p>3. Why provide fallback fonts when using external services?</p>
+                <div class="options">
+                    <button class="option-btn" onclick="checkAnswer(this, false)">To create artistic contrast.</button>
+                    <button class="option-btn" onclick="checkAnswer(this, false)">To improve performance.</button>
+                    <button class="option-btn" onclick="checkAnswer(this, true)">To display text if the external service
+                        fails.</button>
+                    <button class="option-btn" onclick="checkAnswer(this, false)">To reduce file size.</button>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>Font Series | Step 105</p>
+    </footer>
+
+    <script>
+        function checkAnswer(btn, isCorrect) {
+            const btns = btn.parentElement.querySelectorAll('.option-btn');
+            btns.forEach(b => b.classList.remove('correct', 'wrong'));
+            if (isCorrect) {
+                btn.classList.add('correct');
+            } else {
+                btn.classList.add('wrong');
+            }
+        }
+    </script>
+</body>
+
+</html>

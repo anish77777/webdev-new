@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Box Sizing | Teal Spark</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
+</head>
+
+<body>
+    <div class="background-glow"></div>
+
+    <header>
+        <h1>Box <span class="accent">Sizing</span></h1>
+        <p class="subtitle">Mastering dimension calculations with content-box and border-box.</p>
+    </header>
+
+    <main>
+        <section class="tutorial-card glass">
+            <div class="card-icon">📏</div>
+            <h2>The <code>box-sizing</code> Property</h2>
+            <p>This property controls how the width and height of elements are calculated. By default, browsers use
+                <code>content-box</code>, but <code>border-box</code> is often preferred for responsive layouts.</p>
+            <div class="universal-selector">
+                <code>* { box-sizing: border-box; }</code>
+            </div>
+        </section>
+
+        <section class="tutorial-card glass">
+            <div class="card-icon">⏹️</div>
+            <h2>1. <code>content-box</code> (Default)</h2>
+            <p>Width and height only apply to the <strong>content area</strong>. Padding and borders are added <em>on
+                    top</em> of the specified size.</p>
+            <div class="math-box">
+                <p>Total Width = Width + Left/Right Padding + Left/Right Border</p>
+            </div>
+            <div class="demo-container">
+                <div class="box-label">Specified: 300px x 200px</div>
+                <div class="preview-box content-box-demo">
+                    <div class="content">Content</div>
+                </div>
+                <p class="calc-label">Actual Render: 348px x 248px</p>
+            </div>
+        </section>
+
+        <section class="tutorial-card glass">
+            <div class="card-icon">🔲</div>
+            <h2>2. <code>border-box</code></h2>
+            <p>Width and height include <strong>content, padding, and border</strong>. The element's total size stays
+                fixed.</p>
+            <div class="math-box">
+                <p>Specified Size = Total Rendered Size</p>
+            </div>
+            <div class="demo-container">
+                <div class="box-label">Specified: 300px x 200px</div>
+                <div class="preview-box border-box-demo">
+                    <div class="content">Content</div>
+                </div>
+                <p class="calc-label">Actual Render: 300px x 200px</p>
+            </div>
+        </section>
+
+        <section class="tutorial-card glass comparison-section">
+            <div class="card-icon">⚖️</div>
+            <h2>Side-by-Side Comparison</h2>
+            <p>Both divs below have <code>width: 300px</code>, <code>padding: 20px</code>, and <code>border: 4px</code>.
+                See the difference!</p>
+            <div class="comparison-grid">
+                <div class="comp-item">
+                    <div class="box content-box" id="red-div">content-box</div>
+                    <span class="label">RED: Larger</span>
+                </div>
+                <div class="comp-item">
+                    <div class="box border-box" id="blue-div">border-box</div>
+                    <span class="label">BLUE: Fixed</span>
+                </div>
+            </div>
+        </section>
+
+        <section class="quiz-section glass">
+            <h2>Knowledge Check</h2>
+            <div id="quiz-container">
+                <div class="question">
+                    <p>1. Which of the following is the default value for <code>box-sizing</code>?</p>
+                    <div class="options">
+                        <button class="option-btn" onclick="checkAnswer(this, true)">content-box</button>
+                        <button class="option-btn" onclick="checkAnswer(this, false)">border-box</button>
+                    </div>
+                </div>
+                <div class="question">
+                    <p>2. What is the primary advantage of <code>border-box</code> in responsive design?</p>
+                    <div class="options">
+                        <button class="option-btn" onclick="checkAnswer(this, false)">It makes calculations more
+                            complex</button>
+                        <button class="option-btn" onclick="checkAnswer(this, true)">Elements keep fixed dimensions
+                            regardless of padding/border</button>
+                    </div>
+                </div>
+                <div class="question">
+                    <p>3. In <code>content-box</code>, what does the specified width represent?</p>
+                    <div class="options">
+                        <button class="option-btn" onclick="checkAnswer(this, true)">The content area only</button>
+                        <button class="option-btn" onclick="checkAnswer(this, false)">Total width including padding and
+                            border</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <script>
+        function checkAnswer(btn, isCorrect) {
+            const btns = btn.parentElement.querySelectorAll('.option-btn');
+            btns.forEach(b => b.classList.remove('correct', 'wrong'));
+            if (isCorrect) {
+                btn.classList.add('correct');
+            } else {
+                btn.classList.add('wrong');
+            }
+        }
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,96 @@
+:root {
+    --forest-depth: #064e3b;
+    /* Deep emerald */
+    --forest-floor: #022c22;
+    --neon-lime: #a3e635;
+    --mint-glow: #34d399;
+    --text-primary: #ecfdf5;
+    --card-bg: rgba(6, 78, 59, 0.4);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: var(--forest-floor);
+    background-image:
+        radial-gradient(circle at 20% 20%, rgba(52, 211, 153, 0.15) 0%, transparent 40%),
+        radial-gradient(circle at 80% 80%, rgba(163, 230, 53, 0.1) 0%, transparent 40%);
+    font-family: 'Space Grotesk', sans-serif;
+    color: var(--text-primary);
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 4rem 2rem;
+}
+
+/* User Story: h1 element with text Feature Selection */
+h1 {
+    font-size: 3.5rem;
+    font-weight: 700;
+    margin-bottom: 3rem;
+    background: linear-gradient(135deg, var(--mint-glow), var(--neon-lime));
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    text-transform: uppercase;
+    letter-spacing: -0.05em;
+}
+
+/* User Story: div element with class feature-card-container */
+.feature-card-container {
+    display: grid;
+    gap: 12px;
+    max-width: 520px;
+}
+
+/* User Story: label element with class feature-card */
+.feature-card {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 14px 16px;
+    border: 1px solid #ddd;
+    border-radius: 12px;
+    cursor: pointer;
+}
+
+/* User Story: selector that targets the checkboxes */
+/* User Story: appearance: none */
+.feature-card input[type="checkbox"] {
+    appearance: none;
+    -webkit-appearance: none;
+    width: 22px;
+    height: 22px;
+    border: 2px solid #6b7280;
+    /* default border color */
+    border-radius: 6px;
+    display: grid;
+    place-items: center;
+    cursor: pointer;
+}
+
+/* ✅ This is what fixes tests 14 and 15 */
+.feature-card input[type="checkbox"]:checked {
+    background-color: #22c55e;
+    /* checked bg color */
+    border-color: #16a34a;
+    /* checked border color */
+}
+
+/* checkmark */
+.feature-card input[type="checkbox"]:checked::after {
+    content: "✓";
+    color: #ffffff;
+    font-size: 16px;
+    line-height: 1;
+}
+
+.feature-card:has(input:checked) {
+    border-color: rgb(224, 129, 224);
+    background: rgba(163, 230, 53, 0.1);
+}

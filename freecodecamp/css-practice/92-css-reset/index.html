@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSS Reset | Emerald Spark</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
+</head>
+
+<body>
+    <div class="background-glow"></div>
+
+    <header>
+        <h1>CSS <span class="accent">Reset</span></h1>
+        <p class="subtitle">Ensuring consistent styling across all browsers and devices.</p>
+    </header>
+
+    <main>
+        <section class="tutorial-card glass">
+            <div class="card-icon">🧹</div>
+            <h2>What is a CSS Reset?</h2>
+            <p>A CSS reset is a stylesheet that removes default browser formatting, providing a consistent baseline for
+                your custom styles. Different browsers (Chrome, Firefox, Edge) apply different default margins,
+                paddings, and styles to HTML elements.</p>
+            <div class="alert note">
+                <strong>Why use it?</strong> It minimizes inconsistencies and makes the styling process easier by giving
+                you a "blank canvas."
+            </div>
+        </section>
+
+        <section class="tutorial-card glass">
+            <div class="card-icon">🛠️</div>
+            <h2>1. Custom Resets</h2>
+            <p>You can create your own reset rules for precise control. A common starting point is resetting margins and
+                padding for all elements:</p>
+            <div class="code-block">
+                <pre><code>* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}</code></pre>
+            </div>
+            <p>The <code>*</code> wildcard selector matches everything, setting a uniform starting point.</p>
+        </section>
+
+        <section class="tutorial-card glass">
+            <div class="card-icon">📦</div>
+            <h2>2. Third-Party Resets</h2>
+            <p>For more robust solutions, many developers use battle-tested libraries:</p>
+            <div class="reset-options-grid">
+                <div class="reset-option">
+                    <h3>Normalize.css</h3>
+                    <p>Makes browsers render all elements more consistently and in line with modern standards. It
+                        preserves useful defaults.</p>
+                </div>
+                <div class="reset-option">
+                    <h3>sanitize.css</h3>
+                    <p>Ensures default styles are consistent across modern browsers, correcting common bugs and
+                        inconsistencies.</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="tutorial-card glass">
+            <div class="card-icon">♿</div>
+            <h2>Accessibility Matters</h2>
+            <p>When resetting styles, be careful not to remove properties that are crucial for accessibility, such as
+                focus outlines for keyboard users.</p>
+            <div class="alert warning">
+                Never use <code>outline: none;</code> without providing an alternative focus state!
+            </div>
+        </section>
+
+        <section class="quiz-section glass">
+            <div class="card-icon">❓</div>
+            <h2>Knowledge Check</h2>
+            <div id="quiz-container">
+                <div class="question">
+                    <p>1. What is the primary purpose of a CSS reset?</p>
+                    <div class="options">
+                        <button class="option-btn" onclick="checkAnswer(this, false)">To add default styles to HTML
+                            elements.</button>
+                        <button class="option-btn" onclick="checkAnswer(this, true)">To establish a consistent baseline
+                            for styling, reducing browser-specific variations.</button>
+                        <button class="option-btn" onclick="checkAnswer(this, false)">To create responsive
+                            designs.</button>
+                        <button class="option-btn" onclick="checkAnswer(this, false)">To enhance website
+                            performance.</button>
+                    </div>
+                </div>
+                <div class="question">
+                    <p>2. Which of the following is a popular third-party browser reset?</p>
+                    <div class="options">
+                        <button class="option-btn" onclick="checkAnswer(this, true)">Normalize.css</button>
+                        <button class="option-btn" onclick="checkAnswer(this, false)">Reset.css (legacy
+                            approach)</button>
+                        <button class="option-btn" onclick="checkAnswer(this, false)">Skeleton</button>
+                        <button class="option-btn" onclick="checkAnswer(this, false)">Foundation</button>
+                    </div>
+                </div>
+                <div class="question">
+                    <p>3. What is the main advantage of using a custom CSS reset over a third-party CSS reset?</p>
+                    <div class="options">
+                        <button class="option-btn" onclick="checkAnswer(this, true)">More flexibility and control over
+                            the styles.</button>
+                        <button class="option-btn" onclick="checkAnswer(this, false)">Improved browser
+                            compatibility.</button>
+                        <button class="option-btn" onclick="checkAnswer(this, false)">Simpler implementation.</button>
+                        <button class="option-btn" onclick="checkAnswer(this, false)">Faster loading times.</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <script>
+        function checkAnswer(btn, isCorrect) {
+            const btns = btn.parentElement.querySelectorAll('.option-btn');
+            btns.forEach(b => b.classList.remove('correct', 'wrong'));
+            if (isCorrect) {
+                btn.classList.add('correct');
+            } else {
+                btn.classList.add('wrong');
+            }
+        }
+    </script>
+</body>
+
+</html>

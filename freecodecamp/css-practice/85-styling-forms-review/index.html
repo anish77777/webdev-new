@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Styling Forms Review | Midnight Obsidian</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
+</head>
+
+<body>
+    <div class="background-glow"></div>
+
+    <header>
+        <h1>Styling Forms <span class="accent">Review</span></h1>
+        <p class="subtitle">Mastering accessibility and control in form design.</p>
+    </header>
+
+    <main>
+        <section class="tutorial-card glass">
+            <div class="card-icon">🎯</div>
+            <h2>Best Practices for Styling Inputs</h2>
+            <p>Accessibility is the cornerstone of form design. When styling text inputs, ensure:</p>
+            <ul>
+                <li><strong>Adequate Sizing:</strong> Fonts should be large enough for easy reading.</li>
+                <li><strong>Sufficient Contrast:</strong> Text must stand out clearly against the background.</li>
+                <li><strong>Focus Indicators:</strong> Always preserve a noticeable indicator (like a bold border) when
+                    an element is focused.</li>
+            </ul>
+            <div class="demo-box">
+                <label for="sample-input">Accessible Input Demo</label>
+                <input type="text" id="sample-input" placeholder="Click to see focus state...">
+            </div>
+        </section>
+
+        <section class="tutorial-card glass">
+            <div class="card-icon">✨</div>
+            <h2>Using <code>appearance: none</code></h2>
+            <p>The <code>appearance: none</code> property gives you complete control by removing default browser styles.
+                However, it comes with responsibility:</p>
+            <blockquote>
+                "When building custom styles for input elements, you must make sure focus and error indicators are still
+                present."
+            </blockquote>
+            <div class="demo-box">
+                <label class="custom-checkbox-container">
+                    Custom Styled Checkbox
+                    <input type="checkbox">
+                    <span class="checkmark"></span>
+                </label>
+            </div>
+        </section>
+
+        <section class="tutorial-card glass">
+            <div class="card-icon">⚠️</div>
+            <h2>Common Issues: Date & Color</h2>
+            <p>Special inputs like <code>datetime-local</code> and <code>color</code> rely on complex, browser-dependent
+                pseudo-elements.</p>
+            <div class="issue-grid">
+                <div class="issue-item">
+                    <h3>The Challenge</h3>
+                    <p>Default styling varies entirely between browsers, making consistent design difficult.</p>
+                </div>
+                <div class="issue-item">
+                    <h3>The Solution</h3>
+                    <p>Often requires specific vendor pseudo-selectors to style internal pickers.</p>
+                </div>
+            </div>
+            <div class="demo-box inputs-row">
+                <div class="input-group">
+                    <label>Date Input</label>
+                    <input type="datetime-local">
+                </div>
+                <div class="input-group">
+                    <label>Color Picker</label>
+                    <input type="color">
+                </div>
+            </div>
+        </section>
+
+        <section class="quiz-section glass">
+            <h2>Knowledge Check</h2>
+            <div id="quiz-container">
+                <div class="question">
+                    <p>1. Why is <code>appearance: none</code> considered a double-edged sword?</p>
+                    <div class="options">
+                        <button class="option-btn" onclick="checkAnswer(this, false)">It makes inputs
+                            invisible.</button>
+                        <button class="option-btn" onclick="checkAnswer(this, true)">It provides control but requires
+                            manual focus/error indicators.</button>
+                        <button class="option-btn" onclick="checkAnswer(this, false)">It only works on Safari.</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <script>
+        function checkAnswer(btn, isCorrect) {
+            const btns = btn.parentElement.querySelectorAll('.option-btn');
+            btns.forEach(b => b.classList.remove('correct', 'wrong'));
+            if (isCorrect) {
+                btn.classList.add('correct');
+            } else {
+                btn.classList.add('wrong');
+            }
+        }
+    </script>
+</body>
+
+</html>

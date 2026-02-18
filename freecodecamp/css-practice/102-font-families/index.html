@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Font Families | Sapphire Depth</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+    <div class="background-glow"></div>
+
+    <header>
+        <h1><span class="accent">Font</span> Families</h1>
+        <p class="subtitle">Fallback Mechanisms and Priority</p>
+    </header>
+
+    <main>
+        <!-- What is a Font Family -->
+        <section class="tutorial-card glass">
+            <h2>1. What is a Font Family?</h2>
+            <p>A font family is a group of fonts that share a common design. All fonts in a family are based on the same
+                core typeface but vary in weight, style, and width.</p>
+            <p>In CSS, we use the <code>font-family</code> property to define the design of our text.</p>
+            <div class="demo-area">
+                <pre><code>p {
+  font-family: Arial;
+}</code></pre>
+            </div>
+        </section>
+
+        <!-- Fallback Mechanisms -->
+        <section class="tutorial-card glass">
+            <h2>2. Priority & Fallback</h2>
+            <p>You can specify multiple font families in order of priority. If the first font isn't found, the browser
+                looks for the second, and so on.</p>
+            <div class="demo-area">
+                <pre><code>h1 {
+  font-family: Arial, Lato, sans-serif;
+}</code></pre>
+            </div>
+
+            <div class="fallback-box">
+                <div class="priority-item">
+                    <div class="priority-step">1</div>
+                    <span class="font-name">Arial</span>
+                    <span style="color: var(--text-dim); font-size: 0.9rem;">(Primary choice)</span>
+                </div>
+                <div class="priority-item">
+                    <div class="priority-step">2</div>
+                    <span class="font-name">Lato</span>
+                    <span style="color: var(--text-dim); font-size: 0.9rem;">(Alternative option)</span>
+                </div>
+                <div class="priority-item">
+                    <div class="priority-step">3</div>
+                    <span class="font-name">sans-serif</span>
+                    <span style="color: var(--text-dim); font-size: 0.9rem;">(Browser default fallback)</span>
+                </div>
+            </div>
+
+            <p style="margin-top: 20px;"><strong>Interesting Fact:</strong> browsers choose fonts character by
+                character. If a font lacks a specific symbol (like an emoji), the browser will look for it in the
+                fallback fonts!</p>
+        </section>
+
+        <!-- Generic Font Families -->
+        <section class="tutorial-card glass">
+            <h2>3. Generic Font Families</h2>
+            <p>Generic font families are defaults that browsers fall back to if your specific choices aren't available.
+            </p>
+            <div class="demo-area">
+                <pre><code>.example {
+  font-family: monospace;
+}</code></pre>
+            </div>
+
+            <div class="property-group">
+                <h3>Serif</h3>
+                <div class="demo-area">
+                    <p class="demo-text serif">The quick brown fox jumps over the lazy dog.</p>
+                </div>
+
+                <h3>Sans-Serif</h3>
+                <div class="demo-area">
+                    <p class="demo-text sans-serif">The quick brown fox jumps over the lazy dog.</p>
+                </div>
+
+                <h3>Monospace</h3>
+                <div class="demo-area">
+                    <p class="demo-text monospace">The quick brown fox jumps over the lazy dog.</p>
+                </div>
+
+                <h3>Cursive</h3>
+                <div class="demo-area">
+                    <p class="demo-text cursive">The quick brown fox jumps over the lazy dog.</p>
+                </div>
+
+                <h3>Fantasy</h3>
+                <div class="demo-area">
+                    <p class="demo-text fantasy">The quick brown fox jumps over the lazy dog.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Quiz Section -->
+        <section class="quiz-section glass">
+            <h2>Knowledge Check</h2>
+            <div class="question">
+                <p>1. What is the primary purpose of the font-family CSS property?</p>
+                <div class="options">
+                    <button class="option-btn" onclick="checkAnswer(this, false)">To set the color of the text.</button>
+                    <button class="option-btn" onclick="checkAnswer(this, false)">To control the font size.</button>
+                    <button class="option-btn" onclick="checkAnswer(this, true)">To define the typeface used for the
+                        text.</button>
+                    <button class="option-btn" onclick="checkAnswer(this, false)">To adjust the line spacing.</button>
+                </div>
+            </div>
+
+            <div class="question">
+                <p>2. Which of the following is a common generic font family?</p>
+                <div class="options">
+                    <button class="option-btn" onclick="checkAnswer(this, false)">Helvetica</button>
+                    <button class="option-btn" onclick="checkAnswer(this, false)">Times New Roman</button>
+                    <button class="option-btn" onclick="checkAnswer(this, true)">Sans-Serif</button>
+                    <button class="option-btn" onclick="checkAnswer(this, false)">Arial</button>
+                </div>
+            </div>
+
+            <div class="question">
+                <p>3. How can you specify multiple font families as a fallback in CSS?</p>
+                <div class="options">
+                    <button class="option-btn" onclick="checkAnswer(this, true)">By separating them with
+                        commas.</button>
+                    <button class="option-btn" onclick="checkAnswer(this, false)">By using nested declarations.</button>
+                    <button class="option-btn" onclick="checkAnswer(this, false)">By using the & character.</button>
+                    <button class="option-btn" onclick="checkAnswer(this, false)">By using the | character.</button>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>Font Series | Step 102</p>
+    </footer>
+
+    <script>
+        function checkAnswer(btn, isCorrect) {
+            const btns = btn.parentElement.querySelectorAll('.option-btn');
+            btns.forEach(b => b.classList.remove('correct', 'wrong'));
+            if (isCorrect) {
+                btn.classList.add('correct');
+            } else {
+                btn.classList.add('wrong');
+            }
+        }
+    </script>
+</body>
+
+</html>

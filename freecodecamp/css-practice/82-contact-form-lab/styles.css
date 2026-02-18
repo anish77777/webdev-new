@@ -1,0 +1,112 @@
+:root {
+    --bg-deep-sea: #0f172a;
+    --ocean-breeze: #14b8a6;
+    /* Teal */
+    --ocean-glow: rgba(20, 184, 166, 0.5);
+    --form-bg: rgba(30, 41, 59, 0.7);
+    --text-primary: #f8fafc;
+    --text-label: #94a3b8;
+    --font-main: 'Outfit', sans-serif;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: var(--bg-deep-sea);
+    background: radial-gradient(circle at center, #1e293b, #0f172a);
+    font-family: var(--font-main);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+}
+
+/* User Story: .form-container element should have a background color, border-radius, padding, and width */
+.form-container {
+    background-color: var(--form-bg);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 20px;
+    padding: 3rem;
+    width: 90%;
+    max-width: 450px;
+    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+}
+
+h2 {
+    color: var(--text-primary);
+    margin-bottom: 2rem;
+    text-align: center;
+    font-size: 2rem;
+    font-weight: 700;
+    letter-spacing: -0.02em;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+}
+
+/* User Story: label elements should have a margin and a font color */
+label {
+    margin: 0.5rem 0;
+    color: var(--text-label);
+    font-size: 0.95rem;
+    font-weight: 600;
+}
+
+/* User Story: input and textarea elements should have values for width, padding, margin-bottom */
+input,
+textarea {
+    width: 100%;
+    padding: 0.8rem 1rem;
+    margin-bottom: 1.5rem;
+    background-color: #0f172a;
+    border: 2px solid #334155;
+    border-radius: 12px;
+    color: var(--text-primary);
+    font-family: inherit;
+    font-size: 1rem;
+    transition: all 0.2s ease;
+    outline: none;
+}
+
+input:focus,
+textarea:focus {
+    border-color: var(--ocean-breeze);
+    box-shadow: 0 0 0 4px var(--ocean-glow);
+}
+
+textarea {
+    min-height: 120px;
+    resize: none;
+}
+
+/* User Story: button element should have background color, font size, and hover effect */
+button {
+    background-color: var(--ocean-breeze);
+    color: #fff;
+    font-size: 1.1rem;
+    font-weight: 700;
+    width: 100%;
+    padding: 1rem;
+    border: none;
+    border-radius: 12px;
+    cursor: pointer;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    margin-top: 1rem;
+}
+
+button:hover {
+    background-color: #0d9488;
+    transform: translateY(-2px);
+    box-shadow: 0 10px 15px -3px rgba(20, 184, 166, 0.4);
+}
+
+button:active {
+    transform: translateY(0);
+}

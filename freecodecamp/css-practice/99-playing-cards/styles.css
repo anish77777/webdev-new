@@ -1,0 +1,50 @@
+/* Main container setup */
+#playing-cards {
+    display: flex;
+    /* Enable Flexbox on the container */
+    flex-wrap: wrap;
+    /* Allow cards to wrap to the next line if space is limited */
+    gap: 20px;
+    /* Create a uniform 20px space between cards */
+    border: 2px solid black;
+    /* Visual border for the container */
+    padding: 2px;
+    justify-content: center;
+    /* Center cards horizontally along the main axis */
+}
+
+/* Individual card styling */
+.card {
+    width: 200px;
+    height: 200px;
+    border: 2px solid black;
+    /* Fixed border requirement */
+    display: flex;
+    /* Make each card a flex container */
+    justify-content: space-between;
+    /* Distribute children (left, middle, right) evenly */
+    padding: 10px;
+    /* Internal spacing for symbols */
+}
+
+/* Middle element alignment and flow */
+.middle {
+    align-self: center;
+    /* Center THIS item along the cross axis (vertically) */
+    display: flex;
+    /* Make the middle element its own flex container */
+    flex-direction: column;
+    /* Stack children inside .middle vertically */
+}
+
+/* Right element alignment */
+.right {
+    align-self: flex-end;
+    /* Align THIS item to the end of the cross axis (bottom) */
+}
+
+/* Left element alignment */
+.left {
+    align-self: flex-start;
+    /* Align THIS item to the start of the cross axis (top) */
+}

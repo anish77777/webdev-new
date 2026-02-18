@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSS Filter Property | Vivid Violet</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
+</head>
+
+<body>
+    <div class="background-glow"></div>
+
+    <header>
+        <h1>CSS <span class="accent">Filter</span> Property</h1>
+        <p class="subtitle">Apply stunning graphical effects to your web elements directly in CSS.</p>
+    </header>
+
+    <main>
+        <section class="tutorial-card glass">
+            <div class="card-icon">✨</div>
+            <h2>What is the Filter Property?</h2>
+            <p>The <code>filter</code> property allows you to apply graphical effects like blurring, color shifting, and
+                brightness adjustments to elements without modifying the original asset.</p>
+            <div class="code-block">
+                <code>selector { filter: function(amount); }</code>
+            </div>
+        </section>
+
+        <section class="tutorial-card glass">
+            <div class="card-icon">🐱</div>
+            <h2>Live Playground</h2>
+            <p>Experiment with different filters on the image below. Each slider controls a specific filter function.
+            </p>
+
+            <div class="playground-container">
+                <div class="image-preview">
+                    <img id="preview-image" src="https://cdn.freecodecamp.org/curriculum/cat-photo-app/relaxing-cat.jpg"
+                        alt="A cute orange cat lying on its back.">
+                </div>
+
+                <div class="controls-grid">
+                    <div class="control-item">
+                        <label for="blur">Blur: <span id="blur-val">0px</span></label>
+                        <input type="range" id="blur" min="0" max="20" value="0" step="1" oninput="updateFilters()">
+                    </div>
+                    <div class="control-item">
+                        <label for="brightness">Brightness: <span id="brightness-val">100%</span></label>
+                        <input type="range" id="brightness" min="0" max="300" value="100" step="1"
+                            oninput="updateFilters()">
+                    </div>
+                    <div class="control-item">
+                        <label for="grayscale">Grayscale: <span id="grayscale-val">0%</span></label>
+                        <input type="range" id="grayscale" min="0" max="100" value="0" step="1"
+                            oninput="updateFilters()">
+                    </div>
+                    <div class="control-item">
+                        <label for="sepia">Sepia: <span id="sepia-val">0%</span></label>
+                        <input type="range" id="sepia" min="0" max="100" value="0" step="1" oninput="updateFilters()">
+                    </div>
+                    <div class="control-item">
+                        <label for="hue-rotate">Hue Rotate: <span id="hue-rotate-val">0deg</span></label>
+                        <input type="range" id="hue-rotate" min="0" max="360" value="0" step="1"
+                            oninput="updateFilters()">
+                    </div>
+                    <button class="reset-btn" onclick="resetFilters()">Reset All</button>
+                </div>
+                <div class="live-code">
+                    <code>filter: <span id="filter-code">none</span>;</code>
+                </div>
+            </div>
+        </section>
+
+        <section class="tutorial-card glass">
+            <div class="card-icon">🔗</div>
+            <h2>Combining Filters</h2>
+            <p>One of the most powerful aspects of filters is that you can combine multiple effects by separating them
+                with spaces.</p>
+            <div class="code-block">
+                <code>img { filter: contrast(150%) brightness(110%) sepia(30%); }</code>
+            </div>
+        </section>
+
+        <section class="quiz-section glass">
+            <div class="card-icon">❓</div>
+            <h2>Knowledge Check</h2>
+            <div id="quiz-container">
+                <div class="question">
+                    <p>1. Which of the following CSS rules would make an image completely grayscale?</p>
+                    <div class="options">
+                        <button class="option-btn" onclick="checkAnswer(this, true)">filter: grayscale(100%);</button>
+                        <button class="option-btn" onclick="checkAnswer(this, false)">filter: gray(100%);</button>
+                        <button class="option-btn" onclick="checkAnswer(this, false)">filter: gray(100);</button>
+                        <button class="option-btn" onclick="checkAnswer(this, false)">filter:
+                            black-and-white(true);</button>
+                    </div>
+                </div>
+                <div class="question">
+                    <p>2. What would be the effect of applying <code>filter: brightness(0%);</code> to an element?</p>
+                    <div class="options">
+                        <button class="option-btn" onclick="checkAnswer(this, false)">It would make the element
+                            completely white.</button>
+                        <button class="option-btn" onclick="checkAnswer(this, true)">It would make the element
+                            completely black.</button>
+                        <button class="option-btn" onclick="checkAnswer(this, false)">It would have no effect on the
+                            element.</button>
+                        <button class="option-btn" onclick="checkAnswer(this, false)">It would invert the colors of the
+                            element.</button>
+                    </div>
+                </div>
+                <div class="question">
+                    <p>3. How would you combine a blur effect of 5 pixels with a sepia effect of 50%?</p>
+                    <div class="options">
+                        <button class="option-btn" onclick="checkAnswer(this, false)">filter: blur(5px) +
+                            sepia(50%);</button>
+                        <button class="option-btn" onclick="checkAnswer(this, false)">filter: blur(5px),
+                            sepia(50%);</button>
+                        <button class="option-btn" onclick="checkAnswer(this, true)">filter: blur(5px)
+                            sepia(50%);</button>
+                        <button class="option-btn" onclick="checkAnswer(this, false)">filter: blur(5px) &&
+                            sepia(50%);</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <script>
+        const image = document.getElementById('preview-image');
+        const filterCode = document.getElementById('filter-code');
+
+        const controls = {
+            blur: { el: document.getElementById('blur'), unit: 'px' },
+            brightness: { el: document.getElementById('brightness'), unit: '%' },
+            grayscale: { el: document.getElementById('grayscale'), unit: '%' },
+            sepia: { el: document.getElementById('sepia'), unit: '%' },
+            hueRotate: { el: document.getElementById('hue-rotate'), unit: 'deg' }
+        };
+
+        function updateFilters() {
+            let filterString = '';
+
+            for (const [key, config] of Object.entries(controls)) {
+                const val = config.el.value;
+                const displayVal = document.getElementById(`${config.el.id}-val`);
+                displayVal.textContent = val + config.unit;
+
+                if (key === 'blur' && val > 0) filterString += `blur(${val}px) `;
+                if (key === 'brightness' && val != 100) filterString += `brightness(${val}%) `;
+                if (key === 'grayscale' && val > 0) filterString += `grayscale(${val}%) `;
+                if (key === 'sepia' && val > 0) filterString += `sepia(${val}%) `;
+                if (key === 'hueRotate' && val > 0) filterString += `hue-rotate(${val}deg) `;
+            }
+
+            filterString = filterString.trim() || 'none';
+            image.style.filter = filterString === 'none' ? '' : filterString;
+            filterCode.textContent = filterString;
+        }
+
+        function resetFilters() {
+            controls.blur.el.value = 0;
+            controls.brightness.el.value = 100;
+            controls.grayscale.el.value = 0;
+            controls.sepia.el.value = 0;
+            controls.hueRotate.el.value = 0;
+            updateFilters();
+        }
+
+        function checkAnswer(btn, isCorrect) {
+            const btns = btn.parentElement.querySelectorAll('.option-btn');
+            btns.forEach(b => b.classList.remove('correct', 'wrong'));
+            if (isCorrect) {
+                btn.classList.add('correct');
+            } else {
+                btn.classList.add('wrong');
+            }
+        }
+    </script>
+</body>
+
+</html>

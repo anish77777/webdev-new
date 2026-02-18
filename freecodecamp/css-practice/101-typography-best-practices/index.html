@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Typography Best Practices | Sapphire Depth</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Roboto:wght@400;700&family=Open+Sans:wght@400;700&display=swap"
+        rel="stylesheet">
+</head>
+
+<body>
+    <div class="background-glow"></div>
+
+    <header>
+        <h1><span class="accent">Best Practices</span></h1>
+        <p class="subtitle">Effective Communication Through Type</p>
+    </header>
+
+    <main>
+        <!-- Readability -->
+        <section class="tutorial-card glass">
+            <h2>1. Readability & Font Choice</h2>
+            <p>Readability is the ease with which text can be decoded. Choosing simple fonts and managing line length
+                are key factors.</p>
+
+            <div class="readability-demo">
+                <span class="status-tag pass">Good: Optimal Line Length (~60ch)</span>
+                <p class="line-length-good">
+                    Typography is a powerful tool for creating beautiful designs and engaging user experiences. By
+                    understanding the fundamentals of typography and applying these best practices, you can create
+                    effective designs that guide users smoothly.
+                </p>
+            </div>
+
+            <div class="readability-demo">
+                <span class="status-tag fail">Bad: Excessive Line Length</span>
+                <p class="line-length-bad">
+                    Typography is a powerful tool for creating beautiful designs and engaging user experiences. By
+                    understanding the fundamentals of typography and applying these best practices, you can create
+                    effective designs that guide users smoothly through even the most complex information without
+                    causing fatigue or confusion.
+                </p>
+            </div>
+        </section>
+
+        <!-- Hierarchy -->
+        <section class="tutorial-card glass">
+            <h2>2. Visual Hierarchy</h2>
+            <p>Use font size and weight to establish an order of importance, helping users navigate your structure
+                visually.</p>
+
+            <div class="readability-demo hierarchy-demo">
+                <h1 class="accent">Main Topic Heading</h1>
+                <h3>Sub-topic Section</h3>
+                <p>Paragraph content that supports the heading above. It is smaller and less bold to differentiate
+                    itself from the priority information.</p>
+            </div>
+        </section>
+
+        <!-- Consistency -->
+        <section class="tutorial-card glass">
+            <h2>3. Consistency & Limit</h2>
+            <p>Use two or three fonts at most. Using too many can weaken brand identity and increase page load times.
+            </p>
+            <div class="alert">
+                <strong>Tip:</strong> Pick one font for headings and another for body text. Maintain this across all
+                pages.
+            </div>
+        </section>
+
+        <!-- Accessibility -->
+        <section class="tutorial-card glass">
+            <h2>4. Accessibility (WCAG)</h2>
+            <p>Ensure high contrast between text and background for users with visual disabilities.</p>
+
+            <div class="contrast-box contrast-good">
+                <span class="status-tag pass">High Contrast</span>
+                <p>Easy to read: White text on dark background (#e2e8f0 on #0a0c10)</p>
+            </div>
+
+            <div class="contrast-box contrast-bad">
+                <span class="status-tag fail">Low Contrast</span>
+                <p>Difficult to read: Gray text on slate background (#475569 on #1e293b)</p>
+            </div>
+        </section>
+
+        <!-- Quiz -->
+        <section class="quiz-section glass">
+            <h2>Knowledge Check</h2>
+            <div class="question">
+                <p>1. Which of the following is a very important factor for ensuring readability in web typography?</p>
+                <div class="options">
+                    <button class="option-btn" onclick="checkAnswer(this, false)">Using a large variety of
+                        fonts.</button>
+                    <button class="option-btn" onclick="checkAnswer(this, false)">Maximizing font size for all text
+                        elements.</button>
+                    <button class="option-btn" onclick="checkAnswer(this, true)">Achieving optimal contrast between text
+                        and background.</button>
+                    <button class="option-btn" onclick="checkAnswer(this, false)">Aligning text to the left
+                        margin.</button>
+                </div>
+            </div>
+
+            <div class="question">
+                <p>2. When choosing fonts for a website, it's generally recommended to:</p>
+                <div class="options">
+                    <button class="option-btn" onclick="checkAnswer(this, false)">Use as many different fonts as
+                        possible.</button>
+                    <button class="option-btn" onclick="checkAnswer(this, true)">Limit the number of font families to
+                        improve consistency.</button>
+                    <button class="option-btn" onclick="checkAnswer(this, false)">Prioritize decorative fonts over
+                        readability.</button>
+                    <button class="option-btn" onclick="checkAnswer(this, false)">Use only serif fonts for body
+                        text.</button>
+                </div>
+            </div>
+
+            <div class="question">
+                <p>3. Which best describes natural visual hierarchy in typography?</p>
+                <div class="options">
+                    <button class="option-btn" onclick="checkAnswer(this, false)">Using only one font style
+                        throughout.</button>
+                    <button class="option-btn" onclick="checkAnswer(this, true)">Prioritizing important info through
+                        font size and style.</button>
+                    <button class="option-btn" onclick="checkAnswer(this, false)">Maintaining consistent spacing between
+                        letters.</button>
+                    <button class="option-btn" onclick="checkAnswer(this, false)">Ensuring all text is
+                        centered.</button>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>Typography Series | Step 101</p>
+    </footer>
+
+    <script>
+        function checkAnswer(btn, isCorrect) {
+            const btns = btn.parentElement.querySelectorAll('.option-btn');
+            btns.forEach(b => b.classList.remove('correct', 'wrong'));
+            if (isCorrect) {
+                btn.classList.add('correct');
+            } else {
+                btn.classList.add('wrong');
+            }
+        }
+    </script>
+</body>
+
+</html>

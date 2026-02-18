@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Appearance: None | CSS Tutorial</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700&family=JetBrains+Mono:wght@400;500&display=swap"
+        rel="stylesheet">
+</head>
+
+<body>
+    <div class="app-container">
+        <aside class="sidebar">
+            <div class="sidebar-header">
+                <span class="logo">CSS Masterclass</span>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="#intro" class="nav-link active">Introduction</a></li>
+                    <li><a href="#checkbox-demo" class="nav-link">Custom Checkbox</a></li>
+                    <li><a href="#webkit-search" class="nav-link">WebKit Search</a></li>
+                    <li><a href="#benefits" class="nav-link">Benefits & Risks</a></li>
+                    <li><a href="#quiz" class="nav-link">Interactive Quiz</a></li>
+                </ul>
+            </nav>
+        </aside>
+
+        <main class="main-content">
+            <header class="top-header">
+                <h1>Understanding <code>appearance: none</code></h1>
+                <p class="subtitle">Take complete control over default browser UI elements.</p>
+            </header>
+
+            <section id="intro" class="content-section">
+                <h2>1. What is <code>appearance: none</code>?</h2>
+                <div class="text-content">
+                    <p>Browsers apply default styling to many elements, especially inputs. <code>appearance: none</code>
+                        allows you to hide these default aspects, giving you a "blank canvas" to build your own custom
+                        indicators instead.</p>
+                </div>
+                <div class="code-container">
+                    <pre><code>.custom-input {
+    appearance: none;
+    /* Now you can style it from scratch */
+}</code></pre>
+                </div>
+            </section>
+
+            <section id="checkbox-demo" class="content-section">
+                <h2>2. Custom Checkbox Demo</h2>
+                <div class="text-content">
+                    <p>By using <code>appearance: none</code>, we can turn a standard checkbox into a stylized
+                        component. Behind the scenes, it's still a functional checkbox, but with custom visual
+                        indicators.</p>
+                </div>
+                <div class="demo-box">
+                    <form>
+                        <label class="checkbox-container">
+                            <input class="checkbox" type="checkbox">
+                            <span class="label-text">Agree to terms and conditions</span>
+                        </label>
+                    </form>
+                </div>
+                <div class="code-container">
+                    <pre><code>.checkbox {
+    appearance: none;
+    width: 20px;
+    height: 20px;
+    border: 2px solid var(--accent-emerald);
+    border-radius: 6px;
+    position: relative;
+    cursor: pointer;
+    transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.checkbox:checked {
+    background-color: var(--accent-emerald);
+}</code></pre>
+                </div>
+            </section>
+
+            <section id="webkit-search" class="content-section">
+                <h2>3. WebKit Search Inputs</h2>
+                <div class="text-content">
+                    <p>WebKit browsers (like Safari) add default icons and cancel buttons to <code>type="search"</code>
+                        inputs. <code>appearance: none</code> helps you remove these to maintain cross-browser
+                        consistency.</p>
+                </div>
+                <div class="demo-box">
+                    <form class="search-form">
+                        <label for="search-input">Custom Search Bar</label>
+                        <div class="search-wrapper">
+                            <input type="search" id="search-input" class="custom-search"
+                                placeholder="Search the masterclass...">
+                            <span class="search-icon">🔍</span>
+                        </div>
+                    </form>
+                </div>
+            </section>
+
+            <section id="benefits" class="content-section">
+                <h2>4. Benefits & Considerations</h2>
+                <div class="text-content">
+                    <p><strong>Benefits:</strong> Consistent cross-platform styling, larger tap targets for mobile, and
+                        improved accessibility (contrast).</p>
+                    <p><strong>Considerations:</strong> You must manually re-implement important features like
+                        <strong>focus rings</strong> and <strong>error indicators</strong> so they aren't lost.</p>
+                </div>
+            </section>
+
+            <section id="quiz" class="content-section quiz-section">
+                <h2>Appearance Mastery Quiz</h2>
+                <div id="quiz-container">
+                    <!-- Quiz will be injected by script.js -->
+                </div>
+            </section>
+        </main>
+    </div>
+    <script src="script.js"></script>
+</body>
+
+</html>

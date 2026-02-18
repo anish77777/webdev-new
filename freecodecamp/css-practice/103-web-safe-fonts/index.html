@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Web Safe Fonts | Sapphire Depth</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
+</head>
+
+<body>
+    <div class="background-glow"></div>
+
+    <header>
+        <h1>Web Safe <span class="accent">Fonts</span></h1>
+        <p class="subtitle">Ensuring Consistent Rendering Across Devices</p>
+    </header>
+
+    <main>
+        <!-- Understanding Web Safe Fonts -->
+        <section class="tutorial-card glass">
+            <h2>1. What are Web Safe Fonts?</h2>
+            <p>Web-safe fonts are widely installed on most computers and devices. Using them ensures your website looks
+                consistent, even if the user doesn't have custom fonts installed.</p>
+            <div class="demo-area">
+                <p>Browsers check the user's system for the font specified. If missing, they fall back to a default font
+                    that might look very different.</p>
+                <pre><code>/* Using a web-safe font as a fallback */
+body {
+  font-family: "Custom Font", Arial, sans-serif;
+}</code></pre>
+            </div>
+        </section>
+
+        <!-- Sans-Serif Examples -->
+        <section class="tutorial-card glass">
+            <h2>2. Web Safe Sans-Serif</h2>
+            <p>These fonts lack small decorative lines (serifs) and are ideal for digital screens due to their clean
+                look.</p>
+
+            <div class="demo-area">
+                <p class="demo-text arial"><strong>Arial:</strong> The most common sans-serif across all platforms.</p>
+                <pre><code>font-family: Arial, sans-serif;</code></pre>
+            </div>
+
+            <div class="demo-area">
+                <p class="demo-text verdana"><strong>Verdana:</strong> Designed for screen readability with wide
+                    character spacing.</p>
+                <pre><code>font-family: Verdana, sans-serif;</code></pre>
+            </div>
+
+            <div class="demo-area">
+                <p class="demo-text trebuchet"><strong>Trebuchet MS:</strong> Another modern choice for clear screen
+                    text.</p>
+                <pre><code>font-family: "Trebuchet MS", sans-serif;</code></pre>
+            </div>
+        </section>
+
+        <!-- Serif Examples -->
+        <section class="tutorial-card glass">
+            <h2>3. Web Safe Serif</h2>
+            <p>Serif fonts have decorative "feet" and are traditionally used for print materials but can add a classical
+                feel to web designs.</p>
+
+            <div class="demo-area">
+                <p class="demo-text times"><strong>Times New Roman:</strong> The standard for traditional serif fonts.
+                </p>
+                <pre><code>font-family: "Times New Roman", serif;</code></pre>
+            </div>
+
+            <div class="demo-area">
+                <p class="demo-text georgia"><strong>Georgia:</strong> Specifically designed to be readable at small
+                    sizes on screens.</p>
+                <pre><code>font-family: Georgia, serif;</code></pre>
+            </div>
+        </section>
+
+        <!-- Benefits -->
+        <section class="tutorial-card glass">
+            <h2>4. Why Use Them?</h2>
+            <ul>
+                <li><strong>Consistency:</strong> Designs look similar across operating systems.</li>
+                <li><strong>Performance:</strong> No need to download font files; saves bandwidth.</li>
+                <li><strong>Accessibility:</strong> Familiar and simple shapes are easier for everyone to read.</li>
+            </ul>
+        </section>
+
+        <!-- Quiz Section -->
+        <section class="quiz-section glass">
+            <h2>Knowledge Check</h2>
+            <div class="question">
+                <p>1. Which of the following is a key characteristic of web-safe fonts?</p>
+                <div class="options">
+                    <button class="option-btn" onclick="checkAnswer(this, false)">They are difficult to read.</button>
+                    <button class="option-btn" onclick="checkAnswer(this, false)">They are designed for specific content
+                        types.</button>
+                    <button class="option-btn" onclick="checkAnswer(this, true)">They are widely supported across
+                        different platforms.</button>
+                    <button class="option-btn" onclick="checkAnswer(this, false)">They are only available in serif
+                        styles.</button>
+                </div>
+            </div>
+
+            <div class="question">
+                <p>2. Which of the following is NOT a web-safe font?</p>
+                <div class="options">
+                    <button class="option-btn" onclick="checkAnswer(this, false)">Arial</button>
+                    <button class="option-btn" onclick="checkAnswer(this, false)">Verdana</button>
+                    <button class="option-btn" onclick="checkAnswer(this, false)">Georgia</button>
+                    <button class="option-btn" onclick="checkAnswer(this, true)">Dancing Script</button>
+                </div>
+            </div>
+
+            <div class="question">
+                <p>3. When are web-safe fonts particularly useful?</p>
+                <div class="options">
+                    <button class="option-btn" onclick="checkAnswer(this, false)">For complex and visually demanding
+                        designs.</button>
+                    <button class="option-btn" onclick="checkAnswer(this, false)">When a specific custom font is
+                        essential for branding.</button>
+                    <button class="option-btn" onclick="checkAnswer(this, true)">For basic web design and consistent
+                        rendering priority.</button>
+                    <button class="option-btn" onclick="checkAnswer(this, false)">For creating custom fonts.</button>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>Font Series | Step 103</p>
+    </footer>
+
+    <script>
+        function checkAnswer(btn, isCorrect) {
+            const btns = btn.parentElement.querySelectorAll('.option-btn');
+            btns.forEach(b => b.classList.remove('correct', 'wrong'));
+            if (isCorrect) {
+                btn.classList.add('correct');
+            } else {
+                btn.classList.add('wrong');
+            }
+        }
+    </script>
+</body>
+
+</html>

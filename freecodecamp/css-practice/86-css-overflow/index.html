@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSS Overflow | Midnight Obsidian</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
+</head>
+
+<body>
+    <div class="background-glow"></div>
+
+    <header>
+        <h1>CSS <span class="accent">Overflow</span></h1>
+        <p class="subtitle">Controlling content that exceeds its container boundaries.</p>
+    </header>
+
+    <main>
+        <section class="tutorial-card glass">
+            <div class="card-icon">🌊</div>
+            <h2>What Is Overflow?</h2>
+            <p>Overflow occurs when content (like text or images) exceeds the size of its containing element. It's
+                fundamentally two-dimensional:</p>
+            <div class="axis-grid">
+                <div class="axis-item">
+                    <span class="axis-label">X-Axis</span>
+                    <p>Horizontal Overflow</p>
+                </div>
+                <div class="axis-item">
+                    <span class="axis-label">Y-Axis</span>
+                    <p>Vertical Overflow</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="tutorial-card glass">
+            <div class="card-icon">🚫</div>
+            <h2>Option 1: <code>overflow-y: hidden</code></h2>
+            <p>This property hides any content that extends beyond the vertical height of the container. While it fixes
+                layout issues, the hidden content becomes unreachable.</p>
+            <div class="demo-box overflow-hidden">
+                <div class="overflow-container hidden">
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut
+                        labore et dolore magna aliqua. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do
+                        eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut
+                        labore et dolore magna aliqua. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do
+                        eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+                </div>
+            </div>
+            <p class="note">Notice how the text is cut off abruptly.</p>
+        </section>
+
+        <section class="tutorial-card glass">
+            <div class="card-icon">🖱️</div>
+            <h2>Option 2: <code>overflow-y: scroll</code></h2>
+            <p>By using <code>scroll</code>, you force the element to become scrollable independently. This ensures all
+                content is reachable without affecting the rest of the page layout.</p>
+            <div class="demo-box overflow-scroll">
+                <div class="overflow-container scroll">
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut
+                        labore et dolore magna aliqua. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do
+                        eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut
+                        labore et dolore magna aliqua. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do
+                        eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut
+                        labore et dolore magna aliqua. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do
+                        eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="tutorial-card glass">
+            <div class="card-icon">⚙️</div>
+            <h2>Pro Tip: <code>auto</code></h2>
+            <p>The <code>auto</code> value lets the browser decide. It will only show scrollbars if the content actually
+                overflows, keeping your UI clean.</p>
+            <blockquote>
+                "Vertical scrolling is generally considered okay, while horizontal scrolling should be avoided in most
+                common design decisions."
+            </blockquote>
+        </section>
+
+        <section class="quiz-section glass">
+            <h2>Knowledge Check</h2>
+            <div id="quiz-container">
+                <div class="question">
+                    <p>1. What does overflow refer to in CSS?</p>
+                    <div class="options">
+                        <button class="option-btn" onclick="checkAnswer(this, false)">When there are too many elements
+                            on a page.</button>
+                        <button class="option-btn" onclick="checkAnswer(this, true)">When content exceeds the size of
+                            its containing element.</button>
+                        <button class="option-btn" onclick="checkAnswer(this, false)">When CSS styles conflict with each
+                            other.</button>
+                    </div>
+                </div>
+                <div class="question">
+                    <p>2. Which property specifically controls vertical overflow?</p>
+                    <div class="options">
+                        <button class="option-btn" onclick="checkAnswer(this, false)">overflow-x</button>
+                        <button class="option-btn" onclick="checkAnswer(this, true)">overflow-y</button>
+                        <button class="option-btn" onclick="checkAnswer(this, false)">vertical-overflow</button>
+                    </div>
+                </div>
+                <div class="question">
+                    <p>3. Which type of overflow is generally more acceptable?</p>
+                    <div class="options">
+                        <button class="option-btn" onclick="checkAnswer(this, false)">Horizontal</button>
+                        <button class="option-btn" onclick="checkAnswer(this, true)">Vertical</button>
+                        <button class="option-btn" onclick="checkAnswer(this, false)">Neither</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <script>
+        function checkAnswer(btn, isCorrect) {
+            const btns = btn.parentElement.querySelectorAll('.option-btn');
+            btns.forEach(b => b.classList.remove('correct', 'wrong'));
+            if (isCorrect) {
+                btn.classList.add('correct');
+            } else {
+                btn.classList.add('wrong');
+            }
+        }
+    </script>
+</body>
+
+</html>

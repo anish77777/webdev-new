@@ -1,0 +1,212 @@
+/* Sapphire Depth Theme Variables */
+:root {
+    --bg-dark: #0a0c10;
+    --accent: #3b82f6;
+    --accent-glow: rgba(59, 130, 246, 0.3);
+    --glass-bg: rgba(255, 255, 255, 0.03);
+    --glass-border: rgba(255, 255, 255, 0.1);
+    --text-main: #e2e8f0;
+    --text-dim: #94a3b8;
+}
+
+/* Base styles */
+body {
+    background-color: var(--bg-dark);
+    color: var(--text-main);
+    font-family: 'Space Grotesk', sans-serif;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-height: 100vh;
+    padding-bottom: 80px;
+}
+
+.background-glow {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 600px;
+    height: 600px;
+    background: radial-gradient(circle, var(--accent-glow) 0%, transparent 70%);
+    z-index: -1;
+    filter: blur(60px);
+}
+
+header {
+    text-align: center;
+    padding: 60px 20px 40px;
+}
+
+h1 {
+    font-size: 3rem;
+    margin: 0;
+    text-transform: uppercase;
+    letter-spacing: -1px;
+}
+
+.accent {
+    color: var(--accent);
+}
+
+.subtitle {
+    color: var(--text-dim);
+    margin-top: 10px;
+    font-size: 1.1rem;
+}
+
+main {
+    width: 100%;
+    max-width: 800px;
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+.tutorial-card,
+.quiz-section {
+    margin-bottom: 40px;
+    padding: 40px;
+    border-radius: 24px;
+}
+
+.glass {
+    background: var(--glass-bg);
+    backdrop-filter: blur(16px);
+    border: 1px solid var(--glass-border);
+}
+
+h2 {
+    color: var(--accent);
+    margin-top: 0;
+    font-size: 1.8rem;
+}
+
+h3 {
+    color: var(--text-main);
+    font-size: 1.3rem;
+    margin-top: 30px;
+}
+
+p {
+    color: var(--text-dim);
+    line-height: 1.6;
+}
+
+/* Generic Font Families Demos */
+.demo-area {
+    background: rgba(0, 0, 0, 0.3);
+    padding: 20px;
+    border-radius: 12px;
+    margin: 15px 0;
+    border: 1px solid var(--glass-border);
+}
+
+.demo-text {
+    font-size: 1.25rem;
+    margin: 0;
+}
+
+.serif {
+    font-family: serif;
+}
+
+.sans-serif {
+    font-family: sans-serif;
+}
+
+.monospace {
+    font-family: monospace;
+}
+
+.cursive {
+    font-family: cursive;
+}
+
+.fantasy {
+    font-family: fantasy;
+}
+
+/* Fallback Mechanism Demo */
+.fallback-box {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    padding: 20px;
+    background: rgba(59, 130, 246, 0.05);
+    border-radius: 12px;
+    border-left: 4px solid var(--accent);
+}
+
+.priority-item {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.priority-step {
+    background: var(--accent);
+    color: white;
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.8rem;
+    font-weight: bold;
+    flex-shrink: 0;
+}
+
+.font-name {
+    font-family: monospace;
+    background: rgba(255, 255, 255, 0.05);
+    padding: 4px 10px;
+    border-radius: 6px;
+    color: var(--text-main);
+}
+
+/* Quiz Styles */
+.options {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    margin-top: 15px;
+}
+
+.option-btn {
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid var(--glass-border);
+    color: var(--text-main);
+    padding: 15px 20px;
+    border-radius: 12px;
+    cursor: pointer;
+    text-align: left;
+    transition: all 0.2s ease;
+    font-size: 1rem;
+    font-family: inherit;
+}
+
+.option-btn:hover {
+    background: rgba(255, 255, 255, 0.1);
+    border-color: var(--accent);
+}
+
+.option-btn.correct {
+    background: rgba(16, 185, 129, 0.2);
+    border-color: #10b981;
+    color: #10b981;
+}
+
+.option-btn.wrong {
+    background: rgba(239, 68, 68, 0.2);
+    border-color: #ef4444;
+    color: #ef4444;
+}
+
+footer {
+    color: var(--text-dim);
+    margin-top: 40px;
+    font-size: 0.9rem;
+    opacity: 0.3;
+}

@@ -1,0 +1,149 @@
+/* Sapphire Depth Theme Variables */
+:root {
+    --bg-dark: #0a0c10;
+    --accent: #3b82f6;
+    --accent-glow: rgba(59, 130, 246, 0.4);
+    --glass-bg: rgba(255, 255, 255, 0.03);
+    --glass-border: rgba(255, 255, 255, 0.1);
+    --text-main: #e2e8f0;
+    --text-dim: #94a3b8;
+}
+
+/* Base resets and typography */
+body {
+    background-color: var(--bg-dark);
+    color: var(--text-main);
+    font-family: 'Space Grotesk', sans-serif;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-height: 100vh;
+    overflow-x: hidden;
+}
+
+/* Background Glow Effect */
+.background-glow {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 600px;
+    height: 600px;
+    background: radial-gradient(circle, var(--accent-glow) 0%, transparent 70%);
+    z-index: -1;
+    filter: blur(60px);
+}
+
+header {
+    text-align: center;
+    padding: 60px 20px 40px;
+}
+
+h1 {
+    font-size: 3rem;
+    font-weight: 700;
+    margin: 0;
+    text-transform: uppercase;
+    letter-spacing: -1px;
+}
+
+.accent {
+    color: var(--accent);
+}
+
+.subtitle {
+    color: var(--text-dim);
+    margin-top: 10px;
+    font-size: 1.1rem;
+}
+
+/* Rothko Painting Components */
+
+.frame {
+    /* Step 12: Set the frame width */
+    width: 500px;
+    border: 50px solid black;
+    padding: 50px;
+    margin: 20px auto;
+    background-color: #000;
+    box-shadow: 0 0 50px rgba(0, 0, 0, 0.5);
+}
+
+.canvas {
+    width: 500px;
+    /* Step 8: Set canvas height */
+    height: 600px;
+    background-color: #4d0f00;
+    /* Step 21: Hide overflow to maintain dimensions */
+    overflow: hidden;
+    /* Step 34 filter effect base */
+    filter: blur(1px);
+}
+
+/* Step 16: Targeting .one selector */
+.one {
+    width: 425px;
+    height: 150px;
+    background-color: #efb762;
+    /* Step 19: Center with margin and add vertical space */
+    margin: 20px auto;
+    /* Step 36: Soften edges with box-shadow */
+    box-shadow: 0 0 3px 3px #efb762;
+    /* Step 34: Increase blur */
+    filter: blur(2px);
+    /* Step 42: Hand-painted rotation */
+    transform: rotate(-0.6deg);
+}
+
+.two {
+    width: 475px;
+    height: 200px;
+    /* Step 25: Primary background color */
+    background-color: #8f0401;
+    margin: 0 auto;
+    /* Step 37: Soften edges with matching shadow color */
+    box-shadow: 0 0 3px 3px #8f0401;
+    /* Step 34: Apply the same blur effect */
+    filter: blur(2px);
+    /* Step 40: Set specific border radii for imperfect corners */
+    border-radius: 8px 10px;
+    /* Top-left & Bottom-right: 8px, Top-right & Bottom-left: 10px */
+}
+
+.three {
+    /* Step 28: Set width to 91% */
+    width: 91%;
+    height: 130px;
+    background-color: #b20403;
+    margin: 20px auto;
+    filter: blur(2px);
+    box-shadow: 0 0 5px 5px #b20403;
+    /* Step 44: Counter-clockwise rotation for final touch */
+    transform: rotate(-0.2deg);
+}
+
+/* Tutorial Section Styling */
+.tutorial-card {
+    max-width: 600px;
+    margin: 40px auto;
+    padding: 30px;
+    border-radius: 20px;
+    text-align: left;
+}
+
+.glass {
+    background: var(--glass-bg);
+    backdrop-filter: blur(12px);
+    border: 1px solid var(--glass-border);
+}
+
+.card-icon {
+    font-size: 2.5rem;
+    margin-bottom: 20px;
+}
+
+h2 {
+    color: var(--accent);
+    margin-top: 0;
+}

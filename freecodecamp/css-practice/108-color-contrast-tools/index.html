@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Color Contrast Tools | Accessibility Insights</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700&family=Inter:wght@300;400;500;600&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+    <div class="glow-container">
+        <div class="glow"></div>
+    </div>
+
+    <header>
+        <div class="container">
+            <h1>Color Contrast <span class="accent">Tools</span></h1>
+            <p class="subtitle">Ensuring Accessibility and Readability in Digital Design</p>
+        </div>
+    </header>
+
+    <main class="container">
+        <section class="card glass animate-in">
+            <h2>The Importance of Contrast</h2>
+            <p>When designing websites, ensuring good color contrast is crucial for accessibility and readability.
+                Several tools are available to help developers and designers check and maintain appropriate color
+                contrast ratios on their sites. One popular tool is <strong>WebAIM's Color Contrast Checker</strong>.
+            </p>
+        </section>
+
+        <section class="card glass animate-in">
+            <h2>WebAIM's Color Contrast Checker</h2>
+            <p>This online tool allows you to input the foreground and background colors of your design and instantly
+                see if they meet the Web Content Accessibility Guidelines (WCAG) standards. It's user-friendly and
+                provides immediate feedback.</p>
+
+            <div class="code-block">
+                <div class="code-header">
+                    <span>Example: Neutral High Contrast</span>
+                </div>
+                <pre><code><span class="comment">/* CSS Example */</span>
+body {
+  <span class="property">background-color</span>: <span class="value">#FFFFFF</span>;
+  <span class="property">color</span>: <span class="value">#333333</span>;
+}</code></pre>
+            </div>
+            <p>In this example, we've set a white background (#FFFFFF) and dark gray text (#333333). These values can be
+                input into the WebAIM tool to verify they pass WCAG 2.0 AA or AAA standards.</p>
+        </section>
+
+        <section class="card glass animate-in">
+            <h2>TPGi Colour Contrast Analyzer</h2>
+            <p>Another valuable tool is the <strong>TPGi Colour Contrast Analyzer</strong>. This desktop application
+                offers advanced features, allowing you to analyze entire web pages and use a color picker to select
+                colors directly from your screen.</p>
+            <div class="info-tag">Advanced Feature: Color Vision Deficiency Simulations</div>
+            <p>It also provides simulations for different types of color vision deficiencies, ensuring your design is
+                accessible to users with various forms of color blindness.</p>
+        </section>
+
+        <section class="quiz-section card glass animate-in">
+            <h2 class="quiz-title">Knowledge Check</h2>
+
+            <div class="question" id="q1">
+                <p class="question-text">1. What is the primary purpose of using color contrast checking tools?</p>
+                <div class="options">
+                    <button class="option" onclick="handleChoice(this, false)">To make websites more colorful.</button>
+                    <button class="option" onclick="handleChoice(this, true)">To ensure text is readable against its
+                        background for accessibility.</button>
+                    <button class="option" onclick="handleChoice(this, false)">To reduce the number of colors used in a
+                        website.</button>
+                    <button class="option" onclick="handleChoice(this, false)">To increase website loading
+                        speed.</button>
+                </div>
+            </div>
+
+            <div class="question" id="q2">
+                <p class="question-text">2. Which feature does the TPGi Colour Contrast Analyzer offer that most online
+                    contrast checkers don't?</p>
+                <div class="options">
+                    <button class="option" onclick="handleChoice(this, false)">It can check contrast ratios.</button>
+                    <button class="option" onclick="handleChoice(this, false)">It provides hexadecimal color
+                        codes.</button>
+                    <button class="option" onclick="handleChoice(this, true)">It can analyze entire web pages and
+                        simulate color vision deficiencies.</button>
+                    <button class="option" onclick="handleChoice(this, false)">It suggests color combinations.</button>
+                </div>
+            </div>
+
+            <div class="question" id="q3">
+                <p class="question-text">3. What do the WCAG 2.0 level AA and AAA standards refer to?</p>
+                <div class="options">
+                    <button class="option" onclick="handleChoice(this, false)">The brightness levels of colors.</button>
+                    <button class="option" onclick="handleChoice(this, false)">The file size of images.</button>
+                    <button class="option" onclick="handleChoice(this, true)">The minimum contrast ratios required for
+                        accessibility.</button>
+                    <button class="option" onclick="handleChoice(this, false)">The number of colors used in a
+                        design.</button>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2026 Accessibility Series | Tutorial 108</p>
+        </div>
+    </footer>
+
+    <script>
+        function handleChoice(btn, isCorrect) {
+            const options = btn.parentElement.querySelectorAll('.option');
+            options.forEach(opt => {
+                opt.classList.remove('selected', 'active-correct', 'active-wrong');
+                opt.disabled = true;
+            });
+
+            btn.classList.add('selected');
+            if (isCorrect) {
+                btn.classList.add('active-correct');
+            } else {
+                btn.classList.add('active-wrong');
+            }
+        }
+    </script>
+</body>
+
+</html>
