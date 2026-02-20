@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Absolute Positioning | Web Dev Essentials</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700&family=JetBrains+Mono:wght@400;700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+    <header>
+        <div class="container">
+            <div class="header-content">
+                <span class="badge">Tutorial 112</span>
+                <h1>Absolute <span class="accent-text">Positioning</span></h1>
+                <p class="subtitle">Floating Indepedently from the Document Flow</p>
+            </div>
+        </div>
+    </header>
+
+    <main class="container">
+        <!-- Section 1: Out of Flow -->
+        <section class="glass-card">
+            <div class="section-header">
+                <h2>01. Removed from Flow</h2>
+                <span class="status-label accent">Independent</span>
+            </div>
+            <p>Absolute positioning takes an element completely out of the normal document flow. It's like the element
+                is on its own transparent layer, floating above everything else. Other elements behave as if it doesn't
+                exist, often collapsing to fill the gap left behind.</p>
+
+            <div class="demo-wrapper">
+                <h3>The "Missing Space" Demo</h3>
+                <div class="flow-demo">
+                    <div class="box gray">1</div>
+                    <div class="box neon-purple absolute-demo">Absolute</div>
+                    <div class="box gray">3 (I fill the gap!)</div>
+                </div>
+                <div class="explanation">
+                    <p>Notice how Box 3 moved up to fill the space where the "Absolute" box used to be. The Absolute box
+                        is now floating 20px from the container's top-right.</p>
+                </div>
+            </div>
+
+            <div class="code-block">
+                <pre><code><span class="tag">.absolute-demo</span> {
+  <span class="prop">position</span>: <span class="val">absolute</span>;
+  <span class="prop">top</span>: <span class="val">20px</span>;
+  <span class="prop">right</span>: <span class="val">20px</span>;
+}</code></pre>
+            </div>
+        </section>
+
+        <!-- Section 2: Containing Block -->
+        <section class="glass-card">
+            <div class="section-header">
+                <h2>02. Containing Block</h2>
+                <span class="status-label">Viewport Context</span>
+            </div>
+            <p>An absolute element is positioned relative to its <strong>nearest positioned ancestor</strong> (anything
+                with a <code>position</code> other than <code>static</code>). If none exists, it uses the
+                <strong>initial containing block</strong> (usually the viewport).</p>
+
+            <div class="info-alert">
+                <p><strong>💡 Pro Tip:</strong> Most developers use <code>position: relative</code> on a parent
+                    container just to give its absolute children a "home" to be positioned within.</p>
+            </div>
+        </section>
+
+        <!-- Quiz Section -->
+        <section class="quiz-container">
+            <div class="quiz-header">
+                <h2 class="accent-text">Knowledge Check</h2>
+                <p>Test your absolute positioning vibes.</p>
+            </div>
+
+            <div class="quiz-stack">
+                <div class="question-card" id="q1">
+                    <h3>1. What happens when an element is positioned absolutely in CSS?</h3>
+                    <div class="options">
+                        <button class="opt-btn" onclick="checkAnswer(1, 'a', this)">The element is placed in its normal
+                            document flow.</button>
+                        <button class="opt-btn" onclick="checkAnswer(1, 'b', this)">The element overlaps others and is
+                            in its own layer.</button>
+                        <button class="opt-btn" onclick="checkAnswer(1, 'c', this)">The element is hidden.</button>
+                        <button class="opt-btn" onclick="checkAnswer(1, 'd', this)">The element is moved to the top of
+                            the page.</button>
+                    </div>
+                </div>
+
+                <div class="question-card" id="q2">
+                    <h3>2. How do you move an absolute element 30px from the top and left edges?</h3>
+                    <div class="options">
+                        <button class="opt-btn" onclick="checkAnswer(2, 'a', this)">Set top: 30px and left:
+                            30px.</button>
+                        <button class="opt-btn" onclick="checkAnswer(2, 'b', this)">Set margin-top: 30px and
+                            margin-left: 30px.</button>
+                        <button class="opt-btn" onclick="checkAnswer(2, 'c', this)">Set position: relative.</button>
+                        <button class="opt-btn" onclick="checkAnswer(2, 'd', this)">Set padding: 30px.</button>
+                    </div>
+                </div>
+
+                <div class="question-card" id="q3">
+                    <h3>3. If no positioned ancestor is found, where is an absolute element placed?</h3>
+                    <div class="options">
+                        <button class="opt-btn" onclick="checkAnswer(3, 'a', this)">Relative to the body.</button>
+                        <button class="opt-btn" onclick="checkAnswer(3, 'b', this)">Relative to the closest fixed
+                            element.</button>
+                        <button class="opt-btn" onclick="checkAnswer(3, 'c', this)">Relative to the initial containing
+                            block (viewport).</button>
+                        <button class="opt-btn" onclick="checkAnswer(3, 'd', this)">It stays in the same place.</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2026 Web Dev Essentials | Built with Midnight Obsidian Theme</p>
+        </div>
+    </footer>
+
+    <script>
+        const answers = {
+            1: 'b',
+            2: 'a',
+            3: 'c'
+        };
+
+        function checkAnswer(qId, selected, btn) {
+            const card = document.getElementById('q' + qId);
+            const buttons = card.querySelectorAll('.opt-btn');
+
+            buttons.forEach(b => {
+                b.disabled = true;
+                b.classList.remove('correct', 'wrong');
+            });
+
+            if (selected === answers[qId]) {
+                btn.classList.add('correct');
+            } else {
+                btn.classList.add('wrong');
+                buttons.forEach(b => {
+                    const text = b.innerText.toLowerCase();
+                    if (qId === 1 && text.includes('overlaps')) b.classList.add('correct');
+                    if (qId === 2 && text.includes('top: 30px')) b.classList.add('correct');
+                    if (qId === 3 && text.includes('viewport')) b.classList.add('correct');
+                });
+            }
+        }
+    </script>
+</body>
+
+</html>

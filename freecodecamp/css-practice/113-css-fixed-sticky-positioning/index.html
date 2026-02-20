@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fixed & Sticky Positioning | Web Dev Essentials</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700&family=JetBrains+Mono:wght@400;700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+    <header>
+        <div class="container">
+            <div class="header-content">
+                <span class="badge">Tutorial 113</span>
+                <h1>Fixed & <span class="accent-text">Sticky</span></h1>
+                <p class="subtitle">Controlled Scrolling & Persistent Elements</p>
+            </div>
+        </div>
+    </header>
+
+    <main class="container">
+        <!-- Section 1: Fixed -->
+        <section class="glass-card">
+            <div class="section-header">
+                <h2>01. Fixed Positioning</h2>
+                <span class="status-label accent">Viewport</span>
+            </div>
+            <p><code>position: fixed</code> removes an element from the flow and fixes it relative to the
+                <strong>viewport</strong>. It stays in the exact same spot regardless of scrolling. This is perfect for
+                navigation bars or "Back to Top" buttons.</p>
+
+            <div class="demo-viewport">
+                <div class="simulated-header">Fixed Header (I never move)</div>
+                <div class="scrolling-content">
+                    <p>Scroll down inside here...</p>
+                    <div class="scroll-spacer"></div>
+                    <p>Look up! The header is still there.</p>
+                </div>
+            </div>
+
+            <div class="code-block">
+                <pre><code><span class="tag">header</span> {
+  <span class="prop">position</span>: <span class="val">fixed</span>;
+  <span class="prop">top</span>: <span class="val">0</span>;
+  <span class="prop">width</span>: <span class="val">100%</span>;
+}</code></pre>
+            </div>
+        </section>
+
+        <!-- Section 2: Sticky -->
+        <section class="glass-card">
+            <div class="section-header">
+                <h2>02. Sticky Positioning</h2>
+                <span class="status-label">Hybrid</span>
+            </div>
+            <p><code>position: sticky</code> is a hybrid. It behaves like <code>relative</code> (staying in the flow)
+                until the user scrolls it past a specific <strong>threshold</strong> (like <code>top: 10px</code>), then
+                it "sticks" like <code>fixed</code>.</p>
+
+            <div class="demo-viewport sticky-demo">
+                <div class="scrolling-content">
+                    <p>Scroll slowly...</p>
+                    <div class="sticky-bar">I'm Sticky!</div>
+                    <div class="scroll-spacer"></div>
+                    <p>I caught you!</p>
+                </div>
+            </div>
+
+            <div class="code-block">
+                <pre><code><span class="tag">h2</span> {
+  <span class="prop">position</span>: <span class="val">sticky</span>;
+  <span class="prop">top</span>: <span class="val">0</span>;
+}</code></pre>
+            </div>
+        </section>
+
+        <!-- Key Differences -->
+        <section class="comparison">
+            <h2>The Big Three</h2>
+            <div class="table-container">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Type</th>
+                            <th>Relative To</th>
+                            <th>In Flow?</th>
+                            <th>Scroll Behavior</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>Absolute</strong></td>
+                            <td>Nearest Positioned Ancestor</td>
+                            <td>No</td>
+                            <td>Scrolls with parent</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Fixed</strong></td>
+                            <td>Viewport</td>
+                            <td>No</td>
+                            <td>Stay in place</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Sticky</strong></td>
+                            <td>Nearest Scroll Parent</td>
+                            <td>Yes</td>
+                            <td>Sticks at threshold</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
+        <!-- Quiz Section -->
+        <section class="quiz-container">
+            <div class="quiz-header">
+                <h2 class="accent-text">Knowledge Check</h2>
+                <p>Are you stuck on positioning or is it fixed in your mind?</p>
+            </div>
+
+            <div class="quiz-stack">
+                <div class="question-card" id="q1">
+                    <h3>1. What is the main difference between fixed and sticky positioning?</h3>
+                    <div class="options">
+                        <button class="opt-btn" onclick="checkAnswer(1, 'a', this)">fixed stays relative to viewport,
+                            sticky moves then sticks.</button>
+                        <button class="opt-btn" onclick="checkAnswer(1, 'b', this)">sticky stays relative to viewport,
+                            fixed moves.</button>
+                        <button class="opt-btn" onclick="checkAnswer(1, 'c', this)">Both fixed and sticky behave the
+                            same way.</button>
+                        <button class="opt-btn" onclick="checkAnswer(1, 'd', this)">Neither works for headers.</button>
+                    </div>
+                </div>
+
+                <div class="question-card" id="q2">
+                    <h3>2. What property must be defined for sticky positioning to work?</h3>
+                    <div class="options">
+                        <button class="opt-btn" onclick="checkAnswer(2, 'a', this)">position: absolute</button>
+                        <button class="opt-btn" onclick="checkAnswer(2, 'b', this)">position: fixed</button>
+                        <button class="opt-btn" onclick="checkAnswer(2, 'c', this)">position: sticky</button>
+                        <button class="opt-btn" onclick="checkAnswer(2, 'd', this)">z-index</button>
+                    </div>
+                </div>
+
+                <div class="question-card" id="q3">
+                    <h3>3. How does fixed positioning differ from absolute positioning?</h3>
+                    <div class="options">
+                        <button class="opt-btn" onclick="checkAnswer(3, 'a', this)">fixed is relative to viewport,
+                            absolute is to nearest positioned ancestor.</button>
+                        <button class="opt-btn" onclick="checkAnswer(3, 'b', this)">fixed positioning doesn't allow
+                            scrolling.</button>
+                        <button class="opt-btn" onclick="checkAnswer(3, 'c', this)">absolute keeps the element within
+                            the flow.</button>
+                        <button class="opt-btn" onclick="checkAnswer(3, 'd', this)">fixed hides the element when
+                            scrolled.</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2026 Web Dev Essentials | Built with Midnight Obsidian Theme</p>
+        </div>
+    </footer>
+
+    <script>
+        const answers = {
+            1: 'a',
+            2: 'c',
+            3: 'a'
+        };
+
+        function checkAnswer(qId, selected, btn) {
+            const card = document.getElementById('q' + qId);
+            const buttons = card.querySelectorAll('.opt-btn');
+
+            buttons.forEach(b => {
+                b.disabled = true;
+                b.classList.remove('correct', 'wrong');
+            });
+
+            if (selected === answers[qId]) {
+                btn.classList.add('correct');
+            } else {
+                btn.classList.add('wrong');
+                buttons.forEach(b => {
+                    const text = b.innerText.toLowerCase();
+                    if (qId === 1 && text.includes('viewport, sticky moves')) b.classList.add('correct');
+                    if (qId === 2 && text.includes('position: sticky')) b.classList.add('correct');
+                    if (qId === 3 && text.includes('relative to viewport')) b.classList.add('correct');
+                });
+            }
+        }
+    </script>
+</body>
+
+</html>

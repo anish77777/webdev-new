@@ -16,115 +16,125 @@
 <body>
     <header>
         <div class="container">
-            <h1>Hiding <span class="neon-text">Content</span> Accessibility</h1>
-            <p class="subtitle">Best Practices for Inclusive Web Development</p>
+            <h1>HTML/CSS <span class="neon-text">Accessibility</span> Quiz</h1>
+            <p class="subtitle">Ensuring the Web is for Everyone</p>
+            <nav>
+                <ul>
+                    <li><a href="#student-info">INFO</a></li>
+                    <li><a href="#html-questions">HTML</a></li>
+                    <li><a href="#css-questions">CSS</a></li>
+                </ul>
+            </nav>
         </div>
     </header>
 
     <main class="container">
-        <section class="card neumorphic">
-            <h2>The Accessibility Tree</h2>
-            <p>The accessibility tree is a structure used by assistive technologies, such as screen readers, to
-                interpret and interact with web content. It represents the semantic meaning of elements. When we hide
-                content, we must choose whether it should also be removed from this tree.</p>
-        </section>
-
-        <section class="card neumorphic">
-            <h2>Hiding Techniques</h2>
-
-            <div class="method">
-                <h3>1. display: none</h3>
-                <p>Effectively hides content visually and <strong>removes it from the accessibility tree</strong>. Use
-                    this only when you want to completely remove content from everyone.</p>
-                <div class="code-box">
-                    <pre><code>.hidden { <span class="prop">display</span>: <span class="val">none</span>; }</code></pre>
+        <form method="post" action="#">
+            <!-- Student Information Section -->
+            <section role="region" aria-labelledby="student-info">
+                <h2 id="student-info">Student Info</h2>
+                <div class="info">
+                    <label for="student-name">Name:</label>
+                    <input type="text" name="student-name" id="student-name" required>
                 </div>
-            </div>
-
-            <div class="method">
-                <h3>2. visibility: hidden</h3>
-                <p>Hides content visually but <strong>keeps it in the document flow</strong> (it still occupies space).
-                    Like display: none, it removes content from the accessibility tree.</p>
-                <div class="code-box">
-                    <pre><code>.hidden { <span class="prop">visibility</span>: <span class="val">hidden</span>; }</code></pre>
+                <div class="info">
+                    <label for="student-email">Email:</label>
+                    <input type="email" name="student-email" id="student-email" required>
                 </div>
-            </div>
-
-            <div class="method">
-                <h3>3. Visually Hidden (.sr-only)</h3>
-                <p>A technique to hide content from sighted users while <strong>keeping it accessible to screen
-                        readers</strong>. This is crucial for providing extra context.</p>
-                <div class="code-box">
-                    <pre><code>.sr-only {
-  <span class="prop">position</span>: <span class="val">absolute</span>;
-  <span class="prop">width</span>: <span class="val">1px</span>;
-  <span class="prop">height</span>: <span class="val">1px</span>;
-  <span class="prop">overflow</span>: <span class="val">hidden</span>;
-  <span class="prop">clip</span>: <span class="val">rect(0, 0, 0, 0)</span>;
-}</code></pre>
+                <div class="info">
+                    <label for="birth-date">DOB:</label>
+                    <input type="date" name="birth-date" id="birth-date">
                 </div>
-            </div>
+            </section>
 
-            <p class="sr-only">Tip: This text is hidden from sight but yours to hear!</p>
-        </section>
+            <!-- HTML Questions Section -->
+            <section role="region" aria-labelledby="html-questions">
+                <h2 id="html-questions">HTML Concepts</h2>
 
-        <section class="quiz-section">
-            <h2 class="section-title">Test Your Logic</h2>
-
-            <div class="card neumorphic question" id="q1">
-                <p class="q-text">1. What is the main accessibility issue with display: none and visibility: hidden?</p>
-                <div class="options">
-                    <button class="btn-option" onclick="check(this, false)">They make content only accessible to screen
-                        readers.</button>
-                    <button class="btn-option" onclick="check(this, true)">They remove content from the accessibility
-                        tree entirely.</button>
-                    <button class="btn-option" onclick="check(this, false)">They only work on desktop browsers.</button>
+                <div class="question-block">
+                    <h3><span class="sr-only">Question</span>1</h3>
+                    <fieldset class="question" name="html-question-one">
+                        <legend>
+                            The legend element represents a caption for the content of its
+                            parent fieldset element.
+                        </legend>
+                        <ul class="answers-list">
+                            <li>
+                                <label for="q1-a1">
+                                    <input type="radio" id="q1-a1" name="q1" value="true">
+                                    True
+                                </label>
+                            </li>
+                            <li>
+                                <label for="q1-a2">
+                                    <input type="radio" id="q1-a2" name="q1" value="false">
+                                    False
+                                </label>
+                            </li>
+                        </ul>
+                    </fieldset>
                 </div>
-            </div>
 
-            <div class="card neumorphic question" id="q2">
-                <p class="q-text">2. What is the primary purpose of the "visually hidden" (.sr-only) technique?</p>
-                <div class="options">
-                    <button class="btn-option" onclick="check(this, false)">To hide content from all users.</button>
-                    <button class="btn-option" onclick="check(this, true)">To hide content visually while keeping it for
-                        screen readers.</button>
-                    <button class="btn-option" onclick="check(this, false)">To create animations for mobile
-                        devices.</button>
+                <div class="question-block">
+                    <h3><span class="sr-only">Question</span>2</h3>
+                    <fieldset class="question" name="html-question-two">
+                        <legend>
+                            A label element nesting an input element is required to have a
+                            for attribute with the same value as the input's id.
+                        </legend>
+                        <ul class="answers-list">
+                            <li>
+                                <label for="q2-a1">
+                                    <input type="radio" id="q2-a1" name="q2" value="true">
+                                    True
+                                </label>
+                            </li>
+                            <li>
+                                <label for="q2-a2">
+                                    <input type="radio" id="q2-a2" name="q2" value="false">
+                                    False
+                                </label>
+                            </li>
+                        </ul>
+                    </fieldset>
                 </div>
-            </div>
+            </section>
 
-            <div class="card neumorphic question" id="q3">
-                <p class="q-text">3. When should you hide content on a web page?</p>
-                <div class="options">
-                    <button class="btn-option" onclick="check(this, false)">Whenever content is less important.</button>
-                    <button class="btn-option" onclick="check(this, true)">Only when it genuinely enhances the user
-                        experience.</button>
-                    <button class="btn-option" onclick="check(this, false)">When content is incorrect.</button>
+            <!-- CSS Questions Section -->
+            <section role="region" aria-labelledby="css-questions">
+                <h2 id="css-questions">CSS Styling</h2>
+                <div class="question-block">
+                    <label for="selector">Can the CSS margin property accept negative values?</label>
+                    <div class="info" style="margin-top: 15px;">
+                        <select name="selector" id="selector" required
+                            style="width: 100%; background: var(--bg); color: var(--text); border: none; padding: 12px; border-radius: 10px; box-shadow: var(--nm-inset);">
+                            <option value="">Select an option</option>
+                            <option value="yes">Yes</option>
+                            <option value="no">No</option>
+                        </select>
+                    </div>
                 </div>
-            </div>
-        </section>
+
+                <div class="question-block">
+                    <label for="css-textarea">Do you have any questions:</label>
+                    <div class="info" style="margin-top: 15px;">
+                        <textarea id="css-textarea" name="css-questions" rows="5"
+                            style="width: 100%; background: var(--bg); color: var(--text); border: none; padding: 15px; border-radius: 10px; box-shadow: var(--nm-inset); font-family: inherit; resize: vertical;"></textarea>
+                    </div>
+                </div>
+            </section>
+
+            <button type="submit">Send Quiz</button>
+        </form>
     </main>
 
     <footer>
-        <p>Accessibility Masterclass | Step 109</p>
+        <address>
+            <a href="https://freecodecamp.org" target="_blank">freeCodeCamp</a><br>
+            Inclusive Design Initiative<br>
+            San Francisco, CA, USA
+        </address>
     </footer>
-
-    <script>
-        function check(btn, correct) {
-            const wrap = btn.parentElement;
-            const all = wrap.querySelectorAll('.btn-option');
-            all.forEach(b => {
-                b.disabled = true;
-                b.classList.remove('active-correct', 'active-wrong');
-            });
-            if (correct) {
-                btn.classList.add('active-correct');
-            } else {
-                btn.classList.add('active-wrong');
-                // Find correct and highlight it subtly
-            }
-        }
-    </script>
 </body>
 
 </html>

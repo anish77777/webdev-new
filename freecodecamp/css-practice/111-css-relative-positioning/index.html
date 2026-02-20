@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Positioning: Static vs Relative | Web Dev Essentials</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700&family=JetBrains+Mono:wght@400;700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+    <header>
+        <div class="container">
+            <div class="header-content">
+                <span class="badge">Tutorial 111</span>
+                <h1>CSS <span class="accent-text">Positioning</span></h1>
+                <p class="subtitle">Static vs. Relative: Moving without Breaking</p>
+            </div>
+        </div>
+    </header>
+
+    <main class="container">
+        <!-- Section 1: Static -->
+        <section class="glass-card">
+            <div class="section-header">
+                <h2>01. Static Positioning</h2>
+                <span class="status-label">Default</span>
+            </div>
+            <p>By default, every element has <code>position: static</code>. Elements follow the <strong>normal document
+                    flow</strong>: they sit one after another, from top to bottom and left to right, according to their
+                HTML order.</p>
+
+            <div class="demo-wrapper">
+                <h3>Normal Flow Demo</h3>
+                <div class="demo-static">
+                    <div class="box gray">1</div>
+                    <div class="box neon-blue active">Static Box</div>
+                    <div class="box gray">3</div>
+                </div>
+                <div class="explanation">
+                    <p>The "Static Box" is right where it should be. <code>top</code>, <code>left</code>, etc. have no
+                        effect here.</p>
+                </div>
+            </div>
+
+            <div class="code-block">
+                <pre><code><span class="tag">p</span> {
+  <span class="prop">position</span>: <span class="val">static</span>; <span class="comment">/* The Default */</span>
+}</code></pre>
+            </div>
+        </section>
+
+        <!-- Section 2: Relative -->
+        <section class="glass-card accent-border">
+            <div class="section-header">
+                <h2>02. Relative Positioning</h2>
+                <span class="status-label accent">Offset</span>
+            </div>
+            <p>Relative positioning allows an element to be shifted from its <strong>original position</strong> without
+                disrupting the rest of the layout. The space it originally occupied is <strong>preserved</strong>.</p>
+
+            <div class="demo-wrapper">
+                <h3>Offset Demo</h3>
+                <div class="demo-relative">
+                    <div class="box gray">1</div>
+                    <div class="box neon-purple active relative-box">Relative Box</div>
+                    <div class="box gray">3</div>
+                </div>
+                <div class="explanation">
+                    <p>Notice how Box 3 didn't move! The "Relative Box" is shifted 30px down and 30px right, but its
+                        "ghost" still takes up space in the flow.</p>
+                </div>
+            </div>
+
+            <div class="code-block">
+                <pre><code><span class="tag">.relative-box</span> {
+  <span class="prop">position</span>: <span class="val">relative</span>;
+  <span class="prop">top</span>: <span class="val">30px</span>;
+  <span class="prop">left</span>: <span class="val">30px</span>;
+}</code></pre>
+            </div>
+        </section>
+
+        <!-- Comparison Table -->
+        <section class="comparison">
+            <h2>Quick Comparison</h2>
+            <div class="table-container">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Feature</th>
+                            <th>Static</th>
+                            <th>Relative</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>In Document Flow?</td>
+                            <td>Yes</td>
+                            <td>Yes</td>
+                        </tr>
+                        <tr>
+                            <td>Accepts Offsets?</td>
+                            <td>No</td>
+                            <td>Yes (top, right, bottom, left)</td>
+                        </tr>
+                        <tr>
+                            <td>Preserves Space?</td>
+                            <td>Yes</td>
+                            <td>Yes</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
+        <!-- Quiz Section -->
+        <section class="quiz-container">
+            <div class="quiz-header">
+                <h2 class="accent-text">Knowledge Check</h2>
+                <p>Verify your understanding of CSS positioning.</p>
+            </div>
+
+            <div class="quiz-stack">
+                <div class="question-card" id="q1">
+                    <h3>1. Which of the following is the default positioning for all elements?</h3>
+                    <div class="options">
+                        <button class="opt-btn" onclick="checkAnswer(1, 'absolute', this)">absolute</button>
+                        <button class="opt-btn" onclick="checkAnswer(1, 'relative', this)">relative</button>
+                        <button class="opt-btn" onclick="checkAnswer(1, 'fixed', this)">fixed</button>
+                        <button class="opt-btn" onclick="checkAnswer(1, 'static', this)">static</button>
+                    </div>
+                </div>
+
+                <div class="question-card" id="q2">
+                    <h3>2. What does relative positioning do to an element?</h3>
+                    <div class="options">
+                        <button class="opt-btn" onclick="checkAnswer(2, 'a', this)">It moves it from the normal document
+                            flow.</button>
+                        <button class="opt-btn" onclick="checkAnswer(2, 'b', this)">It moves it relative to its normal
+                            position.</button>
+                        <button class="opt-btn" onclick="checkAnswer(2, 'c', this)">Fixes it to the viewport.</button>
+                        <button class="opt-btn" onclick="checkAnswer(2, 'd', this)">It stacks it above other
+                            elements.</button>
+                    </div>
+                </div>
+
+                <div class="question-card" id="q3">
+                    <h3>3. How does relative positioning differ from static positioning?</h3>
+                    <div class="options">
+                        <button class="opt-btn" onclick="checkAnswer(3, 'a', this)">Relative positioning removes the
+                            element from the flow.</button>
+                        <button class="opt-btn" onclick="checkAnswer(3, 'b', this)">Static positioning allows elements
+                            to be shifted.</button>
+                        <button class="opt-btn" onclick="checkAnswer(3, 'c', this)">Relative allows shifting without
+                            disrupting flow.</button>
+                        <button class="opt-btn" onclick="checkAnswer(3, 'd', this)">Static fixes the element in place
+                            like a background.</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2026 Web Dev Essentials | Built with Midnight Obsidian Theme</p>
+        </div>
+    </footer>
+
+    <script>
+        const answers = {
+            1: 'static',
+            2: 'b',
+            3: 'c'
+        };
+
+        function checkAnswer(qId, selected, btn) {
+            const card = document.getElementById('q' + qId);
+            const buttons = card.querySelectorAll('.opt-btn');
+
+            buttons.forEach(b => {
+                b.disabled = true;
+                b.classList.remove('correct', 'wrong');
+            });
+
+            if (selected === answers[qId]) {
+                btn.classList.add('correct');
+            } else {
+                btn.classList.add('wrong');
+                // Highlight correct one
+                buttons.forEach(b => {
+                    if (b.innerText === 'static' && qId === 1) b.classList.add('correct');
+                    if (b.innerText.includes('relative to its normal') && qId === 2) b.classList.add('correct');
+                    if (b.innerText.includes('without disrupting flow') && qId === 3) b.classList.add('correct');
+                });
+            }
+        }
+    </script>
+</body>
+
+</html>

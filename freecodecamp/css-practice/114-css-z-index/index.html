@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Z-Index Property | Web Dev Essentials</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700&family=JetBrains+Mono:wght@400;700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+    <header>
+        <div class="container">
+            <div class="header-content">
+                <span class="badge">Tutorial 114</span>
+                <h1>The <span class="accent-text">Z-Index</span></h1>
+                <p class="subtitle">Controlling Vertical Stacking & Layering</p>
+            </div>
+        </div>
+    </header>
+
+    <main class="container">
+        <!-- Section 1: Stacking Order -->
+        <section class="glass-card">
+            <div class="section-header">
+                <h2>01. Stacking Order</h2>
+                <span class="status-label accent">Vertical Axis</span>
+            </div>
+            <p>The <code>z-index</code> property controls which elements appear "closer" to the viewer. When positioned
+                elements overlap, the one with the higher <code>z-index</code> value will be placed on top.</p>
+
+            <div class="demo-wrapper">
+                <h3>Visual Stacking Demo</h3>
+                <div class="stacking-container">
+                    <div class="z-box box-1">z-index: 1</div>
+                    <div class="z-box box-2">z-index: 3</div>
+                    <div class="z-box box-3">z-index: 2</div>
+                </div>
+                <div class="explanation">
+                    <p>Even though "z-index: 2" comes last in the HTML, it's <strong>underneath</strong> "z-index: 3"
+                        because 3 is a higher layer.</p>
+                </div>
+            </div>
+
+            <div class="code-block">
+                <pre><code><span class="tag">.top-layer</span> {
+  <span class="prop">position</span>: <span class="val">absolute</span>;
+  <span class="prop">z-index</span>: <span class="val">10</span>; <span class="comment">/* Higher = Closer */</span>
+}</code></pre>
+            </div>
+        </section>
+
+        <!-- Section 2: Requirements -->
+        <section class="glass-card">
+            <div class="section-header">
+                <h2>02. The "Positioned" Rule</h2>
+                <span class="status-label">Requirement</span>
+            </div>
+            <p>CRITICAL: <code>z-index</code> <strong>only</strong> works on elements which have a <code>position</code>
+                value other than <code>static</code> (the default). If your element is static, z-index will be ignored.
+            </p>
+
+            <div class="info-alert">
+                <p><strong>💡 Layering Context:</strong> Common z-index values range from 1 to 9999, but you can also
+                    use negative values to move elements behind the normal flow.</p>
+            </div>
+        </section>
+
+        <!-- Quiz Section -->
+        <section class="quiz-container">
+            <div class="quiz-header">
+                <h2 class="accent-text">Knowledge Check</h2>
+                <p>Master the depth of your layout.</p>
+            </div>
+
+            <div class="quiz-stack">
+                <div class="question-card" id="q1">
+                    <h3>1. What does the z-index property control in CSS?</h3>
+                    <div class="options">
+                        <button class="opt-btn" onclick="checkAnswer(1, 'a', this)">The color of an element.</button>
+                        <button class="opt-btn" onclick="checkAnswer(1, 'b', this)">The vertical stacking order of
+                            positioned elements.</button>
+                        <button class="opt-btn" onclick="checkAnswer(1, 'c', this)">The size of an element.</button>
+                        <button class="opt-btn" onclick="checkAnswer(1, 'd', this)">The horizontal alignment of
+                            text.</button>
+                    </div>
+                </div>
+
+                <div class="question-card" id="q2">
+                    <h3>2. In order for the z-index property to work, what must be true?</h3>
+                    <div class="options">
+                        <button class="opt-btn" onclick="checkAnswer(2, 'a', this)">It must have a fixed width.</button>
+                        <button class="opt-btn" onclick="checkAnswer(2, 'b', this)">It must have a position value other
+                            than static.</button>
+                        <button class="opt-btn" onclick="checkAnswer(2, 'c', this)">It must have a display value of
+                            block.</button>
+                        <button class="opt-btn" onclick="checkAnswer(2, 'd', this)">It must have a background color
+                            set.</button>
+                    </div>
+                </div>
+
+                <div class="question-card" id="q3">
+                    <h3>3. Which z-index value places an element on top of all others?</h3>
+                    <div class="options">
+                        <button class="opt-btn" onclick="checkAnswer(3, 'a', this)">z-index: 0;</button>
+                        <button class="opt-btn" onclick="checkAnswer(3, 'b', this)">z-index: 5;</button>
+                        <button class="opt-btn" onclick="checkAnswer(3, 'c', this)">z-index: auto;</button>
+                        <button class="opt-btn" onclick="checkAnswer(3, 'd', this)">z-index: -1;</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2026 Web Dev Essentials | Built with Midnight Obsidian Theme</p>
+        </div>
+    </footer>
+
+    <script>
+        const answers = {
+            1: 'b',
+            2: 'b',
+            3: 'b'
+        };
+
+        function checkAnswer(qId, selected, btn) {
+            const card = document.getElementById('q' + qId);
+            const buttons = card.querySelectorAll('.opt-btn');
+
+            buttons.forEach(b => {
+                b.disabled = true;
+                b.classList.remove('correct', 'wrong');
+            });
+
+            if (selected === answers[qId]) {
+                btn.classList.add('correct');
+            } else {
+                btn.classList.add('wrong');
+                buttons.forEach(b => {
+                    const text = b.innerText.toLowerCase();
+                    if (qId === 1 && text.includes('vertical stacking')) b.classList.add('correct');
+                    if (qId === 2 && text.includes('other than static')) b.classList.add('correct');
+                    if (qId === 3 && text.includes('z-index: 5')) b.classList.add('correct');
+                });
+            }
+        }
+    </script>
+</body>
+
+</html>
