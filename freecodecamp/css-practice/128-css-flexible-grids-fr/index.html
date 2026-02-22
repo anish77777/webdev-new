@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Flexible Grids with fr Units | Web Dev Tutorials</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700&family=JetBrains+Mono:wght@400;700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+    <header>
+        <div class="container">
+            <span class="badge">Tutorial 128</span>
+            <h1>The <span class="accent-text">fr Unit</span></h1>
+            <p class="subtitle">Creating Truly Flexible and Responsive Layouts</p>
+        </div>
+    </header>
+
+    <main class="container">
+        <!-- Intro Section -->
+        <section class="glass-card">
+            <h2>Fractional Proportions</h2>
+            <p>While percentages can create responsive grids, the <code>fr</code> unit is a game-changer. It represents
+                a <strong>fraction</strong> of the <em>available</em> space in the container.</p>
+            <p>Think of it as slicing a pie – if you have 4 slices (1fr each), everyone gets an equal piece, no matter
+                how big the pie is.</p>
+        </section>
+
+        <!-- Percentage Demo -->
+        <section>
+            <div class="section-header">
+                <h2>1. The Percentage Approach</h2>
+                <span class="status-label legacy">Fixed Ratio</span>
+            </div>
+            <div class="demo-wrapper glass-card">
+                <div class="demo-layout">
+                    <div class="code-area">
+                        <h3>Percentage CSS</h3>
+                        <div class="code-block">
+                            <pre><code><span class="tag">.container</span> {
+  <span class="prop">display</span>: <span class="val">grid</span>;
+  <span class="prop">grid-template-columns</span>: <span class="val">25% 25% 25% 25%</span>;
+  <span class="prop">gap</span>: <span class="val">15px</span>;
+}</code></pre>
+                        </div>
+                    </div>
+                    <div class="preview-area">
+                        <h3>Current Layout</h3>
+                        <div class="perc-grid">
+                            <div class="col"></div>
+                            <div class="col"></div>
+                            <div class="col"></div>
+                            <div class="col"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- fr Demo -->
+        <section>
+            <div class="section-header">
+                <h2>2. The fr Unit Approach</h2>
+                <span class="status-label magic">Proportional</span>
+            </div>
+            <div class="demo-wrapper glass-card accent">
+                <div class="demo-layout">
+                    <div class="code-area">
+                        <h3>Fractional CSS</h3>
+                        <div class="code-block">
+                            <pre><code><span class="tag">.container</span> {
+  <span class="prop">display</span>: <span class="val">grid</span>;
+  <span class="prop">grid-template-columns</span>: <span class="val">1fr 1fr 1fr 1fr</span>;
+  <span class="prop">gap</span>: <span class="val">15px</span>;
+}</code></pre>
+                        </div>
+                    </div>
+                    <div class="preview-area">
+                        <h3>Dynamic Layout</h3>
+                        <div class="fr-grid">
+                            <div class="col"></div>
+                            <div class="col"></div>
+                            <div class="col"></div>
+                            <div class="col"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class=" info-box">
+                <p><strong>Pro Tip:</strong> Unlike percentages, <code>fr</code> units account for the
+                    <code>gap</code> before distributing space. This prevents layout overflow and
+                    calculation headaches!
+                </p>
+            </div>
+        </section>
+
+        <!-- Quiz Section -->
+        <section class="quiz-container">
+            <h2 class="accent-text">Check Your Knowledge</h2>
+            <div class="quiz-stack">
+                <div class="question-card" id="q1">
+                    <h3>1. What is the purpose of the grid-template-columns property?</h3>
+                    <div class="options">
+                        <button class="opt-btn" onclick="checkAnswer(1, 'a', this)">It sets the color for the
+                            columns.</button>
+                        <button class="opt-btn" onclick="checkAnswer(1, 'b', this)">It sets the size for the
+                            columns.</button>
+                        <button class="opt-btn" onclick="checkAnswer(1, 'c', this)">It sets the gap between the
+                            columns.</button>
+                        <button class="opt-btn" onclick="checkAnswer(1, 'd', this)">It specifies the number of rows in
+                            the grid.</button>
+                    </div>
+                </div>
+
+                <div class="question-card" id="q2">
+                    <h3>2. How does the fr unit in CSS grid differ from using percentages?</h3>
+                    <div class="options">
+                        <button class="opt-btn" onclick="checkAnswer(2, 'a', this)">fr units create overflow in
+                            containers whereas percentages do not.</button>
+                        <button class="opt-btn" onclick="checkAnswer(2, 'b', this)">fr units allocate space based on the
+                            available space in the container.</button>
+                        <button class="opt-btn" onclick="checkAnswer(2, 'c', this)">fr units are used for creating
+                            flexible layouts whereas percentages are not.</button>
+                        <button class="opt-btn" onclick="checkAnswer(2, 'd', this)">There is no difference between fr
+                            units and percentages.</button>
+                    </div>
+                </div>
+
+                <div class="question-card" id="q3">
+                    <h3>3. What happens when you use grid-template-columns: 1fr 1fr 1fr 1fr;?</h3>
+                    <div class="options">
+                        <button class="opt-btn" onclick="checkAnswer(3, 'a', this)">Each column takes up exactly 10% of
+                            the width.</button>
+                        <button class="opt-btn" onclick="checkAnswer(3, 'b', this)">The columns will stack vertically on
+                            all devices.</button>
+                        <button class="opt-btn" onclick="checkAnswer(3, 'c', this)">The columns take up equal fractions
+                            of available space, adjusting automatically.</button>
+                        <button class="opt-btn" onclick="checkAnswer(3, 'd', this)">The columns will overlap each other
+                            by default.</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2026 Web Dev Tutorials | Grid Power Series</p>
+    </footer>
+
+    <script>
+        const answers = { 1: 'b', 2: 'b', 3: 'c' };
+        function checkAnswer(qId, selected, btn) {
+            const card = document.getElementById('q' + qId);
+            const buttons = card.querySelectorAll('.opt-btn');
+            buttons.forEach(b => { b.disabled = true; });
+
+            if (selected === answers[qId]) {
+                btn.classList.add('correct');
+            } else {
+                btn.classList.add('wrong');
+                buttons.forEach(b => {
+                    const text = b.innerText.toLowerCase();
+                    if (qId === 1 && text.includes('size for the columns')) b.classList.add('correct');
+                    if (qId === 2 && text.includes('available space')) b.classList.add('correct');
+                    if (qId === 3 && text.includes('equal fractions')) b.classList.add('correct');
+                });
+            }
+        }
+    </script>
+</body>
+
+</html>

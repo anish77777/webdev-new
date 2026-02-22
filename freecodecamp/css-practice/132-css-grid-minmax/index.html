@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The minmax() Function | CSS Grid Series</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700&family=JetBrains+Mono:wght@400;700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+    <header>
+        <div class="container">
+            <span class="badge">Tutorial 132</span>
+            <h1>The <span class="accent-text">minmax()</span></h1>
+            <p class="subtitle">Defining Fluid Boundaries for Grid Tracks</p>
+        </div>
+    </header>
+
+    <main class="container">
+        <!-- Intro Section -->
+        <section class="glass-card">
+            <h2>Dynamic Range Control</h2>
+            <p>The <code>minmax()</code> function defines a range for the size of a grid track. It ensures a track never
+                shrinks below a minimum or grows above a maximum size.</p>
+            <p><strong>Syntax:</strong> <code>minmax(min, max)</code></p>
+        </section>
+
+        <!-- Demo Section -->
+        <section>
+            <div class="section-header">
+                <h2>1. Practical minmax Example</h2>
+                <span class="status-label accent-emerald">Boundary Control</span>
+            </div>
+            <div class="demo-wrapper glass-card accent">
+                <div class="demo-layout">
+                    <div class="code-area">
+                        <h3>Fluid CSS</h3>
+                        <div class="code-block">
+                            <pre><code><span class="tag">.container</span> {
+  <span class="prop">display</span>: <span class="val">grid</span>;
+  <span class="prop">grid-template-columns</span>: 
+    <span class="val">minmax(150px, 300px) 1fr</span>;
+  <span class="prop">gap</span>: <span class="val">10px</span>;
+}</code></pre>
+                        </div>
+                    </div>
+                    <div class="preview-area">
+                        <div class="minmax-preview">
+                            <div class="minmax-col">Item 1 (150px - 300px)</div>
+                            <div class="fr-col">Item 2 (Flexible)</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="info-box">
+                <p>Resize your browser! Notice how the first column stays between 150px and 300px while the second
+                    column takes the rest.</p>
+            </div>
+        </section>
+
+        <!-- Quiz Section -->
+        <section class="quiz-container">
+            <h2 class="accent-text">Test Your Knowledge</h2>
+            <div class="quiz-stack">
+                <div class="question-card" id="q1">
+                    <h3>1. Which function defines the size range for a grid track?</h3>
+                    <div class="options">
+                        <button class="opt-btn" onclick="checkAnswer(1, 'a', this)">clamp()</button>
+                        <button class="opt-btn" onclick="checkAnswer(1, 'b', this)">minmax()</button>
+                        <button class="opt-btn" onclick="checkAnswer(1, 'c', this)">max-width()</button>
+                        <button class="opt-btn" onclick="checkAnswer(1, 'd', this)">calc()</button>
+                    </div>
+                </div>
+
+                <div class="question-card" id="q2">
+                    <h3>2. How does grid track size behave with minmax()?</h3>
+                    <div class="options">
+                        <button class="opt-btn" onclick="checkAnswer(2, 'a', this)">The size is permanently
+                            fixed.</button>
+                        <button class="opt-btn" onclick="checkAnswer(2, 'b', this)">It adjusts dynamically between min
+                            and max.</button>
+                        <button class="opt-btn" onclick="checkAnswer(2, 'c', this)">It always snaps to the maximum
+                            value.</button>
+                        <button class="opt-btn" onclick="checkAnswer(2, 'd', this)">It only responds to content
+                            size.</button>
+                    </div>
+                </div>
+
+                <div class="question-card" id="q3">
+                    <h3>3. What do the min and max values control?</h3>
+                    <div class="options">
+                        <button class="opt-btn" onclick="checkAnswer(3, 'a', this)">Min allows shrinking, Max is
+                            fixed.</button>
+                        <button class="opt-btn" onclick="checkAnswer(3, 'b', this)">Min prevents shrinking below a size,
+                            Max limits growth.</button>
+                        <button class="opt-btn" onclick="checkAnswer(3, 'c', this)">Min limits growth, Max is
+                            minimum.</button>
+                        <button class="opt-btn" onclick="checkAnswer(3, 'd', this)">Both represent fixed sizes.</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2026 Web Dev Tutorials | Responsive Grid Tracks</p>
+    </footer>
+
+    <script>
+        const answers = { 1: 'b', 2: 'b', 3: 'b' };
+        function checkAnswer(qId, selected, btn) {
+            const card = document.getElementById('q' + qId);
+            const buttons = card.querySelectorAll('.opt-btn');
+            buttons.forEach(b => { b.disabled = true; });
+
+            if (selected === answers[qId]) {
+                btn.classList.add('correct');
+            } else {
+                btn.classList.add('wrong');
+                buttons.forEach(b => {
+                    const text = b.innerText.toLowerCase();
+                    if (qId === 1 && text === 'minmax()') b.classList.add('correct');
+                    if (qId === 2 && text.includes('dynamically')) b.classList.add('correct');
+                    if (qId === 3 && text.includes('prevents shrinking')) b.classList.add('correct');
+                });
+            }
+        }
+    </script>
+</body>
+
+</html>

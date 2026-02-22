@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSS Custom Properties | Web Dev Essentials</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700&family=JetBrains+Mono:wght@400;700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+    <header>
+        <div class="container">
+            <div class="header-content">
+                <span class="badge">Tutorial 124</span>
+                <h1>CSS <span class="accent-text">Custom Properties</span></h1>
+                <p class="subtitle">Variables for Dynamic & Maintainable Design</p>
+            </div>
+        </div>
+    </header>
+
+    <main class="container">
+        <!-- Section: Intro & Syntax -->
+        <section class="glass-card">
+            <div class="section-header">
+                <h2>Syntax & Declaration</h2>
+                <span class="status-label accent">Base</span>
+            </div>
+            <p>Custom properties (variables) allow you to store specific values and reuse them throughout your CSS. They
+                start with two dashes <code>--</code>.</p>
+
+            <div class="code-block">
+                <pre><code><span class="comment">/* Declaration in :root */</span>
+<span class="kw">:root</span> {
+  <span class="prop">--main-color</span>: <span class="val">#8b5cf6</span>;
+}
+
+<span class="comment">/* Usage with var() */</span>
+<span class="tag">.button</span> {
+  <span class="prop">background-color</span>: <span class="fn">var</span>(--main-color);
+}</code></pre>
+            </div>
+        </section>
+
+        <!-- Section: Scoping & Cascading -->
+        <section class="glass-card">
+            <div class="section-header">
+                <h2>Scoping & Cascading</h2>
+                <span class="status-label">Logic</span>
+            </div>
+            <p>Variables follow the cascade. You can define them globally in <code>:root</code> or locally within a
+                specific class to override defaults.</p>
+
+            <div class="demo-grid">
+                <div class="demo-item">
+                    <span class="label">Global State</span>
+                    <div class="box global-box">Global Color</div>
+                </div>
+                <div class="demo-item">
+                    <span class="label">Scoped Override</span>
+                    <div class="box scoped-box">Scoped Color</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section: Responsive Variables -->
+        <section class="glass-card">
+            <div class="section-header">
+                <h2>Responsive Variables</h2>
+                <span class="status-label">Advanced</span>
+            </div>
+            <p>One of the most powerful uses of variables is combining them with media queries. Instead of changing
+                multiple properties, you just update the variable value!</p>
+
+            <div class="responsive-demo">
+                <div class="card-preview">
+                    <h3>Responsive Card</h3>
+                    <p>Resize your browser to see the <strong>width</strong>, <strong>background</strong>, and
+                        <strong>padding</strong> update automatically via variables.</p>
+                </div>
+            </div>
+
+            <div class="code-block">
+                <pre><code><span class="kw">@media</span> (min-width: 768px) {
+  <span class="kw">:root</span> {
+    <span class="prop">--card-bg</span>: <span class="val">#1e293b</span>;
+    <span class="prop">--card-width</span>: <span class="val">70%</span>;
+  }
+}</code></pre>
+            </div>
+        </section>
+
+        <!-- Quiz Section -->
+        <section class="quiz-container">
+            <div class="quiz-header">
+                <h2 class="accent-text">Knowledge Check</h2>
+                <p>Master the power of CSS variables.</p>
+            </div>
+
+            <div class="quiz-stack">
+                <div class="question-card" id="q1">
+                    <h3>1. What is the correct syntax for declaring a CSS custom property?</h3>
+                    <div class="options">
+                        <button class="opt-btn" onclick="checkAnswer(1, 'a', this)">$main-color: #3498db;</button>
+                        <button class="opt-btn" onclick="checkAnswer(1, 'b', this)">@main-color: #3498db;</button>
+                        <button class="opt-btn" onclick="checkAnswer(1, 'c', this)">--main-color: #3498db;</button>
+                        <button class="opt-btn" onclick="checkAnswer(1, 'd', this)">main-color: #3498db;</button>
+                    </div>
+                </div>
+
+                <div class="question-card" id="q2">
+                    <h3>2. How do you use a CSS custom property in a style declaration?</h3>
+                    <div class="options">
+                        <button class="opt-btn" onclick="checkAnswer(2, 'a', this)">use(--main-color)</button>
+                        <button class="opt-btn" onclick="checkAnswer(2, 'b', this)">var(--main-color)</button>
+                        <button class="opt-btn" onclick="checkAnswer(2, 'c', this)">@main-color</button>
+                        <button class="opt-btn" onclick="checkAnswer(2, 'd', this)">$(--main-color)</button>
+                    </div>
+                </div>
+
+                <div class="question-card" id="q3">
+                    <h3>3. What should you be aware of when using CSS variables?</h3>
+                    <div class="options">
+                        <button class="opt-btn" onclick="checkAnswer(3, 'a', this)">They work with older versions of
+                            CSS.</button>
+                        <button class="opt-btn" onclick="checkAnswer(3, 'b', this)">They might not be supported by very
+                            old browsers.</button>
+                        <button class="opt-btn" onclick="checkAnswer(3, 'c', this)">They significantly increase
+                            repetition.</button>
+                        <button class="opt-btn" onclick="checkAnswer(3, 'd', this)">They can only store colors.</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2026 Web Dev Essentials | Built with Midnight Obsidian Theme</p>
+        </div>
+    </footer>
+
+    <script>
+        const answers = { 1: 'c', 2: 'b', 3: 'b' };
+        function checkAnswer(qId, selected, btn) {
+            const card = document.getElementById('q' + qId);
+            const buttons = card.querySelectorAll('.opt-btn');
+            buttons.forEach(b => { b.disabled = true; b.classList.remove('correct', 'wrong'); });
+            if (selected === answers[qId]) {
+                btn.classList.add('correct');
+            } else {
+                btn.classList.add('wrong');
+                buttons.forEach(b => {
+                    const text = b.innerText.toLowerCase();
+                    if (qId === 1 && text.startsWith('--')) b.classList.add('correct');
+                    if (qId === 2 && text.startsWith('var(')) b.classList.add('correct');
+                    if (qId === 3 && text.includes('not be supported')) b.classList.add('correct');
+                });
+            }
+        }
+    </script>
+</body>
+
+</html>

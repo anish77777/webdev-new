@@ -1,0 +1,111 @@
+/* Base Styles */
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #f4f4f9;
+    color: #333;
+    padding: 2rem;
+}
+
+h1 {
+    text-align: center;
+    color: #2c3e50;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 2rem;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    background-color: white;
+}
+
+th,
+td {
+    padding: 1rem;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+}
+
+th {
+    background-color: #2c3e50;
+    color: white;
+}
+
+/* User Stories & Tests Implementation */
+
+/* 27. Set the display property of each span element to inline-block. */
+span {
+    display: inline-block;
+}
+
+/* 21-26. Background gradients for rows using attribute selectors */
+tr[class="read"] {
+    background-image: linear-gradient(to right, #e8f5e9, #c8e6c9);
+}
+
+tr[class="to-read"] {
+    background-image: linear-gradient(to right, #fffde7, #fff9c4);
+}
+
+tr[class="in-progress"] {
+    background-image: linear-gradient(to right, #e3f2fd, #bbdefb);
+}
+
+/* 28-36. Status span styling based on row class using attribute selectors */
+tr[class="to-read"] span[class="status"] {
+    border: 2px solid #fbc02d;
+    background-image: linear-gradient(45deg, #fff9c4, #fff176);
+}
+
+tr[class="read"] span[class="status"] {
+    border: 2px solid #43a047;
+    background-image: linear-gradient(45deg, #c8e6c9, #81c784);
+}
+
+tr[class="in-progress"] span[class="status"] {
+    border: 2px solid #1e88e5;
+    background-image: linear-gradient(45deg, #bbdefb, #64b5f6);
+}
+
+/* 37-40. Dimensions and padding for status and rate spans */
+span[class="status"],
+span[class^="rate"] {
+    height: 25px;
+    width: 100px;
+    padding: 5px;
+    text-align: center;
+    line-height: 25px;
+    border-radius: 15px;
+    font-size: 0.8rem;
+    font-weight: bold;
+}
+
+/* 41-47. Marker styling inside rate spans */
+span[class^="rate"]>span {
+    border: 1px solid #999;
+    border-radius: 50%;
+    margin: 0 2px;
+    height: 10px;
+    width: 10px;
+    background-color: #ddd;
+}
+
+/* 48-53. Rating markers using word-matching attribute selectors */
+
+/* One star */
+span[class*="one"] span:nth-of-type(1) {
+    background-image: linear-gradient(#ffeb3b, #fbc02d);
+}
+
+/* Two stars */
+span[class*="two"] span:nth-of-type(1),
+span[class*="two"] span:nth-of-type(2) {
+    background-image: linear-gradient(#ffeb3b, #fbc02d);
+}
+
+/* Three stars */
+span[class*="three"] span:nth-of-type(1),
+span[class*="three"] span:nth-of-type(2),
+span[class*="three"] span:nth-of-type(3) {
+    background-image: linear-gradient(#ffeb3b, #fbc02d);
+}

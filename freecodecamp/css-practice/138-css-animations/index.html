@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSS Animations | Web Dev Tutorials</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700&family=JetBrains+Mono:wght@400;700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+    <header>
+        <div class="container">
+            <span class="badge">Tutorial 138</span>
+            <h1>CSS <span class="accent-text">Animations</span></h1>
+            <p class="subtitle">Bringing Your Web Elements to Life</p>
+        </div>
+    </header>
+
+    <main class="container">
+        <!-- Concepts Section -->
+        <section class="glass-card">
+            <h2>Dynamic Motion</h2>
+            <p>CSS animations allow you to create dynamic, visually engaging effects without JavaScript. They smoothly
+                transition elements between styles over a specified duration.</p>
+            <p>At its core, a CSS animation consists of two main components: the <code>@keyframes</code> rule and the
+                <code>animation</code> property.
+            </p>
+        </section>
+
+        <!-- @keyframes Section -->
+        <section>
+            <div class="section-header">
+                <h2>1. The @keyframes Rule</h2>
+                <span class="status-label accent-pink">Defining Stages</span>
+            </div>
+            <div class="demo-wrapper glass-card">
+                <div class="content-grid">
+                    <div class="text-area">
+                        <p>The <code>@keyframes</code> rule defines the stages and styles of the animation. Percentages
+                            represent progress, with 0% being the start and 100% the end.</p>
+                    </div>
+                    <div class="code-area">
+                        <div class="code-block">
+                            <pre><code><span class="keyword">@keyframes</span> <span class="tag">slide-in</span> {
+  <span class="val">0%</span> { <span class="prop">transform</span>: <span class="val">translateX(-100%)</span>; }
+  <span class="val">100%</span> { <span class="prop">transform</span>: <span class="val">translateX(0)</span>; }
+}</code></pre>
+                        </div>
+                    </div>
+                </div>
+                <div class="preview-box">
+                    <div class="sliding-element">Hello, I slide in!</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Multistage Section -->
+        <section>
+            <div class="section-header">
+                <h2>2. Color Cycle Demo</h2>
+                <span class="status-label accent-violet">Infinite Loop</span>
+            </div>
+            <div class="demo-wrapper glass-card accent">
+                <div class="content-grid">
+                    <div class="text-area">
+                        <p>You can define multiple stages for complex transitions. Here, we cycle background colors
+                            across red, blue, and green.</p>
+                    </div>
+                    <div class="code-area">
+                        <div class="code-block">
+                            <pre><code><span class="tag">.complex-animation</span> {
+  <span class="prop">animation</span>: <span class="val">color-change 3s linear infinite alternate</span>;
+}</code></pre>
+                        </div>
+                    </div>
+                </div>
+                <div class="preview-box">
+                    <div class="complex-animation">Watch my colors change!</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Ferris Wheel Challenge -->
+        <section>
+            <div class="section-header">
+                <h2>3. Project: The Ferris Wheel</h2>
+                <span class="status-label accent-pink">Complex Motion</span>
+            </div>
+            <div class="demo-wrapper glass-card">
+                <div class="content-grid">
+                    <div class="text-area">
+                        <p>Combining multiple animations, rotation origins, and timing functions allows for complex
+                            mechanical simulations like this Ferris Wheel.</p>
+                        <p>The wheel rotates clockwise, while the cabins rotate counter-clockwise to stay upright.</p>
+                    </div>
+                    <div class="code-area">
+                        <div class="code-block">
+                            <pre><code><span class="tag">.wheel</span> { <span class="prop">animation</span>: <span class="val">wheel 10s linear infinite</span>; }
+<span class="tag">.cabin</span> { <span class="prop">animation</span>: <span class="val">cabins 10s ease-in-out infinite</span>; }</code></pre>
+                        </div>
+                    </div>
+                </div>
+                <div class="preview-box ferris-preview">
+                    <div class="wheel">
+                        <span class="line"></span>
+                        <span class="line"></span>
+                        <span class="line"></span>
+                        <span class="line"></span>
+                        <span class="line"></span>
+                        <span class="line"></span>
+
+                        <div class="cabin"></div>
+                        <div class="cabin"></div>
+                        <div class="cabin"></div>
+                        <div class="cabin"></div>
+                        <div class="cabin"></div>
+                        <div class="cabin"></div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Quiz Section -->
+        <section class="quiz-container">
+            <h2 class="accent-text">Knowledge Check</h2>
+            <div class="quiz-stack">
+                <div class="question-card" id="q1">
+                    <h3>1. What is the purpose of the @keyframes rule?</h3>
+                    <div class="options">
+                        <button class="opt-btn" onclick="checkAnswer(1, 'a', this)">To specify the duration of the
+                            animation.</button>
+                        <button class="opt-btn" onclick="checkAnswer(1, 'b', this)">To define the stages and styles of
+                            the animation.</button>
+                        <button class="opt-btn" onclick="checkAnswer(1, 'c', this)">To set the timing function.</button>
+                        <button class="opt-btn" onclick="checkAnswer(1, 'd', this)">To determine repetitions.</button>
+                    </div>
+                </div>
+
+                <div class="question-card" id="q2">
+                    <h3>2. In <code>animation: fade-in 2s ease-in;</code>, what does 2s represent?</h3>
+                    <div class="options">
+                        <button class="opt-btn" onclick="checkAnswer(2, 'a', this)">The delay before starting.</button>
+                        <button class="opt-btn" onclick="checkAnswer(2, 'b', this)">Number of repetitions.</button>
+                        <button class="opt-btn" onclick="checkAnswer(2, 'c', this)">The duration of the
+                            animation.</button>
+                        <button class="opt-btn" onclick="checkAnswer(2, 'd', this)">The percentage progress.</button>
+                    </div>
+                </div>
+
+                <div class="question-card" id="q3">
+                    <h3>3. How do you make an animation repeat indefinitely?</h3>
+                    <div class="options">
+                        <button class="opt-btn" onclick="checkAnswer(3, 'a', this)">animation-loop: infinite;</button>
+                        <button class="opt-btn" onclick="checkAnswer(3, 'b', this)">animation-repeat: always;</button>
+                        <button class="opt-btn" onclick="checkAnswer(3, 'c', this)">animation-iteration-count:
+                            infinite;</button>
+                        <button class="opt-btn" onclick="checkAnswer(3, 'd', this)">animation-duration:
+                            endless;</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2026 Web Dev Tutorials | Visual Motion Mastery</p>
+    </footer>
+
+    <script>
+        const answers = { 1: 'b', 2: 'c', 3: 'c' };
+        function checkAnswer(qId, selected, btn) {
+            const card = document.getElementById('q' + qId);
+            const buttons = card.querySelectorAll('.opt-btn');
+            buttons.forEach(b => { b.disabled = true; });
+
+            if (selected === answers[qId]) {
+                btn.classList.add('correct');
+            } else {
+                btn.classList.add('wrong');
+                buttons.forEach(b => {
+                    const text = b.innerText.toLowerCase();
+                    if (qId === 1 && text.includes('define the stages')) b.classList.add('correct');
+                    if (qId === 2 && text.includes('duration of the animation')) b.classList.add('correct');
+                    if (qId === 3 && text.includes('iteration-count: infinite')) b.classList.add('correct');
+                });
+            }
+        }
+    </script>
+</body>
+
+</html>

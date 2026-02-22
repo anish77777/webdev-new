@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Media Queries & Features | Web Dev Essentials</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700&family=JetBrains+Mono:wght@400;700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+    <header>
+        <div class="container">
+            <div class="header-content">
+                <span class="badge">Tutorial 119</span>
+                <h1>Media <span class="accent-text">Queries</span></h1>
+                <p class="subtitle">Conditional Styling for Modern Web</p>
+            </div>
+        </div>
+    </header>
+
+    <main class="container">
+        <!-- Section: Syntax -->
+        <section class="glass-card">
+            <div class="section-header">
+                <h2>Syntax & Types</h2>
+                <span class="status-label accent">Foundation</span>
+            </div>
+            <p>A media query checks for specific conditions (like viewport width or device type) and applies CSS only if
+                they are true.</p>
+
+            <div class="info-alert">
+                <p><strong>Syntax:</strong> <code>@media type and (feature: value) { ... }</code></p>
+            </div>
+
+            <div class="grid-layout">
+                <div class="card">
+                    <h3>Media Types</h3>
+                    <ul>
+                        <li><code>screen</code>: Primary monitor/mobile display.</li>
+                        <li><code>print</code>: Paper or print-preview.</li>
+                        <li><code>all</code>: Default category for all devices.</li>
+                    </ul>
+                </div>
+                <div class="card">
+                    <h3>Modern Features</h3>
+                    <ul>
+                        <li><code>min-width</code>: Range-based checks.</li>
+                        <li><code>orientation</code>: landscape or portrait.</li>
+                        <li><code>hover</code>: Checks for mouse support.</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section: Interactive Media Demo -->
+        <section class="glass-card">
+            <div class="section-header">
+                <h2>Mobile-First Enhancement</h2>
+                <span class="status-label">Interactive</span>
+            </div>
+            <p>Try resizing your browser. The box below will "Level Up" as the screen gets wider!</p>
+
+            <div class="demo-wrapper">
+                <div class="breakpoint-box">
+                    <span class="label">Mobile View</span>
+                    <p class="description">This is the base style (no media query).</p>
+                </div>
+            </div>
+
+            <div class="code-block">
+                <pre><code><span class="comment">/* Base styles (Mobile) */</span>
+<span class="tag">.breakpoint-box</span> { <span class="prop">background</span>: <span class="val">#111</span>; }
+
+<span class="comment">/* Tablet (+) */</span>
+<span class="kw">@media</span> screen and (min-width: 768px) {
+  <span class="tag">.breakpoint-box</span> { 
+     <span class="prop">background</span>: <span class="val">#0ea5e9</span>; 
+     <span class="prop">transform</span>: <span class="val">scale(1.1)</span>;
+  }
+}</code></pre>
+            </div>
+        </section>
+
+        <!-- Quiz Section -->
+        <section class="quiz-container">
+            <div class="quiz-header">
+                <h2 class="accent-text">Knowledge Check</h2>
+                <p>Test your media query mastery.</p>
+            </div>
+
+            <div class="quiz-stack">
+                <div class="question-card" id="q1">
+                    <h3>1. Which is NOT a commonly used media type in modern CSS?</h3>
+                    <div class="options">
+                        <button class="opt-btn" onclick="checkAnswer(1, 'a', this)">screen</button>
+                        <button class="opt-btn" onclick="checkAnswer(1, 'b', this)">print</button>
+                        <button class="opt-btn" onclick="checkAnswer(1, 'c', this)">handheld</button>
+                        <button class="opt-btn" onclick="checkAnswer(1, 'd', this)">all</button>
+                    </div>
+                </div>
+
+                <div class="question-card" id="q2">
+                    <h3>2. What does the 'orientation' feature check for?</h3>
+                    <div class="options">
+                        <button class="opt-btn" onclick="checkAnswer(2, 'a', this)">GPS location.</button>
+                        <button class="opt-btn" onclick="checkAnswer(2, 'b', this)">Viewport width vs height
+                            ratio.</button>
+                        <button class="opt-btn" onclick="checkAnswer(2, 'c', this)">Text direction.</button>
+                        <button class="opt-btn" onclick="checkAnswer(2, 'd', this)">Physical compass sensor.</button>
+                    </div>
+                </div>
+
+                <div class="question-card" id="q3">
+                    <h3>3. What is the purpose of the 'and' operator?</h3>
+                    <div class="options">
+                        <button class="opt-btn" onclick="checkAnswer(3, 'a', this)">To add numbers together.</button>
+                        <button class="opt-btn" onclick="checkAnswer(3, 'b', this)">To combine multiple CSS
+                            colors.</button>
+                        <button class="opt-btn" onclick="checkAnswer(3, 'c', this)">To combine multiple media
+                            features.</button>
+                        <button class="opt-btn" onclick="checkAnswer(3, 'd', this)">To create an 'Either/Or'
+                            condition.</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2026 Web Dev Essentials | Built with Midnight Obsidian Theme</p>
+        </div>
+    </footer>
+
+    <script>
+        const answers = {
+            1: 'c',
+            2: 'b',
+            3: 'c'
+        };
+
+        function checkAnswer(qId, selected, btn) {
+            const card = document.getElementById('q' + qId);
+            const buttons = card.querySelectorAll('.opt-btn');
+
+            buttons.forEach(b => {
+                b.disabled = true;
+                b.classList.remove('correct', 'wrong');
+            });
+
+            if (selected === answers[qId]) {
+                btn.classList.add('correct');
+            } else {
+                btn.classList.add('wrong');
+                buttons.forEach(b => {
+                    const text = b.innerText.toLowerCase();
+                    if (qId === 1 && text === 'handheld') b.classList.add('correct');
+                    if (qId === 2 && text.includes('width vs height')) b.classList.add('correct');
+                    if (qId === 3 && text.includes('multiple media features')) b.classList.add('correct');
+                });
+            }
+        }
+    </script>
+</body>
+
+</html>

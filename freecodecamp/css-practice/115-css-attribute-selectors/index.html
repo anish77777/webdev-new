@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSS Attribute Selectors | Web Dev Essentials</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700&family=JetBrains+Mono:wght@400;700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+    <header>
+        <div class="container">
+            <div class="header-content">
+                <span class="badge">Tutorial 115</span>
+                <h1>Attribute <span class="accent-text">Selectors</span></h1>
+                <p class="subtitle">Targeting Elements by Their Properties</p>
+            </div>
+        </div>
+    </header>
+
+    <main class="container">
+        <!-- Section 1: Introduction & Basic Selectors -->
+        <!-- MAIN CONCEPT: ATTRIBUTE SELECTORS ALLOW STYLING BASED ON ATTRIBUTES LIKE HREF, TYPE, LANG, ETC. -->
+        <section class="glass-card">
+            <div class="section-header">
+                <h2>01. Existence & Equality</h2>
+                <span class="status-label accent">Theory</span>
+            </div>
+            <p>Attribute selectors target elements based on the presence or value of an attribute. They are powerful for
+                styling dynamic content or form elements without adding extra classes.</p>
+
+            <div class="demo-wrapper">
+                <h3>Visual Demo: Links</h3>
+                <div class="link-container">
+                    <a href="https://example.com" class="demo-link">Has Href</a>
+                    <a class="demo-link">No Href</a>
+                    <a href="https://example.com" title="More Info" class="demo-link">Has Title</a>
+                </div>
+            </div>
+
+            <div class="code-block">
+                <pre><code><span class="comment">/* Target any element with an href attribute */</span>
+<span class="tag">a</span>[<span class="attr">href</span>] {
+  <span class="prop">color</span>: <span class="val">var(--accent-primary)</span>;
+}
+
+<span class="comment">/* Target elements with both href AND title */</span>
+<span class="tag">a</span>[<span class="attr">href</span>][<span class="attr">title</span>] {
+  <span class="prop">border-bottom</span>: <span class="val">2px solid var(--accent-secondary)</span>;
+}</code></pre>
+            </div>
+        </section>
+
+        <!-- Section 2: Pattern Matching -->
+        <section class="glass-card">
+            <div class="section-header">
+                <h2>02. Pattern Matching</h2>
+                <span class="status-label">Advanced</span>
+            </div>
+            <p>You can target elements based on substrings within an attribute's value using special operators.</p>
+
+            <div class="grid-demo">
+                <div class="pattern-item">
+                    <code>[attr^="val"]</code>
+                    <span>Starts with "val"</span>
+                    <a href="https://secure.com" class="pattern-link secure">https://secure.com</a>
+                </div>
+                <div class="pattern-item">
+                    <code>[attr$="val"]</code>
+                    <span>Ends with "val"</span>
+                    <a href="image.jpg" class="pattern-link image">image.jpg</a>
+                </div>
+                <div class="pattern-item">
+                    <code>[attr*="val"]</code>
+                    <span>Contains "val"</span>
+                    <a href="my-cool-site" class="pattern-link fun">my-cool-site</a>
+                </div>
+            </div>
+
+            <div class="code-block">
+                <pre><code><span class="comment">/* Starts with "https" */</span>
+<span class="tag">a</span>[<span class="attr">href</span>^=<span class="str">"https"</span>] { <span class="prop">color</span>: <span class="val">green</span>; }
+
+<span class="comment">/* Ends with ".pdf" */</span>
+<span class="tag">a</span>[<span class="attr">href</span>$=<span class="str">".pdf"</span>] { <span class="prop">background</span>: <span class="val">red</span>; }</code></pre>
+            </div>
+        </section>
+
+        <!-- Section 3: Language & Data Attributes -->
+        <section class="glass-card">
+            <div class="section-header">
+                <h2>03. Language & Data</h2>
+                <span class="status-label accent">Context</span>
+            </div>
+            <p>Use the <code>lang</code> attribute for accessibility and localization, and <code>data-*</code>
+                attributes for custom application state.</p>
+
+            <div class="demo-wrapper">
+                <h3>Multilingual Demo</h3>
+                <div class="lang-container">
+                    <p lang="en" class="lang-box">Hello World (en)</p>
+                    <p lang="fr" class="lang-box">Bonjour le monde (fr)</p>
+                    <div data-lang="es" class="lang-box">Hola Mundo (data-lang="es")</div>
+                </div>
+            </div>
+
+            <div class="code-block">
+                <pre><code><span class="comment">/* Target standard HTML lang attribute */</span>
+<span class="tag">p</span>[<span class="attr">lang</span>=<span class="str">"fr"</span>] {
+  <span class="prop">font-style</span>: <span class="val">italic</span>;
+  <span class="prop">border-left</span>: <span class="val">3px solid var(--accent-tertiary)</span>;
+}
+
+<span class="comment">/* Target custom data attribute */</span>
+<span class="tag">div</span>[<span class="attr">data-lang</span>=<span class="str">"es"</span>] {
+  <span class="prop">color</span>: <span class="val">var(--accent-primary)</span>;
+}</code></pre>
+            </div>
+        </section>
+
+        <!-- Quiz Section -->
+        <section class="quiz-container">
+            <div class="quiz-header">
+                <h2 class="accent-text">Knowledge Check</h2>
+                <p>Test your understanding of attribute selectors.</p>
+            </div>
+
+            <div class="quiz-stack">
+                <!-- Q1 -->
+                <div class="question-card" id="q1">
+                    <h3>1. Which selector targets all links with an 'href' attribute?</h3>
+                    <div class="options">
+                        <button class="opt-btn" onclick="checkAnswer(1, 'a', this)">a.href</button>
+                        <button class="opt-btn" onclick="checkAnswer(1, 'b', this)">a[href]</button>
+                        <button class="opt-btn" onclick="checkAnswer(1, 'c', this)">a(href)</button>
+                        <button class="opt-btn" onclick="checkAnswer(1, 'd', this)">a{href}</button>
+                    </div>
+                </div>
+
+                <!-- Q2 -->
+                <div class="question-card" id="q2">
+                    <h3>2. How do you target an element with a 'lang' attribute of 'fr'?</h3>
+                    <div class="options">
+                        <button class="opt-btn" onclick="checkAnswer(2, 'a', this)">[lang~="fr"]</button>
+                        <button class="opt-btn" onclick="checkAnswer(2, 'b', this)">:lang(fr)</button>
+                        <button class="opt-btn" onclick="checkAnswer(2, 'c', this)">[lang="fr"]</button>
+                        <button class="opt-btn" onclick="checkAnswer(2, 'd', this)">lang.fr</button>
+                    </div>
+                </div>
+
+                <!-- Q3 -->
+                <div class="question-card" id="q3">
+                    <h3>3. Which selector matches an attribute starting with a specific value?</h3>
+                    <div class="options">
+                        <button class="opt-btn" onclick="checkAnswer(3, 'a', this)">[attr^="val"]</button>
+                        <button class="opt-btn" onclick="checkAnswer(3, 'b', this)">[attr$="val"]</button>
+                        <button class="opt-btn" onclick="checkAnswer(3, 'c', this)">[attr*="val"]</button>
+                        <button class="opt-btn" onclick="checkAnswer(3, 'd', this)">[attr~="val"]</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2026 Web Dev Essentials | Built with Midnight Obsidian Theme</p>
+        </div>
+    </footer>
+
+    <script>
+        const answers = {
+            1: 'b',
+            2: 'c',
+            3: 'a'
+        };
+
+        function checkAnswer(qId, selected, btn) {
+            const card = document.getElementById('q' + qId);
+            const buttons = card.querySelectorAll('.opt-btn');
+
+            // Disable all buttons in this card
+            buttons.forEach(b => {
+                b.disabled = true;
+                b.classList.remove('correct', 'wrong');
+            });
+
+            // Check correctness
+            if (selected === answers[qId]) {
+                btn.classList.add('correct');
+            } else {
+                btn.classList.add('wrong');
+                // Highlight correct answer
+                buttons.forEach(b => {
+                    const btnText = b.innerText.trim(); // Get button text
+                    // Map correct answers to button text for highlighting
+                    if (qId === 1 && btnText === 'a[href]') b.classList.add('correct');
+                    if (qId === 2 && btnText === '[lang="fr"]') b.classList.add('correct');
+                    if (qId === 3 && btnText === '[attr^="val"]') b.classList.add('correct');
+                });
+            }
+        }
+    </script>
+</body>
+
+</html>

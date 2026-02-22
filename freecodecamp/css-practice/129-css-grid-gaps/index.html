@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Grid Gaps & Spacing | CSS Grid Series</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700&family=JetBrains+Mono:wght@400;700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+    <header>
+        <div class="container">
+            <span class="badge">Tutorial 129</span>
+            <h1>Gaps <span class="accent-text">& Spacing</span></h1>
+            <p class="subtitle">Mastering Rows, Columns, and Tracks</p>
+        </div>
+    </header>
+
+    <main class="container">
+        <!-- Intro Section -->
+        <section class="glass-card">
+            <h2>What is a Track?</h2>
+            <p>A <strong>track</strong> is the space between two neighboring grid lines. In CSS Grid, tracks generally
+                refer to the rows and columns that make up your layout.</p>
+            <p>To control the space between these tracks, we use the <code>gap</code> properties.</p>
+        </section>
+
+        <!-- Column Gap Demo -->
+        <section>
+            <div class="section-header">
+                <h2>1. Column Gap</h2>
+                <span class="status-label accent-column">Vertical Rhythm</span>
+            </div>
+            <div class="demo-wrapper glass-card">
+                <div class="demo-layout">
+                    <div class="code-area">
+                        <h3>Column Spacing</h3>
+                        <div class="code-block">
+                            <pre><code><span class="tag">.container</span> {
+  <span class="prop">display</span>: <span class="val">grid</span>;
+  <span class="prop">grid-template-columns</span>: <span class="val">repeat(4, 1fr)</span>;
+  <span class="prop">column-gap</span>: <span class="val">10px</span>;
+}</code></pre>
+                        </div>
+                    </div>
+                    <div class="preview-area">
+                        <div class="col-gap-preview">
+                            <div></div>
+                            <div></div>
+                            <div></div>
+                            <div></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Row Gap Demo -->
+        <section>
+            <div class="section-header">
+                <h2>2. Row Gap</h2>
+                <span class="status-label accent-row">Horizontal Rhythm</span>
+            </div>
+            <div class="demo-wrapper glass-card">
+                <div class="demo-layout">
+                    <div class="code-area">
+                        <h3>Row Spacing</h3>
+                        <div class="code-block">
+                            <pre><code><span class="tag">.container</span> {
+  <span class="prop">display</span>: <span class="val">grid</span>;
+  <span class="prop">grid-template-columns</span>: <span class="val">1fr 1fr</span>;
+  <span class="prop">row-gap</span>: <span class="val">30px</span>;
+}</code></pre>
+                        </div>
+                    </div>
+                    <div class="preview-area">
+                        <div class="row-gap-preview">
+                            <div></div>
+                            <div></div>
+                            <div></div>
+                            <div></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Shorthand Gap Demo -->
+        <section>
+            <div class="section-header">
+                <h2>3. The Gap Shorthand</h2>
+                <span class="status-label accent-shorthand">Combined Power</span>
+            </div>
+            <div class="demo-wrapper glass-card accent">
+                <div class="demo-layout">
+                    <div class="code-area">
+                        <h3>Simple Shorthand</h3>
+                        <div class="code-block">
+                            <pre><code><span class="tag">.container</span> {
+  <span class="prop">gap</span>: <span class="val">30px 10px</span>; <span class="comment">/* Row Col */</span>
+}</code></pre>
+                        </div>
+                    </div>
+                    <div class="preview-area">
+                        <div class="gap-shorthand-preview">
+                            <div></div>
+                            <div></div>
+                            <div></div>
+                            <div></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Quiz Section -->
+        <section class="quiz-container">
+            <h2 class="accent-text">Check Your Understanding</h2>
+            <div class="quiz-stack">
+                <div class="question-card" id="q1">
+                    <h3>1. What is the purpose of the column-gap property?</h3>
+                    <div class="options">
+                        <button class="opt-btn" onclick="checkAnswer(1, 'a', this)">It sets the space between grid
+                            columns</button>
+                        <button class="opt-btn" onclick="checkAnswer(1, 'b', this)">It defines the size of the grid
+                            items</button>
+                        <button class="opt-btn" onclick="checkAnswer(1, 'c', this)">It defines the number of
+                            columns.</button>
+                        <button class="opt-btn" onclick="checkAnswer(1, 'd', this)">It sets the space between grid
+                            rows.</button>
+                    </div>
+                </div>
+
+                <div class="question-card" id="q2">
+                    <h3>2. What is the result of using 'normal' for column-gap in a grid?</h3>
+                    <div class="options">
+                        <button class="opt-btn" onclick="checkAnswer(2, 'a', this)">The gap is set to 10px</button>
+                        <button class="opt-btn" onclick="checkAnswer(2, 'b', this)">The gap is set to 1em</button>
+                        <button class="opt-btn" onclick="checkAnswer(2, 'c', this)">The gap is set to 14px</button>
+                        <button class="opt-btn" onclick="checkAnswer(2, 'd', this)">The gap is set to 0</button>
+                    </div>
+                </div>
+
+                <div class="question-card" id="q3">
+                    <h3>3. Which property is the correct shorthand for both rows and columns?</h3>
+                    <div class="options">
+                        <button class="opt-btn" onclick="checkAnswer(3, 'a', this)">gapsAndSpaces</button>
+                        <button class="opt-btn" onclick="checkAnswer(3, 'b', this)">space</button>
+                        <button class="opt-btn" onclick="checkAnswer(3, 'c', this)">rowGapColumnGap</button>
+                        <button class="opt-btn" onclick="checkAnswer(3, 'd', this)">gap</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2026 Web Dev Tutorials | Grid Layout Basics</p>
+    </footer>
+
+    <script>
+        const answers = { 1: 'a', 2: 'd', 3: 'd' };
+        function checkAnswer(qId, selected, btn) {
+            const card = document.getElementById('q' + qId);
+            const buttons = card.querySelectorAll('.opt-btn');
+            buttons.forEach(b => { b.disabled = true; });
+
+            if (selected === answers[qId]) {
+                btn.classList.add('correct');
+            } else {
+                btn.classList.add('wrong');
+                buttons.forEach(b => {
+                    const text = b.innerText.toLowerCase();
+                    if (qId === 1 && text.includes('space between grid columns')) b.classList.add('correct');
+                    if (qId === 2 && text.includes('set to 0')) b.classList.add('correct');
+                    if (qId === 3 && text === 'gap') b.classList.add('correct');
+                });
+            }
+        }
+    </script>
+</body>
+
+</html>

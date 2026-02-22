@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Repeating Track Listings | CSS Grid Series</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700&family=JetBrains+Mono:wght@400;700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+    <header>
+        <div class="container">
+            <span class="badge">Tutorial 130</span>
+            <h1>Repeating <span class="accent-text">Tracks</span></h1>
+            <p class="subtitle">Concise Layout Definitions with repeat()</p>
+        </div>
+    </header>
+
+    <main class="container">
+        <!-- Intro Section -->
+        <section class="glass-card">
+            <h2>The Power of Conciseness</h2>
+            <p>Manually typing <code>1fr 1fr 1fr 1fr</code> works, but it's redundant. The <code>repeat()</code>
+                function allows you to define a section or the entirety of your track listings efficiently.</p>
+            <p>It takes two main arguments: the <strong>repeat count</strong> and the <strong>tracks</strong> you wish
+                to repeat.</p>
+        </section>
+
+        <!-- Basic Repeat Demo -->
+        <section>
+            <div class="section-header">
+                <h2>1. Simple Repetition</h2>
+                <span class="status-label accent-indigo">Clean Code</span>
+            </div>
+            <div class="demo-wrapper glass-card">
+                <div class="demo-layout">
+                    <div class="code-area">
+                        <h3>Standard Refactor</h3>
+                        <div class="code-block">
+                            <pre><code><span class="tag">.container</span> {
+  <span class="prop">display</span>: <span class="val">grid</span>;
+  <span class="prop">grid-template-columns</span>: <span class="val">repeat(4, 1fr)</span>;
+  <span class="prop">column-gap</span>: <span class="val">10px</span>;
+}</code></pre>
+                        </div>
+                    </div>
+                    <div class="preview-area">
+                        <div class="basic-grid">
+                            <div>1</div>
+                            <div>2</div>
+                            <div>3</div>
+                            <div>4</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Pattern Repeat Demo -->
+        <section>
+            <div class="section-header">
+                <h2>2. Complex Patterns</h2>
+                <span class="status-label accent-purple">Advanced logic</span>
+            </div>
+            <div class="demo-wrapper glass-card accent">
+                <div class="demo-layout">
+                    <div class="code-area">
+                        <h3>Pattern Repetition</h3>
+                        <div class="code-block">
+                            <pre><code><span class="tag">.container</span> {
+  <span class="prop">display</span>: <span class="val">grid</span>;
+  <span class="prop">grid-template-columns</span>: <span class="val">repeat(2, 20px 1fr)</span>;
+  <span class="prop">column-gap</span>: <span class="val">10px</span>;
+}</code></pre>
+                        </div>
+                    </div>
+                    <div class="preview-area">
+                        <div class="pattern-grid">
+                            <div>A</div>
+                            <div>B</div>
+                            <div>C</div>
+                            <div>D</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="info-box">
+                <p><strong>Note:</strong> In this example, <code>repeat(2, 20px 1fr)</code> effectively creates a
+                    4-column grid: <em>20px, 1fr, 20px, 1fr</em>.</p>
+            </div>
+        </section>
+
+        <!-- Quiz Section -->
+        <section class="quiz-container">
+            <h2 class="accent-text">Check Your Knowledge</h2>
+            <div class="quiz-stack">
+                <div class="question-card" id="q1">
+                    <h3>1. Which of the following is the correct syntax for repeat()?</h3>
+                    <div class="options">
+                        <button class="opt-btn" onclick="checkAnswer(1, 'a', this)">repeat(1fr times 4)</button>
+                        <button class="opt-btn" onclick="checkAnswer(1, 'b', this)">repeat(4, 1fr)</button>
+                        <button class="opt-btn" onclick="checkAnswer(1, 'c', this)">multiply(4, 1fr)</button>
+                        <button class="opt-btn" onclick="checkAnswer(1, 'd', this)">repeatSections(4, 1fr)</button>
+                    </div>
+                </div>
+
+                <div class="question-card" id="q2">
+                    <h3>2. What is the primary benefit of using the repeat() function?</h3>
+                    <div class="options">
+                        <button class="opt-btn" onclick="checkAnswer(2, 'a', this)">It allows repeating column
+                            definitions more concisely.</button>
+                        <button class="opt-btn" onclick="checkAnswer(2, 'b', this)">It makes the code run
+                            faster.</button>
+                        <button class="opt-btn" onclick="checkAnswer(2, 'c', this)">It leads to error free
+                            code.</button>
+                        <button class="opt-btn" onclick="checkAnswer(2, 'd', this)">It makes the page more
+                            responsive.</button>
+                    </div>
+                </div>
+
+                <div class="question-card" id="q3">
+                    <h3>3. What is the result of setting grid-template-columns to repeat(2, 20px 1fr)?</h3>
+                    <div class="options">
+                        <button class="opt-btn" onclick="checkAnswer(3, 'a', this)">It creates 4 columns all set to 1fr
+                            wide.</button>
+                        <button class="opt-btn" onclick="checkAnswer(3, 'b', this)">It creates 2 columns set to 20px
+                            wide.</button>
+                        <button class="opt-btn" onclick="checkAnswer(3, 'c', this)">It creates 4 columns (20px, 1fr,
+                            20px, 1fr).</button>
+                        <button class="opt-btn" onclick="checkAnswer(3, 'd', this)">It creates 3 columns total.</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2026 Web Dev Tutorials | Efficient Grid Layouts</p>
+    </footer>
+
+    <script>
+        const answers = { 1: 'b', 2: 'a', 3: 'c' };
+        function checkAnswer(qId, selected, btn) {
+            const card = document.getElementById('q' + qId);
+            const buttons = card.querySelectorAll('.opt-btn');
+            buttons.forEach(b => { b.disabled = true; });
+
+            if (selected === answers[qId]) {
+                btn.classList.add('correct');
+            } else {
+                btn.classList.add('wrong');
+                buttons.forEach(b => {
+                    if (qId === 1 && b.innerText.includes('repeat(4, 1fr)')) b.classList.add('correct');
+                    if (qId === 2 && b.innerText.includes('concisely')) b.classList.add('correct');
+                    if (qId === 3 && b.innerText.includes('20px, 1fr, 20px, 1fr')) b.classList.add('correct');
+                });
+            }
+        }
+    </script>
+</body>
+
+</html>

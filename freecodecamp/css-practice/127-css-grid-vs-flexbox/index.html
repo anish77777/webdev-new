@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSS Grid vs Flexbox | Web Dev Tutorials</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700&family=JetBrains+Mono:wght@400;700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+    <header>
+        <div class="container">
+            <span class="badge">Tutorial 127</span>
+            <h1>CSS Grid <span class="accent-text">vs Flexbox</span></h1>
+            <p class="subtitle">Understanding 2D Layouts and Control</p>
+        </div>
+    </header>
+
+    <main class="container">
+        <!-- Intro Section -->
+        <section class="glass-card">
+            <h2>The Invisible Flooring</h2>
+            <p>Imagine you're arranging furniture in a room – <strong>CSS Grid</strong> is like having an invisible grid
+                on your floor that helps you position everything precisely where you want it.</p>
+            <p>Before CSS Grid, complex layouts were tricky. Grid simplifies this by dividing your page into rows and
+                columns.</p>
+        </section>
+
+        <!-- Grid Demo Section -->
+        <section>
+            <div class="section-header">
+                <h2>1. CSS Grid Demo</h2>
+                <span class="status-label grid-accent">2-Dimensional</span>
+            </div>
+            <div class="demo-grid-wrapper glass-card">
+                <div class="demo-layout">
+                    <div class="code-area">
+                        <h3>CSS Implementation</h3>
+                        <div class="code-block">
+                            <pre><code><span class="tag">.container</span> {
+  <span class="prop">display</span>: <span class="val">grid</span>;
+  <span class="prop">grid-template-columns</span>: <span class="val">1fr 1fr 1fr</span>;
+  <span class="prop">grid-gap</span>: <span class="val">20px</span>;
+}</code></pre>
+                        </div>
+                    </div>
+                    <div class="preview-area">
+                        <h3>Visual Preview</h3>
+                        <div class="grid-container-preview">
+                            <div class="grid-item">Item 1</div>
+                            <div class="grid-item">Item 2</div>
+                            <div class="grid-item">Item 3</div>
+                            <div class="grid-item">Item 4</div>
+                            <div class="grid-item">Item 5</div>
+                            <div class="grid-item">Item 6</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <p class="info-text">In this example, <code>1fr 1fr 1fr</code> creates three equal-width columns that adapt
+                to available space.</p>
+        </section>
+
+        <!-- Flexbox Demo Section -->
+        <section>
+            <div class="section-header">
+                <h2>2. Flexbox Comparison</h2>
+                <span class="status-label flex-accent">1-Dimensional</span>
+            </div>
+            <div class="demo-flex-wrapper glass-card">
+                <div class="demo-layout">
+                    <div class="code-area">
+                        <h3>CSS Implementation</h3>
+                        <div class="code-block">
+                            <pre><code><span class="tag">.container</span> {
+  <span class="prop">display</span>: <span class="val">flex</span>;
+  <span class="prop">justify-content</span>: <span class="val">space-between</span>;
+}</code></pre>
+                        </div>
+                    </div>
+                    <div class="preview-area">
+                        <h3>Visual Preview</h3>
+                        <div class="flex-container-preview">
+                            <div class="flex-item">Item 1</div>
+                            <div class="flex-item">Item 2</div>
+                            <div class="flex-item">Item 3</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <p class="info-text">Flexbox excels at single rows or columns, adjusting layout based on content-first
+                priorities.</p>
+        </section>
+
+        <!-- Comparison Section -->
+        <section class="glass-card">
+            <h2>Key Differences</h2>
+            <div class="comparison-grid">
+                <div class="comp-card">
+                    <h3>Flexbox</h3>
+                    <ul>
+                        <li>One-dimensional (Rows OR Columns)</li>
+                        <li>Content-first (Adapts to items)</li>
+                        <li>Best for small components & linear alignment</li>
+                    </ul>
+                </div>
+                <div class="comp-card">
+                    <h3>CSS Grid</h3>
+                    <ul>
+                        <li>Two-dimensional (Rows AND Columns)</li>
+                        <li>Layout-first (Fixed grid structure)</li>
+                        <li>Best for main page layouts & complex matrices</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- Quiz Section -->
+        <section class="quiz-container">
+            <h2 class="accent-text">Knowledge Check</h2>
+            <div class="quiz-stack">
+                <div class="question-card" id="q1">
+                    <h3>1. What is the main difference between CSS Grid and Flexbox?</h3>
+                    <div class="options">
+                        <button class="opt-btn" onclick="checkAnswer(1, 'a', this)">Grid is newer than Flexbox.</button>
+                        <button class="opt-btn" onclick="checkAnswer(1, 'b', this)">Grid is two-dimensional, while
+                            Flexbox is one-dimensional.</button>
+                        <button class="opt-btn" onclick="checkAnswer(1, 'c', this)">Grid only works with columns,
+                            Flexbox only with rows.</button>
+                        <button class="opt-btn" onclick="checkAnswer(1, 'd', this)">Grid is only for desktop layouts,
+                            Flexbox for mobile.</button>
+                    </div>
+                </div>
+
+                <div class="question-card" id="q2">
+                    <h3>2. In the CSS Grid example, what does 1fr 1fr 1fr mean?</h3>
+                    <div class="options">
+                        <button class="opt-btn" onclick="checkAnswer(2, 'a', this)">Create 3 columns, each 1 pixel
+                            wide.</button>
+                        <button class="opt-btn" onclick="checkAnswer(2, 'b', this)">Create 3 columns, each taking up
+                            one-third of the available space.</button>
+                        <button class="opt-btn" onclick="checkAnswer(2, 'c', this)">Create 1 column that's 3 times as
+                            wide as the others.</button>
+                        <button class="opt-btn" onclick="checkAnswer(2, 'd', this)">Create a single column divided into
+                            3 equal parts.</button>
+                    </div>
+                </div>
+
+                <div class="question-card" id="q3">
+                    <h3>3. Which statement about CSS Grid is true?</h3>
+                    <div class="options">
+                        <button class="opt-btn" onclick="checkAnswer(3, 'a', this)">It can only be used for desktop
+                            layouts.</button>
+                        <button class="opt-btn" onclick="checkAnswer(3, 'b', this)">It requires JavaScript to function
+                            properly.</button>
+                        <button class="opt-btn" onclick="checkAnswer(3, 'c', this)">It allows for precise placement of
+                            items in both rows and columns.</button>
+                        <button class="opt-btn" onclick="checkAnswer(3, 'd', this)">It automatically adjusts layout
+                            based on content size.</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2026 Web Dev Tutorials | Layout Mastery Series</p>
+    </footer>
+
+    <script>
+        const answers = { 1: 'b', 2: 'b', 3: 'c' };
+        function checkAnswer(qId, selected, btn) {
+            const card = document.getElementById('q' + qId);
+            const buttons = card.querySelectorAll('.opt-btn');
+            buttons.forEach(b => { b.disabled = true; });
+
+            if (selected === answers[qId]) {
+                btn.classList.add('correct');
+            } else {
+                btn.classList.add('wrong');
+                // Highlight the correct one
+                buttons.forEach(b => {
+                    if (b.getAttribute('onclick').includes(`'${answers[qId]}'`)) {
+                        b.classList.add('correct');
+                    }
+                });
+            }
+        }
+    </script>
+</body>
+
+</html>

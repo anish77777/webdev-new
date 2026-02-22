@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>StellarX Drone | Product Landing Page</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700&family=JetBrains+Mono:wght@400;700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+    <header id="header">
+        <div class="header-container">
+            <div class="logo">
+                <img id="header-img" src="https://cdn.freecodecamp.org/platform/universal/fcc_meta_1920X1080-indigo.png"
+                    alt="StellarX Logo">
+            </div>
+            <nav id="nav-bar">
+                <ul>
+                    <li><a class="nav-link" href="#features">Features</a></li>
+                    <li><a class="nav-link" href="#video-section">Showcase</a></li>
+                    <li><a class="nav-link" href="#pricing">Pricing</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <section id="hero">
+            <div class="hero-content">
+                <h1>Precision Redefined.</h1>
+                <p>Experience the world from a perspective you've never seen before with the StellarX Nano Drone.</p>
+                <form id="form" action="https://www.freecodecamp.org/email-submit">
+                    <input name="email" id="email" type="email" placeholder="Enter your email address" required>
+                    <input id="submit" type="submit" value="GET STARTED" class="btn">
+                </form>
+            </div>
+        </section>
+
+        <section id="features">
+            <div class="container">
+                <div class="feature">
+                    <div class="icon"><i class="fas fa-fire"></i></div>
+                    <div class="desc">
+                        <h2>Premium Materials</h2>
+                        <p>Our drones use the highest quality carbon fiber available. This will increase the longevity
+                            of your purchase.</p>
+                    </div>
+                </div>
+                <div class="feature">
+                    <div class="icon"><i class="fas fa-truck"></i></div>
+                    <div class="desc">
+                        <h2>Fast Shipping</h2>
+                        <p>We make sure you receive your drone as soon as we have finished making it. We also provide
+                            free returns if you are not satisfied.</p>
+                    </div>
+                </div>
+                <div class="feature">
+                    <div class="icon"><i class="fas fa-battery-full"></i></div>
+                    <div class="desc">
+                        <h2>Long Lasting</h2>
+                        <p>With our advanced lithium-polymer batteries, you can enjoy flights for up to 45 minutes on a
+                            single charge.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="video-section">
+            <div class="container">
+                <div class="video-wrapper">
+                    <iframe id="video" width="560" height="315" src="https://www.youtube-nocookie.com/embed/dQw4w9WgXcQ"
+                        title="Product Video" frameborder="0"
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                        allowfullscreen></iframe>
+                </div>
+            </div>
+        </section>
+
+        <section id="pricing">
+            <div class="container pricing-grid">
+                <div class="product" id="standard">
+                    <div class="level">Standard Drone</div>
+                    <h2>$600</h2>
+                    <ol>
+                        <li>1080p Camera</li>
+                        <li>20 Min Flight Time</li>
+                        <li>Basic Remote</li>
+                    </ol>
+                    <button class="btn">Select</button>
+                </div>
+                <div class="product" id="pro">
+                    <div class="level">Pro Drone</div>
+                    <h2>$900</h2>
+                    <ol>
+                        <li>4K HDR Camera</li>
+                        <li>30 Min Flight Time</li>
+                        <li>Advanced Remote</li>
+                    </ol>
+                    <button class="btn">Select</button>
+                </div>
+                <div class="product" id="master">
+                    <div class="level">Master Drone</div>
+                    <h2>$1200</h2>
+                    <ol>
+                        <li>8K Pro Camera</li>
+                        <li>45 Min Flight Time</li>
+                        <li>Satellite Linkup</li>
+                    </ol>
+                    <button class="btn">Select</button>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <ul>
+                <li><a href="#">Privacy</a></li>
+                <li><a href="#">Terms</a></li>
+                <li><a href="#">Contact</a></li>
+            </ul>
+            <span>Copyright 2026, StellarX Drones</span>
+        </div>
+    </footer>
+</body>
+
+</html>

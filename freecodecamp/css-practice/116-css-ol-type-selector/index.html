@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ordered List Type Selectors | Web Dev Essentials</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700&family=JetBrains+Mono:wght@400;700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+    <header>
+        <div class="container">
+            <div class="header-content">
+                <span class="badge">Tutorial 116</span>
+                <h1>Targeting <span class="accent-text">Ordered Lists</span></h1>
+                <p class="subtitle">Styling Based on Numbering Type</p>
+            </div>
+        </div>
+    </header>
+
+    <main class="container">
+        <!-- Section 1: Introduction & Decimal -->
+        <section class="glass-card">
+            <div class="section-header">
+                <h2>01. The Type Attribute</h2>
+                <span class="status-label accent">Concept</span>
+            </div>
+            <p>The <code>type</code> attribute on an <code>&lt;ol&gt;</code> element defines the kind of marker to use
+                (numbers, letters, or numerals). We can target these specific lists using attribute selectors.</p>
+
+            <div class="demo-wrapper">
+                <h3>Default / Decimal (type="1")</h3>
+                <ol type="1" class="demo-list">
+                    <li>First Item</li>
+                    <li>Second Item</li>
+                    <li>Third Item</li>
+                </ol>
+            </div>
+
+            <div class="code-block">
+                <pre><code><span class="comment">/* Target standard numbered lists */</span>
+<span class="tag">ol</span>[<span class="attr">type</span>=<span class="str">"1"</span>] {
+  <span class="prop">color</span>: <span class="val">var(--text-main)</span>;
+}</code></pre>
+            </div>
+        </section>
+
+        <!-- Section 2: Alphabetical Lists -->
+        <section class="glass-card">
+            <div class="section-header">
+                <h2>02. Alphabetical Lists</h2>
+                <span class="status-label">A vs a</span>
+            </div>
+            <p>You can distinguish between uppercase (A) and lowercase (a) alphabetical lists.</p>
+
+            <div class="grid-demo">
+                <div class="demo-column">
+                    <h3>Uppercase (type="A")</h3>
+                    <ol type="A" class="demo-list alpha-upper">
+                        <li>Phase One</li>
+                        <li>Phase Two</li>
+                        <li>Phase Three</li>
+                    </ol>
+                </div>
+                <div class="demo-column">
+                    <h3>Lowercase (type="a")</h3>
+                    <ol type="a" class="demo-list alpha-lower">
+                        <li>sub-point one</li>
+                        <li>sub-point two</li>
+                        <li>sub-point three</li>
+                    </ol>
+                </div>
+            </div>
+
+            <div class="code-block">
+                <pre><code><span class="comment">/* Uppercase Letters */</span>
+<span class="tag">ol</span>[<span class="attr">type</span>=<span class="str">"A"</span>] {
+  <span class="prop">color</span>: <span class="val">var(--accent-primary)</span>; <span class="comment">/* Purple */</span>
+  <span class="prop">font-weight</span>: <span class="val">bold</span>;
+}
+
+<span class="comment">/* Lowercase Letters */</span>
+<span class="tag">ol</span>[<span class="attr">type</span>=<span class="str">"a"</span>] {
+  <span class="prop">color</span>: <span class="val">var(--text-muted)</span>;
+}</code></pre>
+            </div>
+        </section>
+
+        <!-- Section 3: Roman Numerals -->
+        <section class="glass-card">
+            <div class="section-header">
+                <h2>03. Roman Numerals</h2>
+                <span class="status-label accent">Classic</span>
+            </div>
+            <p>Similarly, Roman numerals (I, i) can be styled distinctly.</p>
+
+            <div class="grid-demo">
+                <div class="demo-column">
+                    <h3>Uppercase (type="I")</h3>
+                    <ol type="I" class="demo-list roman-upper">
+                        <li>Introduction</li>
+                        <li>Methodology</li>
+                        <li>Conclusion</li>
+                    </ol>
+                </div>
+                <div class="demo-column">
+                    <h3>Lowercase (type="i")</h3>
+                    <ol type="i" class="demo-list roman-lower">
+                        <li>preface</li>
+                        <li>acknowledgments</li>
+                        <li>dedication</li>
+                    </ol>
+                </div>
+            </div>
+
+            <div class="code-block">
+                <pre><code><span class="comment">/* Lowercase Roman Numerals */</span>
+<span class="tag">ol</span>[<span class="attr">type</span>=<span class="str">"i"</span>] {
+  <span class="prop">color</span>: <span class="val">var(--accent-secondary)</span>; <span class="comment">/* Green */</span>
+  <span class="prop">font-style</span>: <span class="val">italic</span>;
+}</code></pre>
+            </div>
+        </section>
+
+        <!-- Quiz Section -->
+        <section class="quiz-container">
+            <div class="quiz-header">
+                <h2 class="accent-text">Knowledge Check</h2>
+                <p>Test your understanding of ordered list selectors.</p>
+            </div>
+
+            <div class="quiz-stack">
+                <!-- Q1 -->
+                <div class="question-card" id="q1">
+                    <h3>1. Which selector targets ordered lists with uppercase alphabetical numbering?</h3>
+                    <div class="options">
+                        <button class="opt-btn" onclick="checkAnswer(1, 'a', this)">ol[type="a"]</button>
+                        <button class="opt-btn" onclick="checkAnswer(1, 'b', this)">ol[type="A"]</button>
+                        <button class="opt-btn" onclick="checkAnswer(1, 'c', this)">ol[style="uppercase"]</button>
+                        <button class="opt-btn" onclick="checkAnswer(1, 'd', this)">ol.upper</button>
+                    </div>
+                </div>
+
+                <!-- Q2 -->
+                <div class="question-card" id="q2">
+                    <h3>2. How would you target lowercase Roman numerals?</h3>
+                    <div class="options">
+                        <button class="opt-btn" onclick="checkAnswer(2, 'a', this)">ol[type="I"]</button>
+                        <button class="opt-btn" onclick="checkAnswer(2, 'b', this)">ol[type="1"]</button>
+                        <button class="opt-btn" onclick="checkAnswer(2, 'c', this)">ol[type="i"]</button>
+                        <button class="opt-btn" onclick="checkAnswer(2, 'd', this)">ol[type="rome"]</button>
+                    </div>
+                </div>
+
+                <!-- Q3 -->
+                <div class="question-card" id="q3">
+                    <h3>3. Which HTML attribute specifies the numbering style?</h3>
+                    <div class="options">
+                        <button class="opt-btn" onclick="checkAnswer(3, 'a', this)">style</button>
+                        <button class="opt-btn" onclick="checkAnswer(3, 'b', this)">class</button>
+                        <button class="opt-btn" onclick="checkAnswer(3, 'c', this)">list-style</button>
+                        <button class="opt-btn" onclick="checkAnswer(3, 'd', this)">type</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2026 Web Dev Essentials | Built with Midnight Obsidian Theme</p>
+        </div>
+    </footer>
+
+    <script>
+        const answers = {
+            1: 'b',
+            2: 'c',
+            3: 'd'
+        };
+
+        function checkAnswer(qId, selected, btn) {
+            const card = document.getElementById('q' + qId);
+            const buttons = card.querySelectorAll('.opt-btn');
+
+            buttons.forEach(b => {
+                b.disabled = true;
+                b.classList.remove('correct', 'wrong');
+            });
+
+            if (selected === answers[qId]) {
+                btn.classList.add('correct');
+            } else {
+                btn.classList.add('wrong');
+                buttons.forEach(b => {
+                    const btnText = b.innerText.trim();
+                    if (qId === 1 && btnText === 'ol[type="A"]') b.classList.add('correct');
+                    if (qId === 2 && btnText === 'ol[type="i"]') b.classList.add('correct');
+                    if (qId === 3 && btnText === 'type') b.classList.add('correct');
+                });
+            }
+        }
+    </script>
+</body>
+
+</html>

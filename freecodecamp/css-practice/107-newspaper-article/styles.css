@@ -4,31 +4,41 @@
 */
 
 /* Requirement 1: html font-size 24px */
+:root {
+    --bg-obsidian: #0c0a0a;
+    --bg-card: #141111;
+    --accent-news: #94a3b8;
+    /* Slate */
+    --accent-ink: #f8fafc;
+    --text-primary: #f8fafc;
+    --text-muted: #94a3b8;
+    --glass-border: rgba(255, 255, 255, 0.08);
+}
+
 html {
-    font-size: 24px;
-    background-color: #f4f1ea;
-    /* Newsprint paper color */
-    color: #1a1a1a;
+    font-size: 20px;
+    background-color: var(--bg-obsidian);
+    color: var(--text-primary);
 }
 
 body {
     margin: 0;
-    padding: 40px 20px;
+    padding: 60px 20px;
     display: flex;
     justify-content: center;
+    background-image: radial-gradient(circle at 50% 0%, rgba(148, 163, 184, 0.05), transparent 60%);
 }
 
-/* Requirement 2: .newspaper container */
-/* Requirement 3: .newspaper font-size 16px */
-/* Requirement 4: .newspaper font-family 'Open Sans', sans-serif */
 .newspaper {
-    max-width: 800px;
-    background-color: #fdfdfd;
-    padding: 40px;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
-    font-size: 16px;
+    max-width: 900px;
+    background-color: var(--bg-card);
+    padding: 3rem;
+    border: 1px solid var(--glass-border);
+    border-radius: 20px;
+    font-size: 1rem;
     font-family: 'Open Sans', sans-serif;
-    border: 1px solid #ddd;
+    color: var(--text-primary);
+    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
 }
 
 header {
@@ -40,13 +50,13 @@ header {
 /* Requirement 18: .name font-family 'Times New Roman', serif */
 /* Requirement 19: .name text-transform uppercase */
 .name {
-    font-size: 2rem;
+    font-size: 3rem;
     font-family: 'Times New Roman', serif;
     text-transform: uppercase;
     margin: 0;
-    letter-spacing: 2px;
-    border-bottom: 4px double #1a1a1a;
-    padding-bottom: 10px;
+    letter-spacing: 4px;
+    border-bottom: 2px solid var(--accent-news);
+    padding-bottom: 15px;
     display: inline-block;
 }
 
@@ -65,57 +75,59 @@ header {
 
 .divider {
     border: none;
-    border-top: 1px solid #1a1a1a;
+    border-top: 1px solid var(--glass-border);
     margin: 0;
 }
 
 .divider.thin {
-    border-top: 1px solid #ccc;
+    border-top: 1px solid var(--glass-border);
     margin-top: 40px;
 }
 
 /* Requirement 9, 21, 22: .headline class, 2em font-size, bold */
 .headline {
-    font-size: 2em;
-    font-weight: bold;
-    margin: 30px 0 15px;
-    line-height: 1.2;
+    font-size: 2.5em;
+    font-weight: 800;
+    margin: 40px 0 20px;
+    line-height: 1.1;
     text-align: center;
     font-family: 'Times New Roman', serif;
+    color: var(--text-primary);
 }
 
 /* Requirement 11, 23, 24, 25: .sub-headline class, weight 100, 1.5em font-size, italic */
 .sub-headline {
-    font-weight: 100;
-    font-size: 1.5em;
+    font-weight: 300;
+    font-size: 1.3em;
     font-style: italic;
-    margin: 0 0 30px;
+    margin: 0 0 40px;
     text-align: center;
-    color: #444;
-    line-height: 1.3;
+    color: var(--text-muted);
+    line-height: 1.4;
 }
 
 .author-box {
-    border-top: 1px solid #eee;
-    border-bottom: 1px solid #eee;
-    padding: 10px 0;
-    margin-bottom: 30px;
+    border-top: 1px solid var(--glass-border);
+    border-bottom: 1px solid var(--glass-border);
+    padding: 15px 0;
+    margin-bottom: 40px;
     text-align: center;
 }
 
 /* Requirement 13, 20, 26: .author class, uppercase, bold */
 .author {
     text-transform: uppercase;
-    font-weight: bold;
-    font-size: 0.8rem;
-    letter-spacing: 1px;
+    font-weight: 700;
+    font-size: 0.75rem;
+    letter-spacing: 2px;
+    color: var(--accent-news);
 }
 
 .content {
     column-count: 2;
     /* Giving it a newspaper feel */
     column-gap: 40px;
-    column-rule: 1px solid #eee;
+    column-rule: 1px solid var(--glass-border);
 }
 
 /* Requirement 15, 16, 27, 28: .text class, indent 20px, line-height 2em */

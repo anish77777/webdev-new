@@ -1,0 +1,117 @@
+/* 
+   Cosmic Night Theme
+   A premium, space-inspired design for the Moon Orbit simulation.
+*/
+
+:root {
+    --bg-deep-space: #050508;
+    --earth-blue: #3b82f6;
+    --earth-glow: rgba(59, 130, 246, 0.4);
+    --moon-gray: #94a3b8;
+    --moon-glow: rgba(255, 255, 255, 0.2);
+    --orbit-line: rgba(255, 255, 255, 0.1);
+}
+
+/* User Story 1: Centering elements using Viewport Height and Flexbox */
+body {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--bg-deep-space);
+    /* Subtle starfield effect via radial gradients */
+    background-image:
+        radial-gradient(circle at 20% 30%, rgba(255, 255, 255, 0.05) 1px, transparent 1px),
+        radial-gradient(circle at 70% 60%, rgba(255, 255, 255, 0.05) 1px, transparent 1px),
+        radial-gradient(circle at 40% 80%, rgba(255, 255, 255, 0.05) 1px, transparent 1px);
+    background-size: 200px 200px;
+}
+
+/* User Story 2, 5, 6: Space container and its dimensions */
+.space {
+    width: 200px;
+    height: 200px;
+    position: relative;
+    /* User Story 4: Relative positioning */
+}
+
+/* User Story 7, 8, 14: Earth positioning and styling */
+.earth {
+    position: absolute;
+    width: 100px;
+    /* User Story 8: Dimensions */
+    height: 100px;
+    /* User Story 7: Centering logic */
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+
+    /* Aesthetics for Earth */
+    background: radial-gradient(circle at 30% 30%, #60a5fa, #1d4ed8);
+    background-color: var(--earth-blue);
+    /* User Story 22: Background color */
+    border-radius: 50%;
+    /* User Story 23: Circle shape */
+    box-shadow: 0 0 40px var(--earth-glow);
+}
+
+/* User Story 9, 10, 15: Orbit container and positioning */
+.orbit {
+    width: 200px;
+    /* User Story 9 */
+    height: 200px;
+    position: absolute;
+    /* User Story 14 */
+    /* User Story 10 & 15: Centering using transform */
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+
+    /* Aesthetic Orbit line */
+    border: 1px solid var(--orbit-line);
+    border-radius: 50%;
+    /* User Story 11: Circular path */
+
+    /* User Story 16, 33: Animation application */
+    animation: orbit 5s linear infinite;
+}
+
+/* User Story 12, 17, 18, 19, 20, 21: Moon positioning and styling */
+.moon {
+    width: 30px;
+    /* User Story 17 */
+    height: 30px;
+    position: absolute;
+    /* User Story 18 */
+
+    /* User Story 19 & 20: Top center alignment */
+    top: 0;
+    left: 50%;
+    /* User Story 21: Horizontal adjustment */
+    transform: translateX(-50%);
+
+    /* Aesthetics for Moon */
+    background: radial-gradient(circle at 30% 30%, #cbd5e1, #64748b);
+    background-color: var(--moon-gray);
+    /* User Story 24 */
+    border-radius: 50%;
+    /* User Story 25 */
+    box-shadow: 0 0 15px var(--moon-glow);
+}
+
+/* User Story 26-32: Orbit Keyframes */
+@keyframes orbit {
+
+    /* User Story 30: Starting position */
+    0% {
+        transform: translate(-50%, -50%) rotate(0deg);
+    }
+
+    /* User Story 32: Full rotation */
+    100% {
+        transform: translate(-50%, -50%) rotate(360deg);
+    }
+}

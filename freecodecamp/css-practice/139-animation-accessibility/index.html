@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Animation Accessibility | Web Dev Tutorials</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700&family=JetBrains+Mono:wght@400;700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+    <header>
+        <div class="container">
+            <span class="badge">Tutorial 139</span>
+            <h1>Inclusive <span class="accent-text">Motion</span></h1>
+            <p class="subtitle">Ensuring Animation Accessibility for Everyone</p>
+        </div>
+    </header>
+
+    <main class="container">
+        <!-- Intro Section -->
+        <section class="glass-card">
+            <h2>Why Accessibility Matters</h2>
+            <p>Animations can enhance UX, but they can also cause dizziness, nausea, or even seizures for users with
+                vestibular disorders or photosensitivity. Motion sensitivity is a physical reality that developers must
+                respect.</p>
+        </section>
+
+        <!-- prefers-reduced-motion Section -->
+        <section>
+            <div class="section-header">
+                <h2>1. prefers-reduced-motion</h2>
+                <span class="status-label accent-rose">Media Query Control</span>
+            </div>
+            <div class="demo-wrapper glass-card">
+                <div class="content-grid">
+                    <div class="text-area">
+                        <p>The <code>prefers-reduced-motion</code> media query detects if a user has requested minimal
+                            animations at the system level.</p>
+                        <p>Using a "blanket override" ensures that for those users, animations are almost instantaneous
+                            and non-distracting.</p>
+                    </div>
+                    <div class="code-area">
+                        <div class="code-block">
+                            <pre><code><span class="keyword">@media</span> (<span class="prop">prefers-reduced-motion</span>: <span class="val">reduce</span>) {
+  <span class="tag">*</span> {
+    <span class="prop">animation-duration</span>: <span class="val">0.01ms</span> <span class="keyword">!important</span>;
+    <span class="prop">scroll-behavior</span>: <span class="val">auto</span> <span class="keyword">!important</span>;
+  }
+}</code></pre>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Targeted Control Section -->
+        <section>
+            <div class="section-header">
+                <h2>2. Targeted Overrides</h2>
+                <span class="status-label accent-coral">Precise Logic</span>
+            </div>
+            <div class="demo-wrapper glass-card accent">
+                <div class="content-grid">
+                    <div class="text-area">
+                        <p>Instead of a blanket ban, you can provide alternative, less motion-intensive experiences for
+                            specific elements like scrolling banners or pulsing buttons.</p>
+                    </div>
+                    <div class="preview-box">
+                        <div class="animated-demo">Pulsing with Care</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Quiz Section -->
+        <section class="quiz-container">
+            <h2 class="accent-text">Test Your Knowledge</h2>
+            <div class="quiz-stack">
+                <div class="question-card" id="q1">
+                    <h3>1. What is the primary purpose of prefers-reduced-motion?</h3>
+                    <div class="options">
+                        <button class="opt-btn" onclick="checkAnswer(1, 'a', this)">To increase the speed of all
+                            animations.</button>
+                        <button class="opt-btn" onclick="checkAnswer(1, 'b', this)">To detect if a user requested
+                            minimal animations.</button>
+                        <button class="opt-btn" onclick="checkAnswer(1, 'c', this)">To automatically add more
+                            animations.</button>
+                        <button class="opt-btn" onclick="checkAnswer(1, 'd', this)">To change the color scheme.</button>
+                    </div>
+                </div>
+
+                <div class="question-card" id="q2">
+                    <h3>2. Which of these is NOT a common motion accessibility concern?</h3>
+                    <div class="options">
+                        <button class="opt-btn" onclick="checkAnswer(2, 'a', this)">Vestibular disorders causing
+                            dizziness.</button>
+                        <button class="opt-btn" onclick="checkAnswer(2, 'b', this)">Distraction for users with attention
+                            disorders.</button>
+                        <button class="opt-btn" onclick="checkAnswer(2, 'c', this)">Animations always improving
+                            readability.</button>
+                        <button class="opt-btn" onclick="checkAnswer(2, 'd', this)">Seizures caused by rapid
+                            flashing.</button>
+                    </div>
+                </div>
+
+                <div class="question-card" id="q3">
+                    <h3>3. What does setting animation-duration: 0.01ms achieve in this context?</h3>
+                    <div class="options">
+                        <button class="opt-btn" onclick="checkAnswer(3, 'a', this)">Makes animations last exactly
+                            0.01ms.</button>
+                        <button class="opt-btn" onclick="checkAnswer(3, 'b', this)">Increases animation speed for
+                            everyone.</button>
+                        <button class="opt-btn" onclick="checkAnswer(3, 'c', this)">Effectively turns off motion while
+                            allowing completion.</button>
+                        <button class="opt-btn" onclick="checkAnswer(3, 'd', this)">Makes animations last
+                            indefinitely.</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2026 Web Dev Tutorials | Inclusive Design First</p>
+    </footer>
+
+    <script>
+        const answers = { 1: 'b', 2: 'c', 3: 'c' };
+        function checkAnswer(qId, selected, btn) {
+            const card = document.getElementById('q' + qId);
+            const buttons = card.querySelectorAll('.opt-btn');
+            buttons.forEach(b => { b.disabled = true; });
+
+            if (selected === answers[qId]) {
+                btn.classList.add('correct');
+            } else {
+                btn.classList.add('wrong');
+                buttons.forEach(b => {
+                    const text = b.innerText.toLowerCase();
+                    if (qId === 1 && text.includes('detect if a user')) b.classList.add('correct');
+                    if (qId === 2 && text.includes('always improving readability')) b.classList.add('correct');
+                    if (qId === 3 && text.includes('effectively turns off')) b.classList.add('correct');
+                });
+            }
+        }
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The @property Rule | Web Dev Essentials</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700&family=JetBrains+Mono:wght@400;700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+    <header>
+        <div class="container">
+            <div class="header-content">
+                <span class="badge">Tutorial 125</span>
+                <h1>The CSS <span class="accent-text">@property Rule</span></h1>
+                <p class="subtitle">Type-Safe and Animatable Custom Properties</p>
+            </div>
+        </div>
+    </header>
+
+    <main class="container">
+        <!-- Section: Syntax -->
+        <section class="glass-card">
+            <div class="section-header">
+                <h2>Syntax & Control</h2>
+                <span class="status-label accent">Advanced</span>
+            </div>
+            <p>The <code>@property</code> rule gives you granular control over custom properties, defining their type,
+                inheritance, and initial values.</p>
+
+            <div class="code-block">
+                <pre><code><span class="kw">@property</span> <span class="prop">--main-color</span> {
+  <span class="prop">syntax</span>: <span class="val">'&lt;color&gt;'</span>;
+  <span class="prop">inherits</span>: <span class="val">false</span>;
+  <span class="prop">initial-value</span>: <span class="val">#3498db</span>;
+}</code></pre>
+            </div>
+        </section>
+
+        <!-- Section: Animation Demo -->
+        <section class="glass-card">
+            <div class="section-header">
+                <h2>Smooth Animations</h2>
+                <span class="status-label">Magic</span>
+            </div>
+            <p>Before <code>@property</code>, you couldn't animate gradients. Now, by defining a property as an
+                <code>&lt;angle&gt;</code>, you can transition it smoothly!</p>
+
+            <div class="demo-wrapper">
+                <div class="gradient-box">
+                    <span class="hover-tip">Hover Me</span>
+                </div>
+            </div>
+
+            <div class="info-alert">
+                <p><strong>Note:</strong> We are transitioning the internal <code>--gradient-angle</code> variable from
+                    <code>0deg</code> to <code>180deg</code>.</p>
+            </div>
+        </section>
+
+        <!-- Section: Fallbacks -->
+        <section class="glass-card">
+            <div class="section-header">
+                <h2>Graceful Degradation</h2>
+                <span class="status-label">Resilience</span>
+            </div>
+            <p>For browsers that don't support <code>@property</code>, always provide a standard variable declaration as
+                a fallback.</p>
+
+            <div class="fallback-flex">
+                <div class="fallback-card">
+                    <h3>The @property Way</h3>
+                    <p>Enables animations and strict type-safety.</p>
+                </div>
+                <div class="fallback-card">
+                    <h3>The Standard Way</h3>
+                    <p>Ensures the color still shows up in older browsers.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Quiz Section -->
+        <section class="quiz-container">
+            <div class="quiz-header">
+                <h2 class="accent-text">Knowledge Check</h2>
+                <p>Verify your advanced CSS expertise.</p>
+            </div>
+
+            <div class="quiz-stack">
+                <div class="question-card" id="q1">
+                    <h3>1. What is the primary purpose of the @property rule?</h3>
+                    <div class="options">
+                        <button class="opt-btn" onclick="checkAnswer(1, 'a', this)">To create entirely new CSS
+                            properties.</button>
+                        <button class="opt-btn" onclick="checkAnswer(1, 'b', this)">To define and control the behavior
+                            of custom properties.</button>
+                        <button class="opt-btn" onclick="checkAnswer(1, 'c', this)">To replace standard ID
+                            selectors.</button>
+                        <button class="opt-btn" onclick="checkAnswer(1, 'd', this)">To write JavaScript within
+                            CSS.</button>
+                    </div>
+                </div>
+
+                <div class="question-card" id="q2">
+                    <h3>2. Which of the following is NOT a valid descriptor in the @property rule?</h3>
+                    <div class="options">
+                        <button class="opt-btn" onclick="checkAnswer(2, 'a', this)">syntax</button>
+                        <button class="opt-btn" onclick="checkAnswer(2, 'b', this)">inherits</button>
+                        <button class="opt-btn" onclick="checkAnswer(2, 'c', this)">initial-value</button>
+                        <button class="opt-btn" onclick="checkAnswer(2, 'd', this)">animation</button>
+                    </div>
+                </div>
+
+                <div class="question-card" id="q3">
+                    <h3>3. How can you provide a fallback for browsers that don't support @property?</h3>
+                    <div class="options">
+                        <button class="opt-btn" onclick="checkAnswer(3, 'a', this)">Use a CSS polyfill only.</button>
+                        <button class="opt-btn" onclick="checkAnswer(3, 'b', this)">Declare the custom property using
+                            the standard method separately.</button>
+                        <button class="opt-btn" onclick="checkAnswer(3, 'c', this)">The browser does it
+                            automatically.</button>
+                        <button class="opt-btn" onclick="checkAnswer(3, 'd', this)">It is not possible to provide a
+                            fallback.</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2026 Web Dev Essentials | Built with Midnight Obsidian Theme</p>
+        </div>
+    </footer>
+
+    <script>
+        const answers = { 1: 'b', 2: 'd', 3: 'b' };
+        function checkAnswer(qId, selected, btn) {
+            const card = document.getElementById('q' + qId);
+            const buttons = card.querySelectorAll('.opt-btn');
+            buttons.forEach(b => { b.disabled = true; b.classList.remove('correct', 'wrong'); });
+            if (selected === answers[qId]) {
+                btn.classList.add('correct');
+            } else {
+                btn.classList.add('wrong');
+                buttons.forEach(b => {
+                    const text = b.innerText.toLowerCase();
+                    if (qId === 1 && text.includes('control the behavior')) b.classList.add('correct');
+                    if (qId === 2 && text === 'animation') b.classList.add('correct');
+                    if (qId === 3 && text.includes('standard method')) b.classList.add('correct');
+                });
+            }
+        }
+    </script>
+</body>
+
+</html>

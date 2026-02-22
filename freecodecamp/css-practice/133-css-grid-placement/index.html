@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Grid Placement & Spanning | CSS Grid Series</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700&family=JetBrains+Mono:wght@400;700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+    <header>
+        <div class="container">
+            <span class="badge">Tutorial 133</span>
+            <h1>Grid <span class="accent-text">Placement</span></h1>
+            <p class="subtitle">Positioning Items Identically via Grid Lines</p>
+        </div>
+    </header>
+
+    <main class="container">
+        <!-- Intro Section -->
+        <section class="glass-card">
+            <h2>The Line System</h2>
+            <p>Grid items are placed using <strong>grid lines</strong>. These are the numbered lines that separate your
+                rows and columns. Placing an item involves specifying its starting line and ending line.</p>
+            <p><strong>Syntax:</strong> <code>grid-column: start / end;</code> or <code>1 / span 2;</code></p>
+        </section>
+
+        <!-- Spanning Demo -->
+        <section>
+            <div class="section-header">
+                <h2>1. Spanning Columns & Rows</h2>
+                <span class="status-label accent-crimson">Structural Control</span>
+            </div>
+            <div class="demo-wrapper glass-card">
+                <div class="demo-layout">
+                    <div class="code-area">
+                        <h3>Placement CSS</h3>
+                        <div class="code-block">
+                            <pre><code><span class="tag">.featured-item</span> {
+  <span class="prop">grid-column</span>: <span class="val">1 / span 2</span>;
+  <span class="prop">grid-row</span>: <span class="val">1 / 3</span>;
+}</code></pre>
+                        </div>
+                    </div>
+                    <div class="preview-area">
+                        <div class="placement-grid">
+                            <div class="grid-item featured">1 (Featured)</div>
+                            <div class="grid-item">2</div>
+                            <div class="grid-item">3</div>
+                            <div class="grid-item">4</div>
+                            <div class="grid-item">5</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Masonry Intro -->
+        <section>
+            <div class="section-header">
+                <h2>2. Flexible Layouts</h2>
+                <span class="status-label accent-ruby">Masonry Logic</span>
+            </div>
+            <div class="demo-wrapper glass-card accent">
+                <div class="demo-layout">
+                    <div class="code-area">
+                        <h3>Pattern logic</h3>
+                        <div class="code-block">
+                            <pre><code><span class="tag">.item-4</span> {
+  <span class="prop">grid-column</span>: <span class="val">1 / span 3</span>;
+}</code></pre>
+                        </div>
+                    </div>
+                    <div class="preview-area">
+                        <div class="masonry-grid">
+                            <div class="grid-item side">1</div>
+                            <div class="grid-item side">2</div>
+                            <div class="grid-item side">3</div>
+                            <div class="grid-item wide">4 (Wide)</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Quiz Section -->
+        <section class="quiz-container">
+            <h2 class="accent-text">Check Your Understanding</h2>
+            <div class="quiz-stack">
+                <div class="question-card" id="q1">
+                    <h3>1. What do grid-column and grid-row properties specify?</h3>
+                    <div class="options">
+                        <button class="opt-btn" onclick="checkAnswer(1, 'a', this)">The size of the container.</button>
+                        <button class="opt-btn" onclick="checkAnswer(1, 'b', this)">Alignment of the grid.</button>
+                        <button class="opt-btn" onclick="checkAnswer(1, 'c', this)">Horizontal and vertical
+                            placement.</button>
+                        <button class="opt-btn" onclick="checkAnswer(1, 'd', this)">The size of grid tracks.</button>
+                    </div>
+                </div>
+
+                <div class="question-card" id="q2">
+                    <h3>2. What determines the number of grid lines generated?</h3>
+                    <div class="options">
+                        <button class="opt-btn" onclick="checkAnswer(2, 'a', this)">The grid-gap property.</button>
+                        <button class="opt-btn" onclick="checkAnswer(2, 'b', this)">Grid-template properties.</button>
+                        <button class="opt-btn" onclick="checkAnswer(2, 'c', this)">Grid-auto properties.</button>
+                        <button class="opt-btn" onclick="checkAnswer(2, 'd', this)">Grid-area property.</button>
+                    </div>
+                </div>
+
+                <div class="question-card" id="q3">
+                    <h3>3. How can you make an item span across multiple tracks?</h3>
+                    <div class="options">
+                        <button class="opt-btn" onclick="checkAnswer(3, 'a', this)">Using the grid-template
+                            property.</button>
+                        <button class="opt-btn" onclick="checkAnswer(3, 'b', this)">Specifying auto in
+                            placement.</button>
+                        <button class="opt-btn" onclick="checkAnswer(3, 'c', this)">Using the span keyword or
+                            range.</button>
+                        <button class="opt-btn" onclick="checkAnswer(3, 'd', this)">Defining grid-gap size.</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2026 Web Dev Tutorials | Structural Grid Item Positioning</p>
+    </footer>
+
+    <script>
+        const answers = { 1: 'c', 2: 'b', 3: 'c' };
+        function checkAnswer(qId, selected, btn) {
+            const card = document.getElementById('q' + qId);
+            const buttons = card.querySelectorAll('.opt-btn');
+            buttons.forEach(b => { b.disabled = true; });
+
+            if (selected === answers[qId]) {
+                btn.classList.add('correct');
+            } else {
+                btn.classList.add('wrong');
+                buttons.forEach(b => {
+                    const text = b.innerText.toLowerCase();
+                    if (qId === 1 && text.includes('horizontal and vertical')) b.classList.add('correct');
+                    if (qId === 2 && text.includes('template properties')) b.classList.add('correct');
+                    if (qId === 3 && text.includes('span keyword')) b.classList.add('correct');
+                });
+            }
+        }
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mobile First Approach | Web Dev Essentials</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700&family=JetBrains+Mono:wght@400;700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+    <header>
+        <div class="container">
+            <div class="header-content">
+                <span class="badge">Tutorial 121</span>
+                <h1>Mobile <span class="accent-text">First</span></h1>
+                <p class="subtitle">Progressive Enhancement Strategy</p>
+            </div>
+        </div>
+    </header>
+
+    <main class="container">
+        <!-- Section: Philosophy -->
+        <section class="glass-card">
+            <div class="section-header">
+                <h2>Content Priority</h2>
+                <span class="status-label accent">Philosophy</span>
+            </div>
+            <p>Mobile-first is a strategy where you design for the smallest screen first. This foundation is then
+                <strong>progressively enhanced</strong> for larger screens.</p>
+
+            <div class="benefits-grid">
+                <div class="benefit">
+                    <span class="icon">🚀</span>
+                    <h3>Performance</h3>
+                    <p>Forces lean code and efficient assets from the start.</p>
+                </div>
+                <div class="benefit">
+                    <span class="icon">🎯</span>
+                    <h3>Focus</h3>
+                    <p>Highlights essential content by starting with limited space.</p>
+                </div>
+                <div class="benefit">
+                    <span class="icon">🔍</span>
+                    <h3>SEO</h3>
+                    <p>Aligns with Google's mobile-first indexing for better ranking.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section: Enhancement Demo -->
+        <section class="glass-card">
+            <div class="section-header">
+                <h2>Enhancement in Action</h2>
+                <span class="status-label">Demo</span>
+            </div>
+            <p>Look at the box below. In mobile-first CSS, we define the "Simple" base styles outside media queries,
+                then add "Complex" features as the screen width grows.</p>
+
+            <div class="demo-wrapper">
+                <div class="enhancement-box">
+                    <div class="content">
+                        <span class="label">Foundation</span>
+                        <p class="msg">Optimizing for small screens...</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="code-block">
+                <pre><code><span class="comment">/* 1. Base (Mobile) */</span>
+<span class="tag">.enhancement-box</span> {
+  <span class="prop">width</span>: <span class="val">100%</span>;
+  <span class="prop">padding</span>: <span class="val">10px</span>;
+}
+
+<span class="comment">/* 2. Enhancement (Desktop) */</span>
+<span class="kw">@media</span> screen and (min-width: 768px) {
+  <span class="tag">.enhancement-box</span> {
+    <span class="prop">width</span>: <span class="val">750px</span>;
+    <span class="prop">margin</span>: <span class="val">0 auto</span>;
+    <span class="prop">font-size</span>: <span class="val">1.2rem</span>;
+  }
+}</code></pre>
+            </div>
+        </section>
+
+        <!-- Quiz Section -->
+        <section class="quiz-container">
+            <div class="quiz-header">
+                <h2 class="accent-text">Knowledge Check</h2>
+                <p>Validate your mobile-first expertise.</p>
+            </div>
+
+            <div class="quiz-stack">
+                <div class="question-card" id="q1">
+                    <h3>1. What is the primary focus of the Mobile-First approach?</h3>
+                    <div class="options">
+                        <button class="opt-btn" onclick="checkAnswer(1, 'a', this)">Designing for desktop
+                            first.</button>
+                        <button class="opt-btn" onclick="checkAnswer(1, 'b', this)">Ignoring desktop users.</button>
+                        <button class="opt-btn" onclick="checkAnswer(1, 'c', this)">Prioritizing mobile and enhancing
+                            for larger screens.</button>
+                        <button class="opt-btn" onclick="checkAnswer(1, 'd', this)">Creating separate sites for each
+                            device.</button>
+                    </div>
+                </div>
+
+                <div class="question-card" id="q2">
+                    <h3>2. How does mobile-first typically use media queries?</h3>
+                    <div class="options">
+                        <button class="opt-btn" onclick="checkAnswer(2, 'a', this)">Using max-width to scale
+                            down.</button>
+                        <button class="opt-btn" onclick="checkAnswer(2, 'b', this)">Using min-width to add styles for
+                            larger screens.</button>
+                        <button class="opt-btn" onclick="checkAnswer(2, 'c', this)">By avoiding media queries.</button>
+                        <button class="opt-btn" onclick="checkAnswer(2, 'd', this)">Using printed media only.</button>
+                    </div>
+                </div>
+
+                <div class="question-card" id="q3">
+                    <h3>3. Which is NOT a primary benefit of mobile-first?</h3>
+                    <div class="options">
+                        <button class="opt-btn" onclick="checkAnswer(3, 'a', this)">Improved performance.</button>
+                        <button class="opt-btn" onclick="checkAnswer(3, 'b', this)">Better alignment with current
+                            trends.</button>
+                        <button class="opt-btn" onclick="checkAnswer(3, 'c', this)">Simplified design for complex
+                            features.</button>
+                        <button class="opt-btn" onclick="checkAnswer(3, 'd', this)">Enhanced content
+                            prioritization.</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2026 Web Dev Essentials | Built with Midnight Obsidian Theme</p>
+        </div>
+    </footer>
+
+    <script>
+        const answers = {
+            1: 'c',
+            2: 'b',
+            3: 'c'
+        };
+
+        function checkAnswer(qId, selected, btn) {
+            const card = document.getElementById('q' + qId);
+            const buttons = card.querySelectorAll('.opt-btn');
+
+            buttons.forEach(b => {
+                b.disabled = true;
+                b.classList.remove('correct', 'wrong');
+            });
+
+            if (selected === answers[qId]) {
+                btn.classList.add('correct');
+            } else {
+                btn.classList.add('wrong');
+                buttons.forEach(b => {
+                    const text = b.innerText.toLowerCase();
+                    if (qId === 1 && text.includes('prioritizing mobile')) b.classList.add('correct');
+                    if (qId === 2 && text.includes('min-width to add')) b.classList.add('correct');
+                    if (qId === 3 && text.includes('complex features')) b.classList.add('correct');
+                });
+            }
+        }
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Responsive Web Design | Web Dev Essentials</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700&family=JetBrains+Mono:wght@400;700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+    <header>
+        <div class="container">
+            <div class="header-content">
+                <span class="badge">Tutorial 118</span>
+                <h1>Responsive <span class="accent-text">Design</span></h1>
+                <p class="subtitle">One Site, Every Device</p>
+            </div>
+        </div>
+    </header>
+
+    <main class="container">
+        <!-- Section: Core Principles -->
+        <section class="glass-card">
+            <div class="section-header">
+                <h2>The Three Pillars</h2>
+                <span class="status-label accent">Theory</span>
+            </div>
+            <p>Responsive Web Design (RWD) ensures your site provides an optimal experience on everything from
+                smartphones to 4K monitors.</p>
+
+            <div class="pillars-grid">
+                <div class="pillar-box">
+                    <h3>1. Fluid Grids</h3>
+                    <p>Using <code>%</code> instead of <code>px</code> so layouts resize smoothly.</p>
+                </div>
+                <div class="pillar-box">
+                    <h3>2. Flexible Images</h3>
+                    <p>Images that stay within their containers using <code>max-width: 100%</code>.</p>
+                </div>
+                <div class="pillar-box">
+                    <h3>3. Media Queries</h3>
+                    <p>Specific CSS for specific screen sizes (Breakpoints).</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section: Tool Synergy -->
+        <section class="glass-card">
+            <div class="section-header">
+                <h2>Flexbox & Grid Synergy</h2>
+                <span class="status-label">Tools</span>
+            </div>
+            <p>While RWD is the concept, Flexbox and Grid are the tools that make it efficient. They allow for complex
+                arrangements with minimal code.</p>
+
+            <div class="demo-wrapper">
+                <h3>Interactive Layout Demo</h3>
+                <p class="demo-instruction">Resize your browser window to see the grid change!</p>
+                <div class="grid-container">
+                    <div class="grid-item">01. Structure</div>
+                    <div class="grid-item">02. Adaptability</div>
+                    <div class="grid-item">03. Flexibility</div>
+                </div>
+            </div>
+
+            <div class="code-block">
+                <pre><code><span class="comment">/* Mobile First (Default) */</span>
+<span class="tag">.grid-container</span> {
+  <span class="prop">display</span>: <span class="val">grid</span>;
+  <span class="prop">grid-template-columns</span>: <span class="val">1fr</span>; <span class="comment">/* 1 column */</span>
+}
+
+<span class="comment">/* Tablet / Desktop */</span>
+<span class="kw">@media</span> (min-width: 768px) {
+  <span class="tag">.grid-container</span> {
+    <span class="prop">grid-template-columns</span>: <span class="val">repeat(3, 1fr)</span>;
+  }
+}</code></pre>
+            </div>
+        </section>
+
+        <!-- Quiz Section -->
+        <section class="quiz-container">
+            <div class="quiz-header">
+                <h2 class="accent-text">Knowledge Check</h2>
+                <p>Master the principles of modern layouts.</p>
+            </div>
+
+            <div class="quiz-stack">
+                <div class="question-card" id="q1">
+                    <h3>1. What is the primary goal of responsive web design?</h3>
+                    <div class="options">
+                        <button class="opt-btn" onclick="checkAnswer(1, 'a', this)">To create separate websites for
+                            mobile.</button>
+                        <button class="opt-btn" onclick="checkAnswer(1, 'b', this)">To ensure websites adapt to
+                            different screen sizes.</button>
+                        <button class="opt-btn" onclick="checkAnswer(1, 'c', this)">To increase loading speed
+                            only.</button>
+                        <button class="opt-btn" onclick="checkAnswer(1, 'd', this)">To simplify the design process for
+                            developers.</button>
+                    </div>
+                </div>
+
+                <div class="question-card" id="q2">
+                    <h3>2. How does CSS Flexbox contribute to RWD?</h3>
+                    <div class="options">
+                        <button class="opt-btn" onclick="checkAnswer(2, 'a', this)">By creating 2D grid
+                            layouts.</button>
+                        <button class="opt-btn" onclick="checkAnswer(2, 'b', this)">By allowing easy manipulation of 1D
+                            layouts.</button>
+                        <button class="opt-btn" onclick="checkAnswer(2, 'c', this)">By automatically resizing
+                            images.</button>
+                        <button class="opt-btn" onclick="checkAnswer(2, 'd', this)">It doesn't affect RWD.</button>
+                    </div>
+                </div>
+
+                <div class="question-card" id="q3">
+                    <h3>3. What is the primary advantage of CSS Grid over older methods?</h3>
+                    <div class="options">
+                        <button class="opt-btn" onclick="checkAnswer(3, 'a', this)">It creates print
+                            stylesheets.</button>
+                        <button class="opt-btn" onclick="checkAnswer(3, 'b', this)">Flexibility in complex, 2D
+                            layouts.</button>
+                        <button class="opt-btn" onclick="checkAnswer(3, 'c', this)">It eliminates the need for
+                            CSS.</button>
+                        <button class="opt-btn" onclick="checkAnswer(3, 'd', this)">It reduces JS usage.</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2026 Web Dev Essentials | Built with Midnight Obsidian Theme</p>
+        </div>
+    </footer>
+
+    <script>
+        const answers = {
+            1: 'b',
+            2: 'b',
+            3: 'b'
+        };
+
+        function checkAnswer(qId, selected, btn) {
+            const card = document.getElementById('q' + qId);
+            const buttons = card.querySelectorAll('.opt-btn');
+
+            buttons.forEach(b => {
+                b.disabled = true;
+                b.classList.remove('correct', 'wrong');
+            });
+
+            if (selected === answers[qId]) {
+                btn.classList.add('correct');
+            } else {
+                btn.classList.add('wrong');
+                buttons.forEach(b => {
+                    const text = b.innerText.toLowerCase();
+                    if (qId === 1 && text.includes('adapt to different')) b.classList.add('correct');
+                    if (qId === 2 && text.includes('1d layouts')) b.classList.add('correct');
+                    if (qId === 3 && text.includes('2d layouts')) b.classList.add('correct');
+                });
+            }
+        }
+    </script>
+</body>
+
+</html>

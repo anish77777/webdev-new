@@ -1,0 +1,131 @@
+:root {
+    --bg-obsidian: #0c0a0a;
+    --bg-card: #14110e;
+    /* Brownish-black for news feel */
+    --accent-gold: #fbbf24;
+    --accent-amber: #d97706;
+    --text-primary: #f8fafc;
+    --text-muted: #94a3b8;
+    --glass-border: rgba(255, 255, 255, 0.08);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: var(--bg-obsidian);
+    color: var(--text-primary);
+    font-family: 'Outfit', sans-serif;
+    min-height: 100vh;
+    padding: 2rem;
+    background-image: radial-gradient(circle at 10% 10%, rgba(251, 191, 36, 0.05), transparent 40%);
+}
+
+.newspaper-layout {
+    display: grid;
+    max-width: 1200px;
+    margin: 0 auto;
+    gap: 20px;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: auto 1fr 1fr 1fr;
+    grid-template-areas:
+        "title title title"
+        "feature-article feature-article cover-image"
+        "secondary-article secondary-article cover-image"
+        "small-article1 small-article2 small-article3";
+}
+
+/* Base styles for all sections for the premium look */
+.newspaper-layout>* {
+    background: var(--bg-card);
+    padding: 1.5rem;
+    border: 1px solid var(--glass-border);
+    border-radius: 12px;
+}
+
+.title {
+    grid-area: title;
+    text-align: center;
+    border-bottom: 4px solid var(--accent-gold);
+}
+
+.title h1 {
+    font-size: 4rem;
+    letter-spacing: 12px;
+    color: var(--accent-gold);
+    text-shadow: 0 0 20px rgba(251, 191, 36, 0.2);
+}
+
+.feature-article {
+    grid-area: feature-article;
+}
+
+.feature-article h2,
+.secondary-article h2 {
+    color: var(--accent-gold);
+    margin-bottom: 1rem;
+    font-size: 1.75rem;
+}
+
+.cover-image {
+    grid-area: cover-image;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+}
+
+.cover-image img {
+    max-width: 100%;
+    border-radius: 8px;
+    filter: sepia(0.3);
+}
+
+.secondary-article {
+    grid-area: secondary-article;
+}
+
+.small-article1 {
+    grid-area: small-article1;
+}
+
+.small-article2 {
+    grid-area: small-article2;
+}
+
+.small-article3 {
+    grid-area: small-article3;
+}
+
+.small-article1 h3,
+.small-article2 h3,
+.small-article3 h3 {
+    color: var(--accent-amber);
+    margin-bottom: 0.5rem;
+    font-size: 1.25rem;
+}
+
+p {
+    color: var(--text-muted);
+    font-size: 1.1rem;
+    line-height: 1.5;
+}
+
+@media (max-width: 768px) {
+    .newspaper-layout {
+        grid-template-areas:
+            "title title title"
+            "cover-image cover-image cover-image"
+            "feature-article feature-article feature-article"
+            "secondary-article secondary-article secondary-article"
+            "small-article1 small-article2 small-article3";
+    }
+
+    .title h1 {
+        font-size: 2.5rem;
+        letter-spacing: 4px;
+    }
+}

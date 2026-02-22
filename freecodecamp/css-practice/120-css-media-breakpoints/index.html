@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Media Breakpoints | Web Dev Essentials</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700&family=JetBrains+Mono:wght@400;700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+    <header>
+        <div class="container">
+            <div class="header-content">
+                <span class="badge">Tutorial 120</span>
+                <h1>Media <span class="accent-text">Breakpoints</span></h1>
+                <p class="subtitle">Defining the Turning Points of Design</p>
+            </div>
+        </div>
+    </header>
+
+    <main class="container">
+        <!-- Section: What are Breakpoints? -->
+        <section class="glass-card">
+            <div class="section-header">
+                <h2>The Strategy</h2>
+                <span class="status-label accent">Theory</span>
+            </div>
+            <p>Breakpoints are specific viewport widths where a website's layout and content adjust to accommodate
+                different screens. They are the "switch" points in your media queries.</p>
+
+            <div class="breakpoint-list">
+                <div class="bp-item">
+                    <span class="bp-val">576px</span>
+                    <p>Small Devices (Smartphones)</p>
+                </div>
+                <div class="bp-item">
+                    <span class="bp-val">768px</span>
+                    <p>Medium Devices (Tablets)</p>
+                </div>
+                <div class="bp-item">
+                    <span class="bp-val">992px</span>
+                    <p>Large Devices (Desktops)</p>
+                </div>
+                <div class="bp-item">
+                    <span class="bp-val">1200px</span>
+                    <p>Extra Large (Wide Monitors)</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section: Interactive Breakpoint Preview -->
+        <section class="glass-card">
+            <div class="section-header">
+                <h2>Live Layout Preview</h2>
+                <span class="status-label">Interactive</span>
+            </div>
+            <p>The layout below changes its configuration as you resize. Watch how the items stack or span columns based
+                on the current width!</p>
+
+            <div class="demo-wrapper">
+                <div class="adaptive-grid">
+                    <div class="grid-item">01. Discovery</div>
+                    <div class="grid-item">02. Adaptation</div>
+                    <div class="grid-item">03. Flexibility</div>
+                    <div class="grid-item">04. Execution</div>
+                </div>
+            </div>
+
+            <div class="code-block">
+                <pre><code><span class="comment">/* Base: Small Mobile */</span>
+<span class="tag">.adaptive-grid</span> { <span class="prop">grid-template-columns</span>: <span class="val">1fr</span>; }
+
+<span class="kw">@media</span> (min-width: 576px) {
+  <span class="comment">/* Small Devices */</span>
+  <span class="tag">.adaptive-grid</span> { <span class="prop">grid-template-columns</span>: <span class="val">1fr 1fr</span>; }
+}
+
+<span class="kw">@media</span> (min-width: 992px) {
+  <span class="comment">/* Large Devices */</span>
+  <span class="tag">.adaptive-grid</span> { <span class="prop">grid-template-columns</span>: <span class="val">repeat(4, 1fr)</span>; }
+}</code></pre>
+            </div>
+        </section>
+
+        <!-- Quiz Section -->
+        <section class="quiz-container">
+            <div class="quiz-header">
+                <h2 class="accent-text">Knowledge Check</h2>
+                <p>Verify your understanding of layout breakpoints.</p>
+            </div>
+
+            <div class="quiz-stack">
+                <div class="question-card" id="q1">
+                    <h3>1. What is the primary purpose of media breakpoints?</h3>
+                    <div class="options">
+                        <button class="opt-btn" onclick="checkAnswer(1, 'a', this)">To change color schemes
+                            only.</button>
+                        <button class="opt-btn" onclick="checkAnswer(1, 'b', this)">To adjust layout and content for
+                            different screen sizes.</button>
+                        <button class="opt-btn" onclick="checkAnswer(1, 'c', this)">To increase page loading
+                            speed.</button>
+                        <button class="opt-btn" onclick="checkAnswer(1, 'd', this)">To add hidden features for
+                            desktop.</button>
+                    </div>
+                </div>
+
+                <div class="question-card" id="q2">
+                    <h3>2. Which of the following is commonly used for smartphones?</h3>
+                    <div class="options">
+                        <button class="opt-btn" onclick="checkAnswer(2, 'a', this)">1640px</button>
+                        <button class="opt-btn" onclick="checkAnswer(2, 'b', this)">640px</button>
+                        <button class="opt-btn" onclick="checkAnswer(2, 'c', this)">1200px</button>
+                        <button class="opt-btn" onclick="checkAnswer(2, 'd', this)">2000px</button>
+                    </div>
+                </div>
+
+                <div class="question-card" id="q3">
+                    <h3>3. Which is NOT typically a common breakpoint?</h3>
+                    <div class="options">
+                        <button class="opt-btn" onclick="checkAnswer(3, 'a', this)">768px (Tablets)</button>
+                        <button class="opt-btn" onclick="checkAnswer(3, 'b', this)">1024px (Small Desktops)</button>
+                        <button class="opt-btn" onclick="checkAnswer(3, 'c', this)">480px (Large Phones)</button>
+                        <button class="opt-btn" onclick="checkAnswer(3, 'd', this)">6000px (Giant Screen)</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2026 Web Dev Essentials | Built with Midnight Obsidian Theme</p>
+        </div>
+    </footer>
+
+    <script>
+        const answers = {
+            1: 'b',
+            2: 'b',
+            3: 'd'
+        };
+
+        function checkAnswer(qId, selected, btn) {
+            const card = document.getElementById('q' + qId);
+            const buttons = card.querySelectorAll('.opt-btn');
+
+            buttons.forEach(b => {
+                b.disabled = true;
+                b.classList.remove('correct', 'wrong');
+            });
+
+            if (selected === answers[qId]) {
+                btn.classList.add('correct');
+            } else {
+                btn.classList.add('wrong');
+                buttons.forEach(b => {
+                    const text = b.innerText.toLowerCase();
+                    if (qId === 1 && text.includes('adjust layout')) b.classList.add('correct');
+                    if (qId === 2 && text === '640px') b.classList.add('correct');
+                    if (qId === 3 && text === '6000px (giant screen)') b.classList.add('correct');
+                });
+            }
+        }
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Implicit vs Explicit Grid | CSS Grid Series</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700&family=JetBrains+Mono:wght@400;700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+    <header>
+        <div class="container">
+            <span class="badge">Tutorial 131</span>
+            <h1>Implicit <span class="accent-text">vs Explicit</span></h1>
+            <p class="subtitle">Intentional Layouts and Browser Automation</p>
+        </div>
+    </header>
+
+    <main class="container">
+        <!-- Intro Section -->
+        <section class="glass-card">
+            <h2>Defining Boundaries</h2>
+            <p><strong>Explicit Grid</strong> refers to the rows and columns you intentionally set up using
+                <code>grid-template-rows</code> and <code>grid-template-columns</code>.</p>
+            <p><strong>Implicit Grid</strong> are the tracks automatically created by the browser when you have more
+                items than your explicit structure can hold.</p>
+        </section>
+
+        <!-- Explicit Demo -->
+        <section>
+            <div class="section-header">
+                <h2>1. Explicit Structure</h2>
+                <span class="status-label accent-explicit">Predefined</span>
+            </div>
+            <div class="demo-wrapper glass-card">
+                <div class="demo-layout">
+                    <div class="code-area">
+                        <h3>Explicit CSS</h3>
+                        <div class="code-block">
+                            <pre><code><span class="tag">.container</span> {
+  <span class="prop">display</span>: <span class="val">grid</span>;
+  <span class="prop">grid-template-columns</span>: <span class="val">100px 100px</span>;
+}</code></pre>
+                        </div>
+                    </div>
+                    <div class="preview-area">
+                        <div class="explicit-grid-preview">
+                            <div class="grid-item">1</div>
+                            <div class="grid-item">2</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Implicit Demo -->
+        <section>
+            <div class="section-header">
+                <h2>2. Implicit Adaptation</h2>
+                <span class="status-label accent-implicit">Auto-Generated</span>
+            </div>
+            <div class="demo-wrapper glass-card accent">
+                <div class="demo-layout">
+                    <div class="code-area">
+                        <h3>Automatic Overflow</h3>
+                        <div class="code-block">
+                            <pre><code><span class="tag">.container</span> {
+  <span class="comment">/* 2 defined columns */</span>
+  <span class="prop">grid-template-columns</span>: <span class="val">100px 100px</span>;
+  <span class="comment">/* Extra items create implicit rows */</span>
+  <span class="prop">grid-auto-rows</span>: <span class="val">80px</span>;
+}</code></pre>
+                        </div>
+                    </div>
+                    <div class="preview-area">
+                        <div class="implicit-grid-preview">
+                            <div class="grid-item">1</div>
+                            <div class="grid-item">2</div>
+                            <div class="grid-item-impl">3</div>
+                            <div class="grid-item-impl">4</div>
+                            <div class="grid-item-impl">5</div>
+                            <div class="grid-item-impl">6</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="info-box">
+                <p>Items 3 to 6 are placed in <strong>implicit rows</strong> because they exceeded the explicit
+                    definition.</p>
+            </div>
+        </section>
+
+        <!-- Summary Section -->
+        <section class="glass-card">
+            <h2>Feature Comparison</h2>
+            <div class="table-wrapper">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Feature</th>
+                            <th>Explicit Grid</th>
+                            <th>Implicit Grid</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Size Control</td>
+                            <td>Template properties</td>
+                            <td>Auto properties</td>
+                        </tr>
+                        <tr>
+                            <td>Flexibility</td>
+                            <td>Rigid / Defined</td>
+                            <td>Dynamic adaptation</td>
+                        </tr>
+                        <tr>
+                            <td>Use Case</td>
+                            <td>Structured pages</td>
+                            <td>Variable content</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
+        <!-- Quiz Section -->
+        <section class="quiz-container">
+            <h2 class="accent-text">Knowledge Check</h2>
+            <div class="quiz-stack">
+                <div class="question-card" id="q1">
+                    <h3>1. Which properties control implicitly created tracks?</h3>
+                    <div class="options">
+                        <button class="opt-btn" onclick="checkAnswer(1, 'a', this)">cols and rows</button>
+                        <button class="opt-btn" onclick="checkAnswer(1, 'b', this)">implicit-columns/rows</button>
+                        <button class="opt-btn" onclick="checkAnswer(1, 'c', this)">grid-auto-columns/rows</button>
+                        <button class="opt-btn" onclick="checkAnswer(1, 'd', this)">grid-template-columns/rows</button>
+                    </div>
+                </div>
+
+                <div class="question-card" id="q2">
+                    <h3>2. Which properties define explicit tracks?</h3>
+                    <div class="options">
+                        <button class="opt-btn" onclick="checkAnswer(2, 'a', this)">row and fr</button>
+                        <button class="opt-btn" onclick="checkAnswer(2, 'b', this)">grid-explicit-rows</button>
+                        <button class="opt-btn" onclick="checkAnswer(2, 'c', this)">grid-template-rows/columns</button>
+                        <button class="opt-btn" onclick="checkAnswer(2, 'd', this)">grid-gap</button>
+                    </div>
+                </div>
+
+                <div class="question-card" id="q3">
+                    <h3>3. How do you set two explicit columns of 100px each?</h3>
+                    <div class="options">
+                        <button class="opt-btn" onclick="checkAnswer(3, 'a', this)">grid-template-columns: 100px
+                            100px;</button>
+                        <button class="opt-btn" onclick="checkAnswer(3, 'b', this)">grid-template-columns: 100px
+                            repeat(4, 100px);</button>
+                        <button class="opt-btn" onclick="checkAnswer(3, 'c', this)">grid-template-rows: 100px
+                            100px;</button>
+                        <button class="opt-btn" onclick="checkAnswer(3, 'd', this)">grid-column-start: 100px
+                            100px;</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2026 Web Dev Tutorials | Advanced Layout Systems</p>
+    </footer>
+
+    <script>
+        const answers = { 1: 'c', 2: 'c', 3: 'a' };
+        function checkAnswer(qId, selected, btn) {
+            const card = document.getElementById('q' + qId);
+            const buttons = card.querySelectorAll('.opt-btn');
+            buttons.forEach(b => { b.disabled = true; });
+
+            if (selected === answers[qId]) {
+                btn.classList.add('correct');
+            } else {
+                btn.classList.add('wrong');
+                buttons.forEach(b => {
+                    const text = b.innerText.toLowerCase();
+                    if (qId === 1 && text.includes('grid-auto-columns')) b.classList.add('correct');
+                    if (qId === 2 && text.includes('grid-template-rows')) b.classList.add('correct');
+                    if (qId === 3 && text.includes('grid-template-columns: 100px 100px')) b.classList.add('correct');
+                });
+            }
+        }
+    </script>
+</body>
+
+</html>
