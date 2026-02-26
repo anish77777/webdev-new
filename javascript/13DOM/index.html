@@ -1,0 +1,118 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>JS DOM</title>
+  </head>
+  <body>
+    <h1>JavaScript DOM (Document Object Model)</h1>
+
+    <h2>What is DOM?</h2>
+    <p>
+      The <strong>DOM (Document Object Model)</strong> is a programming
+      interface that represents an HTML document as a tree structure. It allows
+      JavaScript to interact with and manipulate HTML elements and CSS
+      properties dynamically.
+    </p>
+
+    <h2>Key Points:</h2>
+    <ul>
+      <li>
+        <strong>Tree Structure:</strong> HTML documents are represented as a
+        tree of objects
+      </li>
+      <li>
+        <strong>Dynamic Manipulation:</strong> Change content, styles, and
+        attributes in real-time
+      </li>
+      <li>
+        <strong>Event Handling:</strong> Respond to user interactions (clicks,
+        typing, etc.)
+      </li>
+      <li>
+        <strong>Real-time Updates:</strong> Updates appear immediately in the
+        browser without page reload
+      </li>
+    </ul>
+
+    <h2>Common DOM Operations:</h2>
+    <ul>
+      <li>
+        Select elements: getElementById(), querySelector(),
+        getElementsByClassName()
+      </li>
+      <li>Change content: textContent, innerHTML</li>
+      <li>Change styles: style property</li>
+      <li>Add/Remove classes: classList.add(), classList.remove()</li>
+      <li>Create elements: createElement()</li>
+      <li>Add event listeners: addEventListener()</li>
+    </ul>
+
+    <p id="demo">This is a demo paragraph</p>
+    <button onclick="changeText()">Click Me</button>
+
+    <script>
+      // ===== BASIC DOM EXAMPLES =====
+
+      // 1. Access the entire document object
+      console.log("1. Full DOM tree:");
+      console.log(document); // Shows the entire HTML document as an object
+
+      // 2. Access the body element
+      console.log("\n2. Access body:");
+      console.log(document.body); // Returns the <body> element
+
+      // 3. Access the head element
+      console.log("\n3. Access head:");
+      console.log(document.head); // Returns the <head> element
+
+      // 4. Access the document title
+      console.log("\n4. Document title:");
+      console.log(document.title); // Returns "JS DOM"
+
+      // 5. Get all paragraphs in the document
+      console.log("\n5. All paragraphs:");
+      console.log(document.getElementsByTagName("p")); // Returns all <p> elements
+
+      // 6. Get element by ID
+      console.log("\n6. Get element by ID:");
+      let demoElement = document.getElementById("demo"); // Get <p id="demo">
+      console.log(demoElement);
+
+      // 7. Get text content of element
+      console.log("\n7. Get text content:");
+      console.log(demoElement.textContent); // Returns: "This is a demo paragraph"
+
+      // 8. Change text content
+      console.log("\n8. Change text content:");
+      demoElement.textContent = "Text changed using JavaScript!";
+      console.log(demoElement.textContent); // Now shows the new text
+
+      // 9. Change HTML content
+      demoElement.innerHTML = "<strong>This is bold text!</strong>";
+      console.log(demoElement.innerHTML); // Returns: <strong>This is bold text!</strong>
+
+      // 10. Change CSS style
+      console.log("\n10. Change styles:");
+      demoElement.style.color = "red"; // Changes text color to red
+      demoElement.style.fontSize = "20px"; // Changes font size
+      demoElement.style.backgroundColor = "yellow"; // Changes background color
+
+      // 11. Get parent element
+      console.log("\n11. Parent element:");
+      console.log(demoElement.parentElement); // Returns the parent of demo element (<body>)
+
+      // 12. Get all children of body
+      console.log("\n12. Children of body:");
+      console.log(document.body.children); // Returns all child elements of body
+
+      // Button click function
+      function changeText() {
+        document.getElementById("demo").textContent =
+          "Text has been changed using DOM!";
+        document.getElementById("demo").style.color = "blue";
+      }
+    </script>
+  </body>
+</html>

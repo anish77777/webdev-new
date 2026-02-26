@@ -1,0 +1,35 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div class="container">
+      <div class="box"></div>
+    </div>
+
+    <script>
+      let container = document.querySelector(".container");
+      console.log(container.innerHTML);
+      console.log(container.innerText);
+      console.log(container.textContent);
+      console.log(container.outerHTML);
+      console.log(container.nodeName);
+
+      container.innerHTML = "Hello World";
+      console.log(container.innerHTML);
+      console.log(container.innerText);
+      console.log(container.textContent);
+      console.log(container.outerHTML);
+      console.log(container.nodeName);
+
+      container.innerText = "Changed Text";
+      console.log(container.innerText);
+      console.log(container.textContent);
+      console.log(container.outerHTML);
+      console.log(container.nodeName);
+    </script>
+  </body>
+</html>

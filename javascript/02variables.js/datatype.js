@@ -7,7 +7,7 @@ console.log("--- PRIMITIVE DATA TYPES ---\n");
 
 // 1. String
 let name = "Ashek";
-let greeting = 'Hello World';
+let greeting = "Hello World";
 let template = `My name is ${name}`;
 console.log("1. STRING:");
 console.log("   name:", name, "Type:", typeof name);
@@ -57,7 +57,7 @@ console.log("\n--- OBJECT DATA TYPES ---\n");
 let person = {
   name: "Ashek",
   age: 25,
-  city: "Mumbai"
+  city: "Mumbai",
 };
 console.log("1. OBJECT:");
 console.log("   person:", person, "Type:", typeof person);
@@ -113,5 +113,7 @@ console.log("typeof []:", typeof []);
 
 // ===== SUMMARY TABLE =====
 console.log("\n===== SUMMARY TABLE =====");
-console.log("PRIMITIVE TYPES: String, Number, Boolean, Undefined, Null, Symbol, BigInt");
+console.log(
+  "PRIMITIVE TYPES: String, Number, Boolean, Undefined, Null, Symbol, BigInt",
+);
 console.log("OBJECT TYPES: Object, Array, Function, Date, etc.");

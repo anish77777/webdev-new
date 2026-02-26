@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .box{
+            height:45px;
+            width:45px;
+            border:2px solid black;
+           
+        }
+        .container{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap:10px;
+            background-color: rgb(105, 76, 39);
+            
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="box">Box</div>
+        <div class="box">Box</div>
+        <div class="box">Box
+        </div>
+        <div class="box">Box</div>
+        <div class="box">Box</div>
+    </div>
+    <script >
+        document.body.style.backgroundColor="green";
+       
+        let boxes=document.querySelectorAll(".box");
+        console.log(boxes);
+        for (let index = 0; index < boxes.length; index++) {
+             let ran=Math.floor(Math.random() * 256);
+             let ran1=Math.floor(Math.random() * 256);
+             let ran2=Math.floor(Math.random() * 256);
+            console.log(boxes[index]);
+            boxes[index].style.backgroundColor=`rgb(${ran},${ran1},${ran2})`;
+            
+        }
+        
+
+
+    </script>
+</body>
+</html>
