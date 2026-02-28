@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simple Timing Demo</title>
+</head>
+
+<body>
+    <h1>Timing Functions Demo</h1>
+
+    <div>
+        <h3>setTimeout / clearTimeout</h3>
+        <p id="timeout-status">Ready...</p>
+        <button onclick="startTimeout()">Start Timeout</button>
+        <button onclick="stopTimeout()">Clear Timeout</button>
+    </div>
+
+    <hr>
+
+    <div>
+        <h3>setInterval / clearInterval</h3>
+        <p>Counter: <span id="counter-value">0</span></p>
+        <button onclick="startInterval()">Start Interval</button>
+        <button onclick="stopInterval()">Stop Interval</button>
+        <button onclick="resetCounter()">Reset</button>
+    </div>
+
+    <script src="timing.js"></script>
+</body>
+
+</html>

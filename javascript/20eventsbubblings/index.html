@@ -1,0 +1,66 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Document</title>
+  <style>
+    .child {
+      background-color: antiquewhite;
+      border: 2px solid black;
+      padding: 34px;
+      cursor: pointer;
+    }
+
+    .container {
+      background-color: rgb(123, 130, 156);
+      border: 2px solid black;
+      padding: 34px;
+      cursor: pointer;
+    }
+
+    .childcontainer {
+      background-color: rgb(160, 110, 45);
+      border: 2px solid black;
+      padding: 34px;
+      cursor: pointer;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="container">
+    <div class="childcontainer">
+      <div class="child">I am a child</div>
+    </div>
+  </div>
+  <script>
+    /**
+     * DEFINITION: Event Bubbling is a type of event propagation where the event 
+     * starts from the target element and bubbles up to its ancestors in the DOM tree.
+     */
+
+    /**
+     * DEFINITION: event.stopPropagation() is a method that prevents the event 
+     * from bubbling up to parent elements, ensuring only the target's handler runs.
+     */
+
+    document
+      .querySelector(".child")
+      .addEventListener("click", (event) => {
+        alert("Child was clicked");
+        event.stopPropagation();
+        console.log(event);
+      });
+
+    document
+      .querySelector(".childcontainer")
+      .addEventListener("click", () => alert("Childcontainer was clicked"));
+    document
+      .querySelector(".container")
+      .addEventListener("click", () => alert("container was clicked"));
+  </script>
+</body>
+
+</html>

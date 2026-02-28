@@ -1,35 +1,92 @@
+<!-- 
+  DOM Manipulation Notes:
+  - Attributes: Special properties added to HTML tags (e.g., class, id, hidden, style) that define behavior or appearance. 
+    Manipulated via setAttribute, getAttribute, hasAttribute, and removeAttribute.
+  - innerHTML: A property that allows getting or setting the HTML content (including tags) inside an element.
+  - dataset: A property providing access to custom data attributes (data-*) on an element.
+-->
 <!doctype html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
-  </head>
-  <body>
-    <div class="container">
-      <div class="box"></div>
-    </div>
 
-    <script>
-      let container = document.querySelector(".container");
-      console.log(container.innerHTML);
-      console.log(container.innerText);
-      console.log(container.textContent);
-      console.log(container.outerHTML);
-      console.log(container.nodeName);
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Document</title>
+</head>
 
-      container.innerHTML = "Hello World";
-      console.log(container.innerHTML);
-      console.log(container.innerText);
-      console.log(container.textContent);
-      console.log(container.outerHTML);
-      console.log(container.nodeName);
+<body>
+  <div class="container">
+    <div class="box" data-info="original-box" data-created-by="user">box</div>
+  </div>
+  <div class="docmanipulate">This div is hidden</div>
 
-      container.innerText = "Changed Text";
-      console.log(container.innerText);
-      console.log(container.textContent);
-      console.log(container.outerHTML);
-      console.log(container.nodeName);
-    </script>
-  </body>
+  <script>
+    let container = document.querySelector(".container");
+    console.log(container.innerHTML);
+    console.log(container.innerText);
+    console.log(container.textContent);
+    console.log(container.outerHTML);
+    console.log(container.nodeName);
+
+    container.innerHTML = "Hello World";
+    console.log(container.innerHTML);
+    console.log(container.innerText);
+    console.log(container.textContent);
+    console.log(container.outerHTML);
+    console.log(container.nodeName);
+
+    container.innerText = "Changed Text";
+    console.log(container.innerText);
+    console.log(container.textContent);
+    console.log(container.outerHTML);
+    console.log(container.nodeName);
+
+    // DOM Manipulation via JS
+    let docManipulate = document.querySelector(".docmanipulate");
+    docManipulate.setAttribute("hidden", "true");
+    docManipulate.innerHTML = "<b>This div's innerHTML was changed and hidden via JS!</b>";
+    console.log("Updated docmanipulate innerHTML:", docManipulate.innerHTML);
+
+    // Create anotherdiv and hide it
+    let anotherdiv = document.createElement("div");
+    anotherdiv.className = "anotherdiv";
+    anotherdiv.textContent = "This is another div created via JS";
+    anotherdiv.setAttribute("hidden", "true");
+    document.body.appendChild(anotherdiv);
+    console.log("Anotherdiv created and hidden.");
+
+    // Hide the box div (divbox)
+    let divbox = document.querySelector(".box");
+    if (divbox) {
+      divbox.setAttribute("hidden", "true");
+      console.log("divbox hidden via JS.");
+    }
+
+    // Checking for hidden attribute and display style
+    console.log("docmanipulate has hidden attribute:", docManipulate.hasAttribute("hidden"));
+    console.log("anotherdiv has hidden attribute:", anotherdiv.hasAttribute("hidden"));
+    console.log("divbox has hidden attribute:", divbox ? divbox.hasAttribute("hidden") : "N/A");
+    console.log("docmanipulate computed display style:", window.getComputedStyle(docManipulate).display);
+
+    // Checking for style attribute
+    docManipulate.style.color = "red"; // Adding some inline style to test
+    console.log("docmanipulate has style attribute:", docManipulate.hasAttribute("style"));
+    console.log("docmanipulate get style attribute:", docManipulate.getAttribute("style"));
+
+    // Removing an attribute
+    docManipulate.removeAttribute("hidden");
+    console.log("docmanipulate hidden attribute removed. Visibility:", window.getComputedStyle(docManipulate).display);
+
+    // Demonstrating dataset (data-* attributes)
+    let box = document.querySelector(".box");
+    console.log("Box data-info:", box.dataset.info);
+    console.log("Box data-created-by:", box.dataset.createdBy); // Hyphenated names become camelCase
+
+    // Modifying dataset
+    box.dataset.info = "updated-box";
+    box.dataset.newInfo = "newly-added-data";
+    console.log("Updated box dataset:", box.dataset);
+  </script>
+</body>
+
 </html>

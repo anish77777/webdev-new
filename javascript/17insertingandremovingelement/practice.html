@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DOM Insertion Practice</title>
+    <style>
+        .container {
+            border: 2px solid #333;
+            padding: 10px;
+            margin-bottom: 10px;
+            background-color: #f0f0f0;
+        }
+
+        .box {
+            border: 1px solid #666;
+            padding: 5px;
+            margin: 5px;
+            background-color: #fff;
+        }
+
+        .highlight {
+            background-color: #e0f7fa;
+            border-color: #00acc1;
+        }
+    </style>
+</head>
+
+<body>
+
+    <h1>DOM Insertion Practice</h1>
+
+    <div class="container">
+        <div class="starting-box box">Original Box</div>
+    </div>
+
+    <script>
+        let container = document.querySelector(".container");
+        let startingBox = document.querySelector(".starting-box");
+
+        /*
+          PRACTICE SECTION:
+          Uncomment the lines below to see how each method works!
+        */
+
+        // 1. append(node/string) - Adds to the END of the container (inside)
+        let newDiv1 = document.createElement("div");
+        newDiv1.className = "box highlight";
+        newDiv1.textContent = "I was APPENDED";
+        container.append(newDiv1);
+
+
+        // 2. prepend(node/string) - Adds to the START of the container (inside)
+        let newDiv2 = document.createElement("div");
+        newDiv2.className = "box highlight";
+        newDiv2.textContent = "I was PREPENDED";
+        container.prepend(newDiv2);
+
+        // 3. before(node/string) - Adds BEFORE the element (outside)
+        let newDiv3 = document.createElement("div");
+        newDiv3.textContent = "--- This is BEFORE the container ---";
+        container.before(newDiv3);
+
+        // 4. after(node/string) - Adds AFTER the element (outside)
+        let newDiv4 = document.createElement("div");
+        newDiv4.textContent = "--- This is AFTER the container ---";
+        container.after(newDiv4);
+
+        // 5. replaceWith(node/string) - REPLACES the element entirely
+        let replacement = document.createElement("div");
+        replacement.className = "box highlight";
+        replacement.textContent = "I REPLACED the starting box!";
+        startingBox.replaceWith(replacement);
+
+        /*
+          NEW: insertAdjacentHTML Practice
+          Uncomment these to see where the HTML gets inserted relative to the .container
+        */
+        let target = document.querySelector(".container");
+
+        // 1. "beforebegin" - Before the element itself
+        target.insertAdjacentHTML("beforebegin", "<p><b>beforebegin:</b> I am outside (above) the container</p>");
+
+        // 2. "afterbegin" - Just inside the element, before its first child
+        target.insertAdjacentHTML("afterbegin", "<p><b>afterbegin:</b> I am first inside the container</p>");
+
+        // 3. "beforeend" - Just inside the element, after its last child
+        target.insertAdjacentHTML("beforeend", "<p><b>beforeend:</b> I am last inside the container</p>");
+
+        // 4. "afterend" - After the element itself
+        target.insertAdjacentHTML("afterend", "<p><b>afterend:</b> I am outside (below) the container</p>");
+
+        /*
+          NEW: Node Removal Practice
+          Uncomment these to see how elements are removed from the DOM
+        */
+        let boxToRemove = document.querySelector(".box");
+        if (boxToRemove) {
+            boxToRemove.remove();
+            console.log("Element removed using node.remove()");
+        }
+
+        /*
+          NEW: Class Manipulation Practice
+          Uncomment these to see how to manipulate CSS classes
+        */
+        // let targetElement = document.querySelector(".container");
+
+        // 1. className - Get or set the entire class string
+        // console.log("Initial className:", targetElement.className);
+        // targetElement.className = "container highlight new-box-style";
+        // console.log("Updated className:", targetElement.className);
+
+        // 2. classList.add() - Add specific classes
+        // targetElement.classList.add("special-border", "active");
+        // console.log("Classes after add:", targetElement.classList);
+
+        // 3. classList.remove() - Remove specific classes
+        // targetElement.classList.remove("highlight");
+        // console.log("Classes after remove:", targetElement.classList);
+
+        // 4. classList.toggle() - Add if missing, remove if present
+        // targetElement.classList.toggle("hidden-state");
+        // console.log("Classes after toggle:", targetElement.classList);
+
+    </script>
+</body>
+
+</html>
