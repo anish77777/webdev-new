@@ -16,12 +16,12 @@ async function main() {
 main();
 
 async function fetchData() {
-    //simulate a getting data from server
-    let x = await fetch("https://jsonplaceholder.typicode.com/todos/1")
-    let data = await x.json();
-    console.log(data);
+  //simulate a getting data from server
+  let x = await fetch("https://jsonplaceholder.typicode.com/todos/1");
+  let data = await x.json();
+  console.log(data);
 }
-fetchData()
+fetchData();
 
 // --------------------------------------------------
 // POST DATA EXAMPLE — sending data to a server
@@ -39,11 +39,11 @@ async function postData() {
 
   // await #1 — wait for the HTTP POST request to complete
   let response = await fetch("https://jsonplaceholder.typicode.com/posts", {
-    method: "POST",                          // ← tell server this is a POST request
+    method: "POST", // ← tell server this is a POST request
     headers: {
-      "Content-Type": "application/json",    // ← tell server we're sending JSON
+      "Content-Type": "application/json", // ← tell server we're sending JSON
     },
-    body: JSON.stringify(newPost),           // ← convert JS object → JSON string
+    body: JSON.stringify(newPost), // ← convert JS object → JSON string
   });
 
   // await #2 — wait for the response body to be read and parsed as JSON

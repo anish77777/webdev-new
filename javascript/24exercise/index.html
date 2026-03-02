@@ -1,0 +1,101 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Hacker Terminal</title>
+    <style>
+        body {
+            background-color: rgb(58, 199, 29);
+        }
+
+        .blink {
+            opacity: 0;
+            animation-duration: 1.5s;
+            animation-iteration-count: infinite;
+            animation-timing-function: step-start;
+        }
+
+        .dot-1 {
+            animation-name: d1;
+        }
+
+        .dot-2 {
+            animation-name: d2;
+        }
+
+        .dot-3 {
+            animation-name: d3;
+        }
+
+        @keyframes d1 {
+            0% {
+                opacity: 1;
+            }
+
+            100% {
+                opacity: 1;
+            }
+        }
+
+        @keyframes d2 {
+
+            0%,
+            33% {
+                opacity: 0;
+            }
+
+            34%,
+            100% {
+                opacity: 1;
+            }
+        }
+
+        @keyframes d3 {
+
+            0%,
+            66% {
+                opacity: 0;
+            }
+
+            67%,
+            100% {
+                opacity: 1;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container"></div>
+    <script>
+        let array = [
+            "Initialing Hacking",
+            "Reading Your files",
+            "Password files detected",
+            "Sending all pw to personal files to server",
+            "Cleaning Up",
+        ];
+        let container = document.querySelector(".container");
+
+        const delay = (ms) => new Promise((res) => setTimeout(res, ms));
+
+        async function showMessages() {
+            for (let i = 0; i < array.length; i++) {
+                // Wait for a random time between 1 and 7 seconds
+                let randomTime = Math.floor(Math.random() * 6000) + 1000;
+                await delay(randomTime);
+
+                let html = `<p>${array[i]}<span class="blink dot-1">.</span><span class="blink dot-2">.</span><span class="blink dot-3">.</span></p>`;
+                container.innerHTML += html;
+            }
+        }
+
+
+
+        showMessages();
+    </script>
+</body>
+
+</html>

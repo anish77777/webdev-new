@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>3-Second Rejection Promise</title>
+</head>
+
+<body>
+    <h1>Promise Rejection Exercise</h1>
+    <p>Wait for 3 seconds to see the error handling in action.</p>
+
+    <script>
+        // A function that returns a promise which rejects after 3 seconds
+        const rejectAfter3Seconds = () => {
+            return new Promise((resolve, reject) => {
+                setTimeout(() => {
+                    reject(new Error("Something went wrong after 3 seconds!"));
+                }, 3000);
+            });
+        };
+
+        // Async function to handle the promise with try/catch
+        async function handleRejection() {
+            console.log("Waiting for promise to reject...");
+            try {
+                const result = await rejectAfter3Seconds();
+                console.log(result); // This line will NOT be reached
+            } catch (error) {
+                console.log("Error caught in catch block:");
+                console.error(error.message);
+                alert(`Caught Error: ${error.message}`);
+            } finally {
+                console.log("Execution complete.");
+            }
+        }
+
+        handleRejection();
+    </script>
+</body>
+
+</html>
