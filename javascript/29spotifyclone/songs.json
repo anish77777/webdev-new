@@ -1,0 +1,19 @@
+{
+  "cs": {
+    "title": "CS Songs",
+    "description": "Chill and Relaxing CS Songs",
+    "songs": [
+      "file_example_MP3_1MG.mp3",
+      "sample-3s.mp3"
+    ]
+  },
+  "ncs": {
+    "title": "NCS Songs",
+    "description": "Non Copyright Sounds for Creators",
+    "songs": [
+      "song1.mp3",
+      "song2.mp3",
+      "song3.mp3"
+    ]
+  }
+}
