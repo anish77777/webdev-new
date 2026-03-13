@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Testing post req</title>
+</head>
+
+<body>
+    <script>
+        async function testPost() {
+            let a = await fetch("/", { method: "POST" });
+            let b = await a.text();
+            console.log(b);
+        }
+
+        async function testPut() {
+            let a = await fetch("/", { method: "PUT" });
+            let b = await a.text();
+            console.log(b);
+        }
+
+        async function testDelete() {
+            let a = await fetch("/", { method: "DELETE" });
+            let b = await a.text();
+            console.log(b);
+        }
+
+        // Execute the function when the page loads
+        testPost();
+        testPut();
+        testDelete();
+    </script>
+</body>
+
+</html>

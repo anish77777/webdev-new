@@ -7,8 +7,17 @@ const express = require('express');
 const app = express();
 
 // Step 3: Define a port number
-// Our server will listen for incoming connections on this port (e.g., http://localhost:3000)
 const port = 3000;
+
+// Middleware to serve static files automatically!
+// This tells Express to look into the 'public' folder whenever a file is requested.
+// You can put ANY static files here, such as:
+// - HTML files (like index.html)
+// - CSS stylesheets (like style.css)
+// - JavaScript files for the browser (like app.js)
+// - Images (like logo.png or background.jpg)
+// - Plain text files (like anish.txt)
+app.use(express.static('public'));
 
 /*
   Why use Express?
@@ -50,15 +59,21 @@ app.get('/blog', (req, res) => {
 });
 // Dynamic Route: :slug is a variable that represents whatever you type in the URL
 app.get('/blog/:slug', (req, res) => {
-    // console.log(req); // WARNING: This outputs a massive object!
+    // 1. URL Parameters (Params) - Part of the path (e.g., /blog/intro)
+    console.log('--- NEW REQUEST ---');
+    console.log('Terminal: This is the URL Param (slug):', req.params.slug); 
     
-    // Better way: look at specific parts of the request
-    console.log(req); // Logging the full request object as requested
-    console.log('Query:', req.query);   // URL queries like ?mode=dark&region=in
-    
-    // req.params.slug will contain whatever is typed after /blog/
-    // Example: /blog/intro-to-js -> req.params.slug is 'intro-to-js'
-    res.send(`This is the page for: ${req.params.slug}`);
+    // 2. Query Parameters (Query) - After the ? (e.g., ?name=anish)
+    console.log('Terminal: This is the URL Query:', req.query);   
+
+    // We commented out console.log(req) because it's too big and hides these logs!
+    // console.log(req); 
+
+    res.send(`
+        <h1>Blog Post: ${req.params.slug}</h1>
+        <p>This is the dynamic parameter (Param): <b>${req.params.slug}</b></p>
+        <p>These are the Query Parameters: <b>${JSON.stringify(req.query)}</b></p>
+    `);
 });
 
 // Step 5: Start the Server
