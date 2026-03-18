@@ -18,8 +18,10 @@ app.set('view engine', 'ejs');
 //app.set use to set the view engine ie ejs files
 app.get("/", (req, res) => {
     let siteName = "Adidas";
-    let searchText = "Search Now"
-  res.render('views/index.ejs', { siteName: siteName, searchText: searchText });
+  let searchText = "Search Now Adidas"
+  // we can pass array or object or string or number or boolean or null or undefined or function or class or regex or date or map or set or symbol or bigint or error or promise or generator or async function or awaitable value or any other value
+  let arr = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+  res.render('index', { siteName: siteName, searchText: searchText, arr: arr });
   // {siteName:siteName} can be written as {siteName}
   // extension should be .ejs not .html
   // res.render use to render the ejs files and pass the variables to the ejs files ie template
@@ -27,7 +29,7 @@ app.get("/", (req, res) => {
 app.get("/blog/:slug", (req, res) => {
     let blogTitle = "Adidas ahy and when?";
     let blogContent = "Its a very good brand."
-  res.render('views/blogpost.ejs', { blogTitle, blogContent });
+  res.render('blogpost', { blogTitle, blogContent });
   // res.render use to render the ejs files and pass the variables to the ejs files ie template
 });
 
