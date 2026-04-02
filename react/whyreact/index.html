@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .box{
+            width: 100px;
+            height: 100px;
+            background-color: red;
+            margin: 10px;
+        }
+    </style>
+</head>
+<body>
+    <script>
+        let color="green";
+        let color2="blue";
+        let color3="red";
+        let color4="yellow";
+        let color5="purple";
+    </script>
+    <!-- we have just put these colors in variables 
+     and dom have to update it for this we need react by using react we can update it easily 
+     react will create a virtual dom and compare it with the real dom and update only the changes 
+     this is called reconciliation-->
+     <!-- how will react will do it sample code
+
+```javascript
+const App = () => {
+  const [colors, setColors] = React.useState(['red', 'red', 'red', 'red', 'red']);
+
+  React.useEffect(() => {
+    setTimeout(() => setColors(prev => ['green', ...prev.slice(1)]), 1000);
+    setTimeout(() => setColors(prev => [prev[0], 'blue', ...prev.slice(2)]), 2000);
+    //spread operator is used to create a new array
+    //so we are creating a new array and updating it
+    setTimeout(() => setColors(prev => [...prev.slice(0, 2), 'blue', ...prev.slice(3)]), 3000);
+    //slice(0, 2) mean it will return the elements of the array from index 0 to 2
+    //spread operator is used to create a new array
+    //so we are creating a new array and updating it
+  }, []);
+
+  return (
+    <div>
+      {colors.map((color, i) => (
+        <div key={i} className="box" style={{ backgroundColor: color }}>
+          box{i + 1}
+        </div>
+      ))}
+    </div>
+  );
+};
+```
+      
+      -->
+    <div>
+        <div class="box box1">box1</div>
+        <div class="box box2">box2</div>
+        <div class="box box3">box3</div>
+        <div class="box box4">box4</div>
+        <div class="box box5">box5</div>
+    </div>
+    <script>
+        setTimeout(() => {
+            document.querySelector(".box1").style.backgroundColor = color;
+        }, 1000);
+        setTimeout(() => {
+            document.querySelector(".box2").style.backgroundColor = color2;
+        }, 2000);
+        setTimeout(() => {
+            document.querySelector(".box3").style.backgroundColor = "blue";
+        }, 3000);
+        setTimeout(() => {
+            document.querySelector(".box4").style.backgroundColor = "blue";
+        }, 4000);
+        setTimeout(() => {
+            document.querySelector(".box5").style.backgroundColor = "blue";
+        }, 5000);
+    </script>
+</body>
+</html>
