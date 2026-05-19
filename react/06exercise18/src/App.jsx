@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import React, { useState } from 'react'
 import { useEffect } from 'react'
 
 import './App.css'
@@ -11,7 +11,7 @@ function App() {
   useEffect(() => {
     fetch('https://jsonplaceholder.typicode.com/posts')
       .then(response => response.json())
-      .then(data => setData(data))    
+      .then(data => setData(data))
   }, [])
   // is json comes in array or object
   // it comes in array of objects
@@ -26,14 +26,14 @@ function App() {
 
   return (
     <>
-    <div className='card-container'>
-      {data.map((item) => (
-        <div className='card' key={item.id}>
-          <h1>{item.title}</h1>
-          <p>{item.body}</p>
-        </div>
-      ))}
-    </div>
+      <div className='card-container'>
+        {data.map((item) => (
+          <div className='card' key={item.id}>
+            <h1>{item.title}</h1>
+            <p>{item.body}</p>
+          </div>
+        ))}
+      </div>
     </>
   )
 }
