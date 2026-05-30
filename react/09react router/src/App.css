@@ -1,0 +1,39 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+nav ul {
+    display: flex;
+    justify-content: center;
+    background-color: rgb(62, 77, 184);
+    gap: 10px;
+    padding: 10px;
+    border-radius: 5px;
+    list-style: none;
+}
+
+nav ul a {
+    color: rgb(230, 223, 223);
+    font-weight: bold;
+    text-decoration: none;
+}
+
+nav ul a:hover {
+    background-color: rgb(12, 38, 241);
+    color: #c59999;
+    text-decoration: underline;
+}
+
+nav ul li {
+    margin: 0 10px;
+}
+
+.red {
+    background-color: red;
+    color: white;
+    padding: 5px;
+    border-radius: 5px;
+
+}

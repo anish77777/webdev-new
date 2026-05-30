@@ -1,7 +1,8 @@
 import Navbar from './components/Navbar'
 import { useState,useEffect } from 'react'
 import { v4 as uuidv4 } from "uuid";
-
+import { FaEdit } from "react-icons/fa";
+import { MdDelete } from "react-icons/md";
 import './App.css'
 
 function App() {
@@ -18,7 +19,14 @@ function App() {
   const getFromLS = () => {
     let todos = localStorage.getItem("todos")
     if (todos) {
-      settodos(JSON.parse(todos))
+      try {
+        let parsed = JSON.parse(todos)
+        if (Array.isArray(parsed)) {
+          settodos(parsed.filter(item => item && item.id))
+        }
+      } catch (err) {
+        console.error("Error parsing local storage:", err)
+      }
     }
   }
 // use effect will run only once when the component is mounted
@@ -56,8 +64,7 @@ function App() {
     console.log(e.target.value)
   }
 
-  const handleCheckbox = (e) => {
-    let id = e.target.name
+  const handleCheckbox = (e,id) => {
     let index = todos.findIndex(item => item.id === id)
     let newTodos = [...todos]
     newTodos[index] = { ...newTodos[index], isCompleted: !newTodos[index].isCompleted }
@@ -73,7 +80,7 @@ function App() {
   return (
     <>
       <Navbar />
-      <div className="container mx-auto my-5 rounded-xl p-5 bg-violet-100 min-h-[80vh]">
+      <div className=" md:container mx-auto  rounded-xl p-5 bg-violet-100 min-h-[80vh] md:w-[70vw] w-[95vw] mx-5">
         <div className="addTodo my-5">
           <h2 className='text-lg font-bold '>Add a Todo</h2>
           <input onChange={handleChange} value={todo} className='border border-gray-500 rounded px-2 py-1 w-1/2' type="text" name="" id="" />
@@ -92,12 +99,12 @@ function App() {
              return (showFinished || !item.isCompleted) && (
                <div className="todo flex items-center w-full justify-between my-3" key={item.id}>
                  <div className="flex items-center gap-5 mx-4">
-                   <input name={item.id} onChange={handleCheckbox} type="checkbox" checked={item.isCompleted} id="" />
+                   <input name={item.id} onChange={(e)=>handleCheckbox(e,item.id)} type="checkbox" checked={item.isCompleted} id="" />
                    <div className={item.isCompleted ? "line-through" : ""}>{item.todo}</div>
                  </div>
                  <div className="buttons flex">
-                   <button onClick={(e) => handleEdit(e, item.id)} className='bg-violet-500 hover:bg-violet-700 text-white font-bold py-2 px-4 rounded mx-2'>Edit</button>
-                   <button onClick={(e) => handleDelete(e, item.id)} className='bg-violet-500 hover:bg-violet-700 text-white font-bold py-2 px-4 rounded mx-2'>Delete</button>
+                   <button onClick={(e) => handleEdit(e, item.id)} className='bg-violet-500 hover:bg-violet-700 text-white font-bold py-2 px-4 rounded mx-2'><FaEdit /></button>
+                   <button onClick={(e) => handleDelete(e, item.id)} className='bg-violet-500 hover:bg-violet-700 text-white font-bold py-2 px-4 rounded mx-2'><MdDelete /></button>
                  </div>
                </div>
              )
