@@ -11,10 +11,10 @@ function App() {
   const nums = useMemo(() => {
     const SIZE = 10_000_000;
     const MAGIC_IDX = 9_000_000;
-    return new Array(SIZE).fill(0).map((_, i) => ({
+    return (new Array(SIZE).fill(0).map((_, i) => ({
       index: i,
       isMagical: i === MAGIC_IDX,
-    }));
+    })));
   }, []);
   // Find the magical item – recompute only if the numbers array changes
   const [number, setNumber] = useState(nums)
@@ -26,6 +26,17 @@ function App() {
 
   return (
     <>
+    {/* why magical is not a state but still changing when i click on increment button? */}
+    {/* well for that you need to understand that useMemo is a hook that is used to memoize a value */}
+    {/* it is a hook that is used to memoize a value */}
+    {/* it is not a state but why still it changes? well when we click on increment button count state changes */}
+    {/* cause when count state changes the component re renders */}
+    {/* and when the component re renders the useMemo hook is called again */}
+    {/* and when the useMemo hook is called again it returns the value from the cache */}
+    {/* so it is not a state but still it changes? well when we click on increment button count state changes */}
+    {/* and when the count state changes the component re renders */}
+    {/* and when the component re renders the useMemo hook is called again */}
+    {/* and when the useMemo hook is called again it returns the value from the cache */}
       <span>{magical?.index}</span>
       <button onClick={() => {
         setCount(count => count + 1)
