@@ -15,20 +15,25 @@ function App() {
     
   }
 
-  const onSubmit = async data => {
-    await delay(1);
+  const onSubmit = async (data,e) => {
+    e.preventDefault();
+    // await delay(1);
     // simulating network delay before sending data to server 
     // during submitting we want to disable the submit button 
     // so we use disabled={isSubmitting} on submit button 
     // in this case button will be disabled when it is submitting
     // and again enabled when it is submitted or error
-    console.log("login successfully and data is",data);
-    if(data.username == "admin123" && data.password == "admin123"){
-      setError("auth", {message: "invalid username"});
-    }
-    else if(data.username === "rohan123" && data.password === "rohan123"){
-      setError("blocked", {message: "blocked account"});
-    }
+    let r = await fetch("http://localhost:3000");
+    // this tells backend to send response to this frontend server
+    // if we dont give this cors then it will not send response to this frontend server
+    let resdata = await r.text();
+    console.log(data,resdata);
+    // if(data.username == "admin123" && data.password == "admin123"){
+    //   setError("auth", {message: "invalid username"});
+    // }
+    // else if(data.username === "rohan123" && data.password === "rohan123"){
+    //   setError("blocked", {message: "blocked account"});
+    // }
   } // this is handler function 
   // THIS WILL GIVE OBJECT in form of {username: 'username', password: 'password'}
   // username is from the register function 
@@ -51,8 +56,9 @@ function App() {
         {errors.password && <p style={{color: 'red'}}>{errors.password.message}</p>}
         <br />
         <input disabled={isSubmitting} type="submit" value="Login" />
-        {errors.auth && <p style={{color: 'red'}}>{errors.auth.message}</p>}
-        {errors.blocked && <p style={{color: 'red'}}>{errors.blocked.message}</p>}
+
+        {/* {errors.auth && <p style={{color: 'red'}}>{errors.auth.message}</p>}
+        {errors.blocked && <p style={{color: 'red'}}>{errors.blocked.message}</p>} */}
         </form>
         
       </div>
