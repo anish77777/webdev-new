@@ -2,8 +2,10 @@ import express from "express";
 import cors from "cors";
 const app = express();
 const port = 3000;
+import bodyParser from "body-parser";
 
 app.use(cors());
+app.use(bodyParser.json());
 app.get("/", (req, res) => {
     res.send("hello world from backend")
 })
@@ -15,8 +17,9 @@ app.use(express.json());
 // and we have to listen to that request in the backend
 
 app.post('/', (req, res) => {
-    console.log(req.form)
-    res.send('Hello World!');
+    console.log(req)
+    console.log(req.body)
+    res.send('Hello World! respond to the post req');
 });
 
 app.listen(port, () => {

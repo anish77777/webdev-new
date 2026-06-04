@@ -23,7 +23,13 @@ function App() {
     // so we use disabled={isSubmitting} on submit button 
     // in this case button will be disabled when it is submitting
     // and again enabled when it is submitted or error
-    let r = await fetch("http://localhost:3000");
+    let r = await fetch("http://localhost:3000",{
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify(data)
+    } );
     // this tells backend to send response to this frontend server
     // if we dont give this cors then it will not send response to this frontend server
     let resdata = await r.text();
