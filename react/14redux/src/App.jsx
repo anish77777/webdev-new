@@ -18,6 +18,7 @@ function App() {
     {/* <Navbar count = {count} /> */}
     {/* i dont want to pass a props or i dont want props drilling */}
     {/* we will use redux store to communicate with other components not props drilling*/}
+    <Navbar />
      <div>
        <p>current value : {count}</p>
        <button onClick={() => dispatch(increment())}>Increment</button>
