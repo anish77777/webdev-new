@@ -7,7 +7,7 @@ import Home from './components/Home'
 import About from './components/About'
 import Contact from './components/Contact'
 import User from './components/User'
-import Github from './components/Github'
+import Github, {fetchGithubUser} from './components/Github'
 
 // const router = createBrowserRouter([
 //   {
@@ -31,14 +31,21 @@ import Github from './components/Github'
 // ])
 
 // another way to make router 
+
 const router = createBrowserRouter(
   createRoutesFromElements(
     <Route path="/" element={<App />}>
       <Route index element={<Home />} />
       <Route path="about" element={<About />} />
       <Route path="contact" element={<Contact />} />
-      <Route path='user/:username' element={<User /> }/>
-      <Route path='github' element={<Github /> }/>
+      {/* <Route path="user/:username" element={<User /> }/> */}
+      {/* how can i put custom username instead of :username */}
+      <Route path="user/:username" element={<User />} />
+      <Route
+        loader={fetchGithubUser}
+        path='github'
+        element={<Github />}
+      />
     </Route>
   )
 );
